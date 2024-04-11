@@ -3,13 +3,11 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
-use App\Models\UserAModel;
-use App\Models\BasicModel;
 use App\Models\AdminUserModel;
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
-use App\Models\CartModel;
+
 use ReflectionException;
 
 class Auth extends BaseController
@@ -25,7 +23,7 @@ class Auth extends BaseController
     //    echo "<pre>"; print_r($input); echo "</pre>";
     //    die();
        $model = new UserModel();
-       $model1 = new CartModel();      
+        
        $user = $model->findUserByUserNumber1($input['user_number']);
         // echo "<pre>"; print_r($user); echo "</pre>";
         //    die();
@@ -36,17 +34,13 @@ class Auth extends BaseController
             'user_number' => $input['user_number'],
             'pin' => password_hash($input['pin'], PASSWORD_DEFAULT),
         ];
-        $model3 = new BasicModel();
-        $basic1 = $model3->findAll();
-        $basic = (array)$basic1[0];
-        //      echo "<pre>"; print_r($basic); echo "</pre>";
-        //    die();
+       
+      
         $user1 = $model->save($data);         
         $data1 = $model->findUserByUserNumber($input['user_number']);
         $data['user_id'] = $data1['user_id'];
-        $data['total_am'] = $basic['well_bonus'];
-        $data['status'] = $basic['global_batting'];
-         $model1->save($data);
+       
+       
         // echo json_encode( $wallet );
         // die();
         }else{
@@ -66,13 +60,7 @@ class Auth extends BaseController
             );
         } 
     }
-        public function basic()
-        {
-            $model = new BasicModel();
-            $basic = $model->findAll();
-            return $basic;
-            
-        }
+     
     public function admin_register()
     {
 
@@ -307,18 +295,12 @@ class Auth extends BaseController
         
         try {
             $model = new UserModel();
-            $model1 = new UserAModel();
+            
             $user = $model->findUserByUserNumber($user_Number);
-            $model = new CartModel();
+           
             $cart = $model->findUById($user['user_id']);
-            $log = $model1->findUserByUserId($user['user_id']);
-            if($log == null) {
-                
-                $log = $model1->save($user['user_id']);
-            }else{
-             
-                $log = $model1->up_log($user['user_id']);
-            }
+          
+           
             // echo json_encode($user);
             unset($user['pin']);
 
