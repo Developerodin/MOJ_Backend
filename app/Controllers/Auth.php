@@ -17,28 +17,28 @@ class Auth extends BaseController
      * @return Response
      * @throws ReflectionException
      */
-    public function register()
+    public function First_login()
     {
        $input = $this->getRequestInput($this->request);
     //    echo "<pre>"; print_r($input); echo "</pre>";
     //    die();
        $model = new UserModel();
         
-       $user = $model->findUserByUserNumber1($input['user_number']);
+       $user = $model->findUserByUserNumber1($input['mobile_number']);
         // echo "<pre>"; print_r($user); echo "</pre>";
         //    die();
        if($user == 0){
         $data =[
             
-            'user_name' => $input['user_name'],
-            'user_number' => $input['user_number'],
-            'pin' => password_hash($input['pin'], PASSWORD_DEFAULT),
+            'role' => $input['role'],
+            'mobile_number' => $input['mobile_number'],
+            'otp' => $input['otp'],
         ];
        
       
         $user1 = $model->save($data);         
-        $data1 = $model->findUserByUserNumber($input['user_number']);
-        $data['user_id'] = $data1['user_id'];
+        $data1 = $model->findUserByUserNumber($input['mobile_number']);
+        $data['id'] = $data1['id'];
        
        
         // echo json_encode( $wallet );
@@ -55,7 +55,50 @@ class Auth extends BaseController
         }else{
 
             return $this->getJWTForNewUser(
-                $data['user_number'],
+                $data['mobile_number'],
+                ResponseInterface::HTTP_CREATED
+            );
+        } 
+    }
+    public function register()
+    {
+       $input = $this->getRequestInput($this->request);
+    //    echo "<pre>"; print_r($input); echo "</pre>";
+    //    die();
+       $model = new UserModel();
+        
+       $user = $model->findUserByUserNumber1($input['mobile_number']);
+        // echo "<pre>"; print_r($user); echo "</pre>";
+        //    die();
+       if($user == 0){
+        $data =[
+            
+            'role' => $input['role'],
+            'mobile_number' => $input['mobile_number'],
+            'otp' => $input['otp'],
+        ];
+       
+      
+        $user1 = $model->save($data);         
+        $data1 = $model->findUserByUserNumber($input['mobile_number']);
+        $data['id'] = $data1['id'];
+       
+       
+        // echo json_encode( $wallet );
+        // die();
+        }else{
+            $user1 = null;
+            $response = $this->response->setStatusCode(500)->setBody('user allrady in list');
+            return  $response;
+         }
+        if($user1 == null){
+            $response = $this->response->setStatusCode(400)->setBody('user not listed');
+            return  $response;
+              
+        }else{
+
+            return $this->getJWTForNewUser(
+                $data['mobile_number'],
                 ResponseInterface::HTTP_CREATED
             );
         } 
@@ -74,14 +117,14 @@ class Auth extends BaseController
 
        $model1 = new AdminUserModel();
                     
-       $user = $model1->findUserByUserNumber1($input['user_number']);
+       $user = $model1->findUserByUserNumber1($input['mobile_number']);
     //    echo "<pre>"; print_r($user); echo "</pre>";
     //    die();
        if($user == 0){
         $data =[
             
             'user_name' => $input['user_name'],
-            'user_number' => $input['user_number'],
+            'mobile_number' => $input['mobile_number'],
             'pin' => password_hash($input['pin'], PASSWORD_DEFAULT),
         ];
        
@@ -103,7 +146,7 @@ class Auth extends BaseController
              
         }else{
             return $this->getJWTForNewUser(
-                $data['user_number'],
+                $data['mobile_number'],
                 ResponseInterface::HTTP_CREATED
             );
         }
@@ -119,7 +162,7 @@ class Auth extends BaseController
     {
         $rules = [
 
-            'pin' => 'required|min_length[4]|max_length[4]|validateUser[user_number, pin]'
+            'pin' => 'required|min_length[4]|max_length[4]|validateUser[mobile_number, pin]'
         ];
 
         $errors = [
@@ -132,7 +175,7 @@ class Auth extends BaseController
         // echo json_encode($input);
         if($this->validateRequest($input, $rules, $errors)){
            
-            return $this->getJWTForUser($input['user_number']);
+            return $this->getJWTForUser($input['mobile_number']);
         }else{
             // return $this->getResponse($input);
               $response = $this->response->setStatusCode(400)->setBody('Invalid login Mobile Number');
@@ -147,7 +190,7 @@ class Auth extends BaseController
       
         $rules = [
            
-            'pin' => 'required|min_length[4]|max_length[4]|validateUser[user_number, pin]'
+            'pin' => 'required|min_length[4]|max_length[4]|validateUser[mobile_number, pin]'
         ];
 
         $errors = [
@@ -160,7 +203,7 @@ class Auth extends BaseController
         // echo json_encode($input);
         if($this->validateRequest1($input, $rules, $errors)){
             // return $this->getResponse($input);
-            return $this->getJWTForAdminUser($input['user_number']);
+            return $this->getJWTForAdminUser($input['mobile_number']);
         }else{
             $response = $this->response->setStatusCode(400)->setBody('Invalid login credentials provided');
             return  $response;
@@ -193,7 +236,7 @@ class Auth extends BaseController
             );
         }
     }
-    public function user_up_pin($id)
+    public function user_otp($id)
     {
         try {
             $model = new UserModel();
@@ -205,7 +248,7 @@ class Auth extends BaseController
             if($this->validatepin($input, $id)){
                 // return $this->getResponse($input);
                 $data =[
-                    'pin' => password_hash($input['newpin'], PASSWORD_DEFAULT),
+                    'otp' => $input['otp'],
                 ];
                 $model->update_pin($id ,$data);
             }else{
@@ -288,7 +331,7 @@ class Auth extends BaseController
         }
     }
     private function getJWTForUser(
-        string $user_Number,
+        string $mobile_number,
         int $responseCode = ResponseInterface::HTTP_OK
     )
     {
@@ -296,13 +339,13 @@ class Auth extends BaseController
         try {
             $model = new UserModel();
             
-            $user = $model->findUserByUserNumber($user_Number);
+            $user = $model->findUserByUserNumber($mobile_number);
            
-            $cart = $model->findUById($user['user_id']);
+            $cart = $model->findUById($user['id']);
           
            
             // echo json_encode($user);
-            unset($user['pin']);
+            unset($user['otp']);
 
             helper('jwt');
 
@@ -311,8 +354,8 @@ class Auth extends BaseController
                     [
                         'message' => 'User authenticated successfully',
                         'user' => $user,
-                        'cart' => $cart,
-                        'access_token' => getSignedJWTForUser($user_Number)
+                        
+                        'access_token' => getSignedJWTForUser($mobile_number)
                     ]
                 );
         } catch (Exception $exception) {
@@ -326,16 +369,16 @@ class Auth extends BaseController
         }
     }
     private function getJWTForAdminUser(
-        string $user_Number,
+        string $mobile_number,
         int $responseCode = ResponseInterface::HTTP_OK
     )
     {
         
         try {
             $model = new AdminUserModel();
-            $user = $model->findUserByUserNumber($user_Number);
+            $user = $model->findUserByUserNumber($mobile_number);
            
-            unset($user['pin']);
+            unset($user['otp']);
 
             helper('jwt');
 
@@ -345,7 +388,7 @@ class Auth extends BaseController
                         'message' => 'User authenticated successfully',
                         'user' => $user,
                        
-                        'access_token' => getSignedJWTForUser($user_Number)
+                        'access_token' => getSignedJWTForUser($mobile_number)
                     ]
                 );
         } catch (Exception $exception) {
@@ -359,16 +402,16 @@ class Auth extends BaseController
         }
     }
     private function getJWTForNewUser(
-        string $user_number,
+        string $mobile_number,
         int $responseCode = ResponseInterface::HTTP_OK
     )
     {
         
         try {
             $model = new UserModel();
-            $user = $model->findUserByUserNumber($user_number);
+            $user = $model->findUserByUserNumber($mobile_number);
             // echo json_encode($user);
-            unset($user['pin']);
+            unset($user['otp']);
 
             helper('jwt');
 
@@ -377,7 +420,7 @@ class Auth extends BaseController
                     [
                         'message' => 'User Created successfully',
                         
-                        'access_token' => getSignedJWTForUser($user_number)
+                        'access_token' => getSignedJWTForUser($mobile_number)
                     ]
                 );
         } catch (Exception $exception) {
