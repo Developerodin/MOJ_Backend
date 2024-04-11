@@ -23,8 +23,8 @@ class CreateUsersTable extends Migration
                 'constraint' => 255
             ],
             'role' => [
-                'type' => 'ENUM("Candidate", "Hotelier", "Admin")',
-                'default' => 'Candidate'
+                'type' => 'VARCHAR',
+                'constraint' => 255
             ],
             'created_at' => [
                 'type' => 'DATETIME',

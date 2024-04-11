@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateUserProfilesTable extends Migration
+class CreateHoteliersTable extends Migration
 {
     public function up()
     {
@@ -17,8 +17,7 @@ class CreateUserProfilesTable extends Migration
             'user_id' => [
                 'type' => 'INT',
                 'unsigned' => true
-            ],
-            'name' => [
+            ],'name' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
@@ -26,9 +25,9 @@ class CreateUserProfilesTable extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 20,
             ],
-            'email' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
+            'company_details' => [
+                'type' => 'TEXT',
+                'null' => true,
             ],
             'address' => [
                 'type' => 'TEXT',
@@ -44,13 +43,23 @@ class CreateUserProfilesTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
-            'interested_fields' => [
-                'type' => 'TEXT',
+            'gst_number' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'field_of_company' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
                 'null' => true,
             ],
             'image' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
+                'null' => true,
+            ],
+            'contact_information' => [
+                'type' => 'TEXT',
                 'null' => true,
             ],
             'created_at' => [
@@ -65,24 +74,19 @@ class CreateUserProfilesTable extends Migration
                 'type' => 'DATETIME',
                 'null' => true,
             ],
-            'points' => [
-                'type' => 'INT',
-                'default' => 0,
-            ],
             'status' => [
                 'type' => 'ENUM',
                 'constraint' => ['Active', 'Inactive'],
                 'default' => 'Active',
             ],
         ]);
-
-        $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('user_id', 'users', 'id');
-        $this->forge->createTable('user_profiles');
+        $this->forge->addKey('id', true);
+        $this->forge->createTable('hoteliers');
     }
+
 
     public function down()
     {
-        $this->forge->dropTable('user_profiles');
+        $this->forge->dropTable('hoteliers');
     }
 }
