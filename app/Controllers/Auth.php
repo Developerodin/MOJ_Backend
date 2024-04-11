@@ -162,11 +162,11 @@ class Auth extends BaseController
     {
         $rules = [
 
-            'pin' => 'required|min_length[4]|max_length[4]|validateUser[mobile_number, pin]'
+            'otp' => 'required|min_length[4]|max_length[4]|validateUser[mobile_number, otp]'
         ];
 
         $errors = [
-            'pin' => [
+            'otp' => [
                 'validateUser' => 'Invalid login credentials provided'
             ]
         ];
@@ -340,9 +340,7 @@ class Auth extends BaseController
             $model = new UserModel();
             
             $user = $model->findUserByUserNumber($mobile_number);
-           
-            $cart = $model->findUById($user['id']);
-          
+                   
            
             // echo json_encode($user);
             unset($user['otp']);

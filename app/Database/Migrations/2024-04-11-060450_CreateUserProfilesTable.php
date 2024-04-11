@@ -22,10 +22,15 @@ class CreateUserProfilesTable extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
+            'role' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255
+            ],
             'mobile_number' => [
                 'type' => 'VARCHAR',
                 'constraint' => 20,
             ],
+            
             'email' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
