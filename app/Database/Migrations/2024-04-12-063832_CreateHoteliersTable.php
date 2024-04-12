@@ -22,10 +22,7 @@ class CreateHoteliersTable extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'mobile_number' => [
-                'type' => 'VARCHAR',
-                'constraint' => 20,
-            ],
+            
             'company_details' => [
                 'type' => 'TEXT',
                 'null' => true,
@@ -59,7 +56,7 @@ class CreateHoteliersTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
-            'image' => [
+            'profile_picture' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
@@ -76,15 +73,7 @@ class CreateHoteliersTable extends Migration
                 'type' => 'DATETIME',
                 'null' => true,
             ],
-            'last_active' => [
-                'type' => 'DATETIME',
-                'null' => true,
-            ],
-            'status' => [
-                'type' => 'ENUM',
-                'constraint' => ['Active', 'Inactive'],
-                'default' => 'Active',
-            ],
+           
         ]);
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
