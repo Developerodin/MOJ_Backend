@@ -15,28 +15,8 @@ use Exception;
 use ReflectionException;
 class Users extends BaseController
 {
-    public function index()
-    {
-        $model = new PostModel();
-
-        return $this->getResponse(
-            [
-                'message' => 'Post retrieved successfully',
-                'post' => $model->findAll()
-            ]
-        );
-    }
-    public function sindex()
-    {
-        $model = new SPostModel();
-
-        return $this->getResponse(
-            [
-                'message' => 'Post retrieved successfully',
-                'post' => $model->findAll()
-            ]
-        );
-    }
+   
+   
 // ---- banner ===//
     public function banners()
     {
