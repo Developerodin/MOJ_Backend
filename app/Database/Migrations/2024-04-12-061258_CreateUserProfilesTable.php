@@ -18,12 +18,17 @@ class CreateUserProfilesTable extends Migration
                 'type' => 'INT',
                 'unsigned' => true,
             ],
-            'full_name' => [
+            'name' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
             'email' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'role' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,

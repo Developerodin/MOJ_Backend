@@ -39,6 +39,11 @@ class CreateHoteliersTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
+            'role' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
             'country' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,

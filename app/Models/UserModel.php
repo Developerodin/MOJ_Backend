@@ -67,6 +67,31 @@ class UserModel extends Model
 
        
     }
+
+/// get user information
+    public function getUserData($userId)
+    {
+        $builder = $this->db->table('hoteliers');
+        $builder->select('hoteliers.*, user_profiles.*');
+        $builder->join('user_profiles', 'hoteliers.user_id = user_profiles.user_id', 'inner');
+        $builder->where('hoteliers.user_id', $userId);
+        $query = $builder->get();
+    
+    
+    
+        // Get the result
+        $user = $query->getResult();
+    
+        // Check if user data is found
+        if (!$user) {
+            return null;
+        } else {
+            return $user;
+        }
+    }
+
+
+
     public function findUserByUserNumber1(string $mobile_number)
     {
        
