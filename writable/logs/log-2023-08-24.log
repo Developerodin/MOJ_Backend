@@ -1,24 +1,175 @@
-CRITICAL - 2023-08-24 00:00:05 --> Undefined array key "g_title"
-in APPPATH\Controllers\Result.php on line 294.
- 1 APPPATH\Controllers\Result.php(294): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "g_title"', 'C:\\Users\\com\\Desktop\\ml_back\\app\\Controllers\\Result.php', 294)
- 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Result->sindex()
- 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
- 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
- 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-CRITICAL - 2023-08-24 00:00:17 --> Undefined array key "g_title"
-in APPPATH\Controllers\Result.php on line 289.
- 1 APPPATH\Controllers\Result.php(289): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "g_title"', 'C:\\Users\\com\\Desktop\\ml_back\\app\\Controllers\\Result.php', 289)
- 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Result->sindex()
- 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
- 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
- 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-CRITICAL - 2023-08-24 00:01:03 --> Undefined array key "g_title"
-in APPPATH\Controllers\Result.php on line 289.
- 1 APPPATH\Controllers\Result.php(289): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "g_title"', 'C:\\Users\\com\\Desktop\\ml_back\\app\\Controllers\\Result.php', 289)
- 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Result->sindex()
- 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
- 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
- 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
+CRITICAL - 2023-08-24 19:46:57 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('8')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('8')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:46:58 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('8')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('8')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:47:05 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('12')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('12')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:47:06 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('12')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('12')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:47:20 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('2')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('2')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:47:20 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('2')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('2')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:49:25 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('2')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('2')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:49:26 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('2')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('2')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:49:47 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('2')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('2')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:49:47 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('2')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('2')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:50:05 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('6')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('6')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:50:06 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('6')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('6')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:54:19 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('17')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('17')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:54:19 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('17')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('17')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:55:42 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('17')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('17')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:55:42 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('17')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('17')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:55:48 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('16')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('16')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:55:48 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('16')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('16')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:55:55 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('18')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('18')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:55:56 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('18')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('18')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:55:59 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('19')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('19')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 19:55:59 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('19')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('19')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 20:17:52 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('19')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('19')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 20:17:52 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('19')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('19')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-24 20:18:37 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 190.
+ 1 APPPATH/Controllers/Result.php(121): App\Models\ResultModel->findGByIdA('19')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('19')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()

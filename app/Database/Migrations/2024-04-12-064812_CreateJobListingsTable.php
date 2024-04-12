@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateUserProfilesTable extends Migration
+class CreateJobListingsTable extends Migration
 {
     public function up()
     {
@@ -12,48 +12,40 @@ class CreateUserProfilesTable extends Migration
             'id' => [
                 'type' => 'INT',
                 'unsigned' => true,
-                'auto_increment' => true
+                'auto_increment' => true,
             ],
-            'user_id' => [
+            'hotelier_id' => [
                 'type' => 'INT',
-                'unsigned' => true
+                'unsigned' => true,
             ],
-            'name' => [
+            'job_title' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'role' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255
-            ],
-            'mobile_number' => [
-                'type' => 'VARCHAR',
-                'constraint' => 20,
-            ],
-            
-            'email' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-            ],
-            'address' => [
+            'job_description' => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
-            'city' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
+            'job_type' => [
+                'type' => 'ENUM',
+                'constraint' => ['Full-time', 'Part-time'],
+                'default' => 'Full-time',
             ],
-            'country' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'interested_fields' => [
+            'skill_requirements' => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
-            'image' => [
+            'location' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'department' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'experience_requirements' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
@@ -66,28 +58,19 @@ class CreateUserProfilesTable extends Migration
                 'type' => 'DATETIME',
                 'null' => true,
             ],
-            'last_active' => [
-                'type' => 'DATETIME',
-                'null' => true,
-            ],
-            'points' => [
-                'type' => 'INT',
-                'default' => 0,
-            ],
             'status' => [
                 'type' => 'ENUM',
                 'constraint' => ['Active', 'Inactive'],
                 'default' => 'Active',
             ],
         ]);
-
-        $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('user_id', 'users', 'id');
-        $this->forge->createTable('user_profiles');
+        $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('hotelier_id', 'hoteliers', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('job_listings');
     }
 
     public function down()
     {
-        $this->forge->dropTable('user_profiles');
+        $this->forge->dropTable('job_listings');
     }
 }

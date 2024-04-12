@@ -1,206 +1,153 @@
-ERROR - 2023-09-20 00:13:19 --> mysqli_sql_exception: Unknown column 'lod_id' in 'field list' in C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+CRITICAL - 2023-09-20 10:58:49 --> No data found in joined tables.
+in APPPATH/Models/BidModel.php on line 41.
+ 1 APPPATH/Controllers/Bid.php(32): App\Models\BidModel->getbdData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Bid->index_admin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bid))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 10:59:02 --> No data found in joined tables.
+in APPPATH/Models/BidModel.php on line 41.
+ 1 APPPATH/Controllers/Bid.php(32): App\Models\BidModel->getbdData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Bid->index_admin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bid))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 11:00:12 --> No data found in joined tables.
+in APPPATH/Models/WinModel.php on line 42.
+ 1 APPPATH/Controllers/Win.php(24): App\Models\WinModel->getwinData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 11:15:24 --> No data found in joined tables.
+in APPPATH/Models/WinModel.php on line 42.
+ 1 APPPATH/Controllers/Win.php(24): App\Models\WinModel->getwinData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 11:15:29 --> No data found in joined tables.
+in APPPATH/Models/CartModel.php on line 331.
+ 1 APPPATH/Controllers/Cart.php(67): App\Models\CartModel->getwdData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Cart->wd_all()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cart))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-09-20 17:49:46 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'maala7ea_admin'@'localhost' (using password: YES) in /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:173
 Stack trace:
-#0 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `us...', 0)
-#1 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
-#2 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
-#3 C:\Users\com\Desktop\ml_back\app\Models\UserAModel.php(124): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...')
-#4 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(316): App\Models\UserAModel->save('22')
-#5 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
-#6 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->login()
-#7 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
-#8 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#9 C:\Users\com\Desktop\ml_back\public\index.php(73): CodeIgniter\CodeIgniter->run()
-#10 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\De...')
+#0 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(173): mysqli->real_connect('localhost', 'maala7ea_admin', Object(SensitiveParameterValue), 'maala7ea_maa', 3306, '', 0)
+#1 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home4/maala7ea/app/app/Models/PostModel.php(100): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home4/maala7ea/app/app/Controllers/Home.php(27): App\Models\PostModel->findAll()
+#7 /home4/maala7ea/app/vendor/codeigniter4/framework/system/CodeIgniter.php(932): App\Controllers\Home->index()
+#8 /home4/maala7ea/app/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 /home4/maala7ea/app/vendor/codeigniter4/framework/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home4/maala7ea/public_html/index.php(73): CodeIgniter\CodeIgniter->run()
 #11 {main}
-CRITICAL - 2023-09-20 00:13:19 --> Unknown column 'lod_id' in 'field list'
-in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
- 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `user_log_a` (`lod_id`, `user_id`,`date`) 
-    VALUES (NULL, \'22\',\'09-20-2023 12:13 AM\')', 0)
- 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `user_log_a` (`lod_id`, `user_id`,`date`) 
-    VALUES (NULL, \'22\',\'09-20-2023 12:13 AM\')')
- 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `user_log_a` (`lod_id`, `user_id`,`date`) 
-    VALUES (NULL, \'22\',\'09-20-2023 12:13 AM\')')
- 4 APPPATH\Models\UserAModel.php(124): CodeIgniter\Database\BaseConnection->query('INSERT INTO `user_log_a` (`lod_id`, `user_id`,`date`) 
-    VALUES (NULL, \'22\',\'09-20-2023 12:13 AM\')')
- 5 APPPATH\Controllers\Auth.php(316): App\Models\UserAModel->save('22')
- 6 APPPATH\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
- 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->login()
- 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
- 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
-10 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
-11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-ERROR - 2023-09-20 00:14:09 --> mysqli_sql_exception: Unknown column 'lod_id' in 'field list' in C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:218
 Stack trace:
-#0 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `us...', 0)
-#1 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
-#2 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
-#3 C:\Users\com\Desktop\ml_back\app\Models\UserAModel.php(124): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...')
-#4 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(317): App\Models\UserAModel->save('22')
-#5 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
-#6 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->login()
-#7 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
-#8 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#9 C:\Users\com\Desktop\ml_back\public\index.php(73): CodeIgniter\CodeIgniter->run()
-#10 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\De...')
-#11 {main}
-CRITICAL - 2023-09-20 00:14:09 --> Unknown column 'lod_id' in 'field list'
-in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
- 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `user_log_a` (`lod_id`, `user_id`,`date`) 
-    VALUES (NULL, \'22\',\'09-20-2023 12:14 AM\')', 0)
- 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `user_log_a` (`lod_id`, `user_id`,`date`) 
-    VALUES (NULL, \'22\',\'09-20-2023 12:14 AM\')')
- 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `user_log_a` (`lod_id`, `user_id`,`date`) 
-    VALUES (NULL, \'22\',\'09-20-2023 12:14 AM\')')
- 4 APPPATH\Models\UserAModel.php(124): CodeIgniter\Database\BaseConnection->query('INSERT INTO `user_log_a` (`lod_id`, `user_id`,`date`) 
-    VALUES (NULL, \'22\',\'09-20-2023 12:14 AM\')')
- 5 APPPATH\Controllers\Auth.php(317): App\Models\UserAModel->save('22')
- 6 APPPATH\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
- 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->login()
- 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
- 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
-10 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
-11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-ERROR - 2023-09-20 00:15:02 --> mysqli_sql_exception: Unknown column 'data' in 'field list' in C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
-Stack trace:
-#0 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_lo...', 0)
-#1 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_lo...')
-#2 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_lo...')
-#3 C:\Users\com\Desktop\ml_back\app\Models\UserAModel.php(145): CodeIgniter\Database\BaseConnection->query('UPDATE `user_lo...')
-#4 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(320): App\Models\UserAModel->up_log('22')
-#5 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
-#6 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->login()
-#7 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
-#8 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#9 C:\Users\com\Desktop\ml_back\public\index.php(73): CodeIgniter\CodeIgniter->run()
-#10 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\De...')
-#11 {main}
-CRITICAL - 2023-09-20 00:15:02 --> Unknown column 'data' in 'field list'
-in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
- 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:15 AM\' WHERE user_id = 22', 0)
- 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:15 AM\' WHERE user_id = 22')
- 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:15 AM\' WHERE user_id = 22')
- 4 APPPATH\Models\UserAModel.php(145): CodeIgniter\Database\BaseConnection->query('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:15 AM\' WHERE user_id = 22')
- 5 APPPATH\Controllers\Auth.php(320): App\Models\UserAModel->up_log('22')
- 6 APPPATH\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
- 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->login()
- 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
- 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
-10 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
-11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-ERROR - 2023-09-20 00:15:33 --> mysqli_sql_exception: Unknown column 'data' in 'field list' in C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
-Stack trace:
-#0 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_lo...', 0)
-#1 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_lo...')
-#2 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_lo...')
-#3 C:\Users\com\Desktop\ml_back\app\Models\UserAModel.php(143): CodeIgniter\Database\BaseConnection->query('UPDATE `user_lo...')
-#4 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(320): App\Models\UserAModel->up_log('22')
-#5 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
-#6 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->login()
-#7 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
-#8 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#9 C:\Users\com\Desktop\ml_back\public\index.php(73): CodeIgniter\CodeIgniter->run()
-#10 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\De...')
-#11 {main}
-CRITICAL - 2023-09-20 00:15:33 --> Unknown column 'data' in 'field list'
-in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
- 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:15 AM\' WHERE user_id = 22', 0)
- 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:15 AM\' WHERE user_id = 22')
- 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:15 AM\' WHERE user_id = 22')
- 4 APPPATH\Models\UserAModel.php(143): CodeIgniter\Database\BaseConnection->query('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:15 AM\' WHERE user_id = 22')
- 5 APPPATH\Controllers\Auth.php(320): App\Models\UserAModel->up_log('22')
- 6 APPPATH\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
- 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->login()
- 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
- 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
-10 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
-11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-ERROR - 2023-09-20 00:16:09 --> mysqli_sql_exception: Unknown column 'data' in 'field list' in C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
-Stack trace:
-#0 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_lo...', 0)
-#1 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_lo...')
-#2 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_lo...')
-#3 C:\Users\com\Desktop\ml_back\app\Models\UserAModel.php(143): CodeIgniter\Database\BaseConnection->query('UPDATE `user_lo...')
-#4 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(320): App\Models\UserAModel->up_log('22')
-#5 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
-#6 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->login()
-#7 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
-#8 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#9 C:\Users\com\Desktop\ml_back\public\index.php(73): CodeIgniter\CodeIgniter->run()
-#10 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\De...')
-#11 {main}
-CRITICAL - 2023-09-20 00:16:09 --> Unknown column 'data' in 'field list'
-in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
- 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:16 AM\' WHERE user_id = 22', 0)
- 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:16 AM\' WHERE user_id = 22')
- 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:16 AM\' WHERE user_id = 22')
- 4 APPPATH\Models\UserAModel.php(143): CodeIgniter\Database\BaseConnection->query('UPDATE `user_log_a` SET  
-    data = \'09-20-2023 12:16 AM\' WHERE user_id = 22')
- 5 APPPATH\Controllers\Auth.php(320): App\Models\UserAModel->up_log('22')
- 6 APPPATH\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
- 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->login()
- 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
- 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
-10 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
-11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-ERROR - 2023-09-20 00:16:22 --> mysqli_sql_exception: Unknown column 'data' in 'field list' in C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
-Stack trace:
-#0 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_lo...', 0)
-#1 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_lo...')
-#2 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_lo...')
-#3 C:\Users\com\Desktop\ml_back\app\Models\UserAModel.php(142): CodeIgniter\Database\BaseConnection->query('UPDATE `user_lo...')
-#4 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(320): App\Models\UserAModel->up_log('22')
-#5 C:\Users\com\Desktop\ml_back\app\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
-#6 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->login()
-#7 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
-#8 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#9 C:\Users\com\Desktop\ml_back\public\index.php(73): CodeIgniter\CodeIgniter->run()
-#10 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\De...')
-#11 {main}
-CRITICAL - 2023-09-20 00:16:22 --> Unknown column 'data' in 'field list'
-in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
- 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_log_a` SET data = \'09-20-2023 12:16 AM\' WHERE user_id = 22', 0)
- 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_log_a` SET data = \'09-20-2023 12:16 AM\' WHERE user_id = 22')
- 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_log_a` SET data = \'09-20-2023 12:16 AM\' WHERE user_id = 22')
- 4 APPPATH\Models\UserAModel.php(142): CodeIgniter\Database\BaseConnection->query('UPDATE `user_log_a` SET data = \'09-20-2023 12:16 AM\' WHERE user_id = 22')
- 5 APPPATH\Controllers\Auth.php(320): App\Models\UserAModel->up_log('22')
- 6 APPPATH\Controllers\Auth.php(147): App\Controllers\Auth->getJWTForUser('9602964437')
- 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->login()
- 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
- 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
-10 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
-11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-CRITICAL - 2023-09-20 01:06:22 --> Trying to access array offset on value of type null
-in APPPATH\Controllers\Result.php on line 561.
- 1 APPPATH\Controllers\Result.php(561): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\Users\\com\\Desktop\\ml_back\\app\\Controllers\\Result.php', 561)
- 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Result->store()
- 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
- 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
- 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-CRITICAL - 2023-09-20 01:10:43 --> Call to undefined method App\Models\ResultModel::last
-in SYSTEMPATH\Model.php on line 838.
- 1 APPPATH\Controllers\Result.php(559): CodeIgniter\Model->__call('last', [])
- 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Result->store()
- 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
- 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
- 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-CRITICAL - 2023-09-20 01:16:54 --> Result does not exist for specified id
-in APPPATH\Models\ResultModel.php on line 192.
- 1 APPPATH\Controllers\Result.php(558): App\Models\ResultModel->findlast([...])
- 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Result->store()
- 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
- 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
- 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
+#0 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#4 /home4/maala7ea/app/app/Models/PostModel.php(100): CodeIgniter\Model->doFindAll(0, 0)
+#5 /home4/maala7ea/app/app/Controllers/Home.php(27): App\Models\PostModel->findAll()
+#6 /home4/maala7ea/app/vendor/codeigniter4/framework/system/CodeIgniter.php(932): App\Controllers\Home->index()
+#7 /home4/maala7ea/app/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /home4/maala7ea/app/vendor/codeigniter4/framework/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home4/maala7ea/public_html/index.php(73): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-09-20 17:49:46 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+in SYSTEMPATH/Database/BaseConnection.php on line 427.
+ 1 SYSTEMPATH/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `g_service`', [], false)
+ 3 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/PostModel.php(100): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/Home.php(27): App\Models\PostModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Home->index()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 23:28:25 --> Call to undefined method App\Models\ResultModel::findlast
+in SYSTEMPATH/Model.php on line 838.
+ 1 APPPATH/Controllers/Result.php(560): CodeIgniter\Model->__call('findlast', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->store()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 17:58:46 --> No data found in joined tables.
+in APPPATH/Models/WinModel.php on line 42.
+ 1 APPPATH/Controllers/Win.php(24): App\Models\WinModel->getwinData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 17:58:50 --> No data found in joined tables.
+in APPPATH/Models/WinModel.php on line 42.
+ 1 APPPATH/Controllers/Win.php(24): App\Models\WinModel->getwinData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 18:59:59 --> No data found in joined tables.
+in APPPATH/Models/WinModel.php on line 42.
+ 1 APPPATH/Controllers/Win.php(24): App\Models\WinModel->getwinData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 19:00:04 --> No data found in joined tables.
+in APPPATH/Models/WinModel.php on line 42.
+ 1 APPPATH/Controllers/Win.php(24): App\Models\WinModel->getwinData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 19:00:23 --> No data found in joined tables.
+in APPPATH/Models/WinModel.php on line 42.
+ 1 APPPATH/Controllers/Win.php(24): App\Models\WinModel->getwinData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 19:05:02 --> No data found in joined tables.
+in APPPATH/Models/WinModel.php on line 42.
+ 1 APPPATH/Controllers/Win.php(24): App\Models\WinModel->getwinData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 19:07:08 --> No data found in joined tables.
+in APPPATH/Models/WinModel.php on line 42.
+ 1 APPPATH/Controllers/Win.php(24): App\Models\WinModel->getwinData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 19:08:06 --> No data found in joined tables.
+in APPPATH/Models/BidModel.php on line 41.
+ 1 APPPATH/Controllers/Bid.php(32): App\Models\BidModel->getbdData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Bid->index_admin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bid))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 19:12:59 --> No data found in joined tables.
+in APPPATH/Models/BidModel.php on line 41.
+ 1 APPPATH/Controllers/Bid.php(32): App\Models\BidModel->getbdData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Bid->index_admin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bid))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-20 19:14:37 --> No data found in joined tables.
+in APPPATH/Models/WinModel.php on line 42.
+ 1 APPPATH/Controllers/Win.php(24): App\Models\WinModel->getwinData()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()

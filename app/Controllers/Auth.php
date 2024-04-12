@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
-use App\Models\AdminUserModel;
+
+use App\Models\BasicModel;
+
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
@@ -17,7 +19,7 @@ class Auth extends BaseController
      * @return Response
      * @throws ReflectionException
      */
-    public function First_login()
+    public function check_mobile()
     {
        $input = $this->getRequestInput($this->request);
     //    echo "<pre>"; print_r($input); echo "</pre>";
@@ -25,40 +27,15 @@ class Auth extends BaseController
        $model = new UserModel();
         
        $user = $model->findUserByUserNumber1($input['mobile_number']);
-        // echo "<pre>"; print_r($user); echo "</pre>";
-        //    die();
+       
        if($user == 0){
-        $data =[
-            
-            'role' => $input['role'],
-            'mobile_number' => $input['mobile_number'],
-            'otp' => $input['otp'],
-        ];
-       
-      
-        $user1 = $model->save($data);         
-        $data1 = $model->findUserByUserNumber($input['mobile_number']);
-        $data['id'] = $data1['id'];
-       
-       
-        // echo json_encode( $wallet );
-        // die();
+        $response = $this->response->setStatusCode(200)->setBody('user not found');
+        return  $response;
+        
         }else{
-            $user1 = null;
-            $response = $this->response->setStatusCode(500)->setBody('user allrady in list');
-            return  $response;
+            return $this->getJWTForUser($input['mobile_number']);
          }
-        if($user1 == null){
-            $response = $this->response->setStatusCode(400)->setBody('user not listed');
-            return  $response;
-              
-        }else{
-
-            return $this->getJWTForNewUser(
-                $data['mobile_number'],
-                ResponseInterface::HTTP_CREATED
-            );
-        } 
+        
     }
     public function register()
     {
@@ -68,22 +45,33 @@ class Auth extends BaseController
        $model = new UserModel();
         
        $user = $model->findUserByUserNumber1($input['mobile_number']);
-        // echo "<pre>"; print_r($user); echo "</pre>";
-        //    die();
+       
        if($user == 0){
+
+        $snew = $model->save($input['mobile_number']);
+        // echo "<pre>"; print_r($snew); echo "</pre>";
+      
+        $foruid = $model->findUserByUserNumber($input['mobile_number']);
+         echo "<pre>"; print_r($foruid); echo "</pre>";
         $data =[
             
-            'role' => $input['role'],
+            'user_id' => $foruid['id'],
             'mobile_number' => $input['mobile_number'],
-            'otp' => $input['otp'],
+            'full_name' => $input['full_name'],
+            'email' => $input['email'],
+            'profile_picture' => $input['profile_picture'],
+            'address' => $input['address'],
+            'city' => $input['city'],
+            'country' => $input['country'],
+            'interested_fields' => $input['interested_fields'],
+            'other_personal_details' => $input['other_personal_details'], 
         ];
        
-      
-        $user1 = $model->save($data);         
+ 
+        $user1 = $model->save_profile($data);         
         $data1 = $model->findUserByUserNumber($input['mobile_number']);
-        $data['id'] = $data1['id'];
-       
-       
+        $data['user_id'] = $data1['user_id'];
+        
         // echo json_encode( $wallet );
         // die();
         }else{
@@ -98,75 +86,32 @@ class Auth extends BaseController
         }else{
 
             return $this->getJWTForNewUser(
-                $data['mobile_number'],
+                $data['user_number'],
                 ResponseInterface::HTTP_CREATED
             );
         } 
     }
-     
-    public function admin_register()
-    {
-
-
-        // $rules = [
-        //     'user_name' => 'required',
-        //     'pin' => 'required|min_length[4]'
-        // ];
-      
-       $input = $this->getRequestInput($this->request);
-
-       $model1 = new AdminUserModel();
-                    
-       $user = $model1->findUserByUserNumber1($input['mobile_number']);
-    //    echo "<pre>"; print_r($user); echo "</pre>";
-    //    die();
-       if($user == 0){
-        $data =[
+ public function basic()
+        {
+            $model = new BasicModel();
+            $basic = $model->findAll();
+            return $basic;
             
-            'user_name' => $input['user_name'],
-            'mobile_number' => $input['mobile_number'],
-            'pin' => password_hash($input['pin'], PASSWORD_DEFAULT),
-        ];
-       
-      
-        $userModel = new UserModel();  
-        $user_admin = $userModel->save1($data);
-
-        }else{
-            $user_admin = null;
-              $response = $this->response->setStatusCode(400)->setBody('user allrady in list');
-            return  $response;
-           
-          
-         }
-       
-        if($user_admin == null){
-              $response = $this->response->setStatusCode(400)->setBody('not register');
-            return  $response;
-             
-        }else{
-            return $this->getJWTForNewUser(
-                $data['mobile_number'],
-                ResponseInterface::HTTP_CREATED
-            );
         }
-
-           
-      
-    }
+   
     /**
      * Authenticate Existing User
      * @return Response
      */
-    public function login()
+    public function login($data)
     {
         $rules = [
 
-            'otp' => 'required|min_length[4]|max_length[4]|validateUser[mobile_number, otp]'
+            'moblie_number' => 'required|min_length[10]|max_length[10]|validateUser[user_number, pin]'
         ];
 
         $errors = [
-            'otp' => [
+            'mobile_number' => [
                 'validateUser' => 'Invalid login credentials provided'
             ]
         ];
@@ -185,33 +130,7 @@ class Auth extends BaseController
        
        
     }
-    public function admin_login()
-    {
-      
-        $rules = [
-           
-            'pin' => 'required|min_length[4]|max_length[4]|validateUser[mobile_number, pin]'
-        ];
-
-        $errors = [
-            'pin' => [
-                'validateUser' => 'Invalid login credentials provided'
-            ]
-        ];
-
-        $input = $this->getRequestInput($this->request);
-        // echo json_encode($input);
-        if($this->validateRequest1($input, $rules, $errors)){
-            // return $this->getResponse($input);
-            return $this->getJWTForAdminUser($input['mobile_number']);
-        }else{
-            $response = $this->response->setStatusCode(400)->setBody('Invalid login credentials provided');
-            return  $response;
-        }
-        
-       
-       
-    }
+   
     public function user_update($id)
     {
         try {
@@ -236,124 +155,33 @@ class Auth extends BaseController
             );
         }
     }
-    public function user_otp($id)
-    {
-        try {
-            $model = new UserModel();
-            $input = $this->getRequestInput($this->request);
-            //   echo "<pre>"; print_r($input);
-            // echo "</pre>";
-            // die();
-
-            if($this->validatepin($input, $id)){
-                // return $this->getResponse($input);
-                $data =[
-                    'otp' => $input['otp'],
-                ];
-                $model->update_pin($id ,$data);
-            }else{
-                $response = $this->response->setStatusCode(400)->setBody('Invalid provided Old Password');
-                return  $response;
-            }
-
-           
-            $post = $model->findUserById($id);
-            return $this->getResponse(
-                [
-                    'message' => 'user pin updaetd successfully',
-                    'client' => $post
-                ]
-            );
-
-        } catch (Exception $exception) {
-
-            return $this->getResponse(
-                [
-                    'message' => $exception->getMessage()
-                ],
-                ResponseInterface::HTTP_NOT_FOUND
-            );
-        }
-    }
-    public function auser_up_pin($id)
-    {
-        try {
-            $model = new UserModel();
-            $input = $this->getRequestInput($this->request);
-            $data =[
-                'pin' => password_hash($input['newpin'], PASSWORD_DEFAULT),
-            ];
-            $model->update_pin($id ,$data);
-           
-            $post = $model->findUserById($id);
-            return $this->getResponse(
-                [
-                    'message' => 'user pin updaetd successfully',
-                    'client' => $post
-                ]
-            );
-
-        } catch (Exception $exception) {
-
-            return $this->getResponse(
-                [
-                    'message' => $exception->getMessage()
-                ],
-                ResponseInterface::HTTP_NOT_FOUND
-            );
-        }
-    }
-    public function adminuser_update($id)
-    {
-        try {
-            $model = new UserModel();
-          $input = $this->getRequestInput($this->request);
-          $data =[
-            'pin' => password_hash($input['newpin'], PASSWORD_DEFAULT),
-        ];
-            $model->admin_update($id ,$data);
-              
-            // $post = $model->findUserById($id);
-            return $this->getResponse(
-                [
-                    'message' => 'user updaetd successfully'
-                    
-                ]
-            );
-
-        } catch (Exception $exception) {
-            return $this->getResponse(
-                [
-                    'message' => $exception->getMessage()
-                ],
-                ResponseInterface::HTTP_NOT_FOUND
-            );
-        }
-    }
+  
+   
     private function getJWTForUser(
-        string $mobile_number,
+        string $mobile_Number,
         int $responseCode = ResponseInterface::HTTP_OK
     )
     {
         
         try {
             $model = new UserModel();
-            
-            $user = $model->findUserByUserNumber($mobile_number);
+           
+            $user = $model->findUserByUserNumber($mobile_Number);
+        
+           
+           
+            // echo json_encode($user);
+           
+
+            helper('jwt');
+
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'User authenticated successfully',
+                        'user' => $user,
                    
-           
-            // echo json_encode($user);
-            unset($user['otp']);
-
-            helper('jwt');
-
-            return $this
-                ->getResponse(
-                    [
-                        'message' => 'User authenticated successfully',
-                        'user' => $user,
-                        
-                        'access_token' => getSignedJWTForUser($mobile_number)
+                        'access_token' => getSignedJWTForUser($mobile_Number)
                     ]
                 );
         } catch (Exception $exception) {
@@ -366,40 +194,7 @@ class Auth extends BaseController
                 );
         }
     }
-    private function getJWTForAdminUser(
-        string $mobile_number,
-        int $responseCode = ResponseInterface::HTTP_OK
-    )
-    {
-        
-        try {
-            $model = new AdminUserModel();
-            $user = $model->findUserByUserNumber($mobile_number);
-           
-            unset($user['otp']);
-
-            helper('jwt');
-
-            return $this
-                ->getResponse(
-                    [
-                        'message' => 'User authenticated successfully',
-                        'user' => $user,
-                       
-                        'access_token' => getSignedJWTForUser($mobile_number)
-                    ]
-                );
-        } catch (Exception $exception) {
-            return $this
-                ->getResponse(
-                    [
-                        'error' => $exception->getMessage(),
-                    ],
-                    $responseCode
-                );
-        }
-    }
-    private function getJWTForNewUser(
+        private function getJWTForNewUser(
         string $mobile_number,
         int $responseCode = ResponseInterface::HTTP_OK
     )
@@ -409,7 +204,7 @@ class Auth extends BaseController
             $model = new UserModel();
             $user = $model->findUserByUserNumber($mobile_number);
             // echo json_encode($user);
-            unset($user['otp']);
+           
 
             helper('jwt');
 
@@ -431,5 +226,4 @@ class Auth extends BaseController
                 );
         }
     }
-    
 }

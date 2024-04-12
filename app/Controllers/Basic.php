@@ -8,6 +8,17 @@ use Exception;
 
 class Basic extends BaseController
 {
+    public function playindex()
+    {
+        $model = new BasicModel();
+
+        return $this->getResponse(
+            [
+                'message' => 'Post retrieved successfully',
+                'post' => $model->play_basic()
+            ]
+        );
+    }
     public function index()
     {
         $model = new BasicModel();
@@ -19,74 +30,18 @@ class Basic extends BaseController
             ]
         );
     }
-    public function latest_log($id)
+    public function lot()
     {
-        $model = new UserAModel();
+        $model = new BasicModel();
 
         return $this->getResponse(
             [
                 'message' => 'Post retrieved successfully',
-                'post' => $model->findUserByUserId($id)
+                'post' => $model->lot()
             ]
         );
     }
-    
-    public function rate()
-    {
-        $model = new BasicModel();
-        $rate =$model->rate();
-        //    echo "<pre>"; print_r($rate);
-        // echo "</pre>";
-        return $this->getResponse(
-            [
-                'message' => 'Post retrieved successfully',
-                'rate' => $rate
-            ]
-        );
-    }
-    public function rates()
-    {
-        $model = new BasicModel();
-        $rate =$model->rates();
-        //    echo "<pre>"; print_r($rate);
-        // echo "</pre>";
-        return $this->getResponse(
-            [
-                'message' => 'Post retrieved successfully',
-                'rate' => $rate
-            ]
-        );
-    }
-    public function rate_u()
-    {
-        $input = $this->getRequestInput($this->request);
-        $model = new BasicModel();
-        $rate =$model->rate_u($input);
-        //    echo "<pre>"; print_r($rate);
-        // echo "</pre>";
-        return $this->getResponse(
-            [
-                'message' => 'Post retrieved successfully',
-                'rate' => $rate
-            ]
-        );
-    }
-    public function rates_u()
-    {
-        $input = $this->getRequestInput($this->request);
-        $model = new BasicModel();
-        $rate =$model->rates_u($input);
-        //    echo "<pre>"; print_r($rate);
-        // echo "</pre>";
-        return $this->getResponse(
-            [
-                'message' => 'Post retrieved successfully',
-                'rate' => $rate
-            ]
-        );
-    }
-   
-    public function update($id)
+        public function update($id)
     {
         try {
             $model = new BasicModel();

@@ -1,0 +1,21 @@
+CRITICAL - 2023-11-06 07:33:09 --> Undefined variable $data
+in APPPATH/Controllers/Win.php on line 141.
+ 1 APPPATH/Controllers/Win.php(141): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', '/home4/maala7ea/app/app/Controllers/Win.php', 141)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->bid_win()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-06 07:33:58 --> Undefined variable $data
+in APPPATH/Controllers/Win.php on line 141.
+ 1 APPPATH/Controllers/Win.php(141): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', '/home4/maala7ea/app/app/Controllers/Win.php', 141)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->bid_win()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-06 07:34:06 --> Undefined variable $data
+in APPPATH/Controllers/Win.php on line 141.
+ 1 APPPATH/Controllers/Win.php(141): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', '/home4/maala7ea/app/app/Controllers/Win.php', 141)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Win->bid_win()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Win))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()

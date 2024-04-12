@@ -11,7 +11,7 @@ class UserModel extends Model
    
     protected $allowedFields = [
         'mobile_number',
-        'otp',
+        
     ];
     protected $updatedField = 'updated_at';
 
@@ -47,11 +47,11 @@ class UserModel extends Model
       
         $userId = $id; // Replace with the desired user_id
 
-        $builder = $this->db->table('users');
-        $builder->select('users.*, wallet.*, transactions.*');
-        $builder->join('wallet', 'users.user_id = wallet.user_id', 'inner');
+        $builder = $this->db->table('user_log');
+        $builder->select('user_log.*, wallet.*, transactions.*');
+        $builder->join('wallet', 'user_log.user_id = wallet.user_id', 'inner');
         $builder->join('transactions', 'wallet.wallet_id = transactions.wallet_id', 'inner');
-        $builder->where('users.user_id', $userId); // Replace 1 with the desired user_id
+        $builder->where('user_log.user_id', $userId); // Replace 1 with the desired user_id
         $query = $builder->get();
       
         echo "1";
@@ -63,7 +63,27 @@ class UserModel extends Model
         } else{
             return $user;
         }
-        
+            
+
+       
+    }
+    public function findUserByUserNumber1(string $mobile_number)
+    {
+       
+        $user = $this
+            ->asArray()
+            ->where(['mobile_number' => $mobile_number])
+            ->first();
+            
+        if (!$user){
+            return 0;
+           
+        } else{
+            return 1;
+        }
+            
+
+       
     }
     public function findUserByUserNumber(string $mobile_number)
     {
@@ -78,7 +98,10 @@ class UserModel extends Model
            
         } else{
             return $user;
-        }       
+        }
+            
+
+       
     }
     
     public function findAll(int $limit = 0, int $offset = 0)
@@ -115,25 +138,7 @@ class UserModel extends Model
 
         return $eventData['data'];
     }
-    public function findUserByUserNumber1(string $mobile_number)
-    {
-       
-        $user = $this
-            ->asArray()
-            ->where(['mobile_number' => $mobile_number])
-            ->first();
-            
-        if (!$user){
-            return 0;
-           
-        } else{
-            return 1;
-        }
-            
-
-       
-    }
-    public function findUserById($id)
+       public function findUserById($id)
     {
         $user = $this
             ->asArray()
@@ -145,21 +150,27 @@ class UserModel extends Model
 
         return $user;
     }
+     
     
     public function save($data): bool
     {
-        
-    $mobile_number = $data['mobile_number'];
-    $otp= $data['otp'];
-    $role= $data['role'];
+       
+    $mobile_number = $data;
+    // echo "<pre>"; print_r($mobile_number); echo "</pre>";
+    // die();
     $status = "1";
     
-    
+   $points = '0';
     $date = new DateTime();
     $date = date_default_timezone_set('Asia/Kolkata');
 
-    $date1 = date("m-d-Y h:i A");
-    $sql = "INSERT INTO `users`(`mobile_number`, `otp`, `role`, `status`, `created_at`, `updated_at`) VALUES ('$mobile_number',' $otp','$role','$status','$date1','$date1')";
+    $date1 = date('Y-m-d H:i:s');
+    $sql = "INSERT INTO `users`(`mobile_number`, `created_at`, `updated_at`, `last_active`, `points`, `status`) VALUES ('$mobile_number','$date1','$date1','$date1','$points','$status')";
+
+
+//     echo "<pre>"; print_r($sql); echo "</pre>";
+// die();
+
         $post = $this->db->query($sql);
         // echo json_encode($post);
     if (!$post) 
@@ -169,9 +180,38 @@ class UserModel extends Model
 
        
     }
-   
-   
+
     
+    public function save_profile($data)
+    {
+        // echo json_encode($data);
+        
+    $user_id = $data['user_id'];
+    $full_name = $data['full_name'];
+    $email = $data['email'];
+    $profile_picture = $data['profile_picture'];
+    $address = $data['address'];
+    $city = $data['city'];
+    $country = $data['country'];
+    $interested_fields = $data['interested_fields'];
+    $other_personal_details = $data['other_personal_details'];
+    
+    $date = new DateTime();
+    $date = date_default_timezone_set('Asia/Kolkata');
+    $date = date("m-d-Y h:i A");
+    $sql = "INSERT INTO `user_profiles`( `user_id`, `full_name`, `email`, `profile_picture`, `address`, `city`, `country`, `interested_fields`, `other_personal_details`, `created_at`, `updated_at`) VALUES ('$user_id','$full_name','$email','$profile_picture','$address','$city','$country','$interested_fields','$other_personal_details','$date','$date')";
+    // echo json_encode($sql);
+    // echo json_encode($data);
+    //     die();
+    $post = $this->db->query($sql);
+      
+    if (!$post){
+        return false;
+    }else{
+        return $post;
+    }
+
+    }
     public function admin_update($id ,$data): bool
     {
 
@@ -209,11 +249,11 @@ class UserModel extends Model
 
         $user_name = $data['user_name'];
       
-        $mobile_number = $data['mobile_number'];
+        $user_number = $data['user_number'];
         $status = $data['status'];
-        $sql = "UPDATE `users` SET  
+        $sql = "UPDATE `user_log` SET  
         user_name = '$user_name',
-        mobile_number = '$mobile_number',
+        user_number = '$user_number',
         status = '$status'
           WHERE user_id = $id";
         // echo "<pre>"; print_r($sql);
@@ -237,7 +277,7 @@ class UserModel extends Model
         }
 
         $status = $data['status'];
-        $sql = "UPDATE `users` SET  
+        $sql = "UPDATE `user_log` SET  
         status = '$status'
           WHERE user_id = $id";
         // echo "<pre>"; print_r($sql);
@@ -250,7 +290,7 @@ class UserModel extends Model
 
        
     }
-    public function update_otp($id ,$data): bool
+    public function update_pin($id ,$data): bool
     {
 
       // echo $id;
@@ -260,9 +300,9 @@ class UserModel extends Model
             return true;
         }
 
-        $pin = $data['otp'];
-        $sql = "UPDATE `users` SET  
-        otp = '$pin'
+        $pin = $data['pin'];
+        $sql = "UPDATE `user_log` SET  
+        pin = '$pin'
           WHERE user_id = $id";
         // echo "<pre>"; print_r($sql);
         // echo "</pre>";
@@ -273,18 +313,6 @@ class UserModel extends Model
     return $post;
 
        
-    }
-    public function deletedata($id)
-    {
-        $post = $this
-            ->asArray()
-            ->where(['id' => $id])
-            ->delete();
-
-        if (!$post) 
-            throw new Exception('user does not exist for specified id');
-
-        return $post;
     }
 }
 

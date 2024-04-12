@@ -34,30 +34,15 @@ $routes->set404Override();
 //user 
 $routes->get('/', 'Home::index');
 
-
-
-
-$routes->post('/auth/admin_register', 'Auth::admin_register');
-$routes->post('/auth/admin_login', 'Auth::admin_login');
+$routes->post('/auth/number_check', 'Auth::check_mobile');
 $routes->post('/auth/login', 'Auth::login');
-$routes->post('/auth/First_login', 'Auth::First_login');
+$routes->post('/auth/register', 'Auth::register');
 $routes->post('/auth/user_update/(:num)','Auth::user_update/$1');
-$routes->post('/auth/delete/(:num)','Cart::distroy/$1');  // user deleted
 $routes->post('/auth/user_pin_update/(:num)','Auth::user_up_pin/$1');
 $routes->post('/auth/adminuser_update/(:num)','Auth::adminuser_update/$1');
 
+// game 
 
-// for otp
-$routes->post('/basic/otp', 'Basic::otp_send');
-
-$routes->post('/basic/otp_v', 'Basic::otp_val');
-
-
-
-/*
- *Admin Routing
- * --------------------------------------------------------------------
-*/
 
 
 /*

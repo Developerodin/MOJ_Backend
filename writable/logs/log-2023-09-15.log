@@ -1,88 +1,413 @@
-ERROR - 2023-09-15 23:57:23 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:174
-Stack trace:
-#0 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'apis', 3306, '', 0)
-#1 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
-#2 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
-#3 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
-#4 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
-#5 C:\Users\com\Desktop\ml_back\app\Models\PostModel.php(101): CodeIgniter\Model->doFindAll(0, 0)
-#6 C:\Users\com\Desktop\ml_back\app\Controllers\Result.php(166): App\Models\PostModel->findAll()
-#7 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Result->index()
-#8 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
-#9 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#10 C:\Users\com\Desktop\ml_back\public\index.php(73): CodeIgniter\CodeIgniter->run()
-#11 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\De...')
-#12 {main}
-
-Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:218
-Stack trace:
-#0 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
-#1 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
-#2 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
-#3 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
-#4 C:\Users\com\Desktop\ml_back\app\Models\PostModel.php(101): CodeIgniter\Model->doFindAll(0, 0)
-#5 C:\Users\com\Desktop\ml_back\app\Controllers\Result.php(166): App\Models\PostModel->findAll()
-#6 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Result->index()
-#7 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
-#8 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#9 C:\Users\com\Desktop\ml_back\public\index.php(73): CodeIgniter\CodeIgniter->run()
-#10 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\De...')
-#11 {main}
-CRITICAL - 2023-09-15 23:57:23 --> Unable to connect to the database.
-Main connection [MySQLi]: No connection could be made because the target machine actively refused it
-in SYSTEMPATH\Database\BaseConnection.php on line 427.
- 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
- 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
-FROM `g_service`', [], false)
- 3 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
- 4 APPPATH\Models\PostModel.php(101): CodeIgniter\Model->doFindAll(0, 0)
- 5 APPPATH\Controllers\Result.php(166): App\Models\PostModel->findAll()
- 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Result->index()
- 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
- 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-ERROR - 2023-09-15 23:58:35 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:174
-Stack trace:
-#0 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'apis', 3306, '', 0)
-#1 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
-#2 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
-#3 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
-#4 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
-#5 C:\Users\com\Desktop\ml_back\app\Models\PostModel.php(101): CodeIgniter\Model->doFindAll(0, 0)
-#6 C:\Users\com\Desktop\ml_back\app\Controllers\Result.php(166): App\Models\PostModel->findAll()
-#7 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Result->index()
-#8 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
-#9 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#10 C:\Users\com\Desktop\ml_back\public\index.php(73): CodeIgniter\CodeIgniter->run()
-#11 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\De...')
-#12 {main}
-
-Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:218
-Stack trace:
-#0 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
-#1 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
-#2 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
-#3 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
-#4 C:\Users\com\Desktop\ml_back\app\Models\PostModel.php(101): CodeIgniter\Model->doFindAll(0, 0)
-#5 C:\Users\com\Desktop\ml_back\app\Controllers\Result.php(166): App\Models\PostModel->findAll()
-#6 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Result->index()
-#7 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
-#8 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#9 C:\Users\com\Desktop\ml_back\public\index.php(73): CodeIgniter\CodeIgniter->run()
-#10 C:\Users\com\Desktop\ml_back\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\De...')
-#11 {main}
-CRITICAL - 2023-09-15 23:58:35 --> Unable to connect to the database.
-Main connection [MySQLi]: No connection could be made because the target machine actively refused it
-in SYSTEMPATH\Database\BaseConnection.php on line 427.
- 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
- 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
-FROM `g_service`', [], false)
- 3 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
- 4 APPPATH\Models\PostModel.php(101): CodeIgniter\Model->doFindAll(0, 0)
- 5 APPPATH\Controllers\Result.php(166): App\Models\PostModel->findAll()
- 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Result->index()
- 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
- 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
+CRITICAL - 2023-09-15 13:11:15 --> Result does not exist for specified id
+in APPPATH/Models/ResultModel.php on line 192.
+ 1 APPPATH/Controllers/Result.php(290): App\Models\ResultModel->findGByIdA('3')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->by_g_id('3')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:24:58 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:25:00 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:25:02 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:25:02 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:25:04 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:25:04 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:25:04 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:25:05 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:25:05 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:25:05 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:25:06 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:25:06 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:27:38 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:27:55 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:28:07 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:28:15 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:28:34 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:29:23 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:29:52 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:30:33 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:30:35 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:30:36 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:30:38 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:31:24 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:31:39 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:32:12 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:32:42 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:33:32 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:33:54 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:35:31 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:35:59 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:36:26 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:36:53 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 22:37:13 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:12:42 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:13:19 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:13:54 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:22:12 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:22:40 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:22:54 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:23:13 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:47 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:50 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:50 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:53 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:54 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:54 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:54 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:55 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:55 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:56 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:56 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:56 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:25:57 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:26:00 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:26:37 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:26:50 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-15 23:27:17 --> Undefined variable $end
+in APPPATH/Controllers/Result.php on line 68.
+ 1 APPPATH/Controllers/Result.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $end', '/home4/maala7ea/app/app/Controllers/Result.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index1()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()

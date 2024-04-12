@@ -12,28 +12,37 @@ class CreateUsersTable extends Migration
             'id' => [
                 'type' => 'INT',
                 'unsigned' => true,
-                'auto_increment' => true
+                'auto_increment' => true,
             ],
+            
             'mobile_number' => [
                 'type' => 'VARCHAR',
-                'constraint' => 255
-            ],
-            'otp' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255
+                'constraint' => 20,
             ],
             
             'created_at' => [
                 'type' => 'DATETIME',
-                'null' => true
+                'null' => true,
             ],
             'updated_at' => [
                 'type' => 'DATETIME',
-                'null' => true
-            ]
+                'null' => true,
+            ],
+            'last_active' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
+            'points' => [
+                'type' => 'INT',
+                'default' => 0,
+            ],
+            'status' => [
+                'type' => 'ENUM',
+                'constraint' => ['Active', 'Inactive'],
+                'default' => 'Active',
+            ],
         ]);
-
-        $this->forge->addPrimaryKey('id');
+        $this->forge->addKey('id', true);
         $this->forge->createTable('users');
     }
 

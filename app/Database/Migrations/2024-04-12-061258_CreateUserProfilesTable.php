@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateHoteliersTable extends Migration
+class CreateUserProfilesTable extends Migration
 {
     public function up()
     {
@@ -12,25 +12,25 @@ class CreateHoteliersTable extends Migration
             'id' => [
                 'type' => 'INT',
                 'unsigned' => true,
-                'auto_increment' => true
+                'auto_increment' => true,
             ],
             'user_id' => [
                 'type' => 'INT',
-                'unsigned' => true
-            ],'name' => [
+                'unsigned' => true,
+            ],
+            'full_name' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
+                'null' => true,
             ],
-            'role' => [
+            'email' => [
                 'type' => 'VARCHAR',
-                'constraint' => 255
+                'constraint' => 255,
+                'null' => true,
             ],
-            'mobile_number' => [
+            'profile_picture' => [
                 'type' => 'VARCHAR',
-                'constraint' => 20,
-            ],
-            'company_details' => [
-                'type' => 'TEXT',
+                'constraint' => 255,
                 'null' => true,
             ],
             'address' => [
@@ -47,22 +47,11 @@ class CreateHoteliersTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
-            'gst_number' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
+            'interested_fields' => [
+                'type' => 'TEXT',
                 'null' => true,
             ],
-            'field_of_company' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'image' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'contact_information' => [
+            'other_personal_details' => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
@@ -74,23 +63,14 @@ class CreateHoteliersTable extends Migration
                 'type' => 'DATETIME',
                 'null' => true,
             ],
-            'last_active' => [
-                'type' => 'DATETIME',
-                'null' => true,
-            ],
-            'status' => [
-                'type' => 'ENUM',
-                'constraint' => ['Active', 'Inactive'],
-                'default' => 'Active',
-            ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('hoteliers');
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('user_profiles');
     }
-
 
     public function down()
     {
-        $this->forge->dropTable('hoteliers');
+        $this->forge->dropTable('user_profiles');
     }
 }

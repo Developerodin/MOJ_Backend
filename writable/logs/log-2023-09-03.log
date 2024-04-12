@@ -1,24 +1,320 @@
-CRITICAL - 2023-09-03 12:45:49 --> Trying to access array offset on value of type bool
-in APPPATH\Controllers\Result.php on line 103.
- 1 APPPATH\Controllers\Result.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type bool', 'C:\\Users\\com\\Desktop\\ml_back\\app\\Controllers\\Result.php', 103)
- 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Result->index()
- 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
- 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
- 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-CRITICAL - 2023-09-03 07:45:19 --> Undefined array key "g_id"
-in APPPATH\Controllers\Result.php on line 339.
- 1 APPPATH\Controllers\Result.php(339): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "g_id"', 'C:\\Users\\com\\Desktop\\ml_back\\app\\Controllers\\Result.php', 339)
- 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Result->store()
- 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
- 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
- 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
-CRITICAL - 2023-09-03 07:45:36 --> Undefined array key "g_id"
-in APPPATH\Controllers\Result.php on line 339.
- 1 APPPATH\Controllers\Result.php(339): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "g_id"', 'C:\\Users\\com\\Desktop\\ml_back\\app\\Controllers\\Result.php', 339)
- 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Result->store()
- 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
- 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 FCPATH\index.php(73): CodeIgniter\CodeIgniter->run()
- 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\com\\Desktop\\ml_back\\public\\index.php')
+CRITICAL - 2023-09-03 12:42:09 --> Trying to access array offset on value of type bool
+in APPPATH/Controllers/Result.php on line 103.
+ 1 APPPATH/Controllers/Result.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type bool', '/home4/maala7ea/app/app/Controllers/Result.php', 103)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 12:42:25 --> Trying to access array offset on value of type bool
+in APPPATH/Controllers/Result.php on line 103.
+ 1 APPPATH/Controllers/Result.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type bool', '/home4/maala7ea/app/app/Controllers/Result.php', 103)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 12:43:07 --> Trying to access array offset on value of type bool
+in APPPATH/Controllers/Result.php on line 103.
+ 1 APPPATH/Controllers/Result.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type bool', '/home4/maala7ea/app/app/Controllers/Result.php', 103)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 12:43:31 --> Trying to access array offset on value of type bool
+in APPPATH/Controllers/Result.php on line 103.
+ 1 APPPATH/Controllers/Result.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type bool', '/home4/maala7ea/app/app/Controllers/Result.php', 103)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 12:43:43 --> Trying to access array offset on value of type bool
+in APPPATH/Controllers/Result.php on line 103.
+ 1 APPPATH/Controllers/Result.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type bool', '/home4/maala7ea/app/app/Controllers/Result.php', 103)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 12:45:29 --> Trying to access array offset on value of type bool
+in APPPATH/Controllers/Result.php on line 103.
+ 1 APPPATH/Controllers/Result.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type bool', '/home4/maala7ea/app/app/Controllers/Result.php', 103)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 13:24:02 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 111.
+ 1 APPPATH/Controllers/Result.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 111)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 13:24:16 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 111.
+ 1 APPPATH/Controllers/Result.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 111)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 13:27:16 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 111.
+ 1 APPPATH/Controllers/Result.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 111)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 13:27:19 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 111.
+ 1 APPPATH/Controllers/Result.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 111)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 13:27:32 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 111.
+ 1 APPPATH/Controllers/Result.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 111)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 13:28:29 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 111.
+ 1 APPPATH/Controllers/Result.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 111)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 13:29:19 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 111.
+ 1 APPPATH/Controllers/Result.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 111)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 13:29:33 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 111.
+ 1 APPPATH/Controllers/Result.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 111)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 13:30:46 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 111.
+ 1 APPPATH/Controllers/Result.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 111)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 13:30:51 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 111.
+ 1 APPPATH/Controllers/Result.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 111)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 14:44:33 --> Undefined array key "Open_Panna"
+in APPPATH/Controllers/Result.php on line 133.
+ 1 APPPATH/Controllers/Result.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "Open_Panna"', '/home4/maala7ea/app/app/Controllers/Result.php', 133)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 14:44:33 --> Undefined array key "Open_Panna"
+in APPPATH/Controllers/Result.php on line 133.
+ 1 APPPATH/Controllers/Result.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "Open_Panna"', '/home4/maala7ea/app/app/Controllers/Result.php', 133)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 14:44:53 --> Undefined array key "Open_Panna"
+in APPPATH/Controllers/Result.php on line 133.
+ 1 APPPATH/Controllers/Result.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "Open_Panna"', '/home4/maala7ea/app/app/Controllers/Result.php', 133)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 14:45:02 --> Undefined array key "Open_Panna"
+in APPPATH/Controllers/Result.php on line 133.
+ 1 APPPATH/Controllers/Result.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "Open_Panna"', '/home4/maala7ea/app/app/Controllers/Result.php', 133)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 14:45:27 --> Undefined array key "Open_Panna"
+in APPPATH/Controllers/Result.php on line 133.
+ 1 APPPATH/Controllers/Result.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "Open_Panna"', '/home4/maala7ea/app/app/Controllers/Result.php', 133)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 14:45:57 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 214.
+ 1 APPPATH/Controllers/Result.php(214): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 214)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 14:46:10 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 214.
+ 1 APPPATH/Controllers/Result.php(214): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 214)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 14:46:28 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 214.
+ 1 APPPATH/Controllers/Result.php(214): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 214)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 14:46:50 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 214.
+ 1 APPPATH/Controllers/Result.php(214): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 214)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-03 14:47:20 --> Undefined variable $open_date
+in APPPATH/Controllers/Result.php on line 214.
+ 1 APPPATH/Controllers/Result.php(214): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $open_date', '/home4/maala7ea/app/app/Controllers/Result.php', 214)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-09-03 09:42:32 --> [DEPRECATED] json_decode(): Passing null to parameter #1 ($json) of type string is deprecated in APPPATH/Controllers/BaseController.php on line 77.
+ 1 APPPATH/Controllers/BaseController.php(77): json_decode(null, true)
+ 2 APPPATH/Controllers/Result.php(592): App\Controllers\BaseController->getRequestInput(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Result->destroy('1')
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Result))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-09-03 11:47:57 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE bs_id = 1' at line 28 in /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `basic_t...', 0)
+#1 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `basic_t...')
+#2 /home4/maala7ea/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `basic_t...')
+#3 /home4/maala7ea/app/app/Models/BasicModel.php(136): CodeIgniter\Database\BaseConnection->query('UPDATE `basic_t...')
+#4 /home4/maala7ea/app/app/Controllers/Basic.php(58): App\Models\BasicModel->update_num('1', Array)
+#5 /home4/maala7ea/app/vendor/codeigniter4/framework/system/CodeIgniter.php(932): App\Controllers\Basic->update('1')
+#6 /home4/maala7ea/app/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Basic))
+#7 /home4/maala7ea/app/vendor/codeigniter4/framework/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home4/maala7ea/public_html/index.php(73): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-09-03 11:47:57 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE bs_id = 1' at line 28
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `basic_table` SET  
+        whatsapp= \'9024522238\',
+        ac_holder_name= \'\',
+        ac_number= \'\',
+        ifse_code= \'\',
+        app_link= \'\',
+        share_msg= \'\',
+        am_share_msg= \'\',
+        am_show= \'\',
+        max_add= \'\',
+        max_wd= \'\',
+        min_tran= \'\',
+        max_tran= \'\',
+        min_bid= \'\',
+        max_bid= \'\',
+        well_bonus= \'\',
+        wd_open= \'\',
+        wd_close= \'\',
+        email= \'\',
+        telegram= \'9024522238\',
+        min_wd= \'200\',
+        min_add= \'1001\',
+        upi_id= \'merchant547747.augp@aubank\',
+        trans_id= \'12345\',
+        m_name= \'merchant547747\',
+        merchant_code= \'0000\',
+       
+         WHERE bs_id = 1', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `basic_table` SET  
+        whatsapp= \'9024522238\',
+        ac_holder_name= \'\',
+        ac_number= \'\',
+        ifse_code= \'\',
+        app_link= \'\',
+        share_msg= \'\',
+        am_share_msg= \'\',
+        am_show= \'\',
+        max_add= \'\',
+        max_wd= \'\',
+        min_tran= \'\',
+        max_tran= \'\',
+        min_bid= \'\',
+        max_bid= \'\',
+        well_bonus= \'\',
+        wd_open= \'\',
+        wd_close= \'\',
+        email= \'\',
+        telegram= \'9024522238\',
+        min_wd= \'200\',
+        min_add= \'1001\',
+        upi_id= \'merchant547747.augp@aubank\',
+        trans_id= \'12345\',
+        m_name= \'merchant547747\',
+        merchant_code= \'0000\',
+       
+         WHERE bs_id = 1')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `basic_table` SET  
+        whatsapp= \'9024522238\',
+        ac_holder_name= \'\',
+        ac_number= \'\',
+        ifse_code= \'\',
+        app_link= \'\',
+        share_msg= \'\',
+        am_share_msg= \'\',
+        am_show= \'\',
+        max_add= \'\',
+        max_wd= \'\',
+        min_tran= \'\',
+        max_tran= \'\',
+        min_bid= \'\',
+        max_bid= \'\',
+        well_bonus= \'\',
+        wd_open= \'\',
+        wd_close= \'\',
+        email= \'\',
+        telegram= \'9024522238\',
+        min_wd= \'200\',
+        min_add= \'1001\',
+        upi_id= \'merchant547747.augp@aubank\',
+        trans_id= \'12345\',
+        m_name= \'merchant547747\',
+        merchant_code= \'0000\',
+       
+         WHERE bs_id = 1')
+ 4 APPPATH/Models/BasicModel.php(136): CodeIgniter\Database\BaseConnection->query('UPDATE `basic_table` SET  
+        whatsapp= \'9024522238\',
+        ac_holder_name= \'\',
+        ac_number= \'\',
+        ifse_code= \'\',
+        app_link= \'\',
+        share_msg= \'\',
+        am_share_msg= \'\',
+        am_show= \'\',
+        max_add= \'\',
+        max_wd= \'\',
+        min_tran= \'\',
+        max_tran= \'\',
+        min_bid= \'\',
+        max_bid= \'\',
+        well_bonus= \'\',
+        wd_open= \'\',
+        wd_close= \'\',
+        email= \'\',
+        telegram= \'9024522238\',
+        min_wd= \'200\',
+        min_add= \'1001\',
+        upi_id= \'merchant547747.augp@aubank\',
+        trans_id= \'12345\',
+        m_name= \'merchant547747\',
+        merchant_code= \'0000\',
+       
+         WHERE bs_id = 1')
+ 5 APPPATH/Controllers/Basic.php(58): App\Models\BasicModel->update_num('1', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Basic->update('1')
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Basic))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()

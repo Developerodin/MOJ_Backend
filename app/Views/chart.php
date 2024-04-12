@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +5,9 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Kalyan Dhan Laxmi</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <title>Maalaxmigame</title>
+     <meta name="Description" content="KAlAYAN NET - SATTA MATKA | KALYAN | KALYAN MATKA NUMBER | MATKA RESULT | WWW.MATKA.COM | SATTAMATKA.COM |KALYAN MAIN MATKA TIPS | TODAY MATKA LUCKY NUMBER | SATTA NUMBER | SATTAMATKA CHART | KALYAN FAST RESULT | ONLINE MATKA SATTA RESULTS | DPBOSS | INDIAN MATKA | SATTA KALYAN | MADHUR MATKA | DPBOSS ONLINE - DP BOSS SATTA PLAY DPBOSS GURU">
+  <meta name="Keywords" content="dpboss, Satta matka, kalyan, matka result, kalyan matka, kalyan, matka.com, sattamatka.com, matka tips, today satta number, matka chart, indian matka, satta chart, madhur matka, dpboss, aaj ka satta">
 
     <!-- Favicons -->
     <link href="" rel="icon">
@@ -55,7 +54,7 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             <a href="../#" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="image/logo.png" style="max-width:250px;" alt="">
+              <img src="assets/logo.png" style="max-width:250px;" alt="">
                 <!-- <h1>ChargeSol<span>.</span></h1>  -->
             </a>
             <nav id="navbar" class="navbar">
@@ -129,7 +128,7 @@
         .pannel-details-contnet .date-con {
             padding: 10px 4px;
             background: #f6f6f6;
-            color: #164863;
+            color: #011128;
             font-size: 14px;
             border: solid 1px #fff;
             flex: 0 0 12.4%;
@@ -140,7 +139,7 @@
         .thdate {
             padding: 10px 4px;
             background: #f6f6f6;
-            color: #164863;
+            color: #011128;
             font-size: 14px;
             border: solid 1px #fff;
             flex: 0 0 12.4%;
@@ -150,7 +149,7 @@
     </style>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <div class="kalyan_chart" style="min-height:100vh;">
+    <div class="kalyan_chart">
         <div class="center-table">
             <div class="title-onilne text-center pb-3">
                 <h4 class="title-black mt-5 pb-3">
@@ -282,7 +281,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="footer-copy text-center">
-                        <p class="py-3"><a href="">@2024 Kalyan Dhan Laxmi.in</a></p>
+                        <p class="py-3"><a href="">@2023 Maalaxmigame.site</a></p>
                     </div>
                 </div>
             </div>
