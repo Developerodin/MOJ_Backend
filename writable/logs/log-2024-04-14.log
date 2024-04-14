@@ -38,3 +38,51 @@ in APPPATH\Controllers\Auth.php on line 84.
  4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-14 04:58:33 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Auth.php on line 203.
+ 1 APPPATH\Controllers\Auth.php(38): App\Controllers\Auth->getJWTForUser('0987654321')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-14 04:58:42 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Auth.php on line 203.
+ 1 APPPATH\Controllers\Auth.php(38): App\Controllers\Auth->getJWTForUser('0987654321')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-14 05:03:36 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Auth.php on line 203.
+ 1 APPPATH\Controllers\Auth.php(38): App\Controllers\Auth->getJWTForUser('0987654321')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-14 05:04:51 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Auth.php on line 203.
+ 1 APPPATH\Controllers\Auth.php(38): App\Controllers\Auth->getJWTForUser('0987654321')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-14 05:05:21 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Auth.php on line 203.
+ 1 APPPATH\Controllers\Auth.php(38): App\Controllers\Auth->getJWTForUser('0987654321')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-14 05:06:44 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Auth.php on line 203.
+ 1 APPPATH\Controllers\Auth.php(38): App\Controllers\Auth->getJWTForUser('0987654321')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')

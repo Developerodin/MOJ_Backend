@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use App\Models\JobModel;
 
 use App\Models\BasicModel;
 
@@ -197,10 +198,19 @@ class Auth extends BaseController
 if($userd == null) {
     $userd = $model->getUserHData($user['id']);
 }
-            // echo "<pre>";
-            // print_r($userd);
-            // echo "</pre>";
-            // die();
+$model11 = new JobModel();
+
+// if($userd['role'] == 'Hoteliers'){
+//     $jobdata= $model11->findAll();
+// }else{
+//     $jobdata= $model11->findAll();
+// }
+// echo "<pre>";
+// print_r($jobdata);
+// echo "</pre>";
+// die();
+
+          
 
 
             // unset('1234');
@@ -211,6 +221,7 @@ if($userd == null) {
                     [
                         'message' => 'User authenticated successfully',
                         'user' => $userd,
+                        // 'Job-Data' => $jobdata,
 
                         'access_token' => getSignedJWTForUser($mobile_Number)
                     ]

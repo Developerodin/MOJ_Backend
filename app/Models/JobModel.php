@@ -46,7 +46,7 @@ class JobModel extends Model
     
 
     /// get user information
-    public function getUserData($userId)
+    public function getJobData($userId)
     {
         
         $builder = $this->db->table('job_listings');
@@ -60,10 +60,10 @@ class JobModel extends Model
         // Get the result
         $user = $query->getResult();
         
-        // echo "<pre>";
-        // print_r($user[0]);
-        // echo "</pre>";
-        // die();
+        echo "<pre>";
+        print_r($user);
+        echo "</pre>";
+        die();
         // Check if user data is found
         if (!$user) {
             return null;
