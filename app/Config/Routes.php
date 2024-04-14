@@ -41,8 +41,12 @@ $routes->post('/auth/user_update/(:num)','Auth::user_update/$1');
 $routes->post('/auth/user_pin_update/(:num)','Auth::user_up_pin/$1');
 $routes->post('/auth/adminuser_update/(:num)','Auth::adminuser_update/$1');
 
-// game 
-
+// Job 
+$routes->get('/job', 'Job::index');
+$routes->post('/job/store', 'Job::store');
+$routes->post('/job/Byid/(:num)','Job::show/$1');
+$routes->post('/job/update/(:num)','Job::update/$1');
+$routes->post('/job/delete/(:num)','Job::distroy/$1');  // user deleted
 
 
 /*
