@@ -57,6 +57,10 @@ class Auth extends BaseController
             // echo "</pre>";
 
             if ($input['role'] == 'Hoteliers') {
+                // echo "<pre>";
+                // print_r("h");
+                // echo "</pre>";
+                // die();
                 $data = [
 
                     'user_id' => $foruid['id'],
@@ -72,15 +76,16 @@ class Auth extends BaseController
                     'field_of_company' => $input['field_of_company'],
                     'contact_information' => $input['contact_information'],
                 ];
-
+           
                 $user1 = $model->save_hprofile($data);
+                
             } else {
-
+                
                 $data = [
 
                     'user_id' => $foruid['id'],
                     'mobile_number' => $input['mobile_number'],
-                    'full_name' => $input['full_name'],
+                    'name' => $input['name'],
                     'email' => $input['email'],
                     'role' => $input['role'],
                     'profile_picture' => $input['profile_picture'],
@@ -90,17 +95,20 @@ class Auth extends BaseController
                     'interested_fields' => $input['interested_fields'],
                     'other_personal_details' => $input['other_personal_details'],
                 ];
-
+// echo "<pre>";
+//             print_r($data);
+//             echo "</pre>";
+//             die();
                 $user1 = $model->save_profile($data);
             }
-
+            
             return $this
                 ->getResponse(
                     [
                         'message' => 'User Register successfully',
                         'user' => $user1,
 
-                        'access_token' => getSignedJWTForUser($input['mobile_number'])
+                        
                     ]
                 );
 
@@ -109,7 +117,7 @@ class Auth extends BaseController
         } else {
             $user1 = null;
             $response =
-                $this->response->setStatusCode(500)->setBody('user allrady in list');
+                $this->response->setStatusCode(400)->setBody('user allrady in list');
             return $response;
         }
        
@@ -186,12 +194,16 @@ class Auth extends BaseController
 
             $user = $model->findUserByUserNumber($mobile_Number);
             $userd = $model->getUserData($user['id']);
+if($userd == null) {
+    $userd = $model->getUserHData($user['id']);
+}
+            // echo "<pre>";
+            // print_r($userd);
+            // echo "</pre>";
+            // die();
 
-            echo "<pre>";
-            print_r($userd);
-            echo "</pre>";
-            die();
 
+            // unset('1234');
             helper('jwt');
 
             return $this

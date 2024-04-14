@@ -32,13 +32,13 @@ function validateJWTFromRequest(string $encodedToken)
     
 }
 
-function getSignedJWTForUser(string $user_number)
+function getSignedJWTForUser(string $mobile_number)
 {
     $issuedAtTime = time();
     $tokenTimeToLive = getenv('JWT_TIME_TO_LIVE');
     $tokenExpiration = $issuedAtTime + $tokenTimeToLive;
     $payload = [
-        'user_number' => $user_number,
+        'mobile_number' => $mobile_number,
         'iat' => $issuedAtTime,
         'exp' => $tokenExpiration,
     ];

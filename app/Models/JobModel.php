@@ -6,9 +6,9 @@ use CodeIgniter\Model;
 use Exception;
 use \Datetime;
 
-class UserModel extends Model
+class JobModel extends Model
 {
-    protected $table = 'users';
+    protected $table = 'job_listings';
 
     protected $allowedFields = [
         'mobile_number',
@@ -43,99 +43,45 @@ class UserModel extends Model
     {
         return password_hash($plaintextPassword, PASSWORD_BCRYPT);
     }
-    public function user_a($id)
+    
+
+    /// get user information
+    public function getUserData($userId)
     {
-
-        $userId = $id; // Replace with the desired user_id
-
-        $builder = $this->db->table('user_log');
-        $builder->select('user_log.*, wallet.*, transactions.*');
-        $builder->join('wallet', 'user_log.user_id = wallet.user_id', 'inner');
-        $builder->join('transactions', 'wallet.wallet_id = transactions.wallet_id', 'inner');
-        $builder->where('user_log.user_id', $userId); // Replace 1 with the desired user_id
+        
+        $builder = $this->db->table('job_listings');
+        $builder->select(' job_listings.*');
+       
+        $builder->where('job_listings.hotelier_id', $userId);
         $query = $builder->get();
 
-        echo "1";
-        $user = $query->getResult();
 
+
+        // Get the result
+        $user = $query->getResult();
+        
+        // echo "<pre>";
+        // print_r($user[0]);
+        // echo "</pre>";
+        // die();
+        // Check if user data is found
         if (!$user) {
             return null;
         } else {
             return $user;
         }
     }
-
-    /// get user information
-    public function getUserData($userId)
-    {
-        
-        $builder = $this->db->table('user_profiles');
-        $builder->select(' user_profiles.*');
-       
-        $builder->where('user_profiles.user_id', $userId);
-        $query = $builder->get();
+   
 
 
 
-        // Get the result
-        $user = $query->getResult();
-        
-        // echo "<pre>";
-        // print_r($user[0]);
-        // echo "</pre>";
-        // die();
-        // Check if user data is found
-        if (!$user) {
-            return null;
-        } else {
-            return $user[0];
-        }
-    }
-    public function getUserHData($userId)
-    {
-        
-        $builder = $this->db->table('hoteliers');
-        $builder->select(' hoteliers.*');
-       
-        $builder->where('hoteliers.user_id', $userId);
-        $query = $builder->get();
-        // Get the result
-        $user = $query->getResult();
-        
-        // echo "<pre>";
-        // print_r($user[0]);
-        // echo "</pre>";
-        // die();
-        // Check if user data is found
-        if (!$user) {
-            return null;
-        } else {
-            return $user[0];
-        }
-    }
-
-
-
-    public function findUserByUserNumber1(string $mobile_number)
+    
+    public function findJobById(string $id)
     {
 
         $user = $this
             ->asArray()
-            ->where(['mobile_number' => $mobile_number])
-            ->first();
-
-        if (!$user) {
-            return 0;
-        } else {
-            return 1;
-        }
-    }
-    public function findUserByUserNumber(string $mobile_number)
-    {
-
-        $user = $this
-            ->asArray()
-            ->where(['mobile_number' => $mobile_number])
+            ->where(['id' => $id])
             ->first();
 
         if (!$user) {
