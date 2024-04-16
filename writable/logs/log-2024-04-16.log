@@ -202,3 +202,161 @@ in APPPATH\Controllers\Job.php on line 37.
  4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+ERROR - 2024-04-16 12:58:51 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1 = '1',
+        test job11 = 'test job11',
+        test = 'test',
+       ...' at line 2 in C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_lis...', 0)
+#1 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_lis...')
+#2 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_lis...')
+#3 C:\xampp\htdocs\mojmain\app\Models\JobModel.php(204): CodeIgniter\Database\BaseConnection->query('UPDATE `job_lis...')
+#4 C:\xampp\htdocs\mojmain\app\Controllers\Job.php(93): App\Models\JobModel->update1('1', Array)
+#5 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job->update('1')
+#6 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+#7 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\mojmain\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-04-16 12:58:51 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1 = '1',
+        test job11 = 'test job11',
+        test = 'test',
+       ...' at line 2
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_listings` SET  
+        1 = \'1\',
+        test job11 = \'test job11\',
+        test = \'test\',
+        hr = \'hr\',
+        2 year = \'2 year\',
+        japiur = \'japiur\',
+        tesdt = \'tesdt\',
+        2year = \'2year\',
+        pre date  = \'pre date \',
+         = \'2024-04-16 12:58:51\',
+        1 = \'1\'
+          WHERE id = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_listings` SET  
+        1 = \'1\',
+        test job11 = \'test job11\',
+        test = \'test\',
+        hr = \'hr\',
+        2 year = \'2 year\',
+        japiur = \'japiur\',
+        tesdt = \'tesdt\',
+        2year = \'2year\',
+        pre date  = \'pre date \',
+         = \'2024-04-16 12:58:51\',
+        1 = \'1\'
+          WHERE id = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_listings` SET  
+        1 = \'1\',
+        test job11 = \'test job11\',
+        test = \'test\',
+        hr = \'hr\',
+        2 year = \'2 year\',
+        japiur = \'japiur\',
+        tesdt = \'tesdt\',
+        2year = \'2year\',
+        pre date  = \'pre date \',
+         = \'2024-04-16 12:58:51\',
+        1 = \'1\'
+          WHERE id = 1')
+ 4 APPPATH\Models\JobModel.php(204): CodeIgniter\Database\BaseConnection->query('UPDATE `job_listings` SET  
+        1 = \'1\',
+        test job11 = \'test job11\',
+        test = \'test\',
+        hr = \'hr\',
+        2 year = \'2 year\',
+        japiur = \'japiur\',
+        tesdt = \'tesdt\',
+        2year = \'2year\',
+        pre date  = \'pre date \',
+         = \'2024-04-16 12:58:51\',
+        1 = \'1\'
+          WHERE id = 1')
+ 5 APPPATH\Controllers\Job.php(93): App\Models\JobModel->update1('1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job->update('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+ERROR - 2024-04-16 12:58:59 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1 = '1',
+        test job11 = 'test job11',
+        test = 'test',
+       ...' at line 2 in C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_lis...', 0)
+#1 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_lis...')
+#2 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_lis...')
+#3 C:\xampp\htdocs\mojmain\app\Models\JobModel.php(204): CodeIgniter\Database\BaseConnection->query('UPDATE `job_lis...')
+#4 C:\xampp\htdocs\mojmain\app\Controllers\Job.php(93): App\Models\JobModel->update1('1', Array)
+#5 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job->update('1')
+#6 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+#7 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\mojmain\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-04-16 12:58:59 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1 = '1',
+        test job11 = 'test job11',
+        test = 'test',
+       ...' at line 2
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_listings` SET  
+        1 = \'1\',
+        test job11 = \'test job11\',
+        test = \'test\',
+        hr = \'hr\',
+        2 year = \'2 year\',
+        japiur = \'japiur\',
+        tesdt = \'tesdt\',
+        2year = \'2year\',
+        pre date  = \'pre date \',
+         = \'2024-04-16 12:58:59\',
+        1 = \'1\'
+          WHERE id = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_listings` SET  
+        1 = \'1\',
+        test job11 = \'test job11\',
+        test = \'test\',
+        hr = \'hr\',
+        2 year = \'2 year\',
+        japiur = \'japiur\',
+        tesdt = \'tesdt\',
+        2year = \'2year\',
+        pre date  = \'pre date \',
+         = \'2024-04-16 12:58:59\',
+        1 = \'1\'
+          WHERE id = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_listings` SET  
+        1 = \'1\',
+        test job11 = \'test job11\',
+        test = \'test\',
+        hr = \'hr\',
+        2 year = \'2 year\',
+        japiur = \'japiur\',
+        tesdt = \'tesdt\',
+        2year = \'2year\',
+        pre date  = \'pre date \',
+         = \'2024-04-16 12:58:59\',
+        1 = \'1\'
+          WHERE id = 1')
+ 4 APPPATH\Models\JobModel.php(204): CodeIgniter\Database\BaseConnection->query('UPDATE `job_listings` SET  
+        1 = \'1\',
+        test job11 = \'test job11\',
+        test = \'test\',
+        hr = \'hr\',
+        2 year = \'2 year\',
+        japiur = \'japiur\',
+        tesdt = \'tesdt\',
+        2year = \'2year\',
+        pre date  = \'pre date \',
+         = \'2024-04-16 12:58:59\',
+        1 = \'1\'
+          WHERE id = 1')
+ 5 APPPATH\Controllers\Job.php(93): App\Models\JobModel->update1('1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job->update('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')

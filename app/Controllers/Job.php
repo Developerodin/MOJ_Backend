@@ -91,7 +91,7 @@ class Job extends BaseController
             $model = new JobModel();
             $input = $this->getRequestInput($this->request);
             $model->update1($id ,$input);
-            $post = $model->findBById($id);
+            $post = $model->findJobById($id);
             return $this->getResponse(
                 [
                     'message' => 'job updaetd successfully',
