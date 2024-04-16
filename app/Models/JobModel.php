@@ -60,10 +60,10 @@ class JobModel extends Model
         // Get the result
         $user = $query->getResult();
         
-        echo "<pre>";
-        print_r($user);
-        echo "</pre>";
-        die();
+        // echo "<pre>";
+        // print_r($user);
+        // echo "</pre>";
+        // die();
         // Check if user data is found
         if (!$user) {
             return null;
@@ -169,13 +169,25 @@ class JobModel extends Model
             return true;
         }
 
-        $user_name = $data['user_name'];
-
-        $user_number = $data['user_number'];
-        $status = $data['status'];
+        $hotelier_id = $data['hotelier_id'];
+        $job_title = $data['job_title'];
+        $job_description = $data['job_description'];
+        $job_type = $data['job_type'];
+        $skill_requirements = $data['skill_requirements'];
+        $location = $data['location'];
+        $department = $data['department'];
+        $experience_requirements = $data['experience_requirements'];
+        $status = '1';
         $sql = "UPDATE `user_log` SET  
-        user_name = '$user_name',
-        user_number = '$user_number',
+        $hotelier_id = '$hotelier_id',
+        $job_title = '$job_title',
+        $job_description = '$job_description',
+        $job_type = '$job_type',
+        $skill_requirements = '$skill_requirements',
+        $location = '$location',
+        $department = '$department',
+        $experience_requirements = '$experience_requirements',
+       
         status = '$status'
           WHERE user_id = $id";
         // echo "<pre>"; print_r($sql);

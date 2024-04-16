@@ -54,7 +54,7 @@ class Job extends BaseController
         return $this->getResponse(
             [
                 'message' => 'Job  added successfully',
-                'game' => $post
+                'job' => $post
                 
             ]
         );
@@ -69,7 +69,7 @@ class Job extends BaseController
             return $this->getResponse(
                 [
                     'message' => 'Job retrieved successfully',
-                    'client' => $post
+                    'Job' => $post
                 ]
             );
         } catch (Exception $e) {
@@ -85,17 +85,17 @@ class Job extends BaseController
    
    
     
-    public function update_num($id)
+    public function update($id)
     {
         try {
             $model = new JobModel();
             $input = $this->getRequestInput($this->request);
-            $model->update_num($id ,$input);
+            $model->update1($id ,$input);
             $post = $model->findBById($id);
             return $this->getResponse(
                 [
-                    'message' => 'Bid updaetd successfully',
-                    'client' => $post
+                    'message' => 'job updaetd successfully',
+                    'job' => $post
                 ]
             );
 

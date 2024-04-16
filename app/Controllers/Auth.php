@@ -28,8 +28,8 @@ class Auth extends BaseController
         $model = new UserModel();
 
         $user = $model->findUserByUserNumber1($input['mobile_number']);
-        // echo "<pre>"; print_r($user); echo "</pre>";
-        // die();
+        echo "<pre>"; print_r($user); echo "</pre>";
+        die();
         if ($user == 0) {
             $response = $this->response->setStatusCode(200)->setBody('user not found');
             return $response;
