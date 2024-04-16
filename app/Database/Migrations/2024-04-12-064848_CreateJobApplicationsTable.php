@@ -23,9 +23,9 @@ class CreateJobApplicationsTable extends Migration
                 'unsigned' => true,
             ],
             'status' => [
-                'type' => 'ENUM',
-                'constraint' => ['Applied', 'In Review', 'Interview', 'Offer'],
-                'default' => 'Applied',
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
