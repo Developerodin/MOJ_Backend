@@ -868,7 +868,7 @@
     <div class="row">
       <div class="col-xl-12">
         <div class="footer-copy text-center">
-          <p class="py-3"><a href="">@2023 Maalaxmigame.site</a></p>
+        
         </div>
       </div>
     </div>

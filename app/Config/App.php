@@ -17,7 +17,7 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-    public string $baseURL ='https://maalaxmigame.site/app/';
+
     // public string $baseURL = 'https://simplygrateful.me/api/';
 
     /**
