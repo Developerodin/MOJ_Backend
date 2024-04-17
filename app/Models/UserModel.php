@@ -267,6 +267,34 @@ class UserModel extends Model
             return $post;
         }
     }
+    public function save_workex($data)
+    {
+        // echo json_encode($data);
+
+        $user_id = $data['user_id'];
+        $organisation = $data['organisation'];
+        $designation = $data['designation'];
+        $profile = $data['profile'];
+        $location = $data['location'];
+        $start_date = $data['start_date'];
+        $end_date = $data['end_date'];
+        
+
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date = date("m-d-Y h:i A");
+        $sql = "INSERT INTO `working_experiences`( `user_id`, `organisation`,`designation`, `profile`, `location`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES ('$user_id','$organisation','$designation','$profile','$location','$start_date','$end_date','$date','$date')";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
     public function save_hprofile($data)
     {
         // echo json_encode($data);

@@ -65,6 +65,7 @@ class Filters extends BaseConfig
         'auth' => [
             'before' => [
                 'job/*',
+                'users/*',
                 'job',
                 'auth/user_update/',
 

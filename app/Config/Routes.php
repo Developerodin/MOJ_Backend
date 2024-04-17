@@ -33,6 +33,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 $routes->post('/auth/number_check', 'Auth::check_mobile');
+$routes->post('/users/work_exp', 'Users::work_ex');
 $routes->post('/auth/login', 'Auth::login');
 $routes->post('/auth/register', 'Auth::register');
 $routes->post('/auth/user_update/(:num)','Auth::user_update/$1');

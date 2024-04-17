@@ -26,6 +26,9 @@ class JobApplication extends BaseController
         );
     }
     //to insert data
+
+
+    
     public function save_data()
     {
         

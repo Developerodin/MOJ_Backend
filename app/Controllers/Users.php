@@ -1,98 +1,60 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\PostModel;
-use App\Models\SPostModel;
-use App\Models\BannerModel;
-use App\Models\PostTypeModel;
-use App\Models\SPostTypeModel;
-use App\Models\UserModel;
 
+use App\Models\UserModel;
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
 
 use ReflectionException;
+
 class Users extends BaseController
 {
-   
-   
-// ---- banner ===//
-    public function banners()
-    {
-       
-        $model = new BannerModel();
-        return $this->getResponse(
-            [
-                'message' => 'Banner retrieved successfully',
-                'post' => $model->findAll()
-            ]
-        );
-    }
-    public function banner_add()
+
+    public function work_ex()
     {
         $input = $this->getRequestInput($this->request);
-        $image= $input['image'];
-        $model = new BannerModel();
-        $model->save_img($image);
-              
-        return $this->getResponse(
-            [
-                'message' => 'Banner  added successfully',
-                
-            ]
-        );
-    }
-    public function destroy_banner($id)
-    {
-        try {
-            $model = new BannerModel();
-            $post = $model->findBannerById($id);
-            $model->deletedata($id);
+        // echo "<pre>"; print_r($input); echo "</pre>";
+        // die();
+        $model = new UserModel();
+        $data = [
+
+            'user_id' => $input['user_id'],
+            'organisation' => $input['organisation'],
+            'designation' => $input['designation'],
+            'profile' => $input['profile'],
+            'location' => $input['location'],
+            'start_date' => $input['start_date'],
+            'end_date' => $input['end_date']
+        ];
+        // echo "<pre>";
+        //             print_r($data);
+        //             echo "</pre>";
+        //             die();
+        $user1 = $model->save_workex($data);
+
+        if ($user1 == true) {
             return $this
                 ->getResponse(
                     [
-                        'message' => 'Post deleted successfully',
+                        'message' => 'User Work experience add successfully',
+                        'user' => $data,
+
+
                     ]
                 );
 
-        } catch (Exception $exception) {                    
-            return $this->getResponse(
-                [
-                    'message' => $exception->getMessage()
-                ],
-                ResponseInterface::HTTP_NOT_FOUND
-            );
+        } else {
+           
+            $response =
+                $this->response->setStatusCode(400)->setBody('User Work experience not updated');
+            return $response;
         }
     }
-    public function update_banner($id)
-    {
-        try {
-            $model = new BannerModel();
-            $input = $this->getRequestInput($this->request);
-            $model->update1($id ,$input);
-            $post = $model->findBannerById($id);
-            return $this->getResponse(
-                [
-                    'message' => 'banner updated successfully',
-                    'client' => $post
-                ]
-            );
-        } catch (Exception $exception) {
-            return $this->getResponse(
-                [
-                    'message' => $exception->getMessage()
-                ],
-                ResponseInterface::HTTP_NOT_FOUND
-            );
-        }
-    }
-    
-// -------- start g section -------//
-//game type
-    
+    // ---- banner ===//
 
-    
+
     // g deleted the
     public function destroy($id)
     {
@@ -106,8 +68,7 @@ class Users extends BaseController
                         'message' => 'Post deleted successfully',
                     ]
                 );
-
-        } catch (Exception $exception) {                    
+        } catch (Exception $exception) {
             return $this->getResponse(
                 [
                     'message' => $exception->getMessage()
@@ -116,5 +77,4 @@ class Users extends BaseController
             );
         }
     }
-
 }
