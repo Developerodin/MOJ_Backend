@@ -148,8 +148,6 @@ class Autoloader
 
     /**
      * Register the loader with the SPL autoloader stack.
-     *
-     * @return void
      */
     public function register()
     {
@@ -447,8 +445,6 @@ class Autoloader
      * Locates autoload information from Composer, if available.
      *
      * @deprecated No longer used.
-     *
-     * @return void
      */
     protected function discoverComposerNamespaces()
     {

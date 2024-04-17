@@ -1345,7 +1345,7 @@ abstract class BaseModel
     }
 
     /**
-     * Allows to set (and reset) validation messages.
+     * Allows to set validation messages.
      * It could be used when you have to change default or override current validate messages.
      *
      * @param array $validationMessages Value
@@ -1376,7 +1376,7 @@ abstract class BaseModel
     }
 
     /**
-     * Allows to set (and reset) validation rules.
+     * Allows to set validation rules.
      * It could be used when you have to change default or override current validate rules.
      *
      * @param array $validationRules Value
@@ -1401,17 +1401,6 @@ abstract class BaseModel
      */
     public function setValidationRule(string $field, $fieldRules)
     {
-        $rules = $this->validationRules;
-
-        // ValidationRules can be either a string, which is the group name,
-        // or an array of rules.
-        if (is_string($rules)) {
-            [$rules, $customErrors] = $this->validation->loadRuleGroup($rules);
-
-            $this->validationRules    = $rules;
-            $this->validationMessages = $this->validationMessages + $customErrors;
-        }
-
         $this->validationRules[$field] = $fieldRules;
 
         return $this;
@@ -1477,9 +1466,7 @@ abstract class BaseModel
         // ValidationRules can be either a string, which is the group name,
         // or an array of rules.
         if (is_string($rules)) {
-            [$rules, $customErrors] = $this->validation->loadRuleGroup($rules);
-
-            $this->validationMessages = $this->validationMessages + $customErrors;
+            $rules = $this->validation->loadRuleGroup($rules);
         }
 
         if (isset($options['except'])) {
@@ -1724,7 +1711,7 @@ abstract class BaseModel
      *
      * @param string $name Name
      *
-     * @return array|bool|float|int|object|string|null
+     * @return mixed
      */
     public function __get(string $name)
     {

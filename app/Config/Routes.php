@@ -29,8 +29,6 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-
-
 //user 
 $routes->get('/', 'Home::index');
 
@@ -38,8 +36,7 @@ $routes->post('/auth/number_check', 'Auth::check_mobile');
 $routes->post('/auth/login', 'Auth::login');
 $routes->post('/auth/register', 'Auth::register');
 $routes->post('/auth/user_update/(:num)','Auth::user_update/$1');
-$routes->post('/auth/user_pin_update/(:num)','Auth::user_up_pin/$1');
-$routes->post('/auth/adminuser_update/(:num)','Auth::adminuser_update/$1');
+
 
 // Job 
 $routes->get('/job', 'Job::index');
@@ -49,7 +46,12 @@ $routes->post('/job/update/(:num)','Job::update/$1');
 $routes->post('/job/delete/(:num)','Job::distroy/$1');  // user deleted
 
 
+
 /*
+ * --------------------------------------------------------------------
+ * Additional Routing
+ * --------------------------------------------------------------------
+ *
  * There will often be times that you need additional routing and you
  * need it to be able to override any defaults in this file. Environment
  * based routes is one such time. require() additional route files here
@@ -61,6 +63,3 @@ $routes->post('/job/delete/(:num)','Job::distroy/$1');  // user deleted
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
-
-
-

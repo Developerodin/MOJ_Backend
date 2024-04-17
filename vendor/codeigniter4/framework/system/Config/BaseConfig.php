@@ -59,7 +59,7 @@ class BaseConfig
      */
     public function __construct()
     {
-        static::$moduleConfig = config(Modules::class);
+        static::$moduleConfig = config('Modules');
 
         $this->registerProperties();
 

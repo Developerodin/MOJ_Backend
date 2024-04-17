@@ -16,7 +16,6 @@ use CodeIgniter\Cookie\CookieStore;
 use CodeIgniter\Cookie\Exceptions\CookieException;
 use CodeIgniter\HTTP\Exceptions\HTTPException;
 use Config\App;
-use Config\Cookie as CookieConfig;
 use Config\Services;
 
 /**
@@ -173,7 +172,7 @@ class Response extends Message implements ResponseInterface
         }
 
         $this->cookieStore = new CookieStore([]);
-        Cookie::setDefaults(config(CookieConfig::class) ?? [
+        Cookie::setDefaults(config('Cookie') ?? [
             // @todo Remove this fallback when deprecated `App` members are removed
             'prefix'   => $config->cookiePrefix,
             'path'     => $config->cookiePath,

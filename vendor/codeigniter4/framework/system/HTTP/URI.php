@@ -13,7 +13,6 @@ namespace CodeIgniter\HTTP;
 
 use BadMethodCallException;
 use CodeIgniter\HTTP\Exceptions\HTTPException;
-use Config\App;
 
 /**
  * Abstraction for a uniform resource identifier (URI).
@@ -557,7 +556,7 @@ class URI
      * Set the value of a specific segment of the URI path.
      * Allows to set only existing segments or add new one.
      *
-     * @param int|string $value (string or int)
+     * @param mixed $value (string or int)
      *
      * @return $this
      */
@@ -623,7 +622,7 @@ class URI
     private function changeSchemeAndPath(string $scheme, string $path): array
     {
         // Check if this is an internal URI
-        $config  = config(App::class);
+        $config  = config('App');
         $baseUri = new self($config->baseURL);
 
         if (
@@ -844,7 +843,7 @@ class URI
     /**
      * Adds a single new element to the query vars.
      *
-     * @param int|string $value
+     * @param mixed $value
      *
      * @return $this
      */

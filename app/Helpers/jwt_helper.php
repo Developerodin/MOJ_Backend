@@ -21,24 +21,22 @@ function getJWTFromRequest($authenticationHeader): string
 function validateJWTFromRequest(string $encodedToken)
 {
     
-    $headers = null;
+    
     $key = Services::getSecretKey();
-    // print_r($key);
     // $decodedToken = JWT::decode($encodedToken, $key, New array('HS256'));
-    $decodedToken = JWT::decode($encodedToken, new Key($key, 'HS256'), $headers);
+    $decodedToken = JWT::decode($encodedToken, new Key($key, 'HS256'), new stdClass());
 
     $userModel = new UserModel();
-    $userModel->findUserByUserNumber($decodedToken->user_number);
-    
+    $userModel->findUserByUserName($decodedToken->user_name);
 }
 
-function getSignedJWTForUser(string $mobile_number)
+function getSignedJWTForUser(string $user_name)
 {
     $issuedAtTime = time();
     $tokenTimeToLive = getenv('JWT_TIME_TO_LIVE');
     $tokenExpiration = $issuedAtTime + $tokenTimeToLive;
     $payload = [
-        'mobile_number' => $mobile_number,
+        'user_name' => $user_name,
         'iat' => $issuedAtTime,
         'exp' => $tokenExpiration,
     ];

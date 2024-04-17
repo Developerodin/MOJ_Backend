@@ -1,6 +1,0 @@
-CRITICAL - 2023-08-20 16:05:45 --> Unsupported operand types: string + string
-in APPPATH/Controllers/Cart.php on line 41.
- 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Cart->store('12')
- 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cart))
- 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()

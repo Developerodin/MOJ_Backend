@@ -166,7 +166,7 @@ class Session implements SessionInterface
         $this->driver = $driver;
 
         /** @var SessionConfig|null $session */
-        $session = config(SessionConfig::class);
+        $session = config('Session');
 
         // Store Session configurations
         if ($session instanceof SessionConfig) {
@@ -195,7 +195,7 @@ class Session implements SessionInterface
         $this->cookieSameSite = $config->cookieSameSite ?? $this->cookieSameSite;
 
         /** @var CookieConfig $cookie */
-        $cookie = config(CookieConfig::class);
+        $cookie = config('Cookie');
 
         $this->cookie = (new Cookie($this->sessionCookieName, '', [
             'expires'  => $this->sessionExpiration === 0 ? 0 : Time::now()->getTimestamp() + $this->sessionExpiration,

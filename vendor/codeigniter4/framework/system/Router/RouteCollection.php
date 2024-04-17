@@ -409,7 +409,7 @@ class RouteCollection implements RouteCollectionInterface
      *
      * This setting is passed to the Router class and handled there.
      *
-     * @param callable|string|null $callable
+     * @param callable|null $callable
      */
     public function set404Override($callable = null): RouteCollectionInterface
     {
@@ -484,10 +484,8 @@ class RouteCollection implements RouteCollectionInterface
 
     /**
      * Returns the raw array of available routes.
-     *
-     * @param bool $includeWildcard Whether to include '*' routes.
      */
-    public function getRoutes(?string $verb = null, bool $includeWildcard = true): array
+    public function getRoutes(?string $verb = null): array
     {
         if (empty($verb)) {
             $verb = $this->getHTTPVerb();
@@ -503,7 +501,7 @@ class RouteCollection implements RouteCollectionInterface
         if (isset($this->routes[$verb])) {
             // Keep current verb's routes at the beginning, so they're matched
             // before any of the generic, "add" routes.
-            $collection = $includeWildcard ? $this->routes[$verb] + ($this->routes['*'] ?? []) : $this->routes[$verb];
+            $collection = $this->routes[$verb] + ($this->routes['*'] ?? []);
 
             foreach ($collection as $r) {
                 $key          = key($r['route']);
@@ -1241,11 +1239,6 @@ class RouteCollection implements RouteCollectionInterface
         // Build our resulting string, inserting the $params in
         // the appropriate places.
         foreach ($matches[0] as $index => $pattern) {
-            if (! isset($params[$index])) {
-                throw new InvalidArgumentException(
-                    'Missing argument for "' . $pattern . '" in route "' . $from . '".'
-                );
-            }
             if (! preg_match('#^' . $pattern . '$#u', $params[$index])) {
                 throw RouterException::forInvalidParameterType();
             }
@@ -1272,7 +1265,8 @@ class RouteCollection implements RouteCollectionInterface
 
         // Check invalid locale
         if ($locale !== null) {
-            $config = config(App::class);
+            /** @var App $config */
+            $config = config('App');
             if (! in_array($locale, $config->supportedLocales, true)) {
                 $locale = null;
             }

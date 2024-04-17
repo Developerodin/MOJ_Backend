@@ -126,7 +126,7 @@ class App extends BaseConfig
 
     /**
      * --------------------------------------------------------------------------
-     * Force Global Secure Requests
+     * URI PROTOCOL
      * --------------------------------------------------------------------------
      *
      * If true, this will force every request made to this application to be

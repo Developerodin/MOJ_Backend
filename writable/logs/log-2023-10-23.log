@@ -1,7 +1,0 @@
-CRITICAL - 2023-10-23 06:03:39 --> No data found in main_status table.
-in APPPATH/Models/BasicModel.php on line 168.
- 1 APPPATH/Controllers/Basic.php(18): App\Models\BasicModel->play_basic()
- 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Basic->playindex()
- 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Basic))
- 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()

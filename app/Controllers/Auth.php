@@ -10,7 +10,7 @@ use App\Models\BasicModel;
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
-
+use CodeIgniter\API\ResponseTrait;
 use ReflectionException;
 
 class Auth extends BaseController
@@ -28,8 +28,10 @@ class Auth extends BaseController
         $model = new UserModel();
 
         $user = $model->findUserByUserNumber1($input['mobile_number']);
-        echo "<pre>"; print_r($user); echo "</pre>";
-        die();
+        // echo "<pre>";
+        // print_r($user);
+        // echo "</pre>";
+        // die();
         if ($user == 0) {
             $response = $this->response->setStatusCode(200)->setBody('user not found');
             return $response;
@@ -77,11 +79,10 @@ class Auth extends BaseController
                     'field_of_company' => $input['field_of_company'],
                     'contact_information' => $input['contact_information'],
                 ];
-           
+
                 $user1 = $model->save_hprofile($data);
-                
             } else {
-                
+
                 $data = [
 
                     'user_id' => $foruid['id'],
@@ -96,20 +97,20 @@ class Auth extends BaseController
                     'interested_fields' => $input['interested_fields'],
                     'other_personal_details' => $input['other_personal_details'],
                 ];
-// echo "<pre>";
-//             print_r($data);
-//             echo "</pre>";
-//             die();
+                // echo "<pre>";
+                //             print_r($data);
+                //             echo "</pre>";
+                //             die();
                 $user1 = $model->save_profile($data);
             }
-            
+
             return $this
                 ->getResponse(
                     [
                         'message' => 'User Register successfully',
                         'user' => $user1,
 
-                        
+
                     ]
                 );
 
@@ -121,7 +122,6 @@ class Auth extends BaseController
                 $this->response->setStatusCode(400)->setBody('user allrady in list');
             return $response;
         }
-       
     }
     public function basic()
     {
@@ -195,22 +195,22 @@ class Auth extends BaseController
 
             $user = $model->findUserByUserNumber($mobile_Number);
             $userd = $model->getUserData($user['id']);
-if($userd == null) {
-    $userd = $model->getUserHData($user['id']);
-}
-$model11 = new JobModel();
+            if ($userd == null) {
+                $userd = $model->getUserHData($user['id']);
+            }
+            $model11 = new JobModel();
 
-// if($userd['role'] == 'Hoteliers'){
-//     $jobdata= $model11->findAll();
-// }else{
-//     $jobdata= $model11->findAll();
-// }
-// echo "<pre>";
-// print_r($jobdata);
-// echo "</pre>";
-// die();
+            // if($userd['role'] == 'Hoteliers'){
+            //     $jobdata= $model11->findAll();
+            // }else{
+            //     $jobdata= $model11->findAll();
+            // }
+            // echo "<pre>";
+            // print_r($jobdata);
+            // echo "</pre>";
+            // die();
 
-          
+
 
 
             // unset('1234');

@@ -1,7 +1,0 @@
-CRITICAL - 2023-08-18 12:45:12 --> Undefined array key "t_type"
-in APPPATH/Controllers/Cart.php on line 33.
- 1 APPPATH/Controllers/Cart.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "t_type"', '/home4/maala7ea/app/app/Controllers/Cart.php', 33)
- 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Cart->store('5')
- 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cart))
- 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()

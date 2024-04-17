@@ -41,7 +41,7 @@ if (! function_exists('_array_search_dot')) {
      *
      * @internal This should not be used on its own.
      *
-     * @return array|bool|float|int|object|string|null
+     * @return mixed
      */
     function _array_search_dot(array $indexes, array $array)
     {
@@ -103,9 +103,9 @@ if (! function_exists('array_deep_search')) {
     /**
      * Returns the value of an element at a key in an array of uncertain depth.
      *
-     * @param int|string $key
+     * @param mixed $key
      *
-     * @return array|bool|float|int|object|string|null
+     * @return mixed|null
      */
     function array_deep_search($key, array $array)
     {

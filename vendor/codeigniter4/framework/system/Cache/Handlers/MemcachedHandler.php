@@ -42,9 +42,6 @@ class MemcachedHandler extends BaseHandler
         'raw'    => false,
     ];
 
-    /**
-     * Note: Use `CacheFactory::getHandler()` to instantiate.
-     */
     public function __construct(Cache $config)
     {
         $this->prefix = $config->prefix;

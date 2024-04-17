@@ -71,7 +71,8 @@ class Events
             return;
         }
 
-        $config = config(Modules::class);
+        /** @var Modules $config */
+        $config = config('Modules');
         $events = APPPATH . 'Config' . DIRECTORY_SEPARATOR . 'Events.php';
         $files  = [];
 

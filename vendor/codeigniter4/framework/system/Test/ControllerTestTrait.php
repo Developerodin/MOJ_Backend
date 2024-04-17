@@ -96,7 +96,7 @@ trait ControllerTestTrait
         helper('url');
 
         if (empty($this->appConfig)) {
-            $this->appConfig = config(App::class);
+            $this->appConfig = config('App');
         }
 
         if (! $this->uri instanceof URI) {

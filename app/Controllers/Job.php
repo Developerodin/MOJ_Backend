@@ -2,21 +2,21 @@
 
 namespace App\Controllers;
 use App\Models\JobModel;
-
-
-use App\Models\UserModel;
-
-
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
 use \DateTime;
+use CodeIgniter\API\ResponseTrait;
 
 use ReflectionException;
 class Job extends BaseController
 {
+    use ResponseTrait;
     public function index()
     {
+    //    echo "test";
+    //    die();
+
         $model = new JobModel();
 
         return $this->getResponse(

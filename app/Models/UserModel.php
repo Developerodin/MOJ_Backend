@@ -68,10 +68,10 @@ class UserModel extends Model
     /// get user information
     public function getUserData($userId)
     {
-        
+
         $builder = $this->db->table('user_profiles');
         $builder->select(' user_profiles.*');
-       
+
         $builder->where('user_profiles.user_id', $userId);
         $query = $builder->get();
 
@@ -79,7 +79,7 @@ class UserModel extends Model
 
         // Get the result
         $user = $query->getResult();
-        
+
         // echo "<pre>";
         // print_r($user[0]);
         // echo "</pre>";
@@ -93,15 +93,15 @@ class UserModel extends Model
     }
     public function getUserHData($userId)
     {
-        
+
         $builder = $this->db->table('hoteliers');
         $builder->select(' hoteliers.*');
-       
+
         $builder->where('hoteliers.user_id', $userId);
         $query = $builder->get();
         // Get the result
         $user = $query->getResult();
-        
+
         // echo "<pre>";
         // print_r($user[0]);
         // echo "</pre>";
@@ -118,8 +118,8 @@ class UserModel extends Model
 
     public function findUserByUserNumber1(string $mobile_number)
     {
-// echo "test";
-// die();
+        // echo "test";
+        // die();
         $user = $this
             ->asArray()
             ->where(['mobile_number' => $mobile_number])
@@ -132,6 +132,20 @@ class UserModel extends Model
         }
     }
     public function findUserByUserNumber(string $mobile_number)
+    {
+
+        $user = $this
+            ->asArray()
+            ->where(['mobile_number' => $mobile_number])
+            ->first();
+
+        if (!$user) {
+            return null;
+        } else {
+            return $user;
+        }
+    }
+    public function findUserByUserName(string $mobile_number)
     {
 
         $user = $this
@@ -257,7 +271,7 @@ class UserModel extends Model
 
         $user_id = $data['user_id'];
         $name = $data['name'];
-       
+
         $company_details = $data['company_details'];
         $address = $data['address'];
         $city = $data['city'];
@@ -282,33 +296,9 @@ class UserModel extends Model
             return $post;
         }
     }
-    public function admin_update($id, $data): bool
-    {
-
-        // echo $id;
-
-        if (empty($data)) {
-            echo "1";
-            return true;
-        }
-
-        $pin = $data['pin'];
-
-        $sql = "UPDATE `admin` SET  
-        pin = '$pin'
-          WHERE user_id = $id";
-        // echo "<pre>"; print_r($sql);
-        // echo "</pre>";
-        $post = $this->db->query($sql);
-        if (!$post)
-            throw new Exception('Post does not exist for specified id');
-
-        return $post;
-    }
     public function update1($id, $data): bool
     {
 
-        // echo $id;
 
         if (empty($data)) {
             echo "1";
@@ -332,48 +322,5 @@ class UserModel extends Model
 
         return $post;
     }
-    public function update_a($id, $data): bool
-    {
-
-        // echo $id;
-
-        if (empty($data)) {
-            echo "1";
-            return true;
-        }
-
-        $status = $data['status'];
-        $sql = "UPDATE `user_log` SET  
-        status = '$status'
-          WHERE user_id = $id";
-        // echo "<pre>"; print_r($sql);
-        // echo "</pre>";
-        $post = $this->db->query($sql);
-        if (!$post)
-            throw new Exception('Post does not exist for specified id');
-
-        return $post;
-    }
-    public function update_pin($id, $data): bool
-    {
-
-        // echo $id;
-
-        if (empty($data)) {
-            echo "1";
-            return true;
-        }
-
-        $pin = $data['pin'];
-        $sql = "UPDATE `user_log` SET  
-        pin = '$pin'
-          WHERE user_id = $id";
-        // echo "<pre>"; print_r($sql);
-        // echo "</pre>";
-        $post = $this->db->query($sql);
-        if (!$post)
-            throw new Exception('Post does not exist for specified id');
-
-        return $post;
-    }
+    
 }

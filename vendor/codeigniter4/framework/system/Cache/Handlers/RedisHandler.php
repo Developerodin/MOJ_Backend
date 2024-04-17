@@ -38,13 +38,10 @@ class RedisHandler extends BaseHandler
     /**
      * Redis connection
      *
-     * @var Redis|null
+     * @var Redis
      */
     protected $redis;
 
-    /**
-     * Note: Use `CacheFactory::getHandler()` to instantiate.
-     */
     public function __construct(Cache $config)
     {
         $this->prefix = $config->prefix;
