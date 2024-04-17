@@ -52,6 +52,46 @@ class Users extends BaseController
             return $response;
         }
     }
+    public function work_ex_update()
+    {
+        $input = $this->getRequestInput($this->request);
+        // echo "<pre>"; print_r($input); echo "</pre>";
+        // die();
+        $model = new UserModel();
+        $data = [
+
+            'user_id' => $input['user_id'],
+            'organisation' => $input['organisation'],
+            'designation' => $input['designation'],
+            'profile' => $input['profile'],
+            'location' => $input['location'],
+            'start_date' => $input['start_date'],
+            'end_date' => $input['end_date']
+        ];
+        // echo "<pre>";
+        //             print_r($data);
+        //             echo "</pre>";
+        //             die();
+        $user1 = $model->save_workex($data);
+
+        if ($user1 == true) {
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'User Work experience add successfully',
+                        'user' => $data,
+
+
+                    ]
+                );
+
+        } else {
+           
+            $response =
+                $this->response->setStatusCode(400)->setBody('User Work experience not updated');
+            return $response;
+        }
+    }
     // ---- banner ===//
 
 
