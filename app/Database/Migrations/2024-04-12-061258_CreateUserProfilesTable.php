@@ -17,18 +17,17 @@ class CreateUserProfilesTable extends Migration
             'user_id' => [
                 'type' => 'INT',
                 'unsigned' => true,
-            ],
-            'name' => [
+            ], 
+             'role' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'email' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
+            'PhoneNo.' => [
+                'type' => 'INT',
+                'unsigned' => true,
             ],
-            'role' => [
+            'ReferralCode' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
@@ -38,26 +37,57 @@ class CreateUserProfilesTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
-            'address' => [
-                'type' => 'TEXT',
-                'null' => true,
-            ],
-            'city' => [
+            'FirstName' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'country' => [
+            'LastName' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'interested_fields' => [
-                'type' => 'TEXT',
+            'Gender' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
                 'null' => true,
             ],
-            'other_personal_details' => [
-                'type' => 'TEXT',
+            'Email' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'State' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+          
+            'City' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'Education' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+           
+            'JobPrefrences' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+           
+            'WorkExperience' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+           
+            'Resume' => [
+                'type' => 'MAX',
                 'null' => true,
             ],
             'created_at' => [

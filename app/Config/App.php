@@ -18,7 +18,7 @@ class App extends BaseConfig
      *    http://example.com/
      */
 
-    // public string $baseURL = 'https://simplygrateful.me/api/';
+    public string $baseURL = 'https://simplygrateful.me/api/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

@@ -29,7 +29,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'maala7ea_admin',
         'password' => 'admin@8890',
-        'database' => 'maala7ea_admin',
+        'database' => 'apis',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
