@@ -23,6 +23,11 @@ class CreateUserProfilesTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
+            'gender' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
             'email' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
@@ -58,6 +63,11 @@ class CreateUserProfilesTable extends Migration
             ],
             'other_personal_details' => [
                 'type' => 'TEXT',
+                'null' => true,
+            ],
+            'resume' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
                 'null' => true,
             ],
             'created_at' => [

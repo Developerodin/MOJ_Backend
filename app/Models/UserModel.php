@@ -242,6 +242,8 @@ class UserModel extends Model
 
         $user_id = $data['user_id'];
         $name = $data['name'];
+        $resume = $data['resume'];
+        $gender = $data['gender'];
         $email = $data['email'];
         $profile_picture = $data['profile_picture'];
         $address = $data['address'];
@@ -253,7 +255,7 @@ class UserModel extends Model
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date = date("m-d-Y h:i A");
-        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`, `email`, `profile_picture`, `address`, `city`, `country`, `interested_fields`, `other_personal_details`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$email','$profile_picture','$address','$city','$country','$interested_fields','$other_personal_details','$date','$date')";
+        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`gender`, `email`, `profile_picture`, `address`, `city`, `country`, `interested_fields`, `other_personal_details`,`resume`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$gender','$email','$profile_picture','$address','$city','$country','$interested_fields','$other_personal_details','$resume','$date','$date')";
         // echo json_encode($sql);
         // echo json_encode($data);
         //     die();

@@ -68,6 +68,7 @@ class Auth extends BaseController
 
                     'user_id' => $foruid['id'],
                     'name' => $input['name'],
+                    'gender' => $input['gender'],
                     'mobile_number' => $input['mobile_number'],
                     'company_details' => $input['company_details'],
                     'profile_picture' => $input['profile_picture'],
@@ -75,6 +76,7 @@ class Auth extends BaseController
                     'city' => $input['city'],
                     'role' => $input['role'],
                     'country' => $input['country'],
+             
                     'gst_number' => $input['gst_number'],
                     'field_of_company' => $input['field_of_company'],
                     'contact_information' => $input['contact_information'],
@@ -86,6 +88,8 @@ class Auth extends BaseController
                 $data = [
 
                     'user_id' => $foruid['id'],
+                    'gender' => $input['gender'],
+                    'resume' => $input['resume'],
                     'mobile_number' => $input['mobile_number'],
                     'name' => $input['name'],
                     'email' => $input['email'],
