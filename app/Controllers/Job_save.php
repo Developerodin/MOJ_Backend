@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\JobModel;
+use App\Models\JobSaveModel;
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
@@ -17,7 +17,7 @@ class Job_save extends BaseController
     //    echo "test";
     //    die();
 
-        $model = new JobModel();
+        $model = new JobSaveModel();
 
         return $this->getResponse(
             [
@@ -30,18 +30,13 @@ class Job_save extends BaseController
     public function store()
     {
         $input = $this->getRequestInput($this->request);
-        $model = new JobModel();
+        $model = new JobSaveModel();
        
         $data = [
 
-            'hotelier_id' => $input['hotelier_id'],
-            'job_title' => $input['job_title'],
-            'job_description' => $input['job_description'],
-            'job_type' => $input['job_type'],
-            'skill_requirements' => $input['skill_requirements'],
-            'location' => $input['location'],
-            'department' => $input['department'],
-            'experience_requirements' => $input['experience_requirements'],
+            'user_id' => $input['user_id'],
+            'job_id' => $input['job_id'],
+            
             
         ];
 // echo "<pre>";
@@ -64,7 +59,7 @@ class Job_save extends BaseController
     {
        // user_id pass
         try {
-            $model = new JobModel();
+            $model = new JobSaveModel();
             $post = $model->findJobById($id);
             return $this->getResponse(
                 [
@@ -85,7 +80,7 @@ class Job_save extends BaseController
     public function update($id)
     {
         try {
-            $model = new JobModel();
+            $model = new JobSaveModel();
             $input = $this->getRequestInput($this->request);
             $model->update1($id ,$input);
             $post = $model->findJobById($id);
@@ -108,7 +103,7 @@ class Job_save extends BaseController
     public function destroy($id)
     {
         try {
-            $model = new JobModel();
+            $model = new JobSaveModel();
             $model->deletedata($id);
             return $this
                 ->getResponse(
