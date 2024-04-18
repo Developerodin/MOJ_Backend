@@ -47,6 +47,14 @@ $routes->post('/job/update/(:num)','Job::update/$1');
 $routes->post('/job/delete/(:num)','Job::distroy/$1');  // user deleted
 
 
+// Job save 
+$routes->get('/job_saved', 'Job_save::index');
+$routes->post('/job_save/store', 'Job_save::store');
+$routes->post('/job_saved/Byuserid/(:num)','Job_save::show/$1');
+$routes->post('/job_save/update/(:num)','Job_save::update/$1');
+$routes->post('/job_save/delete/(:num)','Job_save::distroy/$1');  // user deleted
+
+
 
 /*
  * --------------------------------------------------------------------

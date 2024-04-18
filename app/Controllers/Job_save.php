@@ -9,7 +9,7 @@ use \DateTime;
 use CodeIgniter\API\ResponseTrait;
 
 use ReflectionException;
-class Job extends BaseController
+class Job_save extends BaseController
 {
     use ResponseTrait;
     public function index()
