@@ -25,12 +25,13 @@ class Auth extends BaseController
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
-        $required_fields =['mobile_number'] ;
+        $required_fields = ['mobile_number'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
             }
         }
+        // die();
         $model = new UserModel();
 
         $user = $model->findUserByUserNumber1($input['mobile_number']);
@@ -51,7 +52,7 @@ class Auth extends BaseController
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
-        $required_fields =['name', 'resume', 'gender', 'email', 'profile_picture', 'address', 'city', 'country', 'interested_fields', 'other_personal_details'] ;
+        $required_fields = [ 'mobile_number','role'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
@@ -76,6 +77,14 @@ class Auth extends BaseController
                 // print_r("h");
                 // echo "</pre>";
                 // die();
+
+                $required_fields = ['name', 'gender','mobile_number', 'company_details', 'profile_picture', 'address', 'city', 'country', 'gst_number', 'field_of_company','contact_information'];
+        foreach ($required_fields as $field) {
+            if (!isset($input[$field]) || empty($input[$field])) {
+                return "Error: Missing required field '$field'";
+            }
+        }
+
                 $data = [
 
                     'user_id' => $foruid['id'],
@@ -88,7 +97,6 @@ class Auth extends BaseController
                     'city' => $input['city'],
                     'role' => $input['role'],
                     'country' => $input['country'],
-             
                     'gst_number' => $input['gst_number'],
                     'field_of_company' => $input['field_of_company'],
                     'contact_information' => $input['contact_information'],
@@ -96,11 +104,11 @@ class Auth extends BaseController
 
                 $user1 = $model->save_hprofile($data);
             } else {
-//  echo "<pre>";
-//                 print_r($input);
-//                 echo "</pre>";
-//                 die();
-$data = $input;
+                //  echo "<pre>";
+                //                 print_r($input);
+                //                 echo "</pre>";
+                //                 die();
+                $data = $input;
                 $data['user_id'] = $foruid['id'];
                 // echo "<pre>";
                 //             print_r($data);
@@ -169,9 +177,16 @@ $data = $input;
 
     public function user_update($id)
     {
+       
         try {
             $model = new UserModel();
             $input = $this->getRequestInput($this->request);
+            $required_fields = ['name', 'resume', 'gender', 'email', 'profile_picture', 'address', 'city', 'country', 'interested_fields', 'other_personal_details'];
+            foreach ($required_fields as $field) {
+                if (!isset($input[$field]) || empty($input[$field])) {
+                    return "Error: Missing required field '$field'";
+                }
+            }
             $model->update1($id, $input);
             $post = $model->findUserById($id);
             return $this->getResponse(
