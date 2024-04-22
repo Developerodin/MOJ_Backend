@@ -43,76 +43,54 @@ class UserModel extends Model
     {
         return password_hash($plaintextPassword, PASSWORD_BCRYPT);
     }
-    public function user_a($id)
+    public function get_data()
     {
 
-        $userId = $id; // Replace with the desired user_id
+        // Create a query builder instance for the user_log table
+        $builder = $this->db->table('working_experiences');
 
-        $builder = $this->db->table('user_log');
-        $builder->select('user_log.*, wallet.*, transactions.*');
-        $builder->join('wallet', 'user_log.user_id = wallet.user_id', 'inner');
-        $builder->join('transactions', 'wallet.wallet_id = transactions.wallet_id', 'inner');
-        $builder->where('user_log.user_id', $userId); // Replace 1 with the desired user_id
+        // Set the SELECT clause to select all fields from the user_log table
+        $builder->select('working_experiences.*');
+
+        // Execute the query and retrieve the results
         $query = $builder->get();
 
-        echo "1";
-        $user = $query->getResult();
-
-        if (!$user) {
-            return null;
+        // Check if any rows were returned
+        if ($query->num_rows() > 0) {
+            // Fetch the result set as an array of objects
+            $result = $query->result();
+            return $result;
         } else {
-            return $user;
+            // No rows found, return null or an empty array, depending on your preference
+            return null;
+        }
+    }
+
+    public function getby_id_data($userId)
+    {
+
+        // Create a query builder instance for the user_log table
+        $builder = $this->db->table('working_experiences');
+
+        // Set the SELECT clause to select all fields from the user_log table
+        $builder->select('working_experiences.*');
+        $builder->where('working_experiences.user_id', $userId);
+        // Execute the query and retrieve the results
+        $query = $builder->get();
+
+        // Check if any rows were returned
+        if ($query->num_rows() > 0) {
+            // Fetch the result set as an array of objects
+            $result = $query->result();
+            return $result;
+        } else {
+            // No rows found, return null or an empty array, depending on your preference
+            return null;
         }
     }
 
     /// get user information
-    public function getUserData($userId)
-    {
-
-        $builder = $this->db->table('user_profiles');
-        $builder->select(' user_profiles.*');
-
-        $builder->where('user_profiles.user_id', $userId);
-        $query = $builder->get();
-
-
-
-        // Get the result
-        $user = $query->getResult();
-
-        // echo "<pre>";
-        // print_r($user[0]);
-        // echo "</pre>";
-        // die();
-        // Check if user data is found
-        if (!$user) {
-            return null;
-        } else {
-            return $user[0];
-        }
-    }
-    public function getUserHData($userId)
-    {
-
-        $builder = $this->db->table('hoteliers');
-        $builder->select(' hoteliers.*');
-
-        $builder->where('hoteliers.user_id', $userId);
-        $query = $builder->get();
-        // Get the result
-        $user = $query->getResult();
-
-        // echo "<pre>";
-        // print_r($user[0]);
-        // echo "</pre>";
-        // die();
-        // Check if user data is found
-        if (!$user) {
-            return null;
-        } else {
-            return $user[0];
-        }
-    }
+    
 
 
 
