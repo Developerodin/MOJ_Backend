@@ -239,7 +239,12 @@ class UserModel extends Model
     public function save_profile($data)
     {
         // echo json_encode($data);
-
+        // $required_fields = ['user_id', 'name', 'resume', 'gender', 'email', 'profile_picture', 'address', 'city', 'country', 'interested_fields', 'other_personal_details'];
+        // foreach ($required_fields as $field) {
+        //     if (!isset($data[$field]) || empty($data[$field])) {
+        //         return "Error: Missing required field '$field'";
+        //     }
+        // }
         $user_id = $data['user_id'];
         $name = $data['name'];
         $resume = $data['resume'];
@@ -256,9 +261,9 @@ class UserModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
         $date = date("m-d-Y h:i A");
         $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`gender`, `email`, `profile_picture`, `address`, `city`, `country`, `interested_fields`, `other_personal_details`,`resume`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$gender','$email','$profile_picture','$address','$city','$country','$interested_fields','$other_personal_details','$resume','$date','$date')";
-        // echo json_encode($sql);
-        // echo json_encode($data);
-        //     die();
+        echo json_encode($sql);
+        echo json_encode($data);
+            die();
         $post = $this->db->query($sql);
 
         if (!$post) {

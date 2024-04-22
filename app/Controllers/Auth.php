@@ -25,6 +25,12 @@ class Auth extends BaseController
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
+        $required_fields =['mobile_number'] ;
+        foreach ($required_fields as $field) {
+            if (!isset($input[$field]) || empty($input[$field])) {
+                return "Error: Missing required field '$field'";
+            }
+        }
         $model = new UserModel();
 
         $user = $model->findUserByUserNumber1($input['mobile_number']);
@@ -45,6 +51,12 @@ class Auth extends BaseController
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
+        $required_fields =['name', 'resume', 'gender', 'email', 'profile_picture', 'address', 'city', 'country', 'interested_fields', 'other_personal_details'] ;
+        foreach ($required_fields as $field) {
+            if (!isset($input[$field]) || empty($input[$field])) {
+                return "Error: Missing required field '$field'";
+            }
+        }
         $model = new UserModel();
 
         $user = $model->findUserByUserNumber1($input['mobile_number']);
@@ -84,23 +96,12 @@ class Auth extends BaseController
 
                 $user1 = $model->save_hprofile($data);
             } else {
-
-                $data = [
-
-                    'user_id' => $foruid['id'],
-                    'gender' => $input['gender'],
-                    'resume' => $input['resume'],
-                    'mobile_number' => $input['mobile_number'],
-                    'name' => $input['name'],
-                    'email' => $input['email'],
-                    'role' => $input['role'],
-                    'profile_picture' => $input['profile_picture'],
-                    'address' => $input['address'],
-                    'city' => $input['city'],
-                    'country' => $input['country'],
-                    'interested_fields' => $input['interested_fields'],
-                    'other_personal_details' => $input['other_personal_details'],
-                ];
+//  echo "<pre>";
+//                 print_r($input);
+//                 echo "</pre>";
+//                 die();
+$data = $input;
+                $data['user_id'] = $foruid['id'];
                 // echo "<pre>";
                 //             print_r($data);
                 //             echo "</pre>";
@@ -121,6 +122,7 @@ class Auth extends BaseController
             // echo json_encode( $wallet );
             // die();
         } else {
+            // echo "test";
             $user1 = null;
             $response =
                 $this->response->setStatusCode(400)->setBody('user allrady in list');
