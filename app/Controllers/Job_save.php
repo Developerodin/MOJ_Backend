@@ -98,28 +98,28 @@ class Job_save extends BaseController
         }
     }
 
-    public function update($id)
-    {
-        try {
-            $model = new JobSaveModel();
-            $input = $this->getRequestInput($this->request);
-            $model->update1($id, $input);
-            $post = $model->findJobById($id);
-            return $this->getResponse(
-                [
-                    'message' => 'job updaetd successfully',
-                    'job' => $post
-                ]
-            );
-        } catch (Exception $exception) {
-            return $this->getResponse(
-                [
-                    'message' => $exception->getMessage()
-                ],
-                ResponseInterface::HTTP_NOT_FOUND
-            );
-        }
-    }
+    // public function update($id)
+    // {
+    //     try {
+    //         $model = new JobSaveModel();
+    //         $input = $this->getRequestInput($this->request);
+    //         $model->update1($id, $input);
+    //         $post = $model->findJobById($id);
+    //         return $this->getResponse(
+    //             [
+    //                 'message' => 'job updaetd successfully',
+    //                 'job' => $post
+    //             ]
+    //         );
+    //     } catch (Exception $exception) {
+    //         return $this->getResponse(
+    //             [
+    //                 'message' => $exception->getMessage()
+    //             ],
+    //             ResponseInterface::HTTP_NOT_FOUND
+    //         );
+    //     }
+    // }
     public function destroy($id)
     {
         try {
