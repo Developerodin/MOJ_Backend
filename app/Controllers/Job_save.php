@@ -19,11 +19,11 @@ class Job_save extends BaseController
     public function index()
     {
         
-
+       
         $model = new JobSaveModel();
-           echo "test";
-           die();
-        $post = $model->get_all();
+        // echo "test";
+        // die();
+        $post = $model->findAll();
         if (!$post) {
             return $this->getResponse(
                 [
@@ -45,10 +45,10 @@ class Job_save extends BaseController
     {
         $input = $this->getRequestInput($this->request);
         $model = new JobSaveModel();
-        echo "<pre>";
-        print_r($input);
-        echo "</pre>";
-        die();
+        // echo "<pre>";
+        // print_r($input);
+        // echo "</pre>";
+        // die();
         $required_fields = ['user_id', 'job_id'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
