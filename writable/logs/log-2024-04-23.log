@@ -220,3 +220,100 @@ in APPPATH\Controllers\Users.php on line 76.
  4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 09:45:35 --> Undefined variable $_SESSION
+in APPPATH\Controllers\Auth.php on line 112.
+ 1 APPPATH\Controllers\Auth.php(112): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $_SESSION', 'C:\\xampp\\htdocs\\mojmain\\app\\Controllers\\Auth.php', 112)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->verifyOTP('6829')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 09:46:05 --> Undefined variable $_SESSION
+in APPPATH\Controllers\Auth.php on line 115.
+ 1 APPPATH\Controllers\Auth.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $_SESSION', 'C:\\xampp\\htdocs\\mojmain\\app\\Controllers\\Auth.php', 115)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->verifyOTP('6006')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 09:46:30 --> Undefined variable $_SESSION
+in APPPATH\Controllers\Auth.php on line 116.
+ 1 APPPATH\Controllers\Auth.php(116): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $_SESSION', 'C:\\xampp\\htdocs\\mojmain\\app\\Controllers\\Auth.php', 116)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->verifyOTP('6006')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 09:46:43 --> Undefined variable $_SESSION
+in APPPATH\Controllers\Auth.php on line 116.
+ 1 APPPATH\Controllers\Auth.php(116): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $_SESSION', 'C:\\xampp\\htdocs\\mojmain\\app\\Controllers\\Auth.php', 116)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->verifyOTP('6006')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 10:01:23 --> Array to string conversion
+in APPPATH\Controllers\Auth.php on line 98.
+ 1 APPPATH\Controllers\Auth.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\mojmain\\app\\Controllers\\Auth.php', 98)
+ 2 APPPATH\Controllers\Auth.php(46): App\Controllers\Auth->otp('8290918154')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 10:24:09 --> Object of class CurlHandle could not be converted to string
+in APPPATH\Controllers\Auth.php on line 115.
+ 1 APPPATH\Controllers\Auth.php(46): App\Controllers\Auth->otp('8290918154')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 10:38:07 --> Undefined array key "otp"
+in APPPATH\Controllers\Auth.php on line 52.
+ 1 APPPATH\Controllers\Auth.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "otp"', 'C:\\xampp\\htdocs\\mojmain\\app\\Controllers\\Auth.php', 52)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 10:40:04 --> Undefined array key "otp"
+in APPPATH\Controllers\Auth.php on line 52.
+ 1 APPPATH\Controllers\Auth.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "otp"', 'C:\\xampp\\htdocs\\mojmain\\app\\Controllers\\Auth.php', 52)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 10:44:05 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Auth.php on line 133.
+ 1 APPPATH\Controllers\Auth.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\mojmain\\app\\Controllers\\Auth.php', 133)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->verifyOTP('1234')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 10:44:13 --> Undefined variable $_SESSION
+in APPPATH\Controllers\Auth.php on line 136.
+ 1 APPPATH\Controllers\Auth.php(136): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $_SESSION', 'C:\\xampp\\htdocs\\mojmain\\app\\Controllers\\Auth.php', 136)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->verifyOTP('1234')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 10:44:37 --> Undefined variable $_SESSION
+in APPPATH\Controllers\Auth.php on line 137.
+ 1 APPPATH\Controllers\Auth.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $_SESSION', 'C:\\xampp\\htdocs\\mojmain\\app\\Controllers\\Auth.php', 137)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->verifyOTP('1234')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 10:44:49 --> Undefined variable $_SESSION
+in APPPATH\Controllers\Auth.php on line 138.
+ 1 APPPATH\Controllers\Auth.php(138): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $_SESSION', 'C:\\xampp\\htdocs\\mojmain\\app\\Controllers\\Auth.php', 138)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->verifyOTP('1234')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')

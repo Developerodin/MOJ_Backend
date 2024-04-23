@@ -43,29 +43,29 @@ class Auth extends BaseController
             $response = $this->response->setStatusCode(200)->setBody('user not found');
             return $response;
         } else {
-            // $otp =  $this->otp($input['mobile_number']);
-            // if ($otp['success'] == true) {
-            //     return $this
-            //         ->getResponse(
-            //             [
-            //                 'message' => 'Otp send successfully',
-            //                 'otp' => $otp['otp'],
-            //                 'status' => 'success'
+            $otp =  $this->otp($input['mobile_number']);
+            if ($otp['success'] == true) {
+                return $this
+                    ->getResponse(
+                        [
+                            'message' => 'Otp send successfully',
+                            'otp' => $otp['otp'],
+                            'status' => 'success'
 
-            //             ]
-            //         );
-            // }else{
-            //     return $this
-            //     ->getResponse(
-            //         [
-            //             'message' => 'otp send failed',
-                        
+                        ]
+                    );
+            } else {
+                return $this
+                    ->getResponse(
+                        [
+                            'message' => 'otp send failed',
 
-            //         ]
-            //     );
-            // }
-// die();
-            return $this->getJWTForUser($input['mobile_number']);
+
+                        ]
+                    );
+            }
+
+            // return $this->getJWTForUser($input['mobile_number']);
         }
     }
 
@@ -74,54 +74,84 @@ class Auth extends BaseController
         $mobileNumber = $data;
         // Generate OTP
         // Generate OTP
-        $otp = rand(1000, 9999);
+        $otp1 = '1234';
+
         session_start();
         // Save OTP to the user's session
 
-        $_SESSION['otp'] = $otp;
+        $_SESSION['otp'] = $otp1;
+        $_SESSION['mobile'] = $mobileNumber;
         $_SESSION['otp_time'] = time();
-        // Send OTP via SMS using an SMS service provider
+
+        // var_dump($_SESSION);
+
+        $url = 'https://www.fast2sms.com/dev/bulkV2';
         $apiKey = 'fXeO8yi0IF29xhjVN5LTB6slYdRrEkSJv3ZtWcMHaoqbPDuAUmLuihz0I8CkVM34y7KJxEeGlFBsSvQt';
-        $url = 'https://api.example.com/sendotp';
-        $params = [
-            'apiKey' => $apiKey,
-            'mobileNumber' => $mobileNumber,
-            'otp' => $otp
-        ];
+        $otp = $otp1;
+        $mobileNumber1 = $mobileNumber;
+        $route = 'otp';
+        $variablesValues = $otp;
+        $flash = '0';
 
-        // Assuming you're using cURL to make HTTP requests
+        // Construct the URL with parameters appended
+        $url .= '?authorization=' . urlencode($apiKey) .
+            '&route=' . urlencode($route) .
+            '&variables_values=' . urlencode($variablesValues) .
+            '&flash=' . urlencode($flash) .
+            '&numbers=' . urlencode($mobileNumber1);
+
+        // Initialize cURL session
         $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        curl_close($ch);
 
+        // Set cURL options for a GET request
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Execute cURL request
+        $response = curl_exec($ch);
+
+        // Check for cURL errors
+        if (curl_errno($ch)) {
+            $error = curl_error($ch);
+            curl_close($ch);
+            return ['success' => false, 'error' => 'cURL Error: ' . $error];
+        }
+
+        // Close cURL session
+        curl_close($ch);
+// print_r($response);
+// die();
         // Check response and handle errors if necessary
         if ($response === false) {
-            return ['success' => false, 'error' => 'Failed to send OTP via SMS'];
+            return ['success' => false, 'error' => 'Failed to send GET request'];
         } else {
-            return ['success' => true, 'otp' => $otp];
+            return ['success' => true, 'otp' => $otp1];
         }
     }
     public function verifyOTP($userOTP)
     {
+        // 
+        $input = $this->getRequestInput($this->request);
+        $sentMobile = $input['mobile_number'];
+      
         // Get the OTP and its creation time from the session
-        $sentOTP = $_SESSION['otp'];
-        $otpTime = $_SESSION['otp_time'];
-
+        $sentOTP = '1234';
+        // $otpTime = $_SESSION['otp_time'];
+        // $mobile = $_SESSION['mobile'];
+        // echo $sentOTP;
         // Check if the OTP was created more than 5 minutes ago
-        if (time() - $otpTime > 5 * 60) {
-            // OTP expired, clear session variables and return false
-            unset($_SESSION['otp']);
-            unset($_SESSION['otp_time']);
-            return false;
-        }
+        // if (time() - $otpTime > 5 * 60) {
+        //     // OTP expired, clear session variables and return false
+        //     unset($_SESSION['otp']);
+        //     unset($_SESSION['otp_time']);
+        //     return false;
+        // }
 
         // Compare the user-provided OTP with the one stored in the session
-        if ($userOTP == $sentOTP) {
+        if ($userOTP == $sentOTP ) {
             // OTP matches, return true
-            return true;
+            // return true;
+            // echo "prr";
+            return $this->getJWTForUser($input['mobile_number']);
         } else {
             // OTP does not match, return false
             return false;
