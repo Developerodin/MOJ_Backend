@@ -18,13 +18,23 @@ class Job_save extends BaseController
     //    die();
 
         $model = new JobSaveModel();
-
-        return $this->getResponse(
-            [
-                'message' => 'Job retrieved successfully',
-                'post' => $model->findAll()
-            ]
-        );
+$post = $model->findAll();
+if(!$post){
+    return $this->getResponse(
+        [
+            'message' => 'Job not found successfully',
+           
+        ]
+    );
+}else{
+    return $this->getResponse(
+        [
+            'message' => 'Job retrieved successfully',
+            'post' => $post
+        ]
+    );
+}
+        
     }
     
     public function store()

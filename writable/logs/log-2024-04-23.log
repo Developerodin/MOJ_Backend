@@ -51,3 +51,10 @@ in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
 CRITICAL - 2024-04-23 11:27:19 --> Maximum execution time of 60 seconds exceeded
 in SYSTEMPATH\Database\MySQLi\Connection.php on line 296.
  1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-23 06:06:05 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
