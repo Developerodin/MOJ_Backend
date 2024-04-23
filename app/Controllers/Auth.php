@@ -68,9 +68,9 @@ class Auth extends BaseController
             // echo "<pre>"; print_r($snew); echo "</pre>";
 
             $foruid = $model->findUserByUserNumber($input['mobile_number']);
-            // echo "<pre>";
-            // print_r($foruid);
-            // echo "</pre>";
+            echo "<pre>";
+            print_r($foruid);
+            echo "</pre>";
 
             if ($input['role'] == 'Hoteliers') {
                 // echo "<pre>";
