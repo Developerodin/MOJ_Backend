@@ -110,7 +110,7 @@ class JobSaveModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES ('$user_id','$job_id','$date','$date1')";
+        $sql = "INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES ('$user_id','$job_id','$date1','$date1')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";

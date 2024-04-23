@@ -65,10 +65,11 @@ class Job_save extends BaseController
 
         $post = $model->save($data);
 
-
+        // echo "test";
+        // die();
         return $this->getResponse(
             [
-                'message' => 'Job  added successfully',
+                'message' => 'Job saved successfully',
                 'job' => $post
 
             ]
