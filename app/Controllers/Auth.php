@@ -104,18 +104,15 @@ class Auth extends BaseController
 
                 $user1 = $model->save_hprofile($data);
             } else {
-                $required_fields = ['name', 'gender', 'mobile_number', 'company_details', 'profile_picture', 'address', 'city', 'country', 'gst_number', 'field_of_company', 'contact_information'];
+                
+                $data = $input;
+                $data['user_id'] = $foruid['id'];
+                $required_fields = ['user_id', 'name', 'resume', 'gender', 'email', 'profile_picture', 'address', 'city', 'country', 'interested_fields', 'other_personal_details'];
                 foreach ($required_fields as $field) {
-                    if (!isset($input[$field]) || empty($input[$field])) {
+                    if (!isset($data[$field]) || empty($data[$field])) {
                         return "Error: Missing required field '$field'";
                     }
                 }
-                $data = $input;
-                $data['user_id'] = $foruid['id'];
-                // echo "<pre>";
-                //             print_r($data);
-                //             echo "</pre>";
-                //             die();
                 $user1 = $model->save_profile($data);
             }
 
