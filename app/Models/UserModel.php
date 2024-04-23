@@ -90,7 +90,47 @@ class UserModel extends Model
     }
 
     /// get user information
-    
+    public function getUserData($userId)
+    {
+
+        $builder = $this->db->table('user_profiles');
+        $builder->select(' user_profiles.*');
+
+        $builder->where('user_profiles.user_id', $userId);
+        $query = $builder->get();
+
+        $user = $query->getResult();
+
+
+        if (!$user) {
+            return null;
+        } else {
+            return $user[0];
+        }
+    }
+    public function getUserHData($userId)
+    {
+
+        $builder = $this->db->table('hoteliers');
+        $builder->select(' hoteliers.*');
+
+        $builder->where('hoteliers.user_id', $userId);
+        $query = $builder->get();
+        // Get the result
+        $user = $query->getResult();
+
+        // echo "<pre>";
+        // print_r($user[0]);
+        // echo "</pre>";
+        // die();
+        // Check if user data is found
+        if (!$user) {
+            return null;
+        } else {
+            return $user[0];
+        }
+    }
+
 
 
 
@@ -109,6 +149,7 @@ class UserModel extends Model
             return 1;
         }
     }
+   
     public function findUserByUserNumber(string $mobile_number)
     {
 
