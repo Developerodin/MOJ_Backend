@@ -45,25 +45,17 @@ class UserModel extends Model
     }
     public function get_data()
     {
-
-        // Create a query builder instance for the user_log table
+        // echo "test";
         $builder = $this->db->table('working_experiences');
+        $builder->select(' working_experiences.*');
 
-        // Set the SELECT clause to select all fields from the user_log table
-        $builder->select('working_experiences.*');
 
-        // Execute the query and retrieve the results
         $query = $builder->get();
 
-        // Check if any rows were returned
-        if ($query->num_rows() > 0) {
-            // Fetch the result set as an array of objects
-            $result = $query->result();
-            return $result;
-        } else {
-            // No rows found, return null or an empty array, depending on your preference
-            return null;
-        }
+        $user = $query->getResult();
+
+        $result = $user;
+        return $result;
     }
 
     public function getby_id_data($userId)
@@ -77,11 +69,11 @@ class UserModel extends Model
         $builder->where('working_experiences.user_id', $userId);
         // Execute the query and retrieve the results
         $query = $builder->get();
-
+        $result = $query->getResult();
         // Check if any rows were returned
-        if ($query->num_rows() > 0) {
+        if ($result) {
             // Fetch the result set as an array of objects
-            $result = $query->result();
+            
             return $result;
         } else {
             // No rows found, return null or an empty array, depending on your preference
@@ -149,7 +141,7 @@ class UserModel extends Model
             return 1;
         }
     }
-   
+
     public function findUserByUserNumber(string $mobile_number)
     {
 
@@ -302,7 +294,7 @@ class UserModel extends Model
         $location = $data['location'];
         $start_date = $data['start_date'];
         $end_date = $data['end_date'];
-        
+
 
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');

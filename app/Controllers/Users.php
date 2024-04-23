@@ -111,7 +111,7 @@ class Users extends BaseController
     public function destroy($id)
     {
 
-        
+
         try {
             $model = new UserModel();
             $post = $model->findPostById($id);
@@ -131,4 +131,69 @@ class Users extends BaseController
             );
         }
     }
+
+     //display data w/o id
+     public function get()
+     {
+         $model = new UserModel();
+         $data = $model->get_data();
+ 
+         if ($data == null) {
+             $response =
+                 $this->response->setStatusCode(400)->setBody(' No Data found');
+             return $response;
+         } else {
+             return $this
+                 ->getResponse(
+                     [
+                         'message' => 'Data found successfully ',
+                         'data' => $data
+ 
+                     ]
+                 );
+         }
+     }
+ 
+     //display data by using id
+     public function work_show($id)
+     {
+         $model = new UserModel();
+         $data = $model->getby_id_data($id);
+         if ($data == null) {
+             $response =
+                 $this->response->setStatusCode(400)->setBody(' Id Not found');
+             return $response;
+         } else {
+             return $this
+                 ->getResponse(
+                     [
+                         'message' => 'Id found successfully ',
+                         'data' => $data
+ 
+                     ]
+                 );
+         }
+     }
+ 
+     public function delete_w_ex($id)
+     {
+         try {
+             $model = new UserModel();
+             // $post = $model->findPostById($id);
+             $model->delete_w_ex($id);
+             return $this
+                 ->getResponse(
+                     [
+                         'message' => 'Post deleted successfully',
+                     ]
+                 );
+         } catch (Exception $exception) {
+             return $this->getResponse(
+                 [
+                     'message' => $exception->getMessage()
+                 ],
+                 ResponseInterface::HTTP_NOT_FOUND
+             );
+         }
+     }
 }
