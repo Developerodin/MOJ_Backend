@@ -85,7 +85,7 @@ class JobModel extends Model
             ->first();
 
         if (!$user) {
-            return null;
+            throw new Exception('Job does not found');
         } else {
             return $user;
         }
