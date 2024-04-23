@@ -180,8 +180,9 @@ class Auth extends BaseController
        
         try {
             $model = new UserModel();
+            $input['id'] =$id;
             $input = $this->getRequestInput($this->request);
-            $required_fields = ['name', 'resume', 'gender', 'email', 'profile_picture', 'address', 'city', 'country', 'interested_fields', 'other_personal_details'];
+            $required_fields = ['id','name', 'resume', 'gender', 'email', 'profile_picture', 'address', 'city', 'country', 'interested_fields', 'other_personal_details'];
             foreach ($required_fields as $field) {
                 if (!isset($input[$field]) || empty($input[$field])) {
                     return "Error: Missing required field '$field'";
