@@ -54,6 +54,12 @@ $routes->post('/job_saved/Byuserid/(:num)','Job_save::show/$1');
 $routes->post('/job_save/update/(:num)','Job_save::update/$1');
 $routes->post('/job_save/delete/(:num)','Job_save::distroy/$1');  // user deleted
 
+// user ex.
+$routes->get('/user/workingExperience', 'Users::get');
+$routes->post('/user_work_ex/store', 'Users::work_ex');
+$routes->post('/user_work_ex/By_userId/(:num)','Users::work_show/$1');
+$routes->post('/user_work_ex/delete/(:num)','Users::delete_w_ex/$1');  // user deleted
+
 
 
 /*

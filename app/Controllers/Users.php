@@ -17,6 +17,12 @@ class Users extends BaseController
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
+        $required_fields = ['user_id', 'organisation', 'designation', 'profile', 'location', 'start_date', 'end_date'];
+            foreach ($required_fields as $field) {
+                if (!isset($input[$field]) || empty($input[$field])) {
+                    return "Error: Missing required field '$field'";
+                }
+            }
         $model = new UserModel();
         $data = [
 

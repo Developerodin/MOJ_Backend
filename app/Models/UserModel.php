@@ -335,5 +335,21 @@ class UserModel extends Model
 
         return $post;
     }
-    
+    public function delete_w_ex($id)
+    {
+        // echo json_encode($data);
+
+
+        $sql = "DELETE FROM `working_experiences` WHERE id= '$id'";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
 }
