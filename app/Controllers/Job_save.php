@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\JobSaveModel;
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -9,65 +10,72 @@ use \DateTime;
 use CodeIgniter\API\ResponseTrait;
 
 use ReflectionException;
+
 class Job_save extends BaseController
 {
-    use ResponseTrait;
+  
     public function index()
     {
-    //    echo "test";
-    //    die();
+        
 
         $model = new JobSaveModel();
-$post = $model->findAll();
-if(!$post){
-    return $this->getResponse(
-        [
-            'message' => 'Job not found successfully',
-           
-        ]
-    );
-}else{
-    return $this->getResponse(
-        [
-            'message' => 'Job retrieved successfully',
-            'post' => $post
-        ]
-    );
-}
-        
+           echo "test";
+           die();
+        $post = $model->get_all();
+        if (!$post) {
+            return $this->getResponse(
+                [
+                    'message' => 'Job not found successfully',
+
+                ]
+            );
+        } else {
+            return $this->getResponse(
+                [
+                    'message' => 'Job retrieved successfully',
+                    'post' => $post
+                ]
+            );
+        }
     }
-    
+
     public function store()
     {
         $input = $this->getRequestInput($this->request);
         $model = new JobSaveModel();
-       
+        echo "<pre>";
+        print_r($input);
+        echo "</pre>";
+        die();
+        $required_fields = ['user_id', 'job_id'];
+        foreach ($required_fields as $field) {
+            if (!isset($input[$field]) || empty($input[$field])) {
+                return "Error: Missing required field '$field'";
+            }
+        }
         $data = [
 
             'user_id' => $input['user_id'],
             'job_id' => $input['job_id'],
-            
-            
+
+
         ];
-// echo "<pre>";
-//             print_r($data);
-//             echo "</pre>";
-//             die();
+
         $post = $model->save($data);
 
-        
+
         return $this->getResponse(
             [
                 'message' => 'Job  added successfully',
                 'job' => $post
-                
+
             ]
         );
     }
-    
+
     public function show($id)
     {
-       // user_id pass
+        // user_id pass
         try {
             $model = new JobSaveModel();
             $post = $model->findJobById($id);
@@ -86,13 +94,13 @@ if(!$post){
             );
         }
     }
-   
+
     public function update($id)
     {
         try {
             $model = new JobSaveModel();
             $input = $this->getRequestInput($this->request);
-            $model->update1($id ,$input);
+            $model->update1($id, $input);
             $post = $model->findJobById($id);
             return $this->getResponse(
                 [
@@ -100,7 +108,6 @@ if(!$post){
                     'job' => $post
                 ]
             );
-
         } catch (Exception $exception) {
             return $this->getResponse(
                 [
@@ -121,8 +128,7 @@ if(!$post){
                         'message' => 'Job deleted successfully',
                     ]
                 );
-
-        } catch (Exception $exception) {                    
+        } catch (Exception $exception) {
             return $this->getResponse(
                 [
                     'message' => $exception->getMessage()
@@ -131,7 +137,4 @@ if(!$post){
             );
         }
     }
-    
-   
-
 }

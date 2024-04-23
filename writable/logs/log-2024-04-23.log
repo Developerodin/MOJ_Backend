@@ -58,3 +58,80 @@ in APPPATH\Controllers\Job_save.php on line 20.
  3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 06:14:51 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->store()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 06:15:04 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->store()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 06:15:34 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->store()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 06:16:42 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 99.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->update('1')
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 06:16:56 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 06:18:42 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 22.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 06:18:54 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 22.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 06:20:23 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 06:21:14 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 06:22:07 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-23 06:22:28 --> Class "App\Models\JobSaveModel" not found
+in APPPATH\Controllers\Job_save.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')

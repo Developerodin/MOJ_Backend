@@ -98,7 +98,7 @@ class JobSaveModel extends Model
     }
    
 
-
+ 
     public function save($data): bool
     {
 
