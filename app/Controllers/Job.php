@@ -33,7 +33,7 @@ class Job extends BaseController
     {
         $input = $this->getRequestInput($this->request);
         $model = new JobModel();
-        $required_fields = ['hotelier_id', 'job_title', 'job_description', 'job_type', 'skill_requirements', 'location', 'department', 'experience_requirements'];
+        $required_fields = ['user_id', 'job_title', 'job_description', 'job_type', 'skill_requirements', 'location', 'department', 'experience_requirements'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
@@ -43,7 +43,7 @@ class Job extends BaseController
 
         $data = [
 
-            'hotelier_id' => $input['hotelier_id'],
+            'hotelier_id' => $input['user_id'],
             'job_title' => $input['job_title'],
             'job_description' => $input['job_description'],
             'job_type' => $input['job_type'],

@@ -58,12 +58,13 @@ class Users extends BaseController
             return $response;
         }
     }
-    public function work_ex_update()
+    public function work_ex_update($id)
     {
+       
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
-        $required_fields = ['user_id', 'organisation', 'designation', 'profile', 'location', 'start_date', 'end_date'];
+        $required_fields = ['organisation', 'designation', 'profile', 'location', 'start_date', 'end_date'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
@@ -72,7 +73,7 @@ class Users extends BaseController
         $model = new UserModel();
         $data = [
 
-            'user_id' => $input['user_id'],
+            'user_id' => $id,
             'organisation' => $input['organisation'],
             'designation' => $input['designation'],
             'profile' => $input['profile'],
@@ -184,7 +185,7 @@ class Users extends BaseController
              return $this
                  ->getResponse(
                      [
-                         'message' => 'Post deleted successfully',
+                         'message' => 'work exp. deleted successfully',
                      ]
                  );
          } catch (Exception $exception) {
