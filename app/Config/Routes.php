@@ -47,11 +47,18 @@ $routes->post('/job/update/(:num)','Job::update/$1');
 $routes->post('/job/delete/(:num)','Job::distroy/$1');  // user deleted
 
 
+// Job apply
+$routes->get('/job_apply', 'Job_Apply::index');
+$routes->post('/job_apply/store', 'Job_Apply::store');
+$routes->post('/job_apply/Byid/(:num)','Job_Apply::show/$1');
+$routes->post('/job_apply/update/(:num)','Job_Apply::update/$1');
+$routes->post('/job_apply/delete/(:num)','Job_Apply::distroy/$1');  // user deleted
+
+
 // Job save 
 $routes->get('/job_saved', 'Job_save::index');
 $routes->post('/job_save/store', 'Job_save::store');
 $routes->post('/job_saved/Byuserid/(:num)','Job_save::show/$1');
-
 $routes->post('/job_save/delete/(:num)','Job_save::distroy/$1');  // user deleted
 
 // user ex.
