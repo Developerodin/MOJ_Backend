@@ -134,3 +134,11 @@ class Job_Apply extends BaseController
         }
     }
 }
+
+
+           
+      
+      
+   
+    
+    
