@@ -29,17 +29,15 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-
-
 //user 
 $routes->get('/', 'Home::index');
 
 $routes->post('/auth/number_check', 'Auth::check_mobile');
-$routes->post('/auth/login', 'Auth::login');
+$routes->post('/users/work_exp', 'Users::work_ex');
+$routes->post('/auth/verify_otp/(:num)', 'Auth::verifyOTP/$1');
 $routes->post('/auth/register', 'Auth::register');
 $routes->post('/auth/user_update/(:num)','Auth::user_update/$1');
-$routes->post('/auth/user_pin_update/(:num)','Auth::user_up_pin/$1');
-$routes->post('/auth/adminuser_update/(:num)','Auth::adminuser_update/$1');
+
 
 // Job 
 $routes->get('/job', 'Job::index');
@@ -49,7 +47,34 @@ $routes->post('/job/update/(:num)','Job::update/$1');
 $routes->post('/job/delete/(:num)','Job::distroy/$1');  // user deleted
 
 
+// Job apply
+$routes->get('/job_apply', 'Job_Apply::index');
+$routes->post('/job_apply/store', 'Job_Apply::store');
+$routes->post('/job_apply/Byid/(:num)','Job_Apply::show/$1');
+$routes->post('/job_apply/update/(:num)','Job_Apply::update/$1');
+$routes->post('/job_apply/delete/(:num)','Job_Apply::distroy/$1');  // user deleted
+
+
+// Job save 
+$routes->get('/job_saved', 'Job_save::index');
+$routes->post('/job_save/store', 'Job_save::store');
+$routes->post('/job_saved/Byuserid/(:num)','Job_save::show/$1');
+$routes->post('/job_save/delete/(:num)','Job_save::distroy/$1');  // user deleted
+
+// user ex.
+$routes->get('/user/workingExperience', 'Users::get');
+$routes->post('/user_work_ex/store', 'Users::work_ex');
+$routes->get('/user_work_ex/By_userId/(:num)','Users::work_show/$1');
+$routes->post('/user_work_ex/Update_ByuserId/(:num)','Users::work_ex_update/$1');
+$routes->post('/user_work_ex/delete/(:num)','Users::delete_w_ex/$1');  // user deleted
+
+
+
 /*
+ * --------------------------------------------------------------------
+ * Additional Routing
+ * --------------------------------------------------------------------
+ *
  * There will often be times that you need additional routing and you
  * need it to be able to override any defaults in this file. Environment
  * based routes is one such time. require() additional route files here
@@ -61,6 +86,3 @@ $routes->post('/job/delete/(:num)','Job::distroy/$1');  // user deleted
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
-
-
-

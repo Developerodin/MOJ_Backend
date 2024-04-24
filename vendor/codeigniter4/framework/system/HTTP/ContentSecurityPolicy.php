@@ -11,7 +11,6 @@
 
 namespace CodeIgniter\HTTP;
 
-use Config\App;
 use Config\ContentSecurityPolicy as ContentSecurityPolicyConfig;
 
 /**
@@ -242,7 +241,7 @@ class ContentSecurityPolicy
      */
     public function __construct(ContentSecurityPolicyConfig $config)
     {
-        $appConfig        = config(App::class);
+        $appConfig        = config('App');
         $this->CSPEnabled = $appConfig->CSPEnabled;
 
         foreach (get_object_vars($config) as $setting => $value) {
@@ -327,7 +326,7 @@ class ContentSecurityPolicy
     /**
      * Adds a new base_uri value. Can be either a URI class or a simple string.
      *
-     * base_uri restricts the URLs that can appear in a page's <base> element.
+     * base_uri restricts the URLs that can appear in a page’s <base> element.
      *
      * @see http://www.w3.org/TR/CSP/#directive-base-uri
      *

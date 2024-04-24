@@ -1,0 +1,15 @@
+CRITICAL - 2024-04-24 11:55:08 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 195.
+ 1 ROOTPATH\spark(83): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2024-04-24 12:02:31 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 195.
+ 1 ROOTPATH\spark(83): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2024-04-24 12:29:12 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 195.
+ 1 ROOTPATH\spark(83): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2024-04-24 12:31:02 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 195.
+ 1 ROOTPATH\spark(83): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2024-04-24 12:36:04 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 195.
+ 1 ROOTPATH\spark(83): CodeIgniter\CodeIgniter->initialize()

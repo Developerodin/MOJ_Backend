@@ -11,8 +11,6 @@
 
 namespace CodeIgniter\Typography;
 
-use Config\DocTypes;
-
 /**
  * Typography Class
  */
@@ -326,7 +324,7 @@ class Typography
         $newstr = '';
 
         for ($ex = explode('pre>', $str), $ct = count($ex), $i = 0; $i < $ct; $i++) {
-            $xhtml = ! (config(DocTypes::class)->html5 ?? false);
+            $xhtml = ! (config('DocTypes')->html5 ?? false);
             $newstr .= (($i % 2) === 0) ? nl2br($ex[$i], $xhtml) : $ex[$i];
 
             if ($ct - 1 !== $i) {

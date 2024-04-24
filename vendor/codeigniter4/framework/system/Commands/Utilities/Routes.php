@@ -18,7 +18,6 @@ use CodeIgniter\Commands\Utilities\Routes\AutoRouteCollector;
 use CodeIgniter\Commands\Utilities\Routes\AutoRouterImproved\AutoRouteCollector as AutoRouteCollectorImproved;
 use CodeIgniter\Commands\Utilities\Routes\FilterCollector;
 use CodeIgniter\Commands\Utilities\Routes\SampleURIGenerator;
-use Config\Feature;
 use Config\Services;
 
 /**
@@ -125,7 +124,7 @@ class Routes extends BaseCommand
         }
 
         if ($collection->shouldAutoRoute()) {
-            $autoRoutesImproved = config(Feature::class)->autoRoutesImproved ?? false;
+            $autoRoutesImproved = config('Feature')->autoRoutesImproved ?? false;
 
             if ($autoRoutesImproved) {
                 $autoRouteCollector = new AutoRouteCollectorImproved(

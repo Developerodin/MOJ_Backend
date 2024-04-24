@@ -17,7 +17,11 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
+<<<<<<< HEAD
 
+=======
+    // public string $baseURL = 'http://localhost:8080/';
+>>>>>>> 83349f429960e9d88dff53eff96cda959b88bba1
     public string $baseURL = 'https://simplygrateful.me/api/';
 
     /**

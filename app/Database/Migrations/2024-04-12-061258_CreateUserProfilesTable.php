@@ -23,9 +23,21 @@ class CreateUserProfilesTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
+<<<<<<< HEAD
             'PhoneNo.' => [
                 'type' => 'INT',
                 'unsigned' => true,
+=======
+            'gender' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'email' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+>>>>>>> 83349f429960e9d88dff53eff96cda959b88bba1
             ],
             'ReferralCode' => [
                 'type' => 'VARCHAR',
@@ -88,6 +100,11 @@ class CreateUserProfilesTable extends Migration
            
             'Resume' => [
                 'type' => 'MAX',
+                'null' => true,
+            ],
+            'resume' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
                 'null' => true,
             ],
             'created_at' => [

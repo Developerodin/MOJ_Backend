@@ -72,7 +72,7 @@ class RedisHandler extends BaseHandler
         parent::__construct($config, $ipAddress);
 
         /** @var SessionConfig|null $session */
-        $session = config(SessionConfig::class);
+        $session = config('Session');
 
         // Store Session configurations
         if ($session instanceof SessionConfig) {

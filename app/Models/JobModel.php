@@ -85,7 +85,7 @@ class JobModel extends Model
             ->first();
 
         if (!$user) {
-            return null;
+            throw new Exception('Job does not found');
         } else {
             return $user;
         }
@@ -153,8 +153,10 @@ class JobModel extends Model
 
         $post = $this->db->query($sql);
         // echo json_encode($post);
-        if (!$post)
-            throw new Exception('Post does not exist for specified id');
+        if (!$post){
+            throw new Exception('Job does not save');
+        }
+           
 
         return $post;
     }

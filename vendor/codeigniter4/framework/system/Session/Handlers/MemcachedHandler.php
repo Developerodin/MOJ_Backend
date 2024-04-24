@@ -59,7 +59,7 @@ class MemcachedHandler extends BaseHandler
         parent::__construct($config, $ipAddress);
 
         /** @var SessionConfig|null $session */
-        $session = config(SessionConfig::class);
+        $session = config('Session');
 
         $this->sessionExpiration = ($session instanceof SessionConfig)
             ? $session->expiration : $config->sessionExpiration;

@@ -108,7 +108,7 @@ abstract class BaseHandler implements SessionHandlerInterface
     public function __construct(AppConfig $config, string $ipAddress)
     {
         /** @var SessionConfig|null $session */
-        $session = config(SessionConfig::class);
+        $session = config('Session');
 
         // Store Session configurations
         if ($session instanceof SessionConfig) {
@@ -123,7 +123,7 @@ abstract class BaseHandler implements SessionHandlerInterface
         }
 
         /** @var CookieConfig|null $cookie */
-        $cookie = config(CookieConfig::class);
+        $cookie = config('Cookie');
 
         if ($cookie instanceof CookieConfig) {
             // Session cookies have no prefix.

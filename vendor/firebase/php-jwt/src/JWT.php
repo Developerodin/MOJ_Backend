@@ -104,22 +104,18 @@ class JWT
         if (empty($keyOrKeyArray)) {
             throw new InvalidArgumentException('Key may not be empty');
         }
-        
         $tks = \explode('.', $jwt);
         if (\count($tks) !== 3) {
             throw new UnexpectedValueException('Wrong number of segments');
         }
-        
         list($headb64, $bodyb64, $cryptob64) = $tks;
         $headerRaw = static::urlsafeB64Decode($headb64);
         if (null === ($header = static::jsonDecode($headerRaw))) {
             throw new UnexpectedValueException('Invalid header encoding');
         }
-        
         if ($headers !== null) {
             $headers = $header;
         }
-        
         $payloadRaw = static::urlsafeB64Decode($bodyb64);
         if (null === ($payload = static::jsonDecode($payloadRaw))) {
             throw new UnexpectedValueException('Invalid claims encoding');

@@ -44,8 +44,6 @@ class FileHandler extends BaseHandler
     protected $mode;
 
     /**
-     * Note: Use `CacheFactory::getHandler()` to instantiate.
-     *
      * @throws CacheException
      */
     public function __construct(Cache $config)
@@ -146,22 +144,21 @@ class FileHandler extends BaseHandler
      */
     public function increment(string $key, int $offset = 1)
     {
-        $key = static::validateKey($key, $this->prefix);
-        $tmp = $this->getItem($key);
+        $key  = static::validateKey($key, $this->prefix);
+        $data = $this->getItem($key);
 
-        if ($tmp === false) {
-            $tmp = ['data' => 0, 'ttl' => 60];
-        }
-
-        ['data' => $value, 'ttl' => $ttl] = $tmp;
-
-        if (! is_int($value)) {
+        if ($data === false) {
+            $data = [
+                'data' => 0,
+                'ttl'  => 60,
+            ];
+        } elseif (! is_int($data['data'])) {
             return false;
         }
 
-        $value += $offset;
+        $newValue = $data['data'] + $offset;
 
-        return $this->save($key, $value, $ttl) ? $value : false;
+        return $this->save($key, $newValue, $data['ttl']) ? $newValue : false;
     }
 
     /**
@@ -169,7 +166,21 @@ class FileHandler extends BaseHandler
      */
     public function decrement(string $key, int $offset = 1)
     {
-        return $this->increment($key, -$offset);
+        $key  = static::validateKey($key, $this->prefix);
+        $data = $this->getItem($key);
+
+        if ($data === false) {
+            $data = [
+                'data' => 0,
+                'ttl'  => 60,
+            ];
+        } elseif (! is_int($data['data'])) {
+            return false;
+        }
+
+        $newValue = $data['data'] - $offset;
+
+        return $this->save($key, $newValue, $data['ttl']) ? $newValue : false;
     }
 
     /**
@@ -218,8 +229,7 @@ class FileHandler extends BaseHandler
      * Does the heavy lifting of actually retrieving the file and
      * verifying it's age.
      *
-     * @return array<string, mixed>|false
-     * @phpstan-return array{data: mixed, ttl: int, time: int}|false
+     * @return array|bool|float|int|object|string|null
      */
     protected function getItem(string $filename)
     {
@@ -228,21 +238,15 @@ class FileHandler extends BaseHandler
         }
 
         $data = @unserialize(file_get_contents($this->path . $filename));
-
-        if (! is_array($data)) {
-            return false;
-        }
-
-        if (! isset($data['ttl']) || ! is_int($data['ttl'])) {
-            return false;
-        }
-
-        if (! isset($data['time']) || ! is_int($data['time'])) {
+        if (! is_array($data) || ! isset($data['ttl'])) {
             return false;
         }
 
         if ($data['ttl'] > 0 && Time::now()->getTimestamp() > $data['time'] + $data['ttl']) {
-            @unlink($this->path . $filename);
+            // If the file is still there then try to remove it
+            if (is_file($this->path . $filename)) {
+                @unlink($this->path . $filename);
+            }
 
             return false;
         }

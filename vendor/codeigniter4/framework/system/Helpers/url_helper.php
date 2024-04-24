@@ -38,7 +38,7 @@ if (! function_exists('_get_uri')) {
         $appConfig = null;
         if ($config === null) {
             /** @var App $appConfig */
-            $appConfig = config(App::class);
+            $appConfig = config('App');
 
             if ($appConfig->baseURL === '') {
                 throw new InvalidArgumentException(
@@ -145,7 +145,7 @@ if (! function_exists('base_url')) {
     function base_url($relativePath = '', ?string $scheme = null): string
     {
         /** @var App $config */
-        $config = clone config(App::class);
+        $config = clone config('App');
 
         // Use the current baseURL for multiple domain support
         $request         = Services::request();
@@ -238,7 +238,7 @@ if (! function_exists('index_page')) {
     function index_page(?App $altConfig = null): string
     {
         // use alternate config if provided, else default one
-        $config = $altConfig ?? config(App::class);
+        $config = $altConfig ?? config('App');
 
         return $config->indexPage;
     }
@@ -258,7 +258,7 @@ if (! function_exists('anchor')) {
     function anchor($uri = '', string $title = '', $attributes = '', ?App $altConfig = null): string
     {
         // use alternate config if provided, else default one
-        $config = $altConfig ?? config(App::class);
+        $config = $altConfig ?? config('App');
 
         $siteUrl = is_array($uri) ? site_url($uri, null, $config) : (preg_match('#^(\w+:)?//#i', $uri) ? $uri : site_url($uri, null, $config));
         // eliminate trailing slash
@@ -291,7 +291,7 @@ if (! function_exists('anchor_popup')) {
     function anchor_popup($uri = '', string $title = '', $attributes = false, ?App $altConfig = null): string
     {
         // use alternate config if provided, else default one
-        $config = $altConfig ?? config(App::class);
+        $config = $altConfig ?? config('App');
 
         $siteUrl = preg_match('#^(\w+:)?//#i', $uri) ? $uri : site_url($uri, null, $config);
         $siteUrl = rtrim($siteUrl, '/');

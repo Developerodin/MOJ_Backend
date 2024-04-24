@@ -43,48 +43,57 @@ class UserModel extends Model
     {
         return password_hash($plaintextPassword, PASSWORD_BCRYPT);
     }
-    public function user_a($id)
+    public function get_data()
     {
+        // echo "test";
+        $builder = $this->db->table('working_experiences');
+        $builder->select(' working_experiences.*');
 
-        $userId = $id; // Replace with the desired user_id
 
-        $builder = $this->db->table('user_log');
-        $builder->select('user_log.*, wallet.*, transactions.*');
-        $builder->join('wallet', 'user_log.user_id = wallet.user_id', 'inner');
-        $builder->join('transactions', 'wallet.wallet_id = transactions.wallet_id', 'inner');
-        $builder->where('user_log.user_id', $userId); // Replace 1 with the desired user_id
         $query = $builder->get();
 
-        echo "1";
         $user = $query->getResult();
 
-        if (!$user) {
-            return null;
+        $result = $user;
+        return $result;
+    }
+
+    public function getby_id_data($userId)
+    {
+
+        // Create a query builder instance for the user_log table
+        $builder = $this->db->table('working_experiences');
+
+        // Set the SELECT clause to select all fields from the user_log table
+        $builder->select('working_experiences.*');
+        $builder->where('working_experiences.user_id', $userId);
+        // Execute the query and retrieve the results
+        $query = $builder->get();
+        $result = $query->getResult();
+        // Check if any rows were returned
+        if ($result) {
+            // Fetch the result set as an array of objects
+            
+            return $result;
         } else {
-            return $user;
+            // No rows found, return null or an empty array, depending on your preference
+            return null;
         }
     }
 
     /// get user information
     public function getUserData($userId)
     {
-        
+
         $builder = $this->db->table('user_profiles');
         $builder->select(' user_profiles.*');
-       
+
         $builder->where('user_profiles.user_id', $userId);
         $query = $builder->get();
 
-
-
-        // Get the result
         $user = $query->getResult();
-        
-        // echo "<pre>";
-        // print_r($user[0]);
-        // echo "</pre>";
-        // die();
-        // Check if user data is found
+
+
         if (!$user) {
             return null;
         } else {
@@ -93,15 +102,15 @@ class UserModel extends Model
     }
     public function getUserHData($userId)
     {
-        
+
         $builder = $this->db->table('hoteliers');
         $builder->select(' hoteliers.*');
-       
+
         $builder->where('hoteliers.user_id', $userId);
         $query = $builder->get();
         // Get the result
         $user = $query->getResult();
-        
+
         // echo "<pre>";
         // print_r($user[0]);
         // echo "</pre>";
@@ -116,10 +125,11 @@ class UserModel extends Model
 
 
 
+
     public function findUserByUserNumber1(string $mobile_number)
     {
-// echo "test";
-// die();
+        // echo "test";
+        // die();
         $user = $this
             ->asArray()
             ->where(['mobile_number' => $mobile_number])
@@ -131,7 +141,22 @@ class UserModel extends Model
             return 1;
         }
     }
+
     public function findUserByUserNumber(string $mobile_number)
+    {
+
+        $user = $this
+            ->asArray()
+            ->where(['mobile_number' => $mobile_number])
+            ->first();
+
+        if (!$user) {
+            return null;
+        } else {
+            return $user;
+        }
+    }
+    public function findUserByUserName(string $mobile_number)
     {
 
         $user = $this
@@ -225,9 +250,16 @@ class UserModel extends Model
     public function save_profile($data)
     {
         // echo json_encode($data);
-
+        // $required_fields = ['user_id', 'name', 'resume', 'gender', 'email', 'profile_picture', 'address', 'city', 'country', 'interested_fields', 'other_personal_details'];
+        // foreach ($required_fields as $field) {
+        //     if (!isset($data[$field]) || empty($data[$field])) {
+        //         return "Error: Missing required field '$field'";
+        //     }
+        // }
         $user_id = $data['user_id'];
         $name = $data['name'];
+        $resume = $data['resume'];
+        $gender = $data['gender'];
         $email = $data['email'];
         $profile_picture = $data['profile_picture'];
         $address = $data['address'];
@@ -239,7 +271,35 @@ class UserModel extends Model
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date = date("m-d-Y h:i A");
-        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`, `email`, `profile_picture`, `address`, `city`, `country`, `interested_fields`, `other_personal_details`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$email','$profile_picture','$address','$city','$country','$interested_fields','$other_personal_details','$date','$date')";
+        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`gender`, `email`, `profile_picture`, `address`, `city`, `country`, `interested_fields`, `other_personal_details`,`resume`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$gender','$email','$profile_picture','$address','$city','$country','$interested_fields','$other_personal_details','$resume','$date','$date')";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
+    public function save_workex($data)
+    {
+        // echo json_encode($data);
+
+        $user_id = $data['user_id'];
+        $organisation = $data['organisation'];
+        $designation = $data['designation'];
+        $profile = $data['profile'];
+        $location = $data['location'];
+        $start_date = $data['start_date'];
+        $end_date = $data['end_date'];
+
+
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date = date("m-d-Y h:i A");
+        $sql = "INSERT INTO `working_experiences`( `user_id`, `organisation`,`designation`, `profile`, `location`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES ('$user_id','$organisation','$designation','$profile','$location','$start_date','$end_date','$date','$date')";
         // echo json_encode($sql);
         // echo json_encode($data);
         //     die();
@@ -257,7 +317,7 @@ class UserModel extends Model
 
         $user_id = $data['user_id'];
         $name = $data['name'];
-       
+
         $company_details = $data['company_details'];
         $address = $data['address'];
         $city = $data['city'];
@@ -282,33 +342,9 @@ class UserModel extends Model
             return $post;
         }
     }
-    public function admin_update($id, $data): bool
-    {
-
-        // echo $id;
-
-        if (empty($data)) {
-            echo "1";
-            return true;
-        }
-
-        $pin = $data['pin'];
-
-        $sql = "UPDATE `admin` SET  
-        pin = '$pin'
-          WHERE user_id = $id";
-        // echo "<pre>"; print_r($sql);
-        // echo "</pre>";
-        $post = $this->db->query($sql);
-        if (!$post)
-            throw new Exception('Post does not exist for specified id');
-
-        return $post;
-    }
     public function update1($id, $data): bool
     {
 
-        // echo $id;
 
         if (empty($data)) {
             echo "1";
@@ -332,48 +368,21 @@ class UserModel extends Model
 
         return $post;
     }
-    public function update_a($id, $data): bool
+    public function delete_w_ex($id)
     {
+        // echo json_encode($data);
 
-        // echo $id;
 
-        if (empty($data)) {
-            echo "1";
-            return true;
-        }
-
-        $status = $data['status'];
-        $sql = "UPDATE `user_log` SET  
-        status = '$status'
-          WHERE user_id = $id";
-        // echo "<pre>"; print_r($sql);
-        // echo "</pre>";
+        $sql = "DELETE FROM `working_experiences` WHERE id= '$id'";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
         $post = $this->db->query($sql);
-        if (!$post)
-            throw new Exception('Post does not exist for specified id');
 
-        return $post;
-    }
-    public function update_pin($id, $data): bool
-    {
-
-        // echo $id;
-
-        if (empty($data)) {
-            echo "1";
-            return true;
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
         }
-
-        $pin = $data['pin'];
-        $sql = "UPDATE `user_log` SET  
-        pin = '$pin'
-          WHERE user_id = $id";
-        // echo "<pre>"; print_r($sql);
-        // echo "</pre>";
-        $post = $this->db->query($sql);
-        if (!$post)
-            throw new Exception('Post does not exist for specified id');
-
-        return $post;
     }
 }

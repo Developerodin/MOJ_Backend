@@ -1,22 +1,24 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\JobModel;
-
-
-use App\Models\UserModel;
-
-
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
 use \DateTime;
+use CodeIgniter\API\ResponseTrait;
 
 use ReflectionException;
+
 class Job extends BaseController
 {
+    use ResponseTrait;
     public function index()
     {
+        //    echo "test";
+        //    die();
+
         $model = new JobModel();
 
         return $this->getResponse(
@@ -26,15 +28,22 @@ class Job extends BaseController
             ]
         );
     }
-    
+
     public function store()
     {
         $input = $this->getRequestInput($this->request);
         $model = new JobModel();
-       
+        $required_fields = ['user_id', 'job_title', 'job_description', 'job_type', 'skill_requirements', 'location', 'department', 'experience_requirements'];
+        foreach ($required_fields as $field) {
+            if (!isset($input[$field]) || empty($input[$field])) {
+                return "Error: Missing required field '$field'";
+            }
+        }
+
+
         $data = [
 
-            'hotelier_id' => $input['hotelier_id'],
+            'hotelier_id' => $input['user_id'],
             'job_title' => $input['job_title'],
             'job_description' => $input['job_description'],
             'job_type' => $input['job_type'],
@@ -42,27 +51,27 @@ class Job extends BaseController
             'location' => $input['location'],
             'department' => $input['department'],
             'experience_requirements' => $input['experience_requirements'],
-            
+
         ];
-// echo "<pre>";
-//             print_r($data);
-//             echo "</pre>";
-//             die();
+        // echo "<pre>";
+        //             print_r($data);
+        //             echo "</pre>";
+        //             die();
         $post = $model->save($data);
 
-        
+
         return $this->getResponse(
             [
                 'message' => 'Job  added successfully',
                 'job' => $post
-                
+
             ]
         );
     }
-    
+
     public function show($id)
     {
-       // user_id pass
+        // user_id pass
         try {
             $model = new JobModel();
             $post = $model->findJobById($id);
@@ -81,16 +90,13 @@ class Job extends BaseController
             );
         }
     }
-   
-   
-   
-    
+
     public function update($id)
     {
         try {
             $model = new JobModel();
             $input = $this->getRequestInput($this->request);
-            $model->update1($id ,$input);
+            $model->update1($id, $input);
             $post = $model->findJobById($id);
             return $this->getResponse(
                 [
@@ -98,7 +104,6 @@ class Job extends BaseController
                     'job' => $post
                 ]
             );
-
         } catch (Exception $exception) {
             return $this->getResponse(
                 [
@@ -108,7 +113,6 @@ class Job extends BaseController
             );
         }
     }
-    
     public function destroy($id)
     {
         try {
@@ -120,8 +124,7 @@ class Job extends BaseController
                         'message' => 'Job deleted successfully',
                     ]
                 );
-
-        } catch (Exception $exception) {                    
+        } catch (Exception $exception) {
             return $this->getResponse(
                 [
                     'message' => $exception->getMessage()
@@ -130,7 +133,4 @@ class Job extends BaseController
             );
         }
     }
-    
-   
-
 }

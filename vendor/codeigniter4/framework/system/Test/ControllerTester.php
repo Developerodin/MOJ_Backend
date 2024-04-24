@@ -96,7 +96,7 @@ trait ControllerTester
     protected function setUpControllerTester(): void
     {
         if (empty($this->appConfig)) {
-            $this->appConfig = config(App::class);
+            $this->appConfig = config('App');
         }
 
         if (! $this->uri instanceof URI) {

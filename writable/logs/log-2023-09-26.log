@@ -1,8 +1,0 @@
-CRITICAL - 2023-09-26 03:16:44 --> Invalid HTTP Protocol Version. Must be one of: 1.0, 1.1, 2.0, 3.0
-in SYSTEMPATH/HTTP/MessageTrait.php on line 232.
- 1 SYSTEMPATH/HTTP/MessageTrait.php(232): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidHTTPProtocol('1.0, 1.1, 2.0, 3.0')
- 2 SYSTEMPATH/Config/Services.php(523): CodeIgniter\HTTP\Message->setProtocolVersion('1.2')
- 3 SYSTEMPATH/Config/BaseService.php(252): CodeIgniter\Config\Services::createRequest(Object(Config\App))
- 4 SYSTEMPATH/CodeIgniter.php(644): CodeIgniter\Config\BaseService::__callStatic('createRequest', [...])
- 5 SYSTEMPATH/CodeIgniter.php(329): CodeIgniter\CodeIgniter->getRequestObject()
- 6 FCPATH/index.php(73): CodeIgniter\CodeIgniter->run()

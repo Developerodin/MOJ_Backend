@@ -239,7 +239,7 @@ trait ResponseTrait
     /**
      * Converts the $body into JSON and sets the Content Type header.
      *
-     * @param array|object|string $body
+     * @param array|string $body
      *
      * @return $this
      */
@@ -304,10 +304,10 @@ trait ResponseTrait
      * Handles conversion of the data into the appropriate format,
      * and sets the correct Content-Type header for our response.
      *
-     * @param array|object|string $body
-     * @param string              $format Valid: json, xml
+     * @param array|string $body
+     * @param string       $format Valid: json, xml
      *
-     * @return false|string
+     * @return mixed
      *
      * @throws InvalidArgumentException If the body property is not string or array.
      */
@@ -582,7 +582,7 @@ trait ResponseTrait
         }
 
         /** @var CookieConfig|null $cookieConfig */
-        $cookieConfig = config(CookieConfig::class);
+        $cookieConfig = config('Cookie');
 
         if ($cookieConfig instanceof CookieConfig) {
             $secure ??= $cookieConfig->secure;
