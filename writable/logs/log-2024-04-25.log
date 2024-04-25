@@ -1,0 +1,205 @@
+ERROR - 2024-04-25 05:52:45 --> mysqli_sql_exception: Table 'apis.user_log' doesn't exist in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_lo...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_lo...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_lo...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\UserModel.php(365): CodeIgniter\Database\BaseConnection->query('UPDATE `user_lo...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Auth.php(299): App\Models\UserModel->update1('4', Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->user_update('4')
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-25 05:52:45 --> Table 'apis.user_log' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_log` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_log` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_log` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4')
+ 4 APPPATH\Models\UserModel.php(365): CodeIgniter\Database\BaseConnection->query('UPDATE `user_log` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4')
+ 5 APPPATH\Controllers\Auth.php(299): App\Models\UserModel->update1('4', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->user_update('4')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-25 05:55:46 --> mysqli_sql_exception: Table 'apis.user_log' doesn't exist in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_lo...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_lo...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_lo...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\UserModel.php(365): CodeIgniter\Database\BaseConnection->query('UPDATE `user_lo...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Auth.php(299): App\Models\UserModel->update1('4', Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->user_update('4')
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-25 05:55:46 --> Table 'apis.user_log' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user_log` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user_log` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user_log` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4')
+ 4 APPPATH\Models\UserModel.php(365): CodeIgniter\Database\BaseConnection->query('UPDATE `user_log` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4')
+ 5 APPPATH\Controllers\Auth.php(299): App\Models\UserModel->update1('4', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->user_update('4')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-25 06:00:13 --> mysqli_sql_exception: Table 'apis.user' doesn't exist in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user` S...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user` S...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user` S...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\UserModel.php(365): CodeIgniter\Database\BaseConnection->query('UPDATE `user` S...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Auth.php(299): App\Models\UserModel->update1('4', Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->user_update('4')
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-25 06:00:13 --> Table 'apis.user' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4')
+ 4 APPPATH\Models\UserModel.php(365): CodeIgniter\Database\BaseConnection->query('UPDATE `user` SET  
+        user_name = \'asd\',
+        user_number = \'teat\',
+        status = \'teat\'
+          WHERE user_id = 4')
+ 5 APPPATH\Controllers\Auth.php(299): App\Models\UserModel->update1('4', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->user_update('4')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-25 06:06:50 --> mysqli_sql_exception: Table 'apis.user' doesn't exist in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user` S...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user` S...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user` S...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\UserModel.php(366): CodeIgniter\Database\BaseConnection->query('UPDATE `user` S...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Auth.php(299): App\Models\UserModel->update1('4', Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->user_update('4')
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-25 06:06:50 --> Table 'apis.user' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user` SET  
+  
+        mobile_number = \'8839107527\',
+        status = \'teat\'
+          WHERE id = 4', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user` SET  
+  
+        mobile_number = \'8839107527\',
+        status = \'teat\'
+          WHERE id = 4')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user` SET  
+  
+        mobile_number = \'8839107527\',
+        status = \'teat\'
+          WHERE id = 4')
+ 4 APPPATH\Models\UserModel.php(366): CodeIgniter\Database\BaseConnection->query('UPDATE `user` SET  
+  
+        mobile_number = \'8839107527\',
+        status = \'teat\'
+          WHERE id = 4')
+ 5 APPPATH\Controllers\Auth.php(299): App\Models\UserModel->update1('4', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->user_update('4')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-25 06:07:17 --> mysqli_sql_exception: Table 'apis.user' doesn't exist in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user` S...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user` S...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user` S...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\UserModel.php(366): CodeIgniter\Database\BaseConnection->query('UPDATE `user` S...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Auth.php(299): App\Models\UserModel->update1('4', Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->user_update('4')
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-25 06:07:17 --> Table 'apis.user' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `user` SET  
+  
+        mobile_number = \'8839107526\',
+        status = \'teat\'
+          WHERE id = 4', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `user` SET  
+  
+        mobile_number = \'8839107526\',
+        status = \'teat\'
+          WHERE id = 4')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `user` SET  
+  
+        mobile_number = \'8839107526\',
+        status = \'teat\'
+          WHERE id = 4')
+ 4 APPPATH\Models\UserModel.php(366): CodeIgniter\Database\BaseConnection->query('UPDATE `user` SET  
+  
+        mobile_number = \'8839107526\',
+        status = \'teat\'
+          WHERE id = 4')
+ 5 APPPATH\Controllers\Auth.php(299): App\Models\UserModel->update1('4', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->user_update('4')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
