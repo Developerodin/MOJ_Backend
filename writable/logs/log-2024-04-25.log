@@ -203,3 +203,441 @@ in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
  8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-25 12:59:40 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_lis...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_lis...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_lis...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_lis...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job.php(100): App\Models\JobModel->update1('1', Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job->update('1')
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-25 12:59:40 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 12:59:40\',
+        status = \'1\'
+          WHERE id = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 12:59:40\',
+        status = \'1\'
+          WHERE id = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 12:59:40\',
+        status = \'1\'
+          WHERE id = 1')
+ 4 APPPATH\Models\JobModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 12:59:40\',
+        status = \'1\'
+          WHERE id = 1')
+ 5 APPPATH\Controllers\Job.php(100): App\Models\JobModel->update1('1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job->update('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-25 13:02:26 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_lis...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_lis...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_lis...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_lis...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job.php(100): App\Models\JobModel->update1('1', Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job->update('1')
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-25 13:02:26 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:02:26\',
+        status = \'1\'
+          WHERE id = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:02:26\',
+        status = \'1\'
+          WHERE id = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:02:26\',
+        status = \'1\'
+          WHERE id = 1')
+ 4 APPPATH\Models\JobModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:02:26\',
+        status = \'1\'
+          WHERE id = 1')
+ 5 APPPATH\Controllers\Job.php(100): App\Models\JobModel->update1('1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job->update('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-25 13:03:12 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_lis...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_lis...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_lis...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_lis...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job.php(100): App\Models\JobModel->update1('2', Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job->update('2')
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-25 13:03:12 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:03:12\',
+        status = \'1\'
+          WHERE id = 2', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:03:12\',
+        status = \'1\'
+          WHERE id = 2')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:03:12\',
+        status = \'1\'
+          WHERE id = 2')
+ 4 APPPATH\Models\JobModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:03:12\',
+        status = \'1\'
+          WHERE id = 2')
+ 5 APPPATH\Controllers\Job.php(100): App\Models\JobModel->update1('2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job->update('2')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-25 13:04:25 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_lis...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_lis...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_lis...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_lis...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job.php(100): App\Models\JobModel->update1('2', Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job->update('2')
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-25 13:04:25 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'test\',
+        job_description = \'test\',
+        job_type = \'test\',
+        skill_requirements = \'test\',
+        location = \'test\',
+        department = \'test\',
+        experience_requirements = \'test\',
+        created_at = \'test\',
+        updated_at = \'2024-04-25 13:04:25\',
+        status = \'1\'
+          WHERE id = 2', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'test\',
+        job_description = \'test\',
+        job_type = \'test\',
+        skill_requirements = \'test\',
+        location = \'test\',
+        department = \'test\',
+        experience_requirements = \'test\',
+        created_at = \'test\',
+        updated_at = \'2024-04-25 13:04:25\',
+        status = \'1\'
+          WHERE id = 2')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'test\',
+        job_description = \'test\',
+        job_type = \'test\',
+        skill_requirements = \'test\',
+        location = \'test\',
+        department = \'test\',
+        experience_requirements = \'test\',
+        created_at = \'test\',
+        updated_at = \'2024-04-25 13:04:25\',
+        status = \'1\'
+          WHERE id = 2')
+ 4 APPPATH\Models\JobModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_listings` SET  
+        hotelier_id = \'\',
+        job_title = \'test\',
+        job_description = \'test\',
+        job_type = \'test\',
+        skill_requirements = \'test\',
+        location = \'test\',
+        department = \'test\',
+        experience_requirements = \'test\',
+        created_at = \'test\',
+        updated_at = \'2024-04-25 13:04:25\',
+        status = \'1\'
+          WHERE id = 2')
+ 5 APPPATH\Controllers\Job.php(100): App\Models\JobModel->update1('2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job->update('2')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-25 13:08:40 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_lis...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_lis...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_lis...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobApplyModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_lis...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job_Apply.php(99): App\Models\JobApplyModel->update1('2', Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job_Apply->update('2')
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_Apply))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-25 13:08:40 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_listings` SET  
+        hotelier_id = \'3\',
+        job_title = \'test\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:08:40\',
+        status = \'1\'
+          WHERE id = 2', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_listings` SET  
+        hotelier_id = \'3\',
+        job_title = \'test\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:08:40\',
+        status = \'1\'
+          WHERE id = 2')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_listings` SET  
+        hotelier_id = \'3\',
+        job_title = \'test\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:08:40\',
+        status = \'1\'
+          WHERE id = 2')
+ 4 APPPATH\Models\JobApplyModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_listings` SET  
+        hotelier_id = \'3\',
+        job_title = \'test\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:08:40\',
+        status = \'1\'
+          WHERE id = 2')
+ 5 APPPATH\Controllers\Job_Apply.php(99): App\Models\JobApplyModel->update1('2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_Apply->update('2')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_Apply))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-25 13:08:50 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_lis...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_lis...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_lis...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobApplyModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_lis...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job_Apply.php(99): App\Models\JobApplyModel->update1('2', Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job_Apply->update('2')
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_Apply))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-25 13:08:50 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `job_listings` SET  
+        hotelier_id = \'3\',
+        job_title = \'test\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:08:50\',
+        status = \'1\'
+          WHERE id = 2', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `job_listings` SET  
+        hotelier_id = \'3\',
+        job_title = \'test\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:08:50\',
+        status = \'1\'
+          WHERE id = 2')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `job_listings` SET  
+        hotelier_id = \'3\',
+        job_title = \'test\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:08:50\',
+        status = \'1\'
+          WHERE id = 2')
+ 4 APPPATH\Models\JobApplyModel.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE `job_listings` SET  
+        hotelier_id = \'3\',
+        job_title = \'test\',
+        job_description = \'\',
+        job_type = \'\',
+        skill_requirements = \'\',
+        location = \'\',
+        department = \'\',
+        experience_requirements = \'\',
+        created_at = \'\',
+        updated_at = \'2024-04-25 13:08:50\',
+        status = \'1\'
+          WHERE id = 2')
+ 5 APPPATH\Controllers\Job_Apply.php(99): App\Models\JobApplyModel->update1('2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_Apply->update('2')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_Apply))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')

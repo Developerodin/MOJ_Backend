@@ -100,6 +100,7 @@ class UserModel extends Model
             return $user[0];
         }
     }
+    
     public function getUserHData($userId)
     {
 

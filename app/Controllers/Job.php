@@ -32,6 +32,7 @@ class Job extends BaseController
     public function store()
     {
         $input = $this->getRequestInput($this->request);
+        // echo 'test'; die();
         $model = new JobModel();
         $required_fields = ['user_id', 'job_title', 'job_description', 'job_type', 'skill_requirements', 'location', 'department', 'experience_requirements'];
         foreach ($required_fields as $field) {
