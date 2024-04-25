@@ -74,7 +74,7 @@ class Auth extends BaseController
         $mobileNumber = $data;
         // Generate OTP
         // Generate OTP
-        $otp1 = '1234';
+        $otp1 = '123456';
 
         session_start();
         // Save OTP to the user's session
@@ -134,7 +134,7 @@ class Auth extends BaseController
         $sentMobile = $input['mobile_number'];
       
         // Get the OTP and its creation time from the session
-        $sentOTP = '1234';
+        $sentOTP = '123456';
         // $otpTime = $_SESSION['otp_time'];
         // $mobile = $_SESSION['mobile'];
         // echo $sentOTP;
