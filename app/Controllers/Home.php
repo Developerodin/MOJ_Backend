@@ -33,7 +33,13 @@ class Home extends BaseController
     //    print_r($data);
     //     die();
     
-        return view('welcome_message',$data);
+    echo view('header');
+
+    // Load main view with data
+    echo view('welcome_message', $data);
+
+    // Load footer view
+    echo view('footer');
     }
     public function admin_register()
     {
