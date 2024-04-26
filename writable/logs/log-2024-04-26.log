@@ -77,3 +77,13 @@ in APPPATH\Controllers\Home.php on line 33.
  4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-04-26 19:59:10 --> syntax error, unexpected token ";", expecting identifier or variable or "{" or "$"
+in APPPATH\Views\user_list.php on line 59.
+ 1 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('user_list', [], true)
+ 3 APPPATH\Controllers\Home.php(65): view('user_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->user_list()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')

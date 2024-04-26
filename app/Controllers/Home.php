@@ -41,6 +41,32 @@ class Home extends BaseController
     // Load footer view
     echo view('footer');
     }
+    public function user_list()
+    {
+        $isLoggedIn = $this->session->get('login');
+
+        // If 'login' variable is not set or is not equal to 1, redirect to the login page
+        if (!$isLoggedIn || $isLoggedIn != 1) {
+            return redirect()->to('/');
+        }
+    
+        // 'login' session variable is set to 1, so continue to load the home page
+        // You can add any other logic here if needed
+    
+        $model = new UserModel();
+       
+        $data['users'] =$model->getAllUserData();
+    //    print_r($data);
+    //     die();
+    
+    echo view('header');
+
+    // Load main view with data
+    echo view('user_list', $data);
+
+    // Load footer view
+    echo view('footer');
+    }
     public function admin_register()
     {
        $input = $this->getRequestInput($this->request);
