@@ -8,7 +8,7 @@ use \Datetime;
 
 class JobApplyModel extends Model
 {
-    protected $table = 'job_listings';
+    protected $table = 'job_applications';
 
     protected $allowedFields = [
         'mobile_number',

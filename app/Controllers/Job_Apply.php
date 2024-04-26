@@ -29,46 +29,62 @@ class Job_Apply extends BaseController
         );
     }
 
-    public function store()
+    public function save_data()
     {
+
         $input = $this->getRequestInput($this->request);
         $model = new JobApplyModel();
-        $required_fields = ['user_id', 'job_id' ];
-        foreach ($required_fields as $field) {
-            if (!isset($input[$field]) || empty($input[$field])) {
-                return "Error: Missing required field '$field'";
-            }
-        }
-
 
         $data = [
 
-            'hotelier_id' => $input['user_id'],
-            'job_title' => $input['job_title'],
-            'job_description' => $input['job_description'],
-            'job_type' => $input['job_type'],
-            'skill_requirements' => $input['skill_requirements'],
-            'location' => $input['location'],
-            'department' => $input['department'],
-            'experience_requirements' => $input['experience_requirements'],
+            'job_id' => $input['job_id'],
+            'candidate_id' => $input['candidate_id'],
+
 
         ];
-        // echo "<pre>";
-        //             print_r($data);
-        //             echo "</pre>";
-        //             die();
-        $post = $model->save($data);
+        $post = $model->saved($data);
+        if ($post == null) {
+            $response =
+                $this->response->setStatusCode(400)->setBody('Job Application not submitted');
+            return $response;
+        } else {
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'Job Application submitted successfully',
 
-
-        return $this->getResponse(
-            [
-                'message' => 'Job  added successfully',
-                'job' => $post
-
-            ]
-        );
+                    ]
+                );
+        }
     }
 
+
+
+
+
+    public function user_update($id)
+    {
+
+        $model = new JobApplyModel();
+        $input = $this->getRequestInput($this->request);
+        $post = $model->findJobAppById1($id);
+
+        if ($post == 0) {
+            $response =
+                $this->response->setStatusCode(400)->setBody('Job Application not found');
+            return $response;
+        } else {
+
+            $post = $model->update1($id);
+            $post = $model->findJobAppById($id);
+            return $this->getResponse(
+                [
+                    'message' => 'user updated successfully',
+                    'client' => $post
+                ]
+            );
+        }
+    }
     public function show($id)
     {
         // user_id pass
@@ -134,11 +150,3 @@ class Job_Apply extends BaseController
         }
     }
 }
-
-
-           
-      
-      
-   
-    
-    
