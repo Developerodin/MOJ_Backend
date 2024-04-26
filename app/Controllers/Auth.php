@@ -157,7 +157,7 @@ class Auth extends BaseController
         } else {
             // OTP does not match, return false
             $response = $this->response->setStatusCode(200)->setBody('otp in valid');
-            return $response ;
+            return $response;
         }
     }
     public function register()

@@ -73,7 +73,7 @@ class UserModel extends Model
         // Check if any rows were returned
         if ($result) {
             // Fetch the result set as an array of objects
-            
+
             return $result;
         } else {
             // No rows found, return null or an empty array, depending on your preference
@@ -99,6 +99,16 @@ class UserModel extends Model
         } else {
             return $user[0];
         }
+    }
+    public function getUserCount()
+    {
+        $builder = $this->db->table('user_profiles');
+        $builder->select('COUNT(*) as user_count');
+
+        $query = $builder->get();
+        $result = $query->getRow();
+
+        return $result->user_count;
     }
     public function getUserHData($userId)
     {
