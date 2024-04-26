@@ -128,24 +128,20 @@ class JobApplyModel extends Model
    
 
 
-    public function save($data): bool
+    public function saved($data): bool
     {
 
-        $hotelier_id = $data['hotelier_id'];
-        $job_title = $data['job_title'];
-        $job_description = $data['job_description'];
-        $job_type = $data['job_type'];
-        $skill_requirements = $data['skill_requirements'];
-        $location = $data['location'];
-        $department = $data['department'];
-        $experience_requirements = $data['experience_requirements'];
-        $status = '1';
-    
+        $job_id = $data['job_id'];
+        $candidate_id = $data['candidate_id'];
+        $status = 'process';
+      
+      
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES ('$hotelier_id','$job_title','$job_description','$job_type','$skill_requirements','$location','$department','$experience_requirements','$date','$date1','$status')";
+        $sql = "INSERT INTO `job_applications`( `job_id`, `candidate_id`, `status`, `created_at`, `updated_at`) VALUES ('$job_id','$candidate_id','$status','$date1','$date1')";
+        
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -154,55 +150,27 @@ class JobApplyModel extends Model
         $post = $this->db->query($sql);
         // echo json_encode($post);
         if (!$post){
-            throw new Exception('Job does not save');
+            return null;
+        }else{
+            return $post;
         }
-           
+            
 
-        return $post;
+        
     }
 
-    public function update1($id, $data): bool
+    
+//Update
+    public function update1($id): bool
     {
-
         // echo $id;
+        
 
-        if (empty($data)) {
-            echo "1";
-            return true;
-        }
-
-        $hotelier_id = $data['hotelier_id'];
-        $job_title = $data['job_title'];
-        $job_description = $data['job_description'];
-        $job_type = $data['job_type'];
-        $skill_requirements = $data['skill_requirements'];
-        $location = $data['location'];
-        $department = $data['department'];
-        $experience_requirements = $data['experience_requirements'];
-        $status = '1';
-        $created_at = $data['created_at'];
-        $updated_at = '';
-        $date = new DateTime();
-        $date = date_default_timezone_set('Asia/Kolkata');
-
-        $date1 = date('Y-m-d H:i:s');
-
-
-        $sql = "UPDATE `job_listings` SET  
-        hotelier_id = '$hotelier_id',
-        job_title = '$job_title',
-        job_description = '$job_description',
-        job_type = '$job_type',
-        skill_requirements = '$skill_requirements',
-        location = '$location',
-        department = '$department',
-        experience_requirements = '$experience_requirements',
-        created_at = '$created_at',
-        updated_at = '$date1',
+         $status = ' In Review';
+        $sql = "UPDATE `job_applications` SET  
         status = '$status'
           WHERE id = $id";
-        // echo "<pre>"; print_r($sql);
-        // echo "</pre>";
+    // print_r($sql);
         $post = $this->db->query($sql);
         if (!$post)
             throw new Exception('Post does not exist for specified id');

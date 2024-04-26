@@ -400,4 +400,3 @@ class Auth extends BaseController
         }
     }
 }
-
