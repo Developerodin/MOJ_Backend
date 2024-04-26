@@ -129,12 +129,14 @@ class Auth extends BaseController
     }
     public function verifyOTP($userOTP)
     {
+
         // 
         $input = $this->getRequestInput($this->request);
         $sentMobile = $input['mobile_number'];
 
         // Get the OTP and its creation time from the session
         $sentOTP = '123456';
+
         // $otpTime = $_SESSION['otp_time'];
         // $mobile = $_SESSION['mobile'];
         // echo $sentOTP;
@@ -150,11 +152,12 @@ class Auth extends BaseController
         if ($userOTP == $sentOTP) {
             // OTP matches, return true
             // return true;
-            // echo "prr";
+            echo "prr";
             return $this->getJWTForUser($input['mobile_number']);
         } else {
             // OTP does not match, return false
-            return false;
+            $response = $this->response->setStatusCode(200)->setBody('otp in valid');
+            return $response ;
         }
     }
     public function register()
