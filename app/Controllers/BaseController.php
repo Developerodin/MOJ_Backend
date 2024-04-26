@@ -9,7 +9,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use App\Models\UserModel;
-use App\Models\UserModelLotus;
+use App\Models\AdminModel;
 use App\Models\AdminUserModel;
 use CodeIgniter\Validation\Exceptions\ValidationException;
 use Config\Services;
@@ -113,35 +113,41 @@ abstract class BaseController extends Controller
         }
  
     
-    public function validatepin($input, $id)
-    {
-       
-     
+        public function validateRequest1($input, array $rules, $errors)
+        {
+            //   echo "<pre>"; print_r($rules); echo "</pre>";
+            $this->validator = Services::Validation()->setRules($rules);
+            //  echo $rules;
+            // If you replace the $rules array with the name of the group
+    
             if (is_array($input)) {
                 try {
-                    
-                    $model = new UserModel();
-                    
-                    $user = $model->findUserById($id);
-                    // echo "<pre>"; print_r($user['status']); echo "</pre>";
-
-                        return password_verify($input['oldpin'], $user['pin']);
-                    
-                   
+    
+                    $model = new AdminModel();
+                    // echo json_encode($input);
+                    $user = $model->findAdmin($input['email']);
+                    // echo json_encode($user);
+                    // die();
+                    // echo json_encode($user['pin']);
+                    if (!$user) {
+                        echo "User not found";
+                        return false;
+                    } else {
+                        
+                        return password_verify($input['pass'], $user['pass']);
+                    }
+                    // echo "<pre>"; print_r($user['pin']); echo "</pre>";
                     // $pass = password_verify($input['pin'], $user['pin']);
                     //  echo "<pre>"; print_r($pass ); echo "</pre>";   
                 } catch (Exception $e) {
                     return false;
                 }
-               
-        
-               
+    
+    
+    
             }
-
-
-
-    }
-
+    
+        }
 
 
 

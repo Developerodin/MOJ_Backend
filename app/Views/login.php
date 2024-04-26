@@ -27,7 +27,11 @@
 	
 </head>
 <body class="h-100">
-    
+<?php if(session()->getFlashdata('error')): ?>
+    <div class="alert alert-danger" role="alert">
+        <?= session()->getFlashdata('error') ?>
+    </div>
+<?php endif; ?>
 	<div class="login-account">
 		<div class="row h-100">
 			<div class="col-lg-6 align-self-start">
@@ -64,14 +68,15 @@
 							<span class="ms-1 font-w600 label-color">Sign in with Apple</span></a>
 						</div>
 					</div>
-					<form action="index.html">
+					<form action="<?= base_url('login/authenticate') ?>" method="post">
+				
 						<div class="mb-4">
 							<label class="mb-1 text-dark">Email</label>
-							<input type="email" class="form-control form-control-lg" value="hello@example.com">
+							<input type="email" class="form-control form-control-lg" name="email" value=""placeholder="username">
 						</div>
 						<div class="mb-4">
 							<label class="mb-1 text-dark">Password</label>
-							<input type="password" class="form-control form-control-lg" value="Password">
+							<input type="password" class="form-control form-control-lg" name="pass" value=""placeholder="password">
 						</div>
 						<div class="form-row d-flex justify-content-between mt-4 mb-2">
 							<div class="mb-4">
