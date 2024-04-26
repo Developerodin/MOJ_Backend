@@ -100,9 +100,18 @@ class UserModel extends Model
             return $user[0];
         }
     }
+    public function getAllUserData()
+{
+    $builder = $this->db->table('users');
+    $builder->select('users.*, user_profiles.*');
+    $builder->join('user_profiles', 'user_profiles.user_id = users.id');
+    $query = $builder->get();
+
+    return $query->getResult();
+}
     public function getUserCount()
     {
-        $builder = $this->db->table('user_profiles');
+        $builder = $this->db->table('users');
         $builder->select('COUNT(*) as user_count');
 
         $query = $builder->get();

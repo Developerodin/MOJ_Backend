@@ -21,17 +21,19 @@ class Home extends BaseController
 
         // If 'login' variable is not set or is not equal to 1, redirect to the login page
         if (!$isLoggedIn || $isLoggedIn != 1) {
-            return redirect()->to('login');
+            return redirect()->to('/');
         }
     
         // 'login' session variable is set to 1, so continue to load the home page
         // You can add any other logic here if needed
     
         $model = new UserModel();
-        // $userCount = $this->$model->getUserCount();
-        // echo "Total number of users: " . $userCount;
+        $data['userCount'] =$model->getUserCount();
+        $data['users'] =$model->getAllUserData();
+    //    print_r($data);
+    //     die();
     
-        return view('welcome_message');
+        return view('welcome_message',$data);
     }
     public function admin_register()
     {
@@ -111,7 +113,14 @@ class Home extends BaseController
 
         return view('login' );
     }
-
+    public function logout()
+    {
+        // Unset or set the 'login' session variable to null
+        $this->session->remove('login');
+        
+        // Redirect the user to the login page
+        return redirect()->to('/');
+    }
 
     // public function get()
     // {
