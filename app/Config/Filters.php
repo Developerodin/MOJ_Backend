@@ -67,12 +67,12 @@ class Filters extends BaseConfig
           
                 'users/*',
         
-                'auth/user_update/',
-                '/user/workingExperience',
-                '/user_work_ex/*',
-                '/job_saved',
-                '/job_save/*',
-                '/job_saved/*'
+                // 'auth/user_update/',
+                // '/user/workingExperience',
+                // '/user_work_ex/*',
+                // '/job_saved',
+                // '/job_save/*',
+                // '/job_saved/*'
 
           ],
         ]

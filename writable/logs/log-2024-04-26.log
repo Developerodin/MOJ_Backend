@@ -1,0 +1,304 @@
+ERROR - 2024-04-26 05:46:08 --> mysqli_sql_exception: MySQL server has gone away in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\UserModel.php(137): CodeIgniter\BaseModel->first()
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Auth.php(37): App\Models\UserModel->findUserByUserNumber1('8839107526')
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#13 {main}
+CRITICAL - 2024-04-26 05:46:08 --> MySQL server has gone away
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `users`
+WHERE `mobile_number` = \'8839107526\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `users`
+WHERE `mobile_number` = \'8839107526\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `users`
+WHERE `mobile_number` = \'8839107526\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `mobile_number` = :mobile_number:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Models\UserModel.php(137): CodeIgniter\BaseModel->first()
+ 8 APPPATH\Controllers\Auth.php(37): App\Models\UserModel->findUserByUserNumber1('8839107526')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-26 05:48:44 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'apis', 3306, '', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\UserModel.php(137): CodeIgniter\BaseModel->first()
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Auth.php(37): App\Models\UserModel->findUserByUserNumber1('8839107526')
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\UserModel.php(137): CodeIgniter\BaseModel->first()
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Auth.php(37): App\Models\UserModel->findUserByUserNumber1('8839107526')
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#12 {main}
+CRITICAL - 2024-04-26 05:48:44 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `mobile_number` = :mobile_number:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Models\UserModel.php(137): CodeIgniter\BaseModel->first()
+ 6 APPPATH\Controllers\Auth.php(37): App\Models\UserModel->findUserByUserNumber1('8839107526')
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->check_mobile()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-26 11:50:22 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobModel.php(154): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job.php(61): App\Models\JobModel->save(Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job->store()
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-26 11:50:22 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'5\',\'test\',\'test\',\'test\',\'all\',\'test\',\'test\',\'all\',\'1\',\'2024-04-26 11:50:22\',\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'5\',\'test\',\'test\',\'test\',\'all\',\'test\',\'test\',\'all\',\'1\',\'2024-04-26 11:50:22\',\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'5\',\'test\',\'test\',\'test\',\'all\',\'test\',\'test\',\'all\',\'1\',\'2024-04-26 11:50:22\',\'1\')')
+ 4 APPPATH\Models\JobModel.php(154): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'5\',\'test\',\'test\',\'test\',\'all\',\'test\',\'test\',\'all\',\'1\',\'2024-04-26 11:50:22\',\'1\')')
+ 5 APPPATH\Controllers\Job.php(61): App\Models\JobModel->save([...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-26 12:01:15 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobModel.php(154): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job.php(61): App\Models\JobModel->save(Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job->store()
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-26 12:01:15 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_listings`, CONSTRAINT `job_listings_hotelier_id_foreign` FOREIGN KEY (`hotelier_id`) REFERENCES `hoteliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'4\',\'test\',\'test\',\'test\',\'all\',\'test\',\'test\',\'all\',\'1\',\'2024-04-26 12:01:15\',\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'4\',\'test\',\'test\',\'test\',\'all\',\'test\',\'test\',\'all\',\'1\',\'2024-04-26 12:01:15\',\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'4\',\'test\',\'test\',\'test\',\'all\',\'test\',\'test\',\'all\',\'1\',\'2024-04-26 12:01:15\',\'1\')')
+ 4 APPPATH\Models\JobModel.php(154): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'4\',\'test\',\'test\',\'test\',\'all\',\'test\',\'test\',\'all\',\'1\',\'2024-04-26 12:01:15\',\'1\')')
+ 5 APPPATH\Controllers\Job.php(61): App\Models\JobModel->save([...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-26 12:14:39 --> mysqli_sql_exception: Unknown column 'hotelier_id' in 'field list' in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobApplyModel.php(154): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job_Apply.php(60): App\Models\JobApplyModel->save(Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job_Apply->store()
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_Apply))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-26 12:14:39 --> Unknown column 'hotelier_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `job_applications`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'2\',\'n\',\'n\',\'n\',\'n\',\'n\',\'n\',\'n\',\'1\',\'2024-04-26 12:14:39\',\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_applications`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'2\',\'n\',\'n\',\'n\',\'n\',\'n\',\'n\',\'n\',\'1\',\'2024-04-26 12:14:39\',\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_applications`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'2\',\'n\',\'n\',\'n\',\'n\',\'n\',\'n\',\'n\',\'1\',\'2024-04-26 12:14:39\',\'1\')')
+ 4 APPPATH\Models\JobApplyModel.php(154): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_applications`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES (\'2\',\'n\',\'n\',\'n\',\'n\',\'n\',\'n\',\'n\',\'1\',\'2024-04-26 12:14:39\',\'1\')')
+ 5 APPPATH\Controllers\Job_Apply.php(60): App\Models\JobApplyModel->save([...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_Apply->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_Apply))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+CRITICAL - 2024-04-26 06:55:17 --> Undefined array key "id"
+in APPPATH\Controllers\Job_Apply.php on line 55.
+ 1 APPPATH\Controllers\Job_Apply.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\app\\Controllers\\Job_Apply.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_Apply->store()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_Apply))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+CRITICAL - 2024-04-26 06:55:45 --> Undefined array key "candidate_id"
+in APPPATH\Controllers\Job_Apply.php on line 57.
+ 1 APPPATH\Controllers\Job_Apply.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "candidate_id"', 'C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\app\\Controllers\\Job_Apply.php', 57)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_Apply->store()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_Apply))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-26 12:42:40 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_saves`, CONSTRAINT `job_saves_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobSaveModel.php(119): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job_save.php(66): App\Models\JobSaveModel->save(Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job_save->store()
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-26 12:42:40 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_saves`, CONSTRAINT `job_saves_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'9\',\'1\',\'2024-04-26 12:42:40\',\'2024-04-26 12:42:40\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'9\',\'1\',\'2024-04-26 12:42:40\',\'2024-04-26 12:42:40\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'9\',\'1\',\'2024-04-26 12:42:40\',\'2024-04-26 12:42:40\')')
+ 4 APPPATH\Models\JobSaveModel.php(119): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'9\',\'1\',\'2024-04-26 12:42:40\',\'2024-04-26 12:42:40\')')
+ 5 APPPATH\Controllers\Job_save.php(66): App\Models\JobSaveModel->save([...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-26 12:43:18 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_saves`, CONSTRAINT `job_saves_job_id_foreign` FOREIGN KEY (`job_id`) REFERENCES `job_listings` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobSaveModel.php(119): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job_save.php(66): App\Models\JobSaveModel->save(Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job_save->store()
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-26 12:43:18 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_saves`, CONSTRAINT `job_saves_job_id_foreign` FOREIGN KEY (`job_id`) REFERENCES `job_listings` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'2\',\'1\',\'2024-04-26 12:43:18\',\'2024-04-26 12:43:18\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'2\',\'1\',\'2024-04-26 12:43:18\',\'2024-04-26 12:43:18\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'2\',\'1\',\'2024-04-26 12:43:18\',\'2024-04-26 12:43:18\')')
+ 4 APPPATH\Models\JobSaveModel.php(119): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'2\',\'1\',\'2024-04-26 12:43:18\',\'2024-04-26 12:43:18\')')
+ 5 APPPATH\Controllers\Job_save.php(66): App\Models\JobSaveModel->save([...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-26 12:44:59 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_saves`, CONSTRAINT `job_saves_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobSaveModel.php(119): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job_save.php(66): App\Models\JobSaveModel->save(Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job_save->store()
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-26 12:44:59 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_saves`, CONSTRAINT `job_saves_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'3\',\'2\',\'2024-04-26 12:44:59\',\'2024-04-26 12:44:59\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'3\',\'2\',\'2024-04-26 12:44:59\',\'2024-04-26 12:44:59\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'3\',\'2\',\'2024-04-26 12:44:59\',\'2024-04-26 12:44:59\')')
+ 4 APPPATH\Models\JobSaveModel.php(119): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'3\',\'2\',\'2024-04-26 12:44:59\',\'2024-04-26 12:44:59\')')
+ 5 APPPATH\Controllers\Job_save.php(66): App\Models\JobSaveModel->save([...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+ERROR - 2024-04-26 12:45:21 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_saves`, CONSTRAINT `job_saves_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Models\JobSaveModel.php(119): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...')
+#4 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\app\Controllers\Job_save.php(66): App\Models\JobSaveModel->save(Array)
+#5 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job_save->store()
+#6 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+#7 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\nidhi\OneDrive\Desktop\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\...')
+#10 {main}
+CRITICAL - 2024-04-26 12:45:21 --> Cannot add or update a child row: a foreign key constraint fails (`apis`.`job_saves`, CONSTRAINT `job_saves_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'7\',\'2\',\'2024-04-26 12:45:21\',\'2024-04-26 12:45:21\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'7\',\'2\',\'2024-04-26 12:45:21\',\'2024-04-26 12:45:21\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'7\',\'2\',\'2024-04-26 12:45:21\',\'2024-04-26 12:45:21\')')
+ 4 APPPATH\Models\JobSaveModel.php(119): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES (\'7\',\'2\',\'2024-04-26 12:45:21\',\'2024-04-26 12:45:21\')')
+ 5 APPPATH\Controllers\Job_save.php(66): App\Models\JobSaveModel->save([...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_save->store()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_save))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+CRITICAL - 2024-04-26 11:45:47 --> Class "App\Models\PostModel" not found
+in APPPATH\Controllers\Home.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+CRITICAL - 2024-04-26 11:46:58 --> Class "App\Models\PostModel" not found
+in APPPATH\Controllers\Home.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')
+CRITICAL - 2024-04-26 12:17:00 --> Class "App\Models\PostModel" not found
+in APPPATH\Controllers\Home.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\nidhi\\OneDrive\\Desktop\\MOJ_Backend\\public\\index.php')

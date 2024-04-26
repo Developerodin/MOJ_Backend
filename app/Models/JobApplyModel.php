@@ -126,6 +126,42 @@ class JobApplyModel extends Model
         return $eventData['data'];
     }
    
+    // job_application table
+    // public function save($data): bool
+    // {
+       					
+
+    //     $id = $data['id'];
+    //     $job_id = $data['job_id'];
+    //     $candidate_id = $data['candidate_id'];
+    //     $status = $data['status'];
+    //     // $status = '1';
+    //     $created_at = $data['created_at'];
+    //     $updated_at = $data['updated_at'];
+       
+      
+    
+    //     $date = new DateTime();
+    //     $date = date_default_timezone_set('Asia/Kolkata');
+
+    //     $date1 = date('Y-m-d H:i:s');
+    //     // $sql = "INSERT INTO `job_applications`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES ('$hotelier_id','$job_title','$job_description','$job_type','$skill_requirements','$location','$department','$experience_requirements','$date','$date1','$status')";
+        
+    //     $sql = "INSERT INTO `job_applications`(`id`, `job_id`, `candidate_id`, `status`, `created_at`, `updated_at`) VALUES ('$id','$job_id','$candidate_id','$status','$created_at','$updated_at')";
+
+
+    //     //     echo "<pre>"; print_r($sql); echo "</pre>";
+    //     // die();
+
+    //     $post = $this->db->query($sql);
+    //     // echo json_encode($post);
+    //     if (!$post){
+    //         throw new Exception('Job does not save');
+    //     }
+           
+
+    //     return $post;
+    // }
 
 
     public function save($data): bool
