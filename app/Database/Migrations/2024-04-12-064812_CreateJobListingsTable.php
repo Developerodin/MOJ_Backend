@@ -65,7 +65,7 @@ class CreateJobListingsTable extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('hotelier_id', 'hoteliers', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('hotelier_id', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('job_listings');
     }
 

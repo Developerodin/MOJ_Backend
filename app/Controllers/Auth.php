@@ -118,8 +118,8 @@ class Auth extends BaseController
 
         // Close cURL session
         curl_close($ch);
-// print_r($response);
-// die();
+        // print_r($response);
+        // die();
         // Check response and handle errors if necessary
         if ($response === false) {
             return ['success' => false, 'error' => 'Failed to send GET request'];
@@ -132,7 +132,7 @@ class Auth extends BaseController
         // 
         $input = $this->getRequestInput($this->request);
         $sentMobile = $input['mobile_number'];
-      
+
         // Get the OTP and its creation time from the session
         $sentOTP = '123456';
         // $otpTime = $_SESSION['otp_time'];
@@ -147,7 +147,7 @@ class Auth extends BaseController
         // }
 
         // Compare the user-provided OTP with the one stored in the session
-        if ($userOTP == $sentOTP ) {
+        if ($userOTP == $sentOTP) {
             // OTP matches, return true
             // return true;
             // echo "prr";
