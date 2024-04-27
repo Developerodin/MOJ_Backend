@@ -24,14 +24,7 @@
 											<table class="table table-responsive-sm mb-0">
 											<thead>
 													<tr>
-														<th style="">
-															<div class="form-check">
-															  <input class="form-check-input" type="checkbox" value="" id="checkAll">
-															  <label class="form-check-label" for="checkAll">
-															   
-															  </label>
-															</div>
-														</th>
+														
 														<th><strong>Id</strong></th>
 														<th><strong>Name</strong></th>
 														<th><strong>Gender</strong></th>
@@ -44,14 +37,7 @@
 													<tbody>
                                                     <?php foreach ($users as $user) : ?>
 													<tr>
-														<td>
-															<div class="form-check">
-															  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault-1">
-															  <label class="form-check-label" for="flexCheckDefault-1">
-															   
-															  </label>
-															</div>
-														</td>
+														
 														<td><b><?= $user->id ?></b></td>
 														<td><?= $user->name ?></td>
 														<td><?= $user->gender ?></td>
