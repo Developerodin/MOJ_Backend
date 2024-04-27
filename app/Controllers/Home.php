@@ -129,11 +129,11 @@ class Home extends BaseController
                 return redirect()->to('home');
             }else{
                 // PIN validation failed, redirect back to login with error message
-                return redirect()->to('login')->with('error', 'Invalid PIN');
+                return redirect()->to('/')->with('error', 'Invalid PIN');
             }   
         }else{
             // User not found, redirect back to login with error message
-            return redirect()->to('login')->with('error', 'Invalid email or password');
+            return redirect()->to('/')->with('error', 'Invalid email or password');
         }
     }
     public function login()

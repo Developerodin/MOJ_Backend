@@ -8,17 +8,17 @@
 	<meta name="author" content="DexignLab">
 	<meta name="robots" content="">
 	<meta name="keywords" content="admin, admin dashboard, admin template, analytics, bootstrap, bootstrap 5, bootstrap 5 admin template, modern, responsive admin dashboard, sales dashboard, sass, ui kit, web app, frontend, shop, shop cart, blog">
-	<meta name="description" content="Discover MotaAdmin - the ultimate admin dashboard and Bootstrap 5 template. Specially designed for professionals, and for business. MotaAdmin provides advanced features and an easy-to-use interface for creating a top-quality website with frontend">
-	<meta property="og:title" content="MotaAdmin : Admin & Dashboard Template + FrontEnd">
-	<meta property="og:description" content="Discover MotaAdmin - the ultimate admin dashboard and Bootstrap 5 template. Specially designed for professionals, and for business. MotaAdmin provides advanced features and an easy-to-use interface for creating a top-quality website with frontend">
-	<meta property="og:image" content="https://motaadmin.dexignlab.com/xhtml/social-image.png">
+	<meta name="description" content="Discover MojAdmin - the ultimate admin dashboard and Bootstrap 5 template. Specially designed for professionals, and for business. MojAdmin provides advanced features and an easy-to-use interface for creating a top-quality website with frontend">
+	<meta property="og:title" content="MojAdmin : Admin & Dashboard Template + FrontEnd">
+	<meta property="og:description" content="Discover MojAdmin - the ultimate admin dashboard and Bootstrap 5 template. Specially designed for professionals, and for business. MojAdmin provides advanced features and an easy-to-use interface for creating a top-quality website with frontend">
+	<meta property="og:image" content="https://Mojadmin.dexignlab.com/xhtml/social-image.png">
 	<meta name="format-detection" content="telephone=no">
 	
 	<!-- Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- PAGE TITLE HERE -->
-	<title>MotaAdmin - Bootstrap Admin Dashboard Bootstrap 5 Template + FrontEnd</title>
+	<title>MojAdmin - Bootstrap Admin Dashboard Bootstrap 5 Template + FrontEnd</title>
 	
 	<!-- FAVICONS ICON -->
 	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
@@ -59,7 +59,7 @@
             <a href="index.html" class="brand-logo">
                 <img class="logo-abbr" src="./images/logo-white.png" alt="">
                 <img class="logo-compact" src="./images/logo-text-white.png" alt="">
-                <img class="brand-title" src="./images/logo-text-white.png" alt="">
+                
             </a>
 
             <div class="nav-control">
@@ -596,7 +596,7 @@
 
                         <ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown">
-								  <a class="nav-link" href="https://motaadmin.dexignlab.com/frontend/xhtml/index.html" target="_blank">
+								  <a class="nav-link" href="https://Mojadmin.dexignlab.com/frontend/xhtml/index.html" target="_blank">
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
 								<div class="pluse-css-1"></div>
 							  </a>
@@ -760,15 +760,15 @@
 						</a>
                         <ul aria-expanded="false">
 							<li><a href="<?= base_url('user-list') ?>">User list</a></li>
-							{# <li><a href="menu.html">Menu</a></li>
-							<li><a href="email-template.html">Email Template</a></li>
-							<li><a href="blog.html">Blog</a></li> #}
+							
 						</ul>
                     </li>
-                    <li class="nav-label">Apps</li>
+                    <li class="nav-label">Hotels
+                    </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><polygon fill="#000000" opacity="0.3" points="5 7 5 15 19 15 19 7"/>       <path d="M11,19 L11,16 C11,15.4477153 11.4477153,15 12,15 C12.5522847,15 13,15.4477153 13,16 L13,19 L14.5,19 C14.7761424,19 15,19.2238576 15,19.5 C15,19.7761424 14.7761424,20 14.5,20 L9.5,20 C9.22385763,20 9,19.7761424 9,19.5 C9,19.2238576 9.22385763,19 9.5,19 L11,19 Z" fill="#000000" opacity="0.3"/><path d="M5,7 L5,15 L19,15 L19,7 L5,7 Z M5.25,5 L18.75,5 C19.9926407,5 21,5.8954305 21,7 L21,15 C21,16.1045695 19.9926407,17 18.75,17 L5.25,17 C4.00735931,17 3,16.1045695 3,15 L3,7 C3,5.8954305 4.00735931,5 5.25,5 Z" fill="#000000" fill-rule="nonzero"/></g></svg>
-							<span class="nav-text">Apps</span>
+							<span class="nav-text">Hotels
+                            </span>
 						</a>
                         <ul aria-expanded="false">
                             <li><a href="./app-profile.html">Profile</a></li>
@@ -795,15 +795,20 @@
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><path d="M4.00246329,12.2004927 L13,14 L13,4.06189375 C16.9463116,4.55399184 20,7.92038235 20,12 C20,16.418278 16.418278,20 12,20 C7.64874861,20 4.10886412,16.5261253 4.00246329,12.2004927 Z" fill="#000000" opacity="0.3"/><path d="M3.0603968,10.0120794 C3.54712466,6.05992157 6.91622084,3 11,3 L11,11.6 L3.0603968,10.0120794 Z" fill="#000000"/></g></svg>
-							<span class="nav-text">Charts</span>
+							<span class="nav-text">Jobs</span>
 						</a>
                         <ul aria-expanded="false">
                             <li><a href="./chart-flot.html">Flot</a></li>
-                            <li><a href="./chart-morris.html">Morris</a></li>
-                            <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="./chart-chartist.html">Chartist</a></li>
-                            <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="./chart-peity.html">Peity</a></li>
+                           
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><path d="M4.00246329,12.2004927 L13,14 L13,4.06189375 C16.9463116,4.55399184 20,7.92038235 20,12 C20,16.418278 16.418278,20 12,20 C7.64874861,20 4.10886412,16.5261253 4.00246329,12.2004927 Z" fill="#000000" opacity="0.3"/><path d="M3.0603968,10.0120794 C3.54712466,6.05992157 6.91622084,3 11,3 L11,11.6 L3.0603968,10.0120794 Z" fill="#000000"/></g></svg>
+							<span class="nav-text">Settings</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="./chart-flot.html">Flot</a></li>
+                           
                         </ul>
                     </li>
                     <li class="nav-label">Components</li>
@@ -851,84 +856,7 @@
 							<span class="nav-text">Widget</span>
 						</a></li>
                     <li class="nav-label">Forms</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon points="0 0 24 0 24 24 0 24"/><path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920231 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/><rect fill="#000000" x="6" y="11" width="9" height="2" rx="1"/><rect fill="#000000" x="6" y="15" width="5" height="2" rx="1"/></g></svg>
-							<span class="nav-text">Forms</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="./form-element.html">Form Elements</a></li>
-                            <li><a href="./form-wizard.html">Wizard</a></li>
-                            <li><a href="form-ckeditor.html">CkEditor</a></li>
-                            <li><a href="form-pickers.html">Pickers</a></li>
-                            <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">Table</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><path d="M3,4 L20,4 C20.5522847,4 21,4.44771525 21,5 L21,7 C21,7.55228475 20.5522847,8 20,8 L3,8 C2.44771525,8 2,7.55228475 2,7 L2,5 C2,4.44771525 2.44771525,4 3,4 Z M3,10 L13,10 C13.5522847,10 14,10.4477153 14,11 L14,13 C14,13.5522847 13.5522847,14 13,14 L3,14 C2.44771525,14 2,13.5522847 2,13 L2,11 C2,10.4477153 2.44771525,10 3,10 Z M3,16 L13,16 C13.5522847,16 14,16.4477153 14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L3,20 C2.44771525,20 2,19.5522847 2,19 L2,17 C2,16.4477153 2.44771525,16 3,16 Z" fill="#000000"/><rect fill="#000000" opacity="0.3" x="16" y="10" width="5" height="10" rx="1"/></g></svg>
-							<span class="nav-text">Table</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
-                            <li><a href="table-datatable-basic.html">Datatable</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-label">Extra</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><rect fill="#000000" opacity="0.3" x="4" y="4" width="8" height="16"></rect><path d="M6,18 L9,18 C9.66666667,18.1143819 10,18.4477153 10,19 C10,19.5522847 9.66666667,19.8856181 9,20 L4,20 L4,15 C4,14.3333333 4.33333333,14 5,14 C5.66666667,14 6,14.3333333 6,15 L6,18 Z M18,18 L18,15 C18.1143819,14.3333333 18.4477153,14 19,14 C19.5522847,14 19.8856181,14.3333333 20,15 L20,20 L15,20 C14.3333333,20 14,19.6666667 14,19 C14,18.3333333 14.3333333,18 15,18 L18,18 Z M18,6 L15,6 C14.3333333,5.88561808 14,5.55228475 14,5 C14,4.44771525 14.3333333,4.11438192 15,4 L20,4 L20,9 C20,9.66666667 19.6666667,10 19,10 C18.3333333,10 18,9.66666667 18,9 L18,6 Z M6,6 L6,9 C5.88561808,9.66666667 5.55228475,10 5,10 C4.44771525,10 4.11438192,9.66666667 4,9 L4,4 L9,4 C9.66666667,4 10,4.33333333 10,5 C10,5.66666667 9.66666667,6 9,6 L6,6 Z" fill="#000000" fill-rule="nonzero"></path></g></svg>
-							<span class="nav-text">Pages</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="./page-register.html">Register</a></li>
-                            <li><a href="./page-login.html">Login</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./page-error-400.html">Error 400</a></li>
-                                    <li><a href="./page-error-403.html">Error 403</a></li>
-                                    <li><a href="./page-error-404.html">Error 404</a></li>
-                                    <li><a href="./page-error-500.html">Error 500</a></li>
-                                    <li><a href="./page-error-503.html">Error 503</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./page-lock-screen.html">Lock Screen</a></li>
-                        </ul>
-                    </li>
-					<li class="nav-label">Frontend</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
-									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<rect x="0" y="0" width="24" height="24"></rect>
-										<path d="M12,4.56204994 L7.76822128,9.6401844 C7.4146572,10.0644613 6.7840925,10.1217854 6.3598156,9.76822128 C5.9355387,9.4146572 5.87821464,8.7840925 6.23177872,8.3598156 L11.2317787,2.3598156 C11.6315738,1.88006147 12.3684262,1.88006147 12.7682213,2.3598156 L17.7682213,8.3598156 C18.1217854,8.7840925 18.0644613,9.4146572 17.6401844,9.76822128 C17.2159075,10.1217854 16.5853428,10.0644613 16.2317787,9.6401844 L12,4.56204994 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
-										<path d="M3.28077641,9 L20.7192236,9 C21.2715083,9 21.7192236,9.44771525 21.7192236,10 C21.7192236,10.0817618 21.7091962,10.163215 21.6893661,10.2425356 L19.5680983,18.7276069 C19.234223,20.0631079 18.0342737,21 16.6576708,21 L7.34232922,21 C5.96572629,21 4.76577697,20.0631079 4.43190172,18.7276069 L2.31063391,10.2425356 C2.17668518,9.70674072 2.50244587,9.16380623 3.03824078,9.0298575 C3.11756139,9.01002735 3.1990146,9 3.28077641,9 Z M12,12 C11.4477153,12 11,12.4477153 11,13 L11,17 C11,17.5522847 11.4477153,18 12,18 C12.5522847,18 13,17.5522847 13,17 L13,13 C13,12.4477153 12.5522847,12 12,12 Z M6.96472382,12.1362967 C6.43125772,12.2792385 6.11467523,12.8275755 6.25761704,13.3610416 L7.29289322,17.2247449 C7.43583503,17.758211 7.98417199,18.0747935 8.51763809,17.9318517 C9.05110419,17.7889098 9.36768668,17.2405729 9.22474487,16.7071068 L8.18946869,12.8434035 C8.04652688,12.3099374 7.49818992,11.9933549 6.96472382,12.1362967 Z M17.0352762,12.1362967 C16.5018101,11.9933549 15.9534731,12.3099374 15.8105313,12.8434035 L14.7752551,16.7071068 C14.6323133,17.2405729 14.9488958,17.7889098 15.4823619,17.9318517 C16.015828,18.0747935 16.564165,17.758211 16.7071068,17.2247449 L17.742383,13.3610416 C17.8853248,12.8275755 17.5687423,12.2792385 17.0352762,12.1362967 Z" fill="#000000"></path>
-									</g>
-								</svg>
-							<span class="nav-text">Frontend</span>
-						</a>
-                        <ul aria-expanded="false">
-                           <li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/index.html">Home</a></li>
-                            <li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/about-us.html">About Us</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/shop-grid-view.html" target="_blank">Shop Grid</a></li>
-									<li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/shop-detail.html" target="_blank">Shop Detail</a></li>
-									<li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/shop-cart.html" target="_blank">Shop Cart</a></li>
-									<li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/shop-checkout.html" target="_blank">Shop Checkout</a></li>
-									<li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/wishlist.html" target="_blank">Wishlist</a></li>
-									<li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/shop-login.html" target="_blank">Login</a></li>
-									<li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/shop-registration.html" target="_blank">Registration</a></li>
-                                </ul>
-                            </li>
-							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Blog</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/blog-list.html" target="_blank">Blog List</a></li>
-									<li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/blog-grid.html" target="_blank">Blog Grid</a></li>
-									<li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/blog-details.html" target="_blank">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="https://motaadmin.dexignlab.com/frontend/xhtml/contact-us.html">Contact Us</a></li>
-                        </ul>
-                    </li>
+                 
                 </ul>
             </div>
 
