@@ -36,6 +36,9 @@ $routes->post('login/authenticate', 'Home::authenticate');
 $routes->post('/admin_register', 'Home::admin_register');
 $routes->get('/logout', 'Home::logout');
 $routes->get('/user-list', 'Home::user_list');
+$routes->get('/hotel-list', 'Home::hotel_list');
+$routes->get('/agent-list', 'Home::agent_list');
+$routes->get('/job-list', 'Home::job_list');
 
 $routes->post('/auth/number_check', 'Auth::check_mobile');
 $routes->post('/users/work_exp', 'Users::work_ex');

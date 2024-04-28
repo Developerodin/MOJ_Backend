@@ -8,12 +8,14 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
 use \DateTime;
 use CodeIgniter\API\ResponseTrait;
-
+use CodeIgniter\Session\Session;
 use ReflectionException;
 
 class Job extends BaseController
 {
     use ResponseTrait;
+    protected $session;
+   
     public function index()
     {
         //    echo "test";
