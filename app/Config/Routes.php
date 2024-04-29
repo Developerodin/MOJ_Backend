@@ -45,6 +45,7 @@ $routes->post('/users/work_exp', 'Users::work_ex');
 $routes->post('/auth/verify_otp/(:num)', 'Auth::verifyOTP/$1');
 $routes->post('/auth/register', 'Auth::register');
 $routes->post('/auth/user_update','Auth::user_update');
+$routes->post('/user_update','Auth::user_update_web');
 
 
 // Job 
@@ -76,7 +77,7 @@ $routes->get('/user_work_ex/By_userId/(:num)','Users::work_show/$1');
 $routes->post('/user_work_ex/Update_ByuserId/(:num)','Users::work_ex_update/$1');
 $routes->post('/user_work_ex/delete/(:num)','Users::delete_w_ex/$1');  // user deleted
 // user education.
-$routes->get('/user/education', 'Users::get');
+$routes->get('/user/education', 'Users::edu_get');
 $routes->post('/user_education/store', 'Users::education');
 $routes->get('/user_education/By_userId/(:num)','Users::education_show/$1');
 $routes->post('/user_education/Update_ByuserId/(:num)','Users::education_update/$1');
