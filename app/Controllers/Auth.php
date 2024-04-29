@@ -352,12 +352,7 @@ class Auth extends BaseController
             return redirect()->to('user-list');
         } catch (Exception $exception) {
 
-            return $this->getResponse(
-                [
-                    'message' => $exception->getMessage()
-                ],
-                ResponseInterface::HTTP_NOT_FOUND
-            );
+            return redirect()->to('user-list')->with('error', 'Failed to user update.');
         }
     }
 

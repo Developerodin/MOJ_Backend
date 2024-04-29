@@ -23,7 +23,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'cors' => Cors::class, 
-        'auth' =>  \App\Filters\JWTAuthenticationFilter::class // add this line
+        // 'auth' =>  \App\Filters\JWTAuthenticationFilter::class // add this line
     ];
 
     /**
@@ -38,7 +38,7 @@ class Filters extends BaseConfig
             'cors'
         ],
         'after' => [
-            //'toolbar',
+            'toolbar',
             // 'honeypot',
             // 'secureheaders',
         ],
@@ -68,14 +68,14 @@ class Filters extends BaseConfig
         'auth' => [
             'before' => [
                 'job/*',
-                'users/*',
-                'job',
-                'auth/user_update/',
-                '/user/workingExperience',
-                '/user_work_ex/*',
-                '/job_saved',
-                '/job_save/*',
-                '/job_saved/*'
+                // 'users/*',
+                // 'job',
+                // 'auth/user_update/',
+                // '/user/workingExperience',
+                // '/user_work_ex/*',
+                // '/job_saved',
+                // '/job_save/*',
+                // '/job_saved/*'
 
           ],
         ]

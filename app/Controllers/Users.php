@@ -130,7 +130,7 @@ class Users extends BaseController
         try {
             $model = new UserModel();
             $post = $model->findPostById($id);
-            $model->deletedata($id);
+            $model->delete($id);
             return $this
                 ->getResponse(
                     [
@@ -144,6 +144,17 @@ class Users extends BaseController
                 ],
                 ResponseInterface::HTTP_NOT_FOUND
             );
+        }
+    }
+    public function user_del($id)
+    {
+        try {
+            $model = new UserModel();
+            // $post = $model->findPostById($id);
+            $model->delete($id);
+            return redirect()->to('user-list');
+        } catch (Exception $exception) {
+            return redirect()->to('user-list')->with('error', 'Failed to delete the post.');
         }
     }
     public function get()
@@ -176,6 +187,7 @@ class Users extends BaseController
                 ->getResponse(
                     [
                         'message' => 'work exp. deleted successfully',
+                        'status' => 'success',
                     ]
                 );
         } catch (Exception $exception) {
@@ -189,7 +201,7 @@ class Users extends BaseController
     }
 
 
-    
+
     // education
     public function edu_get()
     {
