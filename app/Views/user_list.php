@@ -41,14 +41,14 @@
 													<?= $user->name ?>
 						`						</td>
 												<td>
-													<strong>Phone :</strong><?= $user->mobile_number ?><br>
-													<strong>Email :</strong><?= $user->email ?>
+													<strong>Phone : </strong><?= $user->mobile_number ?><br>
+													<strong>Email : </strong><?= $user->email ?>
 													
 												</td>
 												<td>
-													<strong>Add :</strong><?= $user->address ?><br>
-													<strong>City :</strong><?= $user->city ?><br>
-													<strong>Country :</strong><?= $user->country ?><br>
+													<strong>Add : </strong><?= $user->address ?><br>
+													<strong>City : </strong><?= $user->city ?><br>
+													<strong>Country : </strong><?= $user->country ?><br>
 												</td>
 
 												<td class="recent-stats"><i class="fa fa-circle text-success me-1"></i>
