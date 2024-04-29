@@ -12,7 +12,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
 use CodeIgniter\API\ResponseTrait;
 use ReflectionException;
-
+use CodeIgniter\Session\Session;
 class Auth extends BaseController
 {
     /**
@@ -20,6 +20,12 @@ class Auth extends BaseController
      * @return Response
      * @throws ReflectionException
      */
+
+     protected $session;
+       public function __construct()
+    {
+        $this->session = \Config\Services::session();
+    }
     public function check_mobile()
     {
         $input = $this->getRequestInput($this->request);
@@ -72,18 +78,20 @@ class Auth extends BaseController
     public function otp($data)
     {
         $mobileNumber = $data;
+        echo $mobileNumber;
         // Generate OTP
         // Generate OTP
-        $otp1 = '123456';
-
-        session_start();
+        // $otp1 = '123456';
+        $otp1 = mt_rand(100000, 999999);
+      
         // Save OTP to the user's session
-
-        $_SESSION['otp'] = $otp1;
-        $_SESSION['mobile'] = $mobileNumber;
-        $_SESSION['otp_time'] = time();
-
-        // var_dump($_SESSION);
+       
+    
+        $otp_time = time();
+        $this->session->set('otp', $otp1);
+        $this->session->set('otp_time', $otp_time);
+        $this->session->set('mobile', $mobileNumber);
+        // // var_dump($_SESSION);
 
         $url = 'https://www.fast2sms.com/dev/bulkV2';
         $apiKey = 'fXeO8yi0IF29xhjVN5LTB6slYdRrEkSJv3ZtWcMHaoqbPDuAUmLuihz0I8CkVM34y7KJxEeGlFBsSvQt';
@@ -127,32 +135,35 @@ class Auth extends BaseController
             return ['success' => true, 'otp' => $otp1];
         }
     }
+  
+
     public function verifyOTP($userOTP)
     {
 
         // 
         $input = $this->getRequestInput($this->request);
+      
         $sentMobile = $input['mobile_number'];
 
         // Get the OTP and its creation time from the session
-        $sentOTP = '123456';
+        $sentOTP = $this->session->get('otp');
 
-        // $otpTime = $_SESSION['otp_time'];
-        // $mobile = $_SESSION['mobile'];
+        $otpTime = $this->session->get('otp_time');
+        $mobile = $this->session->get('mobile');
         // echo $sentOTP;
-        // Check if the OTP was created more than 5 minutes ago
-        // if (time() - $otpTime > 5 * 60) {
-        //     // OTP expired, clear session variables and return false
-        //     unset($_SESSION['otp']);
-        //     unset($_SESSION['otp_time']);
-        //     return false;
-        // }
+       
+        if (time() - $otpTime > 5 * 60) {
+            // OTP expired, clear session variables and return false
+            $this->session->remove('otp_time'); // Remove the 'otp_time' session variable
+            $this->session->remove('otp_code'); // Remove the 'otp_code' session variable
+            return false;
+        }
 
         // Compare the user-provided OTP with the one stored in the session
         if ($userOTP == $sentOTP) {
             // OTP matches, return true
             // return true;
-            echo "prr";
+            // echo "prr";
             return $this->getJWTForUser($input['mobile_number']);
         } else {
             // OTP does not match, return false
@@ -343,7 +354,7 @@ class Auth extends BaseController
             // echo "</pre>";
             // die();
 
-
+// echo "test";
 
 
             // unset('1234');
@@ -354,7 +365,7 @@ class Auth extends BaseController
                     [
                         'message' => 'User authenticated successfully',
                         'user' => $userd,
-                        // 'Job-Data' => $jobdata,
+                        'status' => "success",
 
                         'access_token' => getSignedJWTForUser($mobile_Number)
                     ]

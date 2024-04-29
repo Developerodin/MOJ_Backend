@@ -1,3 +1,33 @@
 CRITICAL - 2024-04-29 07:05:18 --> Class "Locale" not found
 in SYSTEMPATH\CodeIgniter.php on line 194.
  1 ROOTPATH\spark(83): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2024-04-29 05:59:22 --> Can't use method return value in write context
+in APPPATH\Controllers\Auth.php on line 155.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-29 05:59:45 --> Can't use method return value in write context
+in APPPATH\Controllers\Auth.php on line 155.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-29 06:00:13 --> Can't use method return value in write context
+in APPPATH\Controllers\Auth.php on line 156.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-29 06:00:47 --> Can't use method return value in write context
+in APPPATH\Controllers\Auth.php on line 157.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-29 06:01:18 --> Can't use method return value in write context
+in APPPATH\Controllers\Auth.php on line 157.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-29 06:01:45 --> Can't use method return value in write context
+in APPPATH\Controllers\Auth.php on line 154.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-29 06:01:54 --> Can't use method return value in write context
+in APPPATH\Controllers\Auth.php on line 154.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-29 06:02:00 --> Can't use method return value in write context
+in APPPATH\Controllers\Auth.php on line 154.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-29 06:02:16 --> Can't use method return value in write context
+in APPPATH\Controllers\Auth.php on line 154.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-29 06:03:02 --> Can't use method return value in write context
+in APPPATH\Controllers\Auth.php on line 157.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
