@@ -1,0 +1,14 @@
+ERROR - 2024-04-29 10:13:36 --> mysqli_sql_exception: Table 'resumes' already exists in C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `r...', 0)
+#1 C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `r...')
+#2 C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `r...')
+#3 C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `r...')
+#4 C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\app\Database\Migrations\2024-04-29-100823_CreateResumeTable.php(32): CodeIgniter\Database\Forge->createTable('resumes')
+#5 C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateResumeTable->up()
+#6 C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\vendor\codeigniter4\framework\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\Users\nidhi\OneDrive\Desktop\nini\MOJ_Backend\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
