@@ -1,10 +1,89 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<style>
+    .popup {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+		padding-top: 5rem;
+		margin-left: 8rem;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .popup-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
 
 <div class="content-body">
 	<!-- row -->
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xl-9 col-xxl-12">
+			<div id="editPopup" class="popup">
+				<div class="popup-content">
+					<span class="close" onclick="closePopup()">&times;</span>
+					<h2>Edit User</h2>
+					<form id="editForm" action="update_user.php" method="POST">
+						<!-- Hidden input field for user ID -->
+						<input type="hidden" id="user_id" name="user_id" value="">
+						
+						<!-- Input fields for editing user details -->
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="name" value="">
+						
+						<label for="last_name">Last Name:</label>
+						<input type="text" id="last_name" name="last_name" value="">
+						
+						<label for="mobile_number">Mobile Number:</label>
+						<input type="text" id="mobile_number" name="mobile_number" value="">
+						
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email" value="">
+						
+						<label for="gender">Gender:</label>
+						<input type="text" id="gender" name="gender" value="">
+						
+						<label for="country">Country:</label>
+						<input type="text" id="country" name="country" value="">
+						
+						<label for="state">State:</label>
+						<input type="text" id="state" name="state" value="">
+						
+						<label for="city">City:</label>
+						<input type="text" id="city" name="city" value="">
+						
+						<label for="role">Role:</label>
+						<input type="text" id="role" name="role" value="">
+						
+						<!-- Add more input fields for other user details -->
+			
+						<button type="submit">Save</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-xl-12 col-xxl-12">
 				<div class="row">
 					<div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
 			
@@ -26,36 +105,43 @@
 											<th style="width:85px;"><strong>EDIT</strong></th>
 										</tr>
 									</thead>
-									<?php if (!empty($users)) : ?>
+									<?php if (!empty($users)) : 
+									
+									
+									?>
+									
 										<tbody>
-											<?php foreach ($users as $user) : ?>
+											<?php foreach ($users as $user) : 
+											$json_user = json_encode($user);
+											?>
+											
 											<tr>
 
 												<td><b>
-														<?= $user->id ?>
+														<?= $user->user_id ?>
 													</b></td>
 												<td>
-													<img src="upload/<?= $user->profile_picture ?>" alt="image"width="50"/>
+													<img src="upload/" alt="image"width="50"/>
 												</td>
 												<td>
-													<?= $user->name ?>
-						`						</td>
+													<?= $user->name ?> <?= $user->last_name ?></td>
 												<td>
 													<strong>Phone : </strong><?= $user->mobile_number ?><br>
 													<strong>Email : </strong><?= $user->email ?>
 													
 												</td>
 												<td>
-													<strong>Add : </strong><?= $user->address ?><br>
-													<strong>City : </strong><?= $user->city ?><br>
 													<strong>Country : </strong><?= $user->country ?><br>
+													<strong>State : </strong><?= $user->state ?><br>
+													<strong>City : </strong><?= $user->city ?><br>
+													
 												</td>
 
 												<td class="recent-stats"><i class="fa fa-circle text-success me-1"></i>
 													<?= $user->status ?>
 												</td>
 												<td>
-													<a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
+													<a href="#" class="btn btn-primary shadow btn-xs sharp me-1"onclick="openPopup(<?php echo $user->user_id; ?>)"><i
 															class="fa fa-pencil"></i></a>
 													<a href="#" class="btn btn-danger shadow btn-xs sharp"><i
 															class="fa fa-trash"></i></a>
@@ -86,6 +172,7 @@
 												</td>
 											</tr>
 										</tbody>
+										
 										<?php endif; ?>
 								</table>
 							</div>
@@ -109,6 +196,38 @@
 		</div>
 	</div>
 </div>
+<script>
+    function openPopup(userId) {
+        document.getElementById("editPopup").style.display = "block";
+        document.getElementById("user_id").value = userId;
+        populateFormFields(userId);
+    }
+
+    function closePopup() {
+        document.getElementById("editPopup").style.display = "none";
+    }
+
+    // Function to populate form fields with user data
+    function populateFormFields(userId) {
+        // Here, you can use AJAX to fetch user data based on the user ID and populate the form fields
+        // For now, I'll assume that $user is already defined and contains the user data
+
+        var user = <?= $json_user ?>;
+
+        // Populate the form fields with user data
+        document.getElementById("name").value = user.name;
+        document.getElementById("last_name").value = user.last_name;
+        document.getElementById("mobile_number").value = user.mobile_number;
+        document.getElementById("email").value = user.email;
+        document.getElementById("gender").value = user.gender;
+        document.getElementById("country").value = user.country;
+        document.getElementById("state").value = user.state;
+        document.getElementById("city").value = user.city;
+        document.getElementById("role").value = user.role;
+        // Add more lines to populate other form fields
+    }
+</script>
+
 <!--**********************************
             Content body end
         ***********************************-->

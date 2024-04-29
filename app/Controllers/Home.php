@@ -31,6 +31,8 @@ class Home extends BaseController
         $data['userCount'] = $model->getUserCount();
         $data['users'] = $model->getAllUserData();
 
+
+
         echo view('header');
         echo view('welcome_message', $data);
         echo view('footer');
@@ -105,9 +107,10 @@ class Home extends BaseController
         $model = new UserModel();
 
         $data['users'] = $model->getAllUserData();
-        //    print_r($data);
+        //    print_r($data['users'][0]);
         //     die();
-
+        // echo "test";
+        // die();
         echo view('header');
 
         // Load main view with data

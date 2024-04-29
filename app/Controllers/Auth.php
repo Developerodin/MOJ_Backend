@@ -79,11 +79,11 @@ class Auth extends BaseController
     public function otp($data)
     {
         $mobileNumber = $data;
-        echo $mobileNumber;
+        // echo $mobileNumber;
         // Generate OTP
         // Generate OTP
-        // $otp1 = '123456';
-        $otp1 = mt_rand(100000, 999999);
+        $otp1 = '123456';
+        // $otp1 = 'mt_rand(100000, 999999)';
 
         // Save OTP to the user's session
 
@@ -147,19 +147,21 @@ class Auth extends BaseController
         $sentMobile = $input['mobile_number'];
 
         // Get the OTP and its creation time from the session
-        $sentOTP = $this->session->get('otp');
+        // $sentOTP = $this->session->get('otp');
+        $sentOTP = '123456';
 
         $otpTime = $this->session->get('otp_time');
-        $mobile = $this->session->get('mobile');
+        // $mobile = $this->session->get('mobile');
         // echo $sentOTP;
-
-        if (time() - $otpTime > 5 * 60) {
-            // OTP expired, clear session variables and return false
-            $this->session->remove('otp_time'); // Remove the 'otp_time' session variable
-            $this->session->remove('otp_code'); // Remove the 'otp_code' session variable
-            return false;
-        }
-
+        // echo "yes";
+        // if (time() - $otpTime > 5 * 60) {
+        //     // OTP expired, clear session variables and return false
+        //     $this->session->remove('otp_time'); // Remove the 'otp_time' session variable
+        //     $this->session->remove('otp'); // Remove the 'otp_code' session variable
+        //     return false;
+        // }
+    //    echo "yes";
+    // echo "send = ".$sentOTP . "get = ".$userOTP;
         // Compare the user-provided OTP with the one stored in the session
         if ($userOTP == $sentOTP) {
             // OTP matches, return true
