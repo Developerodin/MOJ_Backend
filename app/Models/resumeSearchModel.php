@@ -9,13 +9,11 @@ use \Datetime;
 class resumeSearchModel extends Model
  {
 //find by user id
-    public function getby_id_data( $userId )
+    public function getby_id( $userId )
  {
 
         $builder = $this->db->table( 'user_profile' );
-      
         $builder->select( 'resume' );
-      
         $builder->where( 'user_id', $userId );
 
         
@@ -96,7 +94,7 @@ class resumeSearchModel extends Model
     //delete
     public function delete( $id )
  {
-        $sql = "DELETE FROM `Resume` WHERE id= '$id'";
+        $sql = "DELETE FROM `resumes` WHERE id= '$id'";
 
         $post = $this->db->query( $sql );
 

@@ -48,7 +48,7 @@ class resumeSearch extends BaseController
     {
         try {
             $model = new resumeSearchModel();
-            $post = $model->findResumeById( $id );
+            $post = $model->getby_id( $userId );
             return $this->getResponse(
                 [
                     'message' => 'Resume found successfully',
@@ -88,3 +88,5 @@ class resumeSearch extends BaseController
     }
 
 }
+
+
