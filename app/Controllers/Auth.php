@@ -13,6 +13,7 @@ use Exception;
 use CodeIgniter\API\ResponseTrait;
 use ReflectionException;
 use CodeIgniter\Session\Session;
+
 class Auth extends BaseController
 {
     /**
@@ -21,8 +22,8 @@ class Auth extends BaseController
      * @throws ReflectionException
      */
 
-     protected $session;
-       public function __construct()
+    protected $session;
+    public function __construct()
     {
         $this->session = \Config\Services::session();
     }
@@ -83,10 +84,10 @@ class Auth extends BaseController
         // Generate OTP
         // $otp1 = '123456';
         $otp1 = mt_rand(100000, 999999);
-      
+
         // Save OTP to the user's session
-       
-    
+
+
         $otp_time = time();
         $this->session->set('otp', $otp1);
         $this->session->set('otp_time', $otp_time);
@@ -135,14 +136,14 @@ class Auth extends BaseController
             return ['success' => true, 'otp' => $otp1];
         }
     }
-  
+
 
     public function verifyOTP($userOTP)
     {
 
         // 
         $input = $this->getRequestInput($this->request);
-      
+
         $sentMobile = $input['mobile_number'];
 
         // Get the OTP and its creation time from the session
@@ -151,7 +152,7 @@ class Auth extends BaseController
         $otpTime = $this->session->get('otp_time');
         $mobile = $this->session->get('mobile');
         // echo $sentOTP;
-       
+
         if (time() - $otpTime > 5 * 60) {
             // OTP expired, clear session variables and return false
             $this->session->remove('otp_time'); // Remove the 'otp_time' session variable
@@ -231,7 +232,7 @@ class Auth extends BaseController
 
                 $data = $input;
                 $data['user_id'] = $foruid['id'];
-                $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email','state', 'city','country'];
+                $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email', 'state', 'city', 'country'];
                 foreach ($required_fields as $field) {
                     if (!isset($data[$field]) || empty($data[$field])) {
                         return "Error: Missing required field '$field'";
@@ -240,13 +241,13 @@ class Auth extends BaseController
                 $user1 = $model->save_profile($data);
                 $userd = $model->getUserData($data['user_id']);
             }
-            
+
             return $this
                 ->getResponse(
                     [
                         'message' => 'User Register successfully',
                         'user' => $userd,
-
+                        'status' => 'success',
 
                     ]
                 );
@@ -303,10 +304,10 @@ class Auth extends BaseController
 
         try {
             $model = new UserModel();
-          
+
             $input = $this->getRequestInput($this->request);
             $id = $input['user_id'];
-            $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email','state', 'city','country','created_at'];
+            $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email', 'state', 'city', 'country', 'created_at'];
             foreach ($required_fields as $field) {
                 if (!isset($input[$field]) || empty($input[$field])) {
                     return "Error: Missing required field '$field'";
@@ -356,7 +357,7 @@ class Auth extends BaseController
             // echo "</pre>";
             // die();
 
-// echo "test";
+            // echo "test";
 
 
             // unset('1234');
