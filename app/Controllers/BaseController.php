@@ -27,6 +27,7 @@ use Exception;
  */
 abstract class BaseController extends Controller
 {
+    
     /**
      * Instance of the main Request object.
      *
