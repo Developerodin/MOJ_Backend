@@ -57,6 +57,20 @@ class UserModel extends Model
         $result = $user;
         return $result;
     }
+    public function get_data_id($Id)
+    {
+        // echo "test";
+        $builder = $this->db->table('working_experiences');
+        $builder->select(' working_experiences.*');
+        $builder->where('working_experiences.id', $Id);
+
+        $query = $builder->get();
+
+        $user = $query->getResult();
+
+        $result = $user;
+        return $result;
+    }
 
     public function getby_id_data($userId)
     {
