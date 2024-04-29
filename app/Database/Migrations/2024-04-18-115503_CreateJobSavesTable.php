@@ -23,11 +23,13 @@ class CreateJobSavesTable extends Migration
             'unsigned' => true,
         ],
         'created_at' => [
-            'type' => 'DATETIME',
+            'type' => 'VARCHAR',
+            'constraint' => 255,
             'null' => true,
         ],
         'updated_at' => [
-            'type' => 'DATETIME',
+            'type' => 'VARCHAR',
+                'constraint' => 255,
             'null' => true,
         ],
     ]);

@@ -101,14 +101,14 @@ class UserModel extends Model
         }
     }
     public function getAllUserData()
-{
-    $builder = $this->db->table('users');
-    $builder->select('users.*, user_profiles.*');
-    $builder->join('user_profiles', 'user_profiles.user_id = users.id');
-    $query = $builder->get();
+    {
+        $builder = $this->db->table('users');
+        $builder->select('users.*, user_profiles.*');
+        $builder->join('user_profiles', 'user_profiles.user_id = users.id');
+        $query = $builder->get();
 
-    return $query->getResult();
-}
+        return $query->getResult();
+    }
     public function getUserCount()
     {
         $builder = $this->db->table('users');
@@ -268,30 +268,22 @@ class UserModel extends Model
 
     public function save_profile($data)
     {
-       
+
         $user_id = $data['user_id'];
         $name = $data['name'];
         $last_name = $data['last_name'];
-       
         $gender = $data['gender'];
         $email = $data['email'];
         $role = $data['role'];
-        
         $state = $data['state'];
         $city = $data['city'];
         $country = $data['country'];
-       
-
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
-// echo $date1;
-// die();
+    
 
         $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$last_name','$gender','$email','$role','$state','$city','$country','$date1','$date1')";
-        // echo json_encode($sql);
-        // echo json_encode($data);
-        //     die();
         $post = $this->db->query($sql);
 
         if (!$post) {
@@ -300,13 +292,13 @@ class UserModel extends Model
             return $post;
         }
     }
-    public function update_profile($id,$data)
+    public function update_profile($id, $data)
     {
-    //    echo json_encode($sql);
+        //    echo json_encode($sql);
         $user_id = $id;
         $name = $data['name'];
         $last_name = $data['last_name'];
-       
+
         $gender = $data['gender'];
         $email = $data['email'];
         $state = $data['state'];
@@ -388,31 +380,28 @@ class UserModel extends Model
             return $post;
         }
     }
-    public function update1($id, $data): bool
+    public function save_edu($data)
     {
+        // echo json_encode($data);
 
-
-        if (empty($data)) {
-            echo "1";
-            return true;
-        }
-
-        $user_name = $data['user_name'];
-
-        $user_number = $data['user_number'];
-        $status = $data['status'];
-        $sql = "UPDATE `user_log` SET  
-        user_name = '$user_name',
-        user_number = '$user_number',
-        status = '$status'
-          WHERE user_id = $id";
-        // echo "<pre>"; print_r($sql);
-        // echo "</pre>";
+        $user_id = $data['user_id'];
+        $degree = $data['degree'];
+        $university = $data['university'];
+        $year = $data['year'];
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date1 = date("m-d-Y h:i A");
+        $sql = "INSERT INTO `user_education`( `user_id`, `degree`,`university`, `year`, `created_at`) VALUES ('$user_id','$degree','$university','$year','$date1')";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
         $post = $this->db->query($sql);
-        if (!$post)
-            throw new Exception('Post does not exist for specified id');
 
-        return $post;
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
     }
     public function delete_w_ex($id)
     {

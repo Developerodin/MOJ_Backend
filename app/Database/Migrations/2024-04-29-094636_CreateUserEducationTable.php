@@ -4,49 +4,48 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateAdminTable extends Migration
+class CreateUsersEducationTable extends Migration
 {
     public function up()
     {
         $this->forge->addField([
             'id' => [
                 'type' => 'INT',
+                'constraint' => 5,
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            
-            'email' => [
+            'user_id' => [
+                'type' => 'INT',
+                'constraint' => 5,
+                'unsigned' => true,
+            ],
+            'degree' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'pass' => [
+            'university' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            
+            'year' => [
+                'type' => 'INT',
+                'constraint' => 4,
+            ],
             'created_at' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'updated_at' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-           
-            'status' => [
-                'type' => 'ENUM',
-                'constraint' => ['Active', 'Inactive'],
-                'default' => 'Active',
-            ],
         ]);
-        $this->forge->addKey('id', true);
-        $this->forge->createTable('admin');
+
+        $this->forge->addPrimaryKey('id');
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('user_education');
     }
 
     public function down()
     {
-        $this->forge->dropTable('admin');
+        $this->forge->dropTable('user_education');
     }
 }
