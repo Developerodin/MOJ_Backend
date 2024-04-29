@@ -44,7 +44,7 @@ $routes->post('/auth/number_check', 'Auth::check_mobile');
 $routes->post('/users/work_exp', 'Users::work_ex');
 $routes->post('/auth/verify_otp/(:num)', 'Auth::verifyOTP/$1');
 $routes->post('/auth/register', 'Auth::register');
-$routes->post('/auth/user_update/(:num)','Auth::user_update/$1');
+$routes->post('/auth/user_update','Auth::user_update');
 
 
 // Job 

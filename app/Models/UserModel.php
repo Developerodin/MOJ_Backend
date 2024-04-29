@@ -249,9 +249,9 @@ class UserModel extends Model
         $points = '0';
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
+        $date1 = date('Y-m-d H:i:s');
 
-        $date = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `users`(`mobile_number`, `created_at`, `updated_at`, `last_active`, `points`, `status`) VALUES ('$mobile_number','$date','$date','$date','$points','$status')";
+        $sql = "INSERT INTO `users`(`mobile_number`, `created_at`, `updated_at`, `last_active`, `points`, `status`) VALUES ('$mobile_number','$date1','$date1','$date1','$points','$status')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -268,13 +268,6 @@ class UserModel extends Model
 
     public function save_profile($data)
     {
-        // echo json_encode($data);
-        // $required_fields = ['user_id', 'name', 'resume', 'gender', 'email', 'profile_picture', 'address', 'city', 'country', 'interested_fields', 'other_personal_details'];
-        // foreach ($required_fields as $field) {
-        //     if (!isset($data[$field]) || empty($data[$field])) {
-        //         return "Error: Missing required field '$field'";
-        //     }
-        // }
        
         $user_id = $data['user_id'];
         $name = $data['name'];
@@ -282,6 +275,7 @@ class UserModel extends Model
        
         $gender = $data['gender'];
         $email = $data['email'];
+        $role = $data['role'];
         
         $state = $data['state'];
         $city = $data['city'];
@@ -290,10 +284,42 @@ class UserModel extends Model
 
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
-        $date = date("m-d-Y h:i A");
-        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`, `email`,  `state`, `city`, `country`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$last_name','$gender','$email','$state','$city','$country','$date','$date')";
+        $date1 = date("m-d-Y h:i A");
+// echo $date1;
+// die();
+
+        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$last_name','$gender','$email','$role','$state','$city','$country','$date1','$date1')";
         // echo json_encode($sql);
         // echo json_encode($data);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
+    public function update_profile($id,$data)
+    {
+    //    echo json_encode($sql);
+        $user_id = $id;
+        $name = $data['name'];
+        $last_name = $data['last_name'];
+       
+        $gender = $data['gender'];
+        $email = $data['email'];
+        $state = $data['state'];
+        $city = $data['city'];
+        $country = $data['country'];
+        $created_at = $data['created_at'];
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date1 = date("m-d-Y h:i A");
+
+        $sql = "UPDATE `user_profiles` SET `name`='$name]',`last_name`='$last_name',`gender`='$gender',`email`='$email',`state`='$state',`city`='$city',`country`='$country',`created_at`='$created_at',`updated_at`='$date1' WHERE user_id = $user_id";
+        // echo json_encode($sql);
+        // echo ( $sql);
         //     die();
         $post = $this->db->query($sql);
 

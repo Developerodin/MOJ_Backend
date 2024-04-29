@@ -231,20 +231,21 @@ class Auth extends BaseController
 
                 $data = $input;
                 $data['user_id'] = $foruid['id'];
-                $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email','state', 'city'];
+                $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email','state', 'city','country'];
                 foreach ($required_fields as $field) {
                     if (!isset($data[$field]) || empty($data[$field])) {
                         return "Error: Missing required field '$field'";
                     }
                 }
                 $user1 = $model->save_profile($data);
+                $userd = $model->getUserData($data['user_id']);
             }
-
+            
             return $this
                 ->getResponse(
                     [
                         'message' => 'User Register successfully',
-                        'user' => $user1,
+                        'user' => $userd,
 
 
                     ]
@@ -297,20 +298,21 @@ class Auth extends BaseController
         }
     }
 
-    public function user_update($id)
+    public function user_update()
     {
 
         try {
             $model = new UserModel();
-            $input['id'] = $id;
+          
             $input = $this->getRequestInput($this->request);
-            $required_fields = ['id', 'name', 'resume', 'gender', 'email', 'profile_picture', 'address', 'city', 'country', 'interested_fields', 'other_personal_details'];
+            $id = $input['user_id'];
+            $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email','state', 'city','country','created_at'];
             foreach ($required_fields as $field) {
                 if (!isset($input[$field]) || empty($input[$field])) {
                     return "Error: Missing required field '$field'";
                 }
             }
-            $model->update1($id, $input);
+            $model->update_profile($id, $input);
             $post = $model->findUserById($id);
             return $this->getResponse(
                 [

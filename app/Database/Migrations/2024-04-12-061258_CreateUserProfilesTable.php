@@ -23,6 +23,11 @@ class CreateUserProfilesTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
+            'last_name' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
             'gender' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
@@ -38,12 +43,8 @@ class CreateUserProfilesTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
-            'profile_picture' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'address' => [
+            
+            'state' => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
@@ -57,25 +58,15 @@ class CreateUserProfilesTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
-            'interested_fields' => [
-                'type' => 'TEXT',
-                'null' => true,
-            ],
-            'other_personal_details' => [
-                'type' => 'TEXT',
-                'null' => true,
-            ],
-            'resume' => [
+            
+            'created_at' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'created_at' => [
-                'type' => 'DATETIME',
-                'null' => true,
-            ],
             'updated_at' => [
-                'type' => 'DATETIME',
+                'type' => 'VARCHAR',
+                'constraint' => 255,
                 'null' => true,
             ],
         ]);
