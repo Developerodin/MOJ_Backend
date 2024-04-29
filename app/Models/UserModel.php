@@ -265,7 +265,6 @@ class UserModel extends Model
         return $post;
     }
 
-
     public function save_profile($data)
     {
 
@@ -281,7 +280,7 @@ class UserModel extends Model
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
-    
+
 
         $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$last_name','$gender','$email','$role','$state','$city','$country','$date1','$date1')";
         $post = $this->db->query($sql);
@@ -380,6 +379,64 @@ class UserModel extends Model
             return $post;
         }
     }
+
+    public function delete_w_ex($id)
+    {
+        // echo json_encode($data);
+
+
+        $sql = "DELETE FROM `working_experiences` WHERE id= '$id'";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
+
+    // user edu
+
+    public function getUserEd_id($userId)
+    {
+
+        $builder = $this->db->table('user_education');
+        $builder->select('user_education.*');
+
+        $builder->where('user_education.user_id', $userId);
+        $query = $builder->get();
+        // Get the result
+        $user = $query->getResult();
+
+        if (!$user) {
+            return null;
+        } else {
+            return $user[0];
+        }
+    }
+    public function getUserEd()
+    {
+
+        $builder = $this->db->table('user_education');
+        $builder->select('user_education.*');
+        $query = $builder->get();
+        // Get the result
+        $user = $query->getResult();
+
+        if (!$user) {
+            return null;
+        } else {
+            return $user;
+        }
+    }
+
+
+
+
+
     public function save_edu($data)
     {
         // echo json_encode($data);
@@ -403,12 +460,33 @@ class UserModel extends Model
             return $post;
         }
     }
-    public function delete_w_ex($id)
+    public function save_edu_up($data)
     {
         // echo json_encode($data);
 
 
-        $sql = "DELETE FROM `working_experiences` WHERE id= '$id'";
+        $id = $data['id'];
+        $degree = $data['degree'];
+        $university = $data['university'];
+        $year = $data['year'];
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date1 = date("m-d-Y h:i A");
+        $sql = "UPDATE `user_education` SET `id`='[value-1]',`degree`='$degree',`university`='$university',`year`='$year',`created_at`='$date1' WHERE $id";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
+    public function delete_edu($id)
+    {
+            $sql = "DELETE FROM `user_education` WHERE id= '$id'";
         // echo json_encode($sql);
         // echo json_encode($data);
         //     die();

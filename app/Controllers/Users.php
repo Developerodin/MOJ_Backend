@@ -46,6 +46,7 @@ class Users extends BaseController
                     [
                         'message' => 'User Work experience add successfully',
                         'user' => $data,
+                        'status' => 'success'
 
 
                     ]
@@ -53,7 +54,7 @@ class Users extends BaseController
         } else {
 
             $response =
-                $this->response->setStatusCode(400)->setBody('User Work experience not updated');
+                $this->response->setStatusCode(200)->setBody('User Work experience not updated');
             return $response;
         }
     }
@@ -92,6 +93,7 @@ class Users extends BaseController
                     [
                         'message' => 'User Work experience add successfully',
                         'user' => $data,
+                        'status' => 'success'
 
 
                     ]
@@ -99,7 +101,7 @@ class Users extends BaseController
         } else {
 
             $response =
-                $this->response->setStatusCode(400)->setBody('User Work experience not updated');
+                $this->response->setStatusCode(200)->setBody('User Work experience not updated');
             return $response;
         }
     }
@@ -110,7 +112,7 @@ class Users extends BaseController
         $data = $model->getby_id_data($id);
         if ($data == null) {
             $response =
-                $this->response->setStatusCode(400)->setBody(' Id Not found');
+                $this->response->setStatusCode(200)->setBody(' Id Not found');
             return $response;
         } else {
             return $this
@@ -142,6 +144,72 @@ class Users extends BaseController
                 ],
                 ResponseInterface::HTTP_NOT_FOUND
             );
+        }
+    }
+    public function get()
+    {
+        $model = new UserModel();
+        $data = $model->get_data();
+
+        if ($data == null) {
+            $response =
+                $this->response->setStatusCode(200)->setBody(' No Data found');
+            return $response;
+        } else {
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'Data found successfully ',
+                        'data' => $data
+
+                    ]
+                );
+        }
+    }
+    public function delete_w_ex($id)
+    {
+        try {
+            $model = new UserModel();
+            // $post = $model->findPostById($id);
+            $model->delete_w_ex($id);
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'work exp. deleted successfully',
+                    ]
+                );
+        } catch (Exception $exception) {
+            return $this->getResponse(
+                [
+                    'message' => $exception->getMessage()
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+
+
+    
+    // education
+    public function edu_get()
+    {
+        $model = new UserModel();
+        $data = $model->getUserEd();
+
+        if ($data == null) {
+            $response =
+                $this->response->setStatusCode(200)->setBody(' No Data found');
+            return $response;
+        } else {
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'Data found successfully ',
+                        'data' => $data,
+                        'status' => 'success'
+
+                    ]
+                );
         }
     }
     public function education()
@@ -177,12 +245,13 @@ class Users extends BaseController
                         'user' => $data,
                         'status' => 'success'
 
+
                     ]
                 );
         } else {
 
             $response =
-                $this->response->setStatusCode(400)->setBody('User Work experience not updated');
+                $this->response->setStatusCode(200)->setBody('User education not Added');
             return $response;
         }
     }
@@ -192,7 +261,7 @@ class Users extends BaseController
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
-        $required_fields = ['organisation', 'designation', 'profile', 'location', 'start_date', 'end_date'];
+        $required_fields = ['user_id', 'degree', 'university', 'year'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
@@ -201,19 +270,17 @@ class Users extends BaseController
         $model = new UserModel();
         $data = [
 
-            'user_id' => $id,
-            'organisation' => $input['organisation'],
-            'designation' => $input['designation'],
-            'profile' => $input['profile'],
-            'location' => $input['location'],
-            'start_date' => $input['start_date'],
-            'end_date' => $input['end_date']
+            'id' => $id,
+            'user_id' => $input['user_id'],
+            'degree' => $input['degree'],
+            'university' => $input['university'],
+            'year' => $input['year']
         ];
         // echo "<pre>";
         //             print_r($data);
         //             echo "</pre>";
         //             die();
-        $user1 = $model->save_workex($data);
+        $user1 = $model->save_edu_up($data);
 
         if ($user1 == true) {
             return $this
@@ -221,6 +288,7 @@ class Users extends BaseController
                     [
                         'message' => 'User Work experience add successfully',
                         'user' => $data,
+                        'status' => 'success'
 
 
                     ]
@@ -228,7 +296,7 @@ class Users extends BaseController
         } else {
 
             $response =
-                $this->response->setStatusCode(400)->setBody('User Work experience not updated');
+                $this->response->setStatusCode(200)->setBody('User Work experience not updated');
             return $response;
         }
     }
@@ -236,18 +304,18 @@ class Users extends BaseController
     public function education_show($id)
     {
         $model = new UserModel();
-        $data = $model->getby_id_data($id);
+        $data = $model->getUserEd_id($id);
         if ($data == null) {
             $response =
-                $this->response->setStatusCode(400)->setBody(' Id Not found');
+                $this->response->setStatusCode(200)->setBody(' Id Not found');
             return $response;
         } else {
             return $this
                 ->getResponse(
                     [
                         'message' => 'Id found successfully ',
-                        'data' => $data
-
+                        'data' => $data,
+                        'status' => 'success'
                     ]
                 );
         }
@@ -275,45 +343,5 @@ class Users extends BaseController
     }
     //display data w/o id
 
-    public function get()
-    {
-        $model = new UserModel();
-        $data = $model->get_data();
 
-        if ($data == null) {
-            $response =
-                $this->response->setStatusCode(400)->setBody(' No Data found');
-            return $response;
-        } else {
-            return $this
-                ->getResponse(
-                    [
-                        'message' => 'Data found successfully ',
-                        'data' => $data
-
-                    ]
-                );
-        }
-    }
-    public function delete_w_ex($id)
-    {
-        try {
-            $model = new UserModel();
-            // $post = $model->findPostById($id);
-            $model->delete_w_ex($id);
-            return $this
-                ->getResponse(
-                    [
-                        'message' => 'work exp. deleted successfully',
-                    ]
-                );
-        } catch (Exception $exception) {
-            return $this->getResponse(
-                [
-                    'message' => $exception->getMessage()
-                ],
-                ResponseInterface::HTTP_NOT_FOUND
-            );
-        }
-    }
 }
