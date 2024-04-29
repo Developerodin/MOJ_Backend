@@ -231,7 +231,7 @@ class Auth extends BaseController
 
                 $data = $input;
                 $data['user_id'] = $foruid['id'];
-                $required_fields = ['user_id', 'name', 'resume', 'gender', 'email', 'profile_picture', 'address', 'city', 'country', 'interested_fields', 'other_personal_details'];
+                $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email','state', 'city'];
                 foreach ($required_fields as $field) {
                     if (!isset($data[$field]) || empty($data[$field])) {
                         return "Error: Missing required field '$field'";

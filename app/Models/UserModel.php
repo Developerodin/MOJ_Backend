@@ -250,8 +250,8 @@ class UserModel extends Model
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
-        $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `users`(`mobile_number`, `created_at`, `updated_at`, `last_active`, `points`, `status`) VALUES ('$mobile_number','$date1','$date1','$date1','$points','$status')";
+        $date = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO `users`(`mobile_number`, `created_at`, `updated_at`, `last_active`, `points`, `status`) VALUES ('$mobile_number','$date','$date','$date','$points','$status')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -275,22 +275,23 @@ class UserModel extends Model
         //         return "Error: Missing required field '$field'";
         //     }
         // }
+       
         $user_id = $data['user_id'];
         $name = $data['name'];
-        $resume = $data['resume'];
+        $last_name = $data['last_name'];
+       
         $gender = $data['gender'];
         $email = $data['email'];
-        $profile_picture = $data['profile_picture'];
-        $address = $data['address'];
+        
+        $state = $data['state'];
         $city = $data['city'];
         $country = $data['country'];
-        $interested_fields = $data['interested_fields'];
-        $other_personal_details = $data['other_personal_details'];
+       
 
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date = date("m-d-Y h:i A");
-        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`gender`, `email`, `profile_picture`, `address`, `city`, `country`, `interested_fields`, `other_personal_details`,`resume`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$gender','$email','$profile_picture','$address','$city','$country','$interested_fields','$other_personal_details','$resume','$date','$date')";
+        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`, `email`,  `state`, `city`, `country`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$last_name','$gender','$email','$state','$city','$country','$date','$date')";
         // echo json_encode($sql);
         // echo json_encode($data);
         //     die();
