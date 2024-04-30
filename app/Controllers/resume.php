@@ -47,11 +47,11 @@ class resume extends BaseController
     
         // Validate input
         $required_fields = ['user_id', 'resume'];
-        foreach ($required_fields as $field) {
-            if (!isset($input[$field]) || empty($input[$field])) {
-                return "Error: Missing required field '$field'";
-            }
-        }
+        // foreach ($required_fields as $field) {
+        //     if (!isset($input[$field]) || empty($input[$field])) {
+        //         return "Error: Missing required field '$field'";
+        //     }
+        // }
     
         // Get the uploaded file
         $file = $this->request->getFile('resume');

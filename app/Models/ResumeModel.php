@@ -103,9 +103,7 @@ class ResumeModel extends Model
     {
 
         $user_id = $data['user_id'];
-        $Resume = $data['Resume'];
-       
-    
+        $Resume = $data['resume'];
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
