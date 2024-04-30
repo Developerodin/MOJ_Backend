@@ -93,7 +93,7 @@ class Users extends BaseController
         $model = new UserModel();
         $data = [
 
-            'user_id' => $id,
+            'id' => $id,
             'organisation' => $input['organisation'],
             'designation' => $input['designation'],
             'profile' => $input['profile'],
@@ -105,7 +105,7 @@ class Users extends BaseController
         //             print_r($data);
         //             echo "</pre>";
         //             die();
-        $user1 = $model->save_workex($data);
+        $user1 = $model->update_workex($data);
 
         if ($user1 == true) {
             return $this

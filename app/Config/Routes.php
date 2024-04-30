@@ -76,7 +76,7 @@ $routes->get('/user/workingExperience', 'Users::get');
 $routes->get('/user/work_ex_id/(:num)', 'Users::get_id/$1');
 $routes->post('/user_work_ex/store', 'Users::work_ex');
 $routes->get('/user_work_ex/By_userId/(:num)','Users::work_show/$1');
-$routes->post('/user_work_ex/Update_ByuserId/(:num)','Users::work_ex_update/$1');
+$routes->post('/user_work_ex/Update_ById/(:num)','Users::work_ex_update/$1');
 $routes->post('/user_work_ex/delete/(:num)','Users::delete_w_ex/$1');  // user deleted
 
 
