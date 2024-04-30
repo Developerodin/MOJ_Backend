@@ -11,13 +11,13 @@ class CreateUsersEducationTable extends Migration
         $this->forge->addField([
             'id' => [
                 'type' => 'INT',
-                'constraint' => 5,
+                
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
             'user_id' => [
                 'type' => 'INT',
-                'constraint' => 5,
+                
                 'unsigned' => true,
             ],
             'degree' => [
@@ -29,8 +29,8 @@ class CreateUsersEducationTable extends Migration
                 'constraint' => 255,
             ],
             'year' => [
-                'type' => 'INT',
-                'constraint' => 4,
+                'type' => 'VARCHAR',
+                'constraint' => 255,
             ],
             'created_at' => [
                 'type' => 'VARCHAR',

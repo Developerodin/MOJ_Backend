@@ -71,7 +71,7 @@ class UserModel extends Model
         $result = $user;
         return $result;
     }
-
+  
     public function getby_id_data($userId)
     {
 
@@ -457,6 +457,29 @@ class UserModel extends Model
             return $user;
         }
     }
+    public function edu_get_data_id($Id)
+    {
+        // echo "test";
+        $builder = $this->db->table('user_education');
+        $builder->select('user_education.*');
+        $builder->where('user_education.id', $Id);
+
+        $query = $builder->get();
+
+        $user = $query->getResult();
+
+        $result = $user;
+        if ($result) {
+            // Fetch the result set as an array of objects
+
+            return $result;
+        } else {
+            // No rows found, return null or an empty array, depending on your preference
+            return "not data get";
+        }
+       
+    }
+
     public function getUserEd()
     {
 
@@ -472,8 +495,6 @@ class UserModel extends Model
             return $user;
         }
     }
-
-
 
     public function save_edu($data)
     {
@@ -510,7 +531,7 @@ class UserModel extends Model
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
-        $sql = "UPDATE `user_education` SET `id`='[value-1]',`degree`='$degree',`university`='$university',`year`='$year',`created_at`='$date1' WHERE $id";
+        $sql = "UPDATE `user_education` SET `degree`='$degree',`university`='$university',`year`='$year',`created_at`='$date1' WHERE id ='$id'";
         // echo json_encode($sql);
         // echo json_encode($data);
         //     die();
@@ -524,16 +545,19 @@ class UserModel extends Model
     }
     public function delete_edu($id)
     {
-            $sql = "DELETE FROM `user_education` WHERE id= '$id'";
-        // echo json_encode($sql);
-        // echo json_encode($data);
-        //     die();
-        $post = $this->db->query($sql);
-
+        // Prepare the SQL statement with a placeholder for the id
+        $sql = "DELETE FROM `user_education` WHERE id = ?";
+        
+        // Execute the prepared statement with the id parameter
+        $post = $this->db->query($sql, [$id]);
+    
+        // Check if the query was executed successfully
         if (!$post) {
+            // If the query fails, return false
             return false;
         } else {
-            return $post;
+            // If the query succeeds, return true
+            return true;
         }
     }
 }

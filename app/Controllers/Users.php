@@ -244,6 +244,27 @@ class Users extends BaseController
                 );
         }
     }
+    public function edu_get_id($id)
+    {
+        $model = new UserModel();
+        $data = $model->edu_get_data_id($id);
+
+        if ($data == null) {
+            $response =
+                $this->response->setStatusCode(200)->setBody(' No Data found');
+            return $response;
+        } else {
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'Data found successfully ',
+                        'data' => $data,
+                        'status' => 'success'
+
+                    ]
+                );
+        }
+    }
     public function education()
     {
         $input = $this->getRequestInput($this->request);
@@ -293,7 +314,7 @@ class Users extends BaseController
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
-        $required_fields = ['user_id', 'degree', 'university', 'year'];
+        $required_fields = ['degree', 'university', 'year'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
@@ -357,11 +378,12 @@ class Users extends BaseController
         try {
             $model = new UserModel();
             // $post = $model->findPostById($id);
-            $model->delete_w_ex($id);
+            $model->delete_edu($id);
             return $this
                 ->getResponse(
                     [
-                        'message' => 'work exp. deleted successfully',
+                        'message' => 'education. deleted successfully',
+                        'status' => 'success'
                     ]
                 );
         } catch (Exception $exception) {

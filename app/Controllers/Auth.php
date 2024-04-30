@@ -42,11 +42,12 @@ class Auth extends BaseController
         $model = new UserModel();
 
         $user = $model->findUserByUserNumber1($input['mobile_number']);
-        // echo "<pre>";
-        // print_r($user);
-        // echo "</pre>";
-        // die();
+        
         if ($user == 0) {
+            // echo "<pre>";
+            // print_r($user);
+            // echo "</pre>";
+            // die();
             $response = $this->response->setStatusCode(200)->setBody('user not found');
             return $response;
         } else {
@@ -160,8 +161,8 @@ class Auth extends BaseController
         //     $this->session->remove('otp'); // Remove the 'otp_code' session variable
         //     return false;
         // }
-    //    echo "yes";
-    // echo "send = ".$sentOTP . "get = ".$userOTP;
+        //    echo "yes";
+        // echo "send = ".$sentOTP . "get = ".$userOTP;
         // Compare the user-provided OTP with the one stored in the session
         if ($userOTP == $sentOTP) {
             // OTP matches, return true

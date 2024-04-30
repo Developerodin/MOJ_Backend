@@ -82,9 +82,10 @@ $routes->post('/user_work_ex/delete/(:num)','Users::delete_w_ex/$1');  // user d
 
 // user education.
 $routes->get('/user/education', 'Users::edu_get');
+$routes->get('/user/edu_id/(:num)', 'Users::edu_get_id/$1');
 $routes->post('/user_education/store', 'Users::education');
 $routes->get('/user_education/By_userId/(:num)','Users::education_show/$1');
-$routes->post('/user_education/Update_ByuserId/(:num)','Users::education_update/$1');
+$routes->post('/user_education/Update_ById/(:num)','Users::education_update/$1');
 $routes->post('/user_education/delete/(:num)','Users::delete_education/$1');  // user deleted
 
 

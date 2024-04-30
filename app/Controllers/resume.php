@@ -19,7 +19,6 @@ class resume extends BaseController
     public function index()
     {
         
-       
         $model = new ResumeModel();
         // echo "test";
         // die();
@@ -35,7 +34,8 @@ class resume extends BaseController
             return $this->getResponse(
                 [
                     'message' => 'Job retrieved successfully',
-                    'post' => $post
+                    'post' => $post,
+                    'status' => 'success'
                 ]
             );
         }
@@ -44,6 +44,7 @@ class resume extends BaseController
     public function store()
     {
         $input = $this->getRequestInput($this->request);
+
         $model = new ResumeModel();
         // echo "<pre>";
         // print_r($input);
@@ -69,8 +70,9 @@ class resume extends BaseController
         // die();
         return $this->getResponse(
             [
-                'message' => 'Job saved successfully',
-                'job' => $post
+                'message' => 'resume saved successfully',
+                'resume' => $post,
+                'status' => 'success'
 
             ]
         );
@@ -84,8 +86,9 @@ class resume extends BaseController
             $post = $model->findJobById($id);
             return $this->getResponse(
                 [
-                    'message' => 'Job retrieved successfully',
-                    'Job' => $post
+                    'message' => 'resume retrieved successfully',
+                    'resume' => $post,
+                    'status' => 'success'
                 ]
             );
         } catch (Exception $e) {
@@ -128,7 +131,8 @@ class resume extends BaseController
             return $this
                 ->getResponse(
                     [
-                        'message' => 'Job deleted successfully',
+                        'message' => 'resume deleted successfully',
+                        'status' => 'success'
                     ]
                 );
         } catch (Exception $exception) {
