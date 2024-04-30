@@ -8,7 +8,7 @@ use \Datetime;
 
 class ResumeModel extends Model
 {
-    protected $table = 'job_saves';
+    protected $table = 'resumes';
 
     protected $allowedFields = [
         'mobile_number',
@@ -103,14 +103,14 @@ class ResumeModel extends Model
     {
 
         $user_id = $data['user_id'];
-        $job_id = $data['job_id'];
+        $Resume = $data['Resume'];
        
     
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `job_saves`( `user_id`, `job_id`, `created_at`, `updated_at`) VALUES ('$user_id','$job_id','$date1','$date1')";
+        $sql = "INSERT INTO `resumes`( `user_id`, `Resume`, `created_at`) VALUES ('$user_id','$Resume','$date1')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -144,7 +144,7 @@ class ResumeModel extends Model
         $date1 = date('Y-m-d H:i:s');
 
 
-        $sql = "UPDATE `job_saves` SET  
+        $sql = "UPDATE `resumes` SET  
         user_id = '$user_id',
         job_id = '$job_id',
       

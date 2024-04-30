@@ -44,38 +44,47 @@ class resume extends BaseController
     public function store()
     {
         $input = $this->getRequestInput($this->request);
-
-        $model = new ResumeModel();
-        // echo "<pre>";
-        // print_r($input);
-        // echo "</pre>";
-        // die();
+    
+        // Validate input
         $required_fields = ['user_id', 'resume'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
             }
         }
-        $data = [
-
-            'user_id' => $input['user_id'],
-            'resume' => $input['resume'],
-
-
-        ];
-
-        $post = $model->save($data);
-
-        // echo "test";
-        // die();
-        return $this->getResponse(
-            [
-                'message' => 'resume saved successfully',
+    
+        // Get the uploaded file
+        $file = $this->request->getFile('resume');
+    
+        // Check if the file is uploaded successfully
+        if ($file->isValid() && !$file->hasMoved()) {
+            // Move the file to the uploads folder
+            $newName = $file->getRandomName();
+            $file->move(WRITEPATH . 'uploads', $newName);
+    
+            // Save file information to the database
+            $model = new ResumeModel();
+            $filename = $file->getName();
+            $filepath = '/uploads/' . $newName; // Use the new name for the file path
+            $filedata = file_get_contents($file->getTempName());
+    
+            // Save file information to the database
+            $data = [
+                'user_id' => $input['user_id'],
+                'resume' => $filepath // Save the file path
+                // You can add more information about the file as needed
+            ];
+            $post = $model->save($data);
+    
+            return $this->getResponse([
+                'message' => 'Resume saved successfully',
                 'resume' => $post,
                 'status' => 'success'
-
-            ]
-        );
+            ]);
+        } else {
+            // Handle file upload error
+            return "Error uploading file";
+        }
     }
 
     public function show($id)
