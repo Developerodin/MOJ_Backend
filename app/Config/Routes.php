@@ -71,7 +71,7 @@ $routes->post('/job_save/store', 'Job_save::store');
 $routes->post('/job_saved/Byuserid/(:num)','Job_save::show/$1');
 $routes->post('/job_save/delete/(:num)','Job_save::distroy/$1');  // user deleted
 
-// Job save 
+// Job resume
 $routes->get('/res_saved', 'resume::index');
 $routes->post('/res_save/store', 'resume::store');
 $routes->post('/res_saved/Byid/(:num)','resume::show/$1');

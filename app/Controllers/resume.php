@@ -119,7 +119,18 @@ class resume extends BaseController
             $data['user_id'] = $post['user_id'];
             $resume1 = $post['Resume'];
             $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
-            $data['resume'] = $baseUrl .'/writable/'. $resume1;
+           
+          
+            // Remove "public" segment from the base URL
+            $baseUrl = str_replace('/public/', '/', $baseUrl);
+            
+            // Now, $baseUrl will be 'https://dashboard.masterofjobs.in/'
+            
+            $data['resume'] = $baseUrl .'writable'. $resume1;
+// echo $data['resume'];
+// die();
+
+
             return $this->getResponse(
                 [
                     'message' => 'resume retrieved successfully',
