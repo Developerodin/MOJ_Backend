@@ -560,4 +560,24 @@ class UserModel extends Model
             return true;
         }
     }
+
+// user delete
+
+    public function delete_usweb($id)
+    {
+        // Prepare the SQL statement with a placeholder for the id
+        $sql = "DELETE FROM `users` WHERE id = ?";
+        
+        // Execute the prepared statement with the id parameter
+        $post = $this->db->query($sql, [$id]);
+    
+        // Check if the query was executed successfully
+        if (!$post) {
+            // If the query fails, return false
+            return false;
+        } else {
+            // If the query succeeds, return true
+            return true;
+        }
+    }
 }

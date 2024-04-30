@@ -150,7 +150,7 @@
 											<?= $user->user_id ?>
 										</b></td>
 									<td>
-										<img src="" alt="image" width="50" />
+										<img src="upload/" alt="image" width="50" />
 									</td>
 									<td>
 										<?= $user->name ?> <?= $user->last_name ?></td>
@@ -173,11 +173,22 @@
 										<a href="#" class="btn btn-primary shadow btn-xs sharp me-1"
 											onclick="openPopup(<?php echo $user->user_id; ?>)"><i
 												class="fa fa-pencil"></i></a>
-										<a href="<?= base_url('/user_delete/' .$user->id) ?>"
-											class="btn btn-danger shadow btn-xs sharp"><i
+										<a href="<?= base_url('/user_delete/' .$user->user_id) ?>"
+											id="deleteLink<?= $user->user_id ?>"class="btn btn-danger shadow btn-xs sharp"><i
 												class="fa fa-trash"></i></a>
 									</td>
 								</tr>
+								<script>
+									document.getElementById("deleteLink<?= $user->user_id ?>").addEventListener('click', function(event) {
+										event.preventDefault(); // Prevents the default action of clicking the link
+										
+										// Show an alert to confirm deletion
+										if (confirm('Are you sure you want to delete this user?')) {
+											// If user confirms, proceed with the deletion by redirecting to the delete API URL
+											window.location.href = this.getAttribute('href');
+										}
+									});
+								</script>
 								<?php endforeach; ?>
 								<?php else : ?>
 								<tr>
@@ -225,6 +236,7 @@
 		</div>
 	</div>
 </div>
+
 <script>
 function openPopup(userId) {
     document.getElementById("editPopup").style.display = "block";

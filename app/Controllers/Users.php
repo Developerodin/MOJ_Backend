@@ -168,10 +168,11 @@ class Users extends BaseController
     }
     public function user_del($id)
     {
+        echo $id;
         try {
             $model = new UserModel();
             // $post = $model->findPostById($id);
-            $model->delete($id);
+            $model->delete_usweb($id);
             return redirect()->to('user-list');
         } catch (Exception $exception) {
             return redirect()->to('user-list')->with('error', 'Failed to delete the post.');
