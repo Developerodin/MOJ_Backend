@@ -150,7 +150,7 @@
 											<?= $user->user_id ?>
 										</b></td>
 									<td>
-										<img src="upload/" alt="image" width="50" />
+										<img src="" alt="image" width="50" />
 									</td>
 									<td>
 										<?= $user->name ?> <?= $user->last_name ?></td>

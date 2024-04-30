@@ -15,10 +15,10 @@ use ReflectionException;
 
 class resume extends BaseController
 {
-  
+
     public function index()
     {
-        
+
         $model = new ResumeModel();
         // echo "test";
         // die();
@@ -44,7 +44,7 @@ class resume extends BaseController
     public function store()
     {
         $input = $this->getRequestInput($this->request);
-    
+
         // Validate input
         $required_fields = ['user_id', 'resume'];
         // foreach ($required_fields as $field) {
@@ -52,22 +52,22 @@ class resume extends BaseController
         //         return "Error: Missing required field '$field'";
         //     }
         // }
-    
+
         // Get the uploaded file
         $file = $this->request->getFile('resume');
-    
+
         // Check if the file is uploaded successfully
         if ($file->isValid() && !$file->hasMoved()) {
             // Move the file to the uploads folder
             $newName = $file->getRandomName();
             $file->move(WRITEPATH . 'uploads', $newName);
-    
+
             // Save file information to the database
             $model = new ResumeModel();
             $filename = $file->getName();
             $filepath = '/uploads/' . $newName; // Use the new name for the file path
             $filedata = file_get_contents($file->getTempName());
-    
+
             // Save file information to the database
             $data = [
                 'user_id' => $input['user_id'],
@@ -75,7 +75,7 @@ class resume extends BaseController
                 // You can add more information about the file as needed
             ];
             $post = $model->save($data);
-    
+
             return $this->getResponse([
                 'message' => 'Resume saved successfully',
                 'resume' => $post,
@@ -93,10 +93,37 @@ class resume extends BaseController
         try {
             $model = new ResumeModel();
             $post = $model->findJobById($id);
+
             return $this->getResponse(
                 [
                     'message' => 'resume retrieved successfully',
                     'resume' => $post,
+                    'status' => 'success'
+                ]
+            );
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find Job for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function show_userid($id)
+    {
+        // user_id pass
+        try {
+            $model = new ResumeModel();
+            $post = $model->findJobByUId($id);
+            $data['user_id'] = $post['user_id'];
+            $resume1 = $post['Resume'];
+            $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
+            $data['resume'] = $baseUrl .'/writable/'. $resume1;
+            return $this->getResponse(
+                [
+                    'message' => 'resume retrieved successfully',
+                    'resume' => $data,
                     'status' => 'success'
                 ]
             );

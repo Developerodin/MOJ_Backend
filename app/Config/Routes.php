@@ -45,8 +45,8 @@ $routes->post('/users/work_exp', 'Users::work_ex');
 $routes->post('/auth/verify_otp/(:num)', 'Auth::verifyOTP/$1');
 $routes->post('/auth/register', 'Auth::register');
 $routes->post('/auth/user_update','Auth::user_update');
-$routes->post('/user_update','Auth::user_update_web');
-$routes->get('/user_delete/(:num)','Users::user_del/$1');
+$routes->post('user_update','Auth::user_update_web');
+$routes->get('user_delete/(:num)','Users::user_del/$1');
 
 
 // Job 
@@ -75,6 +75,7 @@ $routes->post('/job_save/delete/(:num)','Job_save::distroy/$1');  // user delete
 $routes->get('/res_saved', 'resume::index');
 $routes->post('/res_save/store', 'resume::store');
 $routes->post('/res_saved/Byid/(:num)','resume::show/$1');
+$routes->post('/res_saved/Byuserid/(:num)','resume::show_userid/$1');
 $routes->post('/res_save/delete/(:num)','resume::distroy/$1');  // user deleted
 
 // user ex.
