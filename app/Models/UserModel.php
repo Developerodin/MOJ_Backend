@@ -475,8 +475,6 @@ class UserModel extends Model
 
 
 
-
-
     public function save_edu($data)
     {
         // echo json_encode($data);
