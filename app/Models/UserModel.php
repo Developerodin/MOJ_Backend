@@ -454,7 +454,7 @@ class UserModel extends Model
         if (!$user) {
             return null;
         } else {
-            return $user[0];
+            return $user;
         }
     }
     public function getUserEd()
