@@ -61,7 +61,7 @@ class ResumeModel extends Model
             return $user;
         }
     }
-    public function findJobByUId(string $id)
+    public function findByUId(string $id)
     {
 
         $user = $this
@@ -124,10 +124,6 @@ class ResumeModel extends Model
         $date1 = date('Y-m-d H:i:s');
         $sql = "INSERT INTO `resumes`( `user_id`, `Resume`, `created_at`) VALUES ('$user_id','$Resume','$date1')";
 
-
-        //     echo "<pre>"; print_r($sql); echo "</pre>";
-        // die();
-
         $post = $this->db->query($sql);
         // echo json_encode($post);
         if (!$post)
@@ -136,7 +132,7 @@ class ResumeModel extends Model
         return $post;
     }
 
-    public function update1($id, $data): bool
+    public function update1($data): bool
     {
 
         // echo $id;
@@ -145,11 +141,9 @@ class ResumeModel extends Model
             echo "1";
             return true;
         }
-
         $user_id = $data['user_id'];
-        $job_id = $data['job_id'];
-        $created_at = $data['created_at'];
-        
+        $Resume = $data['resume'];
+           
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
@@ -158,16 +152,15 @@ class ResumeModel extends Model
 
         $sql = "UPDATE `resumes` SET  
         user_id = '$user_id',
-        job_id = '$job_id',
+        Resume = '$Resume',
       
-        created_at = '$created_at',
-        updated_at = '$date1'
-          WHERE id = $id";
+        created_at = '$date1'
+          WHERE user_id = $user_id";
         // echo "<pre>"; print_r($sql);
         // echo "</pre>";
         $post = $this->db->query($sql);
         if (!$post)
-            throw new Exception('Post does not exist for specified id');
+            throw new Exception('resume  does not update for specified id');
 
         return $post;
     }

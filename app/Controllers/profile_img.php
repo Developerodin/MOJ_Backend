@@ -13,7 +13,7 @@ use Exception;
 use CodeIgniter\API\ResponseTrait;
 use ReflectionException;
 
-class resume extends BaseController
+class profile_img extends BaseController
 {
 
     public function index()
