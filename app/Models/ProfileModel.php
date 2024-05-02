@@ -8,7 +8,7 @@ use \Datetime;
 
 class ProfileModel extends Model
 {
-    protected $table = 'resumes';
+    protected $table = 'user_profile_images';
 
     protected $allowedFields = [
         'mobile_number',
@@ -117,17 +117,17 @@ class ProfileModel extends Model
     {
 
         $user_id = $data['user_id'];
-        $Resume = $data['resume'];
+        $image_path = $data['image_path'];
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `resumes`( `user_id`, `Resume`, `created_at`) VALUES ('$user_id','$Resume','$date1')";
+        $sql = "INSERT INTO `user_profile_images`( `user_id`, `image_path`, `created_at`) VALUES ('$user_id','$image_path','$date1')";
 
         $post = $this->db->query($sql);
         // echo json_encode($post);
         if (!$post)
-            throw new Exception('Post does not exist for specified id');
+            throw new Exception('image does not exist for specified id');
 
         return $post;
     }
@@ -142,7 +142,7 @@ class ProfileModel extends Model
             return true;
         }
         $user_id = $data['user_id'];
-        $Resume = $data['resume'];
+        $image_path = $data['image_path'];
            
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
@@ -150,9 +150,9 @@ class ProfileModel extends Model
         $date1 = date('Y-m-d H:i:s');
 
 
-        $sql = "UPDATE `resumes` SET  
+        $sql = "UPDATE `user_profile_images` SET  
         user_id = '$user_id',
-        Resume = '$Resume',
+        image_path = '$image_path',
       
         created_at = '$date1'
           WHERE user_id = $user_id";
@@ -160,7 +160,7 @@ class ProfileModel extends Model
         // echo "</pre>";
         $post = $this->db->query($sql);
         if (!$post)
-            throw new Exception('resume  does not update for specified id');
+            throw new Exception('image  does not update for specified id');
 
         return $post;
     }
