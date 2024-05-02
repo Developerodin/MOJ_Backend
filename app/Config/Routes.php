@@ -78,6 +78,13 @@ $routes->post('/res_saved/Byid/(:num)','resume::show/$1');
 $routes->post('/res_saved/Byuserid/(:num)','resume::show_userid/$1');
 $routes->post('/res_save/delete/(:num)','resume::distroy/$1');  // user deleted
 
+// user image 
+$routes->get('/profile_img_saved', 'profile_img::index');
+$routes->post('/profile_img_save/store', 'profile_img::store');
+$routes->post('/profile_img_saved/Byid/(:num)','profile_img::show/$1');
+$routes->post('/profile_img_saved/Byuserid/(:num)','profile_img::show_userid/$1');
+$routes->post('/profile_img_save/delete/(:num)','profile_img::distroy/$1');  // user deleted
+
 // user ex.
 $routes->get('/user/workingExperience', 'Users::get');
 $routes->get('/user/work_ex_id/(:num)', 'Users::get_id/$1');
