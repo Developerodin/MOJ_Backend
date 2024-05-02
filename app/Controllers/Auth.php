@@ -317,7 +317,8 @@ class Auth extends BaseController
                 }
             }
             $model->update_profile($id, $input);
-            $post = $model->findUserById($id);
+            $post = $model->getUserData($id);
+            
             return $this->getResponse(
                 [
                     'message' => 'user updaetd successfully',
