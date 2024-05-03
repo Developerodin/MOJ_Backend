@@ -49,6 +49,10 @@ $routes->post('user_update','Auth::user_update_web');
 $routes->get('user_delete/(:num)','Users::user_del/$1');
 
 
+// status update
+$routes->post('/users/status_e/(:num)', 'Users::status_e_update/$1');
+$routes->post('/users/status_d/(:num)', 'Users::status_d_update/$1');
+
 // Job  
 $routes->get('/job', 'Job::index');
 $routes->post('/job/store', 'Job::store');

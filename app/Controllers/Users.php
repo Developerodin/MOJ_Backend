@@ -125,6 +125,36 @@ class Users extends BaseController
             return $response;
         }
     }
+    public function status_e_update($id)
+    {
+        $model = new UserModel();
+     
+        $user1 = $model->update_status_e($id);
+
+        if ($user1 == true) {
+          
+                return redirect()->to('user-list');
+        } else {
+
+            $response =
+                $this->response->setStatusCode(200)->setBody('User status not updated');
+            return $response;
+        }
+    }
+    public function status_d_update($id)
+    {
+        $model = new UserModel();
+        $user1 = $model->update_status_d($id);
+
+        if ($user1 == true) {
+            return redirect()->to('user-list');
+        } else {
+
+            $response =
+                $this->response->setStatusCode(200)->setBody('User status not updated');
+            return $response;
+        }
+    }
 
     public function work_show($id)
     {

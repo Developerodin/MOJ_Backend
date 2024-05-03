@@ -67,7 +67,9 @@
                     <span class="line"></span><span class="line"></span><span class="line"></span>
                 </div>
             </div>
+		
         </div>
+		
         <!--**********************************
             Nav header end
         ***********************************-->
@@ -645,7 +647,7 @@
                             </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
-                                     <img src="images/profile/pic1.jpg" width="20" alt="">
+                                     <img src="images/user_img.png" width="20" alt="">
 									<div class="header-info">
 										<span>Hey, <strong>Admin</strong></span>
 										<small>Business Profile</small>
@@ -690,7 +692,9 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="deznav">
+
+        <div class="deznav" style="border-top: 1px solid;">
+			
             <div class="deznav-scroll">
 				<ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>

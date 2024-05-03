@@ -258,7 +258,7 @@ class UserModel extends Model
         $mobile_number = $data;
         // echo "<pre>"; print_r($mobile_number); echo "</pre>";
         // die();
-        $status = "1";
+        $status = "Enable";
 
         $points = '0';
         $date = new DateTime();
@@ -334,6 +334,49 @@ class UserModel extends Model
             return $post;
         }
     }
+    public function update_status_e($id)
+    {
+        //    echo json_encode($sql);
+        $user_id = $id;
+       
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date1 = date("m-d-Y h:i A");
+
+        $sql = "UPDATE `users` SET `status`='Enable',`updated_at`='$date1' WHERE id = $user_id";
+        // echo json_encode($sql);
+        // echo ( $sql);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
+    public function update_status_d($id)
+    {
+        //    echo json_encode($sql);
+        $user_id = $id;
+       
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date1 = date("m-d-Y h:i A");
+
+        $sql = "UPDATE `users` SET `status`='Disable',`updated_at`='$date1' WHERE id = $user_id";
+        // echo json_encode($sql);
+        // echo ( $sql);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
+
     public function update_workex($data)
     {
         //    echo json_encode($sql);
