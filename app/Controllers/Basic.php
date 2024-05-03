@@ -9,7 +9,7 @@ use Exception;
 class Basic extends BaseController
 {
    
-    public function index()
+    public function get()
     {
         $model = new BasicModel();
 
@@ -21,7 +21,7 @@ class Basic extends BaseController
             ]
         );
     }
-    public function store()
+    public function save()
     {
         $input = $this->getRequestInput($this->request);
         $model = new BasicModel();
@@ -52,7 +52,7 @@ class Basic extends BaseController
         return $this->getResponse(
             [
                 'message' => 'Basic details   added successfully',
-                'job' => $post,
+                'details' => $data,
                 'status' => 'success'
 
             ]

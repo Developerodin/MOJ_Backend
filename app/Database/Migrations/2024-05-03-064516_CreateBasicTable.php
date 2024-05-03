@@ -30,6 +30,11 @@ class CreateBasicTable extends Migration
                 'constraint' => '255',
                 'null'       => true,
             ],
+            'hiw' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+                'null'       => true,
+            ],
             'created_at' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
