@@ -21,23 +21,49 @@ class Basic extends BaseController
             ]
         );
     }
-    public function lot()
+    public function store()
     {
+        $input = $this->getRequestInput($this->request);
         $model = new BasicModel();
+        $required_fields = ['whatsapp', 'mobile', 'email', 'hiw'];
+        foreach ($required_fields as $field) {
+            if (!isset($input[$field]) || empty($input[$field])) {
+                return "Error: Missing required field '$field'";
+            }
+        }
+
+
+        $data = [
+
+            'whatsapp' => $input['whatsapp'],
+            'mobile' => $input['mobile'],
+            'email' => $input['email'],
+            'hiw' => $input['hiw'],
+           
+
+        ];
+        // echo "<pre>";
+        //             print_r($data);
+        //             echo "</pre>";
+        //             die();
+        $post = $model->save($data);
+
 
         return $this->getResponse(
             [
-                'message' => 'Post retrieved successfully',
-                'post' => $model->lot()
+                'message' => 'Basic details   added successfully',
+                'job' => $post,
+                'status' => 'success'
+
             ]
         );
     }
-        public function update($id)
+        public function update()
     {
         try {
             $model = new BasicModel();
             $input = $this->getRequestInput($this->request);
-            $model->update_num($id ,$input);
+            $model->update_num($input);
             $post = $model->findAll();
             return $this->getResponse(
                 [
@@ -56,47 +82,28 @@ class Basic extends BaseController
         }
     }
 
-
-public function otp_send()
-{
-    $input = $this->getRequestInput($this->request);
-    session_start();
-
-    $api_key = 'mk9FmduXikm530fTCyirdg';
-    $mobile_number = $input['user_number'];
-    $otp = $input['otp'];
-    // $otp = mt_rand(100000, 999999);
-    
-    // // Store OTP and timestamp in the session
-    // $_SESSION['otp'] = $otp;
-    // $_SESSION['otp_timestamp'] = time();
-   
-    $message = "Your One Time Password is: $otp. Thanks SMSINDIAHUB";
-
-    $url = "http://cloud.smsindiahub.in/vendorsms/pushsms.aspx";
-    $params = [
-        'APIKey' => $api_key,
-        'msisdn' => "91$mobile_number",
-        'sid' => 'AREPLY',
-        'msg' => $message,
-        'fl' => 0,
-        'gwid' => 2
-    ];
-
-    $url .= '?' . http_build_query($params);
-
-    $response = file_get_contents($url);
-
-    if ($response !== false) {
-       
-            echo "OTP sent successfully!";
-       
-    } else {
-        echo "Failed to communicate with the SMS gateway.";
+    public function delete($id)
+    {
+        try {
+            $model = new BasicModel();
+            // $post = $model->findPostById($id);
+            $model-> delete_us($id);
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'Basic details deleted successfully',
+                        'status' => 'success',
+                    ]
+                );
+        } catch (Exception $exception) {
+            return $this->getResponse(
+                [
+                    'message' => $exception->getMessage()
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
     }
-}
-
-
   
    
   
