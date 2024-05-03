@@ -114,6 +114,78 @@
 					</form>
 				</div>
 			</div>
+			<div id="viewPopup" class="popup">
+				<div class="popup-content">
+					<span class="close" onclick="closeView()">&times;</span>
+					<div class="col-md-12 text-center pb-3">
+						<h2>Edit User</h2>
+					</div>
+					<form id="viewPopup" action="<?= base_url('/user_update') ?>" method="POST">
+						<!-- Hidden input field for user ID -->
+						<input type="hidden" id="user_id1" name="user_id" value>
+						<input type="hidden" id="created_at" name="created_at" value>
+
+						<!-- Input fields for editing user details -->
+						<div class="1  d-flex justify-content-around py-3">
+							<div class="col-md-3">
+								<div class="col-md-12"><label for="name">Name:</label></div>
+								<input type="text" id="name" name="name" value>
+							</div>
+
+							<div class="col-md-3">
+								<div class="col-md-12"><label for="last_name">Last Name:</label></div>
+								<input type="text" id="last_name" name="last_name" value>
+							</div>
+
+							<div class="col-md-3">
+								<div class="col-md-12"><label for="mobile_number">Mobile
+										Number:</label></div>
+								<input type="text" id="mobile_number" name="mobile_number" value>
+							</div>
+
+						</div>
+
+						<div class="2  d-flex justify-content-around  py-3">
+							<div class="col-md-3">
+								<div class="col-md-12"><label for="email">Email:</label></div>
+								<input type="email" id="email" name="email" value>
+							</div>
+
+							<div class="col-md-3">
+								<div class="col-md-12"> <label for="gender">Gender:</label></div>
+								<input type="text" id="gender" name="gender" value>
+							</div>
+
+							<div class="col-md-3">
+								<div class="col-md-12"><label for="country">Country:</label></div>
+								<input type="text" id="country" name="country" value>
+							</div>
+						</div>
+
+						<div class="3 d-flex justify-content-around  py-3">
+							<div class="col-md-3">
+								<div class="col-md-12"><label for="state">State:</label></div>
+								<input type="text" id="state" name="state" value>
+							</div>
+
+							<div class="col-md-3">
+								<div class="col-md-12"><label for="city">City:</label></div>
+								<input type="text" id="city" name="city" value>
+							</div>
+
+							<div class="col-md-3">
+								<div class="col-md-12"> <label for="role">Role:</label></div>
+								<input type="text" id="role" name="role" value>
+							</div>
+						</div>
+
+						<!-- Add more input fields for other user details -->
+						<div class="btn d-flex justify-content-center ">
+							<button type="submit" class="btn btn-primary">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
 
 			<div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
 
@@ -173,6 +245,9 @@
 										<a href="#" class="btn btn-primary shadow btn-xs sharp me-1"
 											onclick="openPopup(<?php echo $user->user_id; ?>)"><i
 												class="fa fa-pencil"></i></a>
+												<a href="#" class="btn btn-info shadow btn-xs sharp" onclick="openView(<?php echo $user->user_id; ?>)">
+													<i class="fa fa-eye"></i>
+												</a>
 										<a href="<?= base_url('/user_delete/' .$user->user_id) ?>"
 											id="deleteLink<?= $user->user_id ?>"class="btn btn-danger shadow btn-xs sharp"><i
 												class="fa fa-trash"></i></a>
@@ -238,6 +313,18 @@
 </div>
 
 <script>
+	function openView(userId) {
+		// Display the view popup
+		document.getElementById("viewPopup").style.display = "block";
+		// Populate form fields with user data
+		document.getElementById("user_id1").value = userId;
+		populateFormFields(userId);
+	}
+	
+	function closeView() {
+		// Hide the view popup
+		document.getElementById("viewPopup").style.display = "none";
+	}
 function openPopup(userId) {
     document.getElementById("editPopup").style.display = "block";
     document.getElementById("user_id").value = userId;
