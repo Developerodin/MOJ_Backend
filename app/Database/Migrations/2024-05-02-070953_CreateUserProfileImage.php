@@ -25,11 +25,13 @@ class CreateUserProfileImage extends Migration
                 'constraint' => 255,
             ],
             'created_at' => [
-                'type' => 'DATETIME',
+                'type' => 'VARCHAR',
+                'constraint' => 255,
                 'null' => true,
             ],
             'updated_at' => [
-                'type' => 'DATETIME',
+                'type' => 'VARCHAR',
+                'constraint' => 255,
                 'null' => true,
             ],
         ]);

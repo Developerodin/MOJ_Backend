@@ -168,7 +168,7 @@ class Users extends BaseController
     }
     public function user_del($id)
     {
-        echo $id;
+        // echo $id;
         try {
             $model = new UserModel();
             // $post = $model->findPostById($id);

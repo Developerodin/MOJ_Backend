@@ -49,7 +49,7 @@ $routes->post('user_update','Auth::user_update_web');
 $routes->get('user_delete/(:num)','Users::user_del/$1');
 
 
-// Job 
+// Job  
 $routes->get('/job', 'Job::index');
 $routes->post('/job/store', 'Job::store');
 $routes->post('/job/Byid/(:num)','Job::show/$1');
@@ -101,6 +101,13 @@ $routes->post('/user_education/store', 'Users::education');
 $routes->get('/user_education/By_userId/(:num)','Users::education_show/$1');
 $routes->post('/user_education/Update_ById/(:num)','Users::education_update/$1');
 $routes->post('/user_education/delete/(:num)','Users::delete_education/$1');  // user deleted
+
+// basic details
+
+$routes->get('/basic/web', 'Basic::get');
+$routes->post('/basic/store', 'Basic::save');
+$routes->post('/basic/Update','Basic::update');
+$routes->post('/basic/delete','Basic::delete');  // user deleted
 
 
 
