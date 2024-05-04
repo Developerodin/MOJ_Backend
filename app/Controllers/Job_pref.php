@@ -123,8 +123,9 @@ class Job_pref extends BaseController
             $post = $model->findJobById($id);
             return $this->getResponse(
                 [
-                    'message' => 'job updaetd successfully',
-                    'job' => $post
+                    'message' => 'job pref updaetd successfully',
+                    'post' => $post,
+                    'status' => 'success'
                 ]
             );
         } catch (Exception $exception) {

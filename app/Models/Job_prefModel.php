@@ -130,7 +130,7 @@ class Job_prefModel extends Model
 
     public function save($data): bool
     {
-echo "test";
+// echo "test";
         $department = $data['department'];
         $sub_department = $data['sub_department'];
         
@@ -175,8 +175,8 @@ echo "test";
 
         $sql = "UPDATE `job_pref` SET  
         
-        `department` = $department,
-        `sub_department` = $sub_department,
+        `department` = '$department',
+        `sub_department` = '$sub_department',
         updated_at = '$date1'
           WHERE id = $id";
         // echo "<pre>"; print_r($sql);

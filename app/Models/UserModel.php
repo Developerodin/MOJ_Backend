@@ -331,8 +331,8 @@ class UserModel extends Model
         $date1 = date("m-d-Y h:i A");
 
         $sql = "UPDATE `user_profiles` SET 
-        `pin_code` = $pin_code,       `address` = $address,
-        `dob` = $dob,
+        `pin_code` = '$pin_code',       `address` = '$address',
+        `dob` = '$dob',
         `name`='$name',`last_name`='$last_name',`gender`='$gender',`email`='$email',`state`='$state',`city`='$city',`country`='$country',`created_at`='$created_at',`updated_at`='$date1' WHERE user_id = $user_id";
         // echo json_encode($sql);
         // echo ( $sql);
@@ -406,8 +406,8 @@ class UserModel extends Model
 
         $sql = "UPDATE `working_experiences` SET 
         
-        `ref_mobile` = $ref_mobile,
-        `ref_email`= $ref_email,
+        `ref_mobile` = '$ref_mobile',
+        `ref_email`= '$ref_email',
         `organisation`='$organisation',`designation`='$designation',`profile`='$profile',`location`='$location',`start_date`='$start_date',`end_date`='$end_date',`updated_at`='$date1' WHERE id = $id";
         // echo json_encode($sql);
         // echo ( $sql);
