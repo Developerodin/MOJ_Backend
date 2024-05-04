@@ -6,9 +6,9 @@ use CodeIgniter\Model;
 use Exception;
 use \Datetime;
 
-class JobModel extends Model
+class Job_prefModel extends Model
 {
-    protected $table = 'job_listings';
+    protected $table = 'Job_pref';
 
     protected $allowedFields = [
         'mobile_number',
@@ -49,10 +49,10 @@ class JobModel extends Model
     public function getJobData($userId)
     {
         
-        $builder = $this->db->table('job_listings');
-        $builder->select(' job_listings.*');
+        $builder = $this->db->table('Job_pref');
+        $builder->select(' Job_pref.*');
        
-        $builder->where('job_listings.hotelier_id', $userId);
+        $builder->where('Job_pref.hotelier_id', $userId);
         $query = $builder->get();
 
 
@@ -131,21 +131,15 @@ class JobModel extends Model
     public function save($data): bool
     {
 
-        $hotelier_id = $data['hotelier_id'];
-        $job_title = $data['job_title'];
-        $job_description = $data['job_description'];
-        $job_type = $data['job_type'];
-        $skill_requirements = $data['skill_requirements'];
-        $location = $data['location'];
         $department = $data['department'];
-        $experience_requirements = $data['experience_requirements'];
-        $status = '1';
+        $sub_department = $data['sub_department'];
+        
     
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES ('$hotelier_id','$job_title','$job_description','$job_type','$skill_requirements','$location','$department','$experience_requirements','$date1','$date1','$status')";
+        $sql = "INSERT INTO `Job_pref`( `department`, `sub_department`, `created_at`, `updated_at`) VALUES ('$department','$sub_department''$date1','$date1')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -171,35 +165,19 @@ class JobModel extends Model
             return true;
         }
 
-        $hotelier_id = $data['hotelier_id'];
-        $job_title = $data['job_title'];
-        $job_description = $data['job_description'];
-        $job_type = $data['job_type'];
-        $skill_requirements = $data['skill_requirements'];
-        $location = $data['location'];
         $department = $data['department'];
-        $experience_requirements = $data['experience_requirements'];
-        $status = '1';
-        $created_at = $data['created_at'];
-        $updated_at = '';
+        $sub_department = $data['sub_department'];
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
 
 
-        $sql = "UPDATE `job_listings` SET  
-        hotelier_id = '$hotelier_id',
-        job_title = '$job_title',
-        job_description = '$job_description',
-        job_type = '$job_type',
-        skill_requirements = '$skill_requirements',
-        location = '$location',
-        department = '$department',
-        experience_requirements = '$experience_requirements',
-       
-        updated_at = '$date1',
-        status = '$status'
+        $sql = "UPDATE `Job_pref` SET  
+        
+        `department` = $department,
+        `sub_department` = $sub_department,
+        updated_at = '$date1'
           WHERE id = $id";
         // echo "<pre>"; print_r($sql);
         // echo "</pre>";

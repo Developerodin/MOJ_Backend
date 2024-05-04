@@ -49,6 +49,8 @@ class Users extends BaseController
             'user_id' => $input['user_id'],
             'organisation' => $input['organisation'],
             'designation' => $input['designation'],
+            'ref_mob' => $input['ref_mobile'],
+            'ref_email' => $input['ref_email'],
             'profile' => $input['profile'],
             'location' => $input['location'],
             'start_date' => $input['start_date'],

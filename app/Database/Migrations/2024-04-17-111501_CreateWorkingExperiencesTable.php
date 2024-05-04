@@ -26,6 +26,14 @@ class CreateWorkingExperiencesTable extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 50,
             ],
+            'ref_mobile' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
+            ],
+            'ref_email' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
+            ],
             'profile' => [
                 'type' => 'VARCHAR',
                 'constraint' => 50,

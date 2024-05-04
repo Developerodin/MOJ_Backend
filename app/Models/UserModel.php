@@ -394,6 +394,8 @@ class UserModel extends Model
         $id = $data['id'];
         $organisation = $data['organisation'];
         $designation = $data['designation'];
+        $ref_mobile = $data['ref_mobile'];
+        $ref_email = $data['ref_email'];
         $profile = $data['profile'];
         $location = $data['location'];
         $start_date = $data['start_date'];
@@ -402,7 +404,11 @@ class UserModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
 
-        $sql = "UPDATE `working_experiences` SET `organisation`='$organisation',`designation`='$designation',`profile`='$profile',`location`='$location',`start_date`='$start_date',`end_date`='$end_date',`updated_at`='$date1' WHERE id = $id";
+        $sql = "UPDATE `working_experiences` SET 
+        
+        `ref_mobile` = $ref_mobile,
+        `ref_email`= $ref_email,
+        `organisation`='$organisation',`designation`='$designation',`profile`='$profile',`location`='$location',`start_date`='$start_date',`end_date`='$end_date',`updated_at`='$date1' WHERE id = $id";
         // echo json_encode($sql);
         // echo ( $sql);
         //     die();
@@ -421,6 +427,8 @@ class UserModel extends Model
         $user_id = $data['user_id'];
         $organisation = $data['organisation'];
         $designation = $data['designation'];
+        $ref_mobile = $data['ref_mobile'];
+        $ref_email = $data['ref_email'];
         $profile = $data['profile'];
         $location = $data['location'];
         $start_date = $data['start_date'];
@@ -430,7 +438,7 @@ class UserModel extends Model
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date = date("m-d-Y h:i A");
-        $sql = "INSERT INTO `working_experiences`( `user_id`, `organisation`,`designation`, `profile`, `location`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES ('$user_id','$organisation','$designation','$profile','$location','$start_date','$end_date','$date','$date')";
+        $sql = "INSERT INTO `working_experiences`( `user_id`, `organisation`,`designation`,`ref_mobile`,`ref_email`, `profile`, `location`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES ('$user_id','$organisation','$designation','$ref_mobile','$ref_email','$profile','$location','$start_date','$end_date','$date','$date')";
         // echo json_encode($sql);
         // echo json_encode($data);
         //     die();
