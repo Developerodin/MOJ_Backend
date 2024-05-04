@@ -8,7 +8,7 @@ use \Datetime;
 
 class Job_prefModel extends Model
 {
-    protected $table = 'Job_pref';
+    protected $table = 'job_pref';
 
     protected $allowedFields = [
         'mobile_number',
@@ -46,13 +46,13 @@ class Job_prefModel extends Model
     
 
     /// get user information
-    public function getJobData($userId)
+    public function getsubData($department)
     {
         
-        $builder = $this->db->table('Job_pref');
-        $builder->select(' Job_pref.*');
+        $builder = $this->db->table('job_pref');
+        $builder->select(' job_pref.*');
        
-        $builder->where('Job_pref.hotelier_id', $userId);
+        $builder->where('job_pref.department', $department);
         $query = $builder->get();
 
 
@@ -85,7 +85,7 @@ class Job_prefModel extends Model
             ->first();
 
         if (!$user) {
-            throw new Exception('Job does not found');
+            throw new Exception('Job pref does not found');
         } else {
             return $user;
         }
@@ -130,7 +130,7 @@ class Job_prefModel extends Model
 
     public function save($data): bool
     {
-
+echo "test";
         $department = $data['department'];
         $sub_department = $data['sub_department'];
         
@@ -139,7 +139,7 @@ class Job_prefModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `Job_pref`( `department`, `sub_department`, `created_at`, `updated_at`) VALUES ('$department','$sub_department''$date1','$date1')";
+        $sql = "INSERT INTO `job_pref`( `department`, `sub_department`, `created_at`, `updated_at`) VALUES ('$department','$sub_department','$date1','$date1')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -173,7 +173,7 @@ class Job_prefModel extends Model
         $date1 = date('Y-m-d H:i:s');
 
 
-        $sql = "UPDATE `Job_pref` SET  
+        $sql = "UPDATE `job_pref` SET  
         
         `department` = $department,
         `sub_department` = $sub_department,

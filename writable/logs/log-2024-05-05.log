@@ -1,0 +1,50 @@
+ERROR - 2024-05-05 01:33:08 --> mysqli_sql_exception: Column count doesn't match value count at row 1 in C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\xampp\htdocs\mojmain\app\Models\Job_prefModel.php(148): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...')
+#4 C:\xampp\htdocs\mojmain\app\Controllers\Job_pref.php(57): App\Models\Job_prefModel->save(Array)
+#5 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job_pref->save()
+#6 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_pref))
+#7 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\mojmain\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-05-05 01:33:08 --> Column count doesn't match value count at row 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `job_pref`( `department`, `sub_department`, `created_at`, `updated_at`) VALUES (\'front office\',\'Manager\'\'2024-05-05 01:33:08\',\'2024-05-05 01:33:08\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_pref`( `department`, `sub_department`, `created_at`, `updated_at`) VALUES (\'front office\',\'Manager\'\'2024-05-05 01:33:08\',\'2024-05-05 01:33:08\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_pref`( `department`, `sub_department`, `created_at`, `updated_at`) VALUES (\'front office\',\'Manager\'\'2024-05-05 01:33:08\',\'2024-05-05 01:33:08\')')
+ 4 APPPATH\Models\Job_prefModel.php(148): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_pref`( `department`, `sub_department`, `created_at`, `updated_at`) VALUES (\'front office\',\'Manager\'\'2024-05-05 01:33:08\',\'2024-05-05 01:33:08\')')
+ 5 APPPATH\Controllers\Job_pref.php(57): App\Models\Job_prefModel->save([...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_pref->save()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_pref))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+ERROR - 2024-05-05 01:34:24 --> mysqli_sql_exception: Column count doesn't match value count at row 1 in C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `jo...', 0)
+#1 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 C:\xampp\htdocs\mojmain\app\Models\Job_prefModel.php(148): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...')
+#4 C:\xampp\htdocs\mojmain\app\Controllers\Job_pref.php(57): App\Models\Job_prefModel->save(Array)
+#5 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Job_pref->save()
+#6 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_pref))
+#7 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\mojmain\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-05-05 01:34:24 --> Column count doesn't match value count at row 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `job_pref`( `department`, `sub_department`, `created_at`, `updated_at`) VALUES (\'front office\',\'Manager\'\'2024-05-05 01:34:24\',\'2024-05-05 01:34:24\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `job_pref`( `department`, `sub_department`, `created_at`, `updated_at`) VALUES (\'front office\',\'Manager\'\'2024-05-05 01:34:24\',\'2024-05-05 01:34:24\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `job_pref`( `department`, `sub_department`, `created_at`, `updated_at`) VALUES (\'front office\',\'Manager\'\'2024-05-05 01:34:24\',\'2024-05-05 01:34:24\')')
+ 4 APPPATH\Models\Job_prefModel.php(148): CodeIgniter\Database\BaseConnection->query('INSERT INTO `job_pref`( `department`, `sub_department`, `created_at`, `updated_at`) VALUES (\'front office\',\'Manager\'\'2024-05-05 01:34:24\',\'2024-05-05 01:34:24\')')
+ 5 APPPATH\Controllers\Job_pref.php(57): App\Models\Job_prefModel->save([...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_pref->save()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_pref))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')

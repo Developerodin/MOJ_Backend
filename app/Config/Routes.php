@@ -107,11 +107,21 @@ $routes->post('/user_education/Update_ById/(:num)','Users::education_update/$1')
 $routes->post('/user_education/delete/(:num)','Users::delete_education/$1');  // user deleted
 
 
-// user job pref.
-$routes->get('/user/job_pref', 'Job_pref::get');
-$routes->get('/user/job_pref/(:num)', 'Job_pref::job_pref_get_id/$1');
-$routes->post('/user_job_prf/store', 'Job_pref::save');
 
+// user job preff. add
+$routes->get('/user/education', 'Users::edu_get');
+$routes->get('/user/edu_id/(:num)', 'Users::edu_get_id/$1');
+$routes->post('/user_education/store', 'Users::education');
+$routes->get('/user_education/By_userId/(:num)','Users::education_show/$1');
+$routes->post('/user_education/Update_ById/(:num)','Users::education_update/$1');
+$routes->post('/user_education/delete/(:num)','Users::delete_education/$1');  // user deleted
+
+
+// job pref.
+$routes->get('/user/job_pref', 'Job_pref::get');
+$routes->post('/user/job_pref/(:num)', 'Job_pref::show/$1');
+$routes->post('/user/job_pref_sub', 'Job_pref::sub_show');
+$routes->post('/user_job_prf/store', 'Job_pref::save');
 $routes->post('/user_job_pref/Update_ById/(:num)','Job_pref::update/$1');
 $routes->post('/user_job_pref/delete/(:num)','Job_pref::delete/$1');  // user deleted
 

@@ -26,7 +26,8 @@ class Job_pref extends BaseController
         return $this->getResponse(
             [
                 'message' => 'Job retrieved successfully',
-                'post' => $model->findAll()
+                'post' => $model->findAll(),
+                'status' => 'success'
             ]
         );
     }
@@ -60,7 +61,8 @@ class Job_pref extends BaseController
         return $this->getResponse(
             [
                 'message' => 'Job  added successfully',
-                'job' => $post
+                'post' => $data,
+                'status' => 'success'
 
             ]
         );
@@ -74,20 +76,44 @@ class Job_pref extends BaseController
             $post = $model->findJobById($id);
             return $this->getResponse(
                 [
-                    'message' => 'Job retrieved successfully',
-                    'Job' => $post
+                    'message' => 'Job pref retrieved successfully',
+                    'post' => $post,
+                    'status' => 'success'
                 ]
             );
         } catch (Exception $e) {
             return $this->getResponse(
                 [
-                    'message' => 'Could not find Job for specified ID'
+                    'message' => 'Could not find Job pref for specified ID'
                 ],
                 ResponseInterface::HTTP_NOT_FOUND
             );
         }
     }
-
+    public function sub_show()
+    {
+        $input = $this->getRequestInput($this->request);
+        // user_id pass
+        try {
+            $model = new Job_prefModel();
+            // echo "test";
+            $post = $model->getsubData($input['department']);
+            return $this->getResponse(
+                [
+                    'message' => 'Job pref retrieved successfully',
+                    'post' => $post,
+                    'status' => 'success'
+                ]
+            );
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find Job pref for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
     public function update($id)
     {
         try {
