@@ -68,6 +68,28 @@ class Job_prefModel extends Model
             return $user;
         }
     }
+    public function getuser_job()
+    {
+        
+        $builder = $this->db->table('job_pref_user');
+        $builder->select('*');
+       
+       
+        $query = $builder->get();
+        // Get the result
+        $user = $query->getResult();
+        
+        // echo "<pre>";
+        // print_r($user);
+        // echo "</pre>";
+        // die();
+        // Check if user data is found
+        if (!$user) {
+            return null;
+        } else {
+            return $user;
+        }
+    }
     public function show_userid($id)
     {
         
@@ -75,6 +97,28 @@ class Job_prefModel extends Model
         $builder->select(' job_pref_user.*');
        
         $builder->where('job_pref_user.user_id', $id);
+        $query = $builder->get();
+        // Get the result
+        $user = $query->getResult();
+        
+        // echo "<pre>";
+        // print_r($user);
+        // echo "</pre>";
+        // die();
+        // Check if user data is found
+        if (!$user) {
+            return null;
+        } else {
+            return $user;
+        }
+    }
+    public function show_uid($id)
+    {
+        
+        $builder = $this->db->table('job_pref_user');
+        $builder->select(' job_pref_user.*');
+       
+        $builder->where('job_pref_user.id', $id);
         $query = $builder->get();
         // Get the result
         $user = $query->getResult();
@@ -283,7 +327,7 @@ class Job_prefModel extends Model
         `job_type` ='$job_type',
         `pref_state` = '$pref_state',
         `pref_city` = '$pref_city',
-        `salery` = ''$salery',
+        `salery` = '$salery',
         updated_at = '$date1'
           WHERE id = $id";
         // echo "<pre>"; print_r($sql);

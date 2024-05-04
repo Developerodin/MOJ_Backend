@@ -119,3 +119,20 @@ in APPPATH\Controllers\Job_pref.php on line 91.
  3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-05-04 20:55:58 --> Undefined array key "user_id"
+in APPPATH\Models\Job_prefModel.php on line 229.
+ 1 APPPATH\Models\Job_prefModel.php(229): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_id"', 'C:\\xampp\\htdocs\\mojmain\\app\\Models\\Job_prefModel.php', 229)
+ 2 APPPATH\Controllers\Job_pref.php(195): App\Models\Job_prefModel->user_save([...])
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_pref->user_save()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_pref))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-05-04 20:57:38 --> Call to undefined method App\Models\Job_prefModel::getuser_job
+in SYSTEMPATH\Model.php on line 838.
+ 1 APPPATH\Controllers\Job_pref.php(177): CodeIgniter\Model->__call('getuser_job', [])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Job_pref->user_get()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Job_pref))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')

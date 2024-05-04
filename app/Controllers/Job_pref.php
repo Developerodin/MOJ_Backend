@@ -184,7 +184,7 @@ class Job_pref extends BaseController
     {
         $input = $this->getRequestInput($this->request);
         $model = new Job_prefModel();
-        $required_fields = ['job_type', 'department','pref_state','pref_city','salery'];
+        $required_fields = ['user_id','job_type', 'department','pref_state','pref_city','salery'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
@@ -256,8 +256,8 @@ class Job_pref extends BaseController
         try {
             $model = new Job_prefModel();
             $input = $this->getRequestInput($this->request);
-            $model->update1($id, $input);
-            $post = $model->findJobById($id);
+            $model->user_update1($id, $input);
+            $post = $model->show_uid($id);
             return $this->getResponse(
                 [
                     'message' => 'job pref updaetd successfully',
