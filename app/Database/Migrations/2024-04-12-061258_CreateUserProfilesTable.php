@@ -28,6 +28,7 @@ class CreateUserProfilesTable extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
+
             'gender' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
@@ -44,6 +45,18 @@ class CreateUserProfilesTable extends Migration
                 'null' => true,
             ],
             
+            'address' => [
+                'type' => 'TEXT',
+                'null' => true,
+            ],
+            'pin_code' => [
+                'type' => 'TEXT',
+                'null' => true,
+            ],
+            'dob' => [
+                'type' => 'TEXT',
+                'null' => true,
+            ],
             'state' => [
                 'type' => 'TEXT',
                 'null' => true,

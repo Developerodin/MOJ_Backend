@@ -64,7 +64,25 @@ class BasicModel extends Model
 
         return $eventData['data'];
     }
+    public function all_state()
+    {
+        $builder = $this->db->table('all_states');
+        $builder->select('*'); // Use '*' to select all columns
+        
+        $query = $builder->get();
+        
+        return $query->getResult();
+    }
+    public function city_state_state($Id)
+    {
+        $builder = $this->db->table('all_cities');
+        $builder->select(' all_cities.*');
+        $builder->where('all_cities.state_code', $Id);
+        $query = $builder->get();
 
+        return $query->getResult();
+       
+    }
     public function save($data): bool
     {
 

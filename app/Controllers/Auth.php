@@ -39,42 +39,32 @@ class Auth extends BaseController
             }
         }
         // die();
-        $model = new UserModel();
 
-        $user = $model->findUserByUserNumber1($input['mobile_number']);
-        
-        if ($user == 0) {
-            // echo "<pre>";
-            // print_r($user);
-            // echo "</pre>";
-            // die();
-            $response = $this->response->setStatusCode(200)->setBody('user not found');
-            return $response;
+        $otp =  $this->otp($input['mobile_number']);
+        if ($otp['success'] == true) {
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'Otp send successfully',
+                        'otp' => $otp['otp'],
+                        'status' => 'success'
+
+                    ]
+                );
         } else {
-            $otp =  $this->otp($input['mobile_number']);
-            if ($otp['success'] == true) {
-                return $this
-                    ->getResponse(
-                        [
-                            'message' => 'Otp send successfully',
-                            'otp' => $otp['otp'],
-                            'status' => 'success'
-
-                        ]
-                    );
-            } else {
-                return $this
-                    ->getResponse(
-                        [
-                            'message' => 'otp send failed',
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'otp send failed',
 
 
-                        ]
-                    );
-            }
-
-            // return $this->getJWTForUser($input['mobile_number']);
+                    ]
+                );
         }
+
+
+
+        
     }
 
     public function otp($data)
@@ -168,7 +158,22 @@ class Auth extends BaseController
             // OTP matches, return true
             // return true;
             // echo "prr";
+            $model = new UserModel();
+
+        $user = $model->findUserByUserNumber1($input['mobile_number']);
+        
+        if ($user == 0) {
+            // echo "<pre>";
+            // print_r($user);
+            // echo "</pre>";
+            // die();
+            $response = $this->response->setStatusCode(200)->setBody('user not found');
+            return $response;
+        } else {
             return $this->getJWTForUser($input['mobile_number']);
+            // return $this->getJWTForUser($input['mobile_number']);
+        }
+            
         } else {
             // OTP does not match, return false
             $response = $this->response->setStatusCode(200)->setBody('otp in valid');
@@ -235,7 +240,7 @@ class Auth extends BaseController
 
                 $data = $input;
                 $data['user_id'] = $foruid['id'];
-                $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email', 'state', 'city', 'country'];
+                $required_fields = ['user_id', 'name','addess','pin_code','dob', 'last_name', 'gender', 'email', 'state', 'city', 'country'];
                 foreach ($required_fields as $field) {
                     if (!isset($data[$field]) || empty($data[$field])) {
                         return "Error: Missing required field '$field'";
@@ -440,3 +445,8 @@ class Auth extends BaseController
         }
     }
 }
+
+
+
+
+

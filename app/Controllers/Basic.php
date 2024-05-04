@@ -21,6 +21,30 @@ class Basic extends BaseController
             ]
         );
     }
+    public function get_state()
+    {
+        $model = new BasicModel();
+
+        return $this->getResponse(
+            [
+                'message' => 'state retrieved successfully',
+                'post' => $model->all_state(),
+                'status' => 'success',
+            ]
+        );
+    }
+    public function city_by_state($id)
+    {
+        $model = new BasicModel();
+
+        return $this->getResponse(
+            [
+                'message' => 'state retrieved successfully',
+                'post' => $model->city_state_state($id),
+                'status' => 'success',
+            ]
+        );
+    }
     public function save()
     {
         $input = $this->getRequestInput($this->request);

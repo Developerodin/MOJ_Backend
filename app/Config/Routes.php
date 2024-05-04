@@ -112,6 +112,8 @@ $routes->get('/basic/web', 'Basic::get');
 $routes->post('/basic/store', 'Basic::save');
 $routes->post('/basic/Update','Basic::update');
 $routes->post('/basic/delete','Basic::delete');  // user deleted
+$routes->get('/basic/state','Basic::get_state');  // all state
+$routes->post('/basic/city_by_state/(:num)','Basic::city_by_state/$1');  // all state
 
 
 

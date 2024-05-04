@@ -286,6 +286,9 @@ class UserModel extends Model
         $name = $data['name'];
         $last_name = $data['last_name'];
         $gender = $data['gender'];
+        $pin_code = $data['pin_code'];
+        $address = $data['address'];
+        $dob = $data['dob'];
         $email = $data['email'];
         $role = $data['role'];
         $state = $data['state'];
@@ -296,7 +299,10 @@ class UserModel extends Model
         $date1 = date("m-d-Y h:i A");
 
 
-        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$last_name','$gender','$email','$role','$state','$city','$country','$date1','$date1')";
+        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`,`address`,`pin_code`,`dob`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$last_name','$gender','$address','$pin_code','$email','$role','$state','$city','$country','$date1','$date1')";
+       
+    
+       
         $post = $this->db->query($sql);
 
         if (!$post) {
@@ -311,7 +317,9 @@ class UserModel extends Model
         $user_id = $id;
         $name = $data['name'];
         $last_name = $data['last_name'];
-
+        $pin_code = $data['pin_code'];
+        $address = $data['address'];
+        $dob = $data['dob'];
         $gender = $data['gender'];
         $email = $data['email'];
         $state = $data['state'];
@@ -322,7 +330,10 @@ class UserModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
 
-        $sql = "UPDATE `user_profiles` SET `name`='$name',`last_name`='$last_name',`gender`='$gender',`email`='$email',`state`='$state',`city`='$city',`country`='$country',`created_at`='$created_at',`updated_at`='$date1' WHERE user_id = $user_id";
+        $sql = "UPDATE `user_profiles` SET 
+        `pin_code` = $pin_code,       `address` = $address,
+        `dob` = $dob,
+        `name`='$name',`last_name`='$last_name',`gender`='$gender',`email`='$email',`state`='$state',`city`='$city',`country`='$country',`created_at`='$created_at',`updated_at`='$date1' WHERE user_id = $user_id";
         // echo json_encode($sql);
         // echo ( $sql);
         //     die();
