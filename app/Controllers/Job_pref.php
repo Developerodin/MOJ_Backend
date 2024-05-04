@@ -25,7 +25,7 @@ class Job_pref extends BaseController
 
         return $this->getResponse(
             [
-                'message' => 'Job retrieved successfully',
+                'message' => 'Job pref retrieved successfully',
                 'post' => $model->findAll(),
                 'status' => 'success'
             ]
@@ -138,6 +138,154 @@ class Job_pref extends BaseController
         }
     }
     public function destroy($id)
+    {
+        try {
+            $model = new Job_prefModel();
+            $model->deletedata($id);
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'Job deleted successfully',
+                    ]
+                );
+        } catch (Exception $exception) {
+            return $this->getResponse(
+                [
+                    'message' => $exception->getMessage()
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+
+
+
+// for user
+
+
+
+    public function user_get()
+    {
+        //    echo "test";
+        //    die();
+
+        $model = new Job_prefModel();
+
+        return $this->getResponse(
+            [
+                'message' => 'user Job pref retrieved successfully',
+                'post' => $model->getuser_job(),
+                'status' => 'success'
+            ]
+        );
+    }
+
+    public function user_save()
+    {
+        $input = $this->getRequestInput($this->request);
+        $model = new Job_prefModel();
+        $required_fields = ['department', 'sub_department'];
+        foreach ($required_fields as $field) {
+            if (!isset($input[$field]) || empty($input[$field])) {
+                return "Error: Missing required field '$field'";
+            }
+        }
+
+
+        $data = [
+
+            'sub_department' => $input['sub_department'],
+            'department' => $input['department'],
+            
+
+        ];
+        // echo "<pre>";
+        //             print_r($data);
+        //             echo "</pre>";
+        //             die();
+        $post = $model->save($data);
+
+
+        return $this->getResponse(
+            [
+                'message' => 'Job  added successfully',
+                'post' => $data,
+                'status' => 'success'
+
+            ]
+        );
+    }
+
+    public function user_show($id)
+    {
+        // user_id pass
+        try {
+            $model = new Job_prefModel();
+            $post = $model->findJobById($id);
+            return $this->getResponse(
+                [
+                    'message' => 'Job pref retrieved successfully',
+                    'post' => $post,
+                    'status' => 'success'
+                ]
+            );
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find Job pref for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function show_userid($id)
+    {
+       
+        // user_id pass
+        try {
+            $model = new Job_prefModel();
+            // echo "test";
+            $post = $model->show_userid($id);
+            return $this->getResponse(
+                [
+                    'message' => 'Job pref retrieved successfully',
+                    'post' => $post,
+                    'status' => 'success'
+                ]
+            );
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find Job pref for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function user_update($id)
+    {
+        try {
+            $model = new Job_prefModel();
+            $input = $this->getRequestInput($this->request);
+            $model->update1($id, $input);
+            $post = $model->findJobById($id);
+            return $this->getResponse(
+                [
+                    'message' => 'job pref updaetd successfully',
+                    'post' => $post,
+                    'status' => 'success'
+                ]
+            );
+        } catch (Exception $exception) {
+            return $this->getResponse(
+                [
+                    'message' => $exception->getMessage()
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function user_destroy($id)
     {
         try {
             $model = new Job_prefModel();

@@ -54,9 +54,28 @@ class Job_prefModel extends Model
        
         $builder->where('job_pref.department', $department);
         $query = $builder->get();
-
-
-
+        // Get the result
+        $user = $query->getResult();
+        
+        // echo "<pre>";
+        // print_r($user);
+        // echo "</pre>";
+        // die();
+        // Check if user data is found
+        if (!$user) {
+            return null;
+        } else {
+            return $user;
+        }
+    }
+    public function show_userid($id)
+    {
+        
+        $builder = $this->db->table('job_pref_user');
+        $builder->select(' job_pref_user.*');
+       
+        $builder->where('job_pref_user.user_id', $id);
+        $query = $builder->get();
         // Get the result
         $user = $query->getResult();
         
