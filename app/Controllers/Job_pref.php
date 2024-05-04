@@ -184,32 +184,21 @@ class Job_pref extends BaseController
     {
         $input = $this->getRequestInput($this->request);
         $model = new Job_prefModel();
-        $required_fields = ['department', 'sub_department'];
+        $required_fields = ['job_type', 'department','pref_state','pref_city','salery'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
             }
         }
 
-
-        $data = [
-
-            'sub_department' => $input['sub_department'],
-            'department' => $input['department'],
-            
-
-        ];
-        // echo "<pre>";
-        //             print_r($data);
-        //             echo "</pre>";
-        //             die();
-        $post = $model->save($data);
+   
+        $post = $model->user_save($input);
 
 
         return $this->getResponse(
             [
                 'message' => 'Job  added successfully',
-                'post' => $data,
+                
                 'status' => 'success'
 
             ]
