@@ -43,13 +43,14 @@ class Users extends BaseController
                 return "Error: Missing required field '$field'";
             }
         }
-        $model = new UserModel();
-        $data = [
 
+        $model = new UserModel();
+        // echo 'yes';
+        $data = [
             'user_id' => $input['user_id'],
             'organisation' => $input['organisation'],
             'designation' => $input['designation'],
-            'ref_mob' => $input['ref_mobile'],
+            'ref_mobile' => $input['ref_mob'],
             'ref_email' => $input['ref_email'],
             'profile' => $input['profile'],
             'location' => $input['location'],
@@ -96,8 +97,11 @@ class Users extends BaseController
         $data = [
 
             'id' => $id,
+            'user_id' => $input['user_id'],
             'organisation' => $input['organisation'],
             'designation' => $input['designation'],
+            'ref_mobile' => $input['ref_mob'],
+            'ref_email' => $input['ref_email'],
             'profile' => $input['profile'],
             'location' => $input['location'],
             'start_date' => $input['start_date'],
@@ -108,6 +112,42 @@ class Users extends BaseController
         //             echo "</pre>";
         //             die();
         $user1 = $model->update_workex($data);
+
+        if ($user1 == true) {
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'User Work experience add successfully',
+                        'user' => $data,
+                        'status' => 'success'
+
+
+                    ]
+                );
+        } else {
+
+            $response =
+                $this->response->setStatusCode(200)->setBody('User Work experience not updated');
+            return $response;
+        }
+    }
+    public function work_ex_up($id)
+    {
+
+        $input = $this->getRequestInput($this->request);
+        // echo "<pre>"; print_r($input); echo "</pre>";
+    
+        $model = new UserModel();
+        $data = [
+            'user_id' => $input['user_id'],
+            'work_ex' => $input['work_ex'],
+           
+        ];
+        // echo "<pre>";
+        //             print_r($data);
+        //             echo "</pre>";
+        //             die();
+        $user1 = $model->update_workex_up($data);
 
         if ($user1 == true) {
             return $this
@@ -303,32 +343,26 @@ class Users extends BaseController
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
-        $required_fields = ['user_id', 'degree', 'university', 'year'];
+        $required_fields = ['user_id', '10th', '12th','gra_dip','post_gra','doc_degree', 'year'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
             }
         }
         $model = new UserModel();
-        $data = [
-
-            'user_id' => $input['user_id'],
-            'degree' => $input['degree'],
-            'university' => $input['university'],
-            'year' => $input['year']
-        ];
+       
         // echo "<pre>";
         //             print_r($data);
         //             echo "</pre>";
         //             die();
-        $user1 = $model->save_edu($data);
+        $user1 = $model->save_edu($input);
 
         if ($user1 == true) {
             return $this
                 ->getResponse(
                     [
                         'message' => 'User education add successfully',
-                        'user' => $data,
+                     
                         'status' => 'success'
 
 

@@ -61,10 +61,6 @@ class Auth extends BaseController
                     ]
                 );
         }
-
-
-
-        
     }
 
     public function otp($data)
@@ -160,20 +156,19 @@ class Auth extends BaseController
             // echo "prr";
             $model = new UserModel();
 
-        $user = $model->findUserByUserNumber1($input['mobile_number']);
-        
-        if ($user == 0) {
-            // echo "<pre>";
-            // print_r($user);
-            // echo "</pre>";
-            // die();
-            $response = $this->response->setStatusCode(200)->setBody('user not found');
-            return $response;
-        } else {
-            return $this->getJWTForUser($input['mobile_number']);
-            // return $this->getJWTForUser($input['mobile_number']);
-        }
-            
+            $user = $model->findUserByUserNumber1($input['mobile_number']);
+
+            if ($user == 0) {
+                // echo "<pre>";
+                // print_r($user);
+                // echo "</pre>";
+                // die();
+                $response = $this->response->setStatusCode(200)->setBody('user not found');
+                return $response;
+            } else {
+                return $this->getJWTForUser($input['mobile_number']);
+                // return $this->getJWTForUser($input['mobile_number']);
+            }
         } else {
             // OTP does not match, return false
             $response = $this->response->setStatusCode(200)->setBody('otp in valid');
@@ -240,7 +235,7 @@ class Auth extends BaseController
 
                 $data = $input;
                 $data['user_id'] = $foruid['id'];
-                $required_fields = ['user_id', 'name','address','pin_code','dob', 'last_name', 'gender', 'email', 'state', 'city', 'country'];
+                $required_fields = ['user_id', 'name'];
                 foreach ($required_fields as $field) {
                     if (!isset($data[$field]) || empty($data[$field])) {
                         return "Error: Missing required field '$field'";
@@ -314,6 +309,13 @@ class Auth extends BaseController
             $model = new UserModel();
 
             $input = $this->getRequestInput($this->request);
+
+            // if(!$input['last_name']){
+            //     $input['last_name'] = "";
+            // }
+
+
+
             $id = $input['user_id'];
             $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email', 'state', 'city', 'country', 'created_at'];
             foreach ($required_fields as $field) {
@@ -323,7 +325,7 @@ class Auth extends BaseController
             }
             $model->update_profile($id, $input);
             $post = $model->getUserData($id);
-            
+
             return $this->getResponse(
                 [
                     'message' => 'user updaetd successfully',
@@ -445,8 +447,3 @@ class Auth extends BaseController
         }
     }
 }
-
-
-
-
-

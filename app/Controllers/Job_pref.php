@@ -183,6 +183,7 @@ class Job_pref extends BaseController
     public function user_save()
     {
         $input = $this->getRequestInput($this->request);
+
         $model = new Job_prefModel();
         $required_fields = ['user_id','job_type', 'department','pref_state','pref_city','salery'];
         foreach ($required_fields as $field) {
@@ -192,12 +193,23 @@ class Job_pref extends BaseController
         }
 
    
-        $post = $model->user_save($input);
+        $user = $model->show_userid($input['user_id']);
+        if($user){
+         // print_r($user);
 
 
+            // $id = $user[0]['user_id'];
+            // print_r($id);
+            $post = $model->user_update11($input['user_id'], $input);
+            $message = 'Job pref update successfully';
+        }else{
+            $post = $model->user_save($input);
+            $message = 'Job pref added successfully';
+        }
+       
         return $this->getResponse(
             [
-                'message' => 'Job  added successfully',
+                'message' => $message,
                 
                 'status' => 'success'
 

@@ -71,7 +71,7 @@ class UserModel extends Model
         $result = $user;
         return $result;
     }
-  
+
     public function getby_id_data($userId)
     {
 
@@ -120,8 +120,17 @@ class UserModel extends Model
         $builder->select('users.*, user_profiles.*');
         $builder->join('user_profiles', 'user_profiles.user_id = users.id');
         $query = $builder->get();
-
-        return $query->getResult();
+        $user = $query->getResult();
+        // echo "<pre>";
+        // print_r($user);
+        // echo "</pre>";
+        // die();
+        if (empty($user)) {
+            // echo "test";
+            return false;
+        } else {
+            return $user;
+        }
     }
     public function getUserCount()
     {
@@ -259,13 +268,13 @@ class UserModel extends Model
         // echo "<pre>"; print_r($mobile_number); echo "</pre>";
         // die();
         $status = "Enable";
-
+        $work_ex = "";
         $points = '0';
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date('Y-m-d H:i:s');
 
-        $sql = "INSERT INTO `users`(`mobile_number`, `created_at`, `updated_at`, `last_active`, `points`, `status`) VALUES ('$mobile_number','$date1','$date1','$date1','$points','$status')";
+        $sql = "INSERT INTO `users`(`mobile_number`, `created_at`, `updated_at`, `last_active`, `points`,`work_ex`, `status`) VALUES ('$mobile_number','$date1','$date1','$date1','$points','$work_ex','$status')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -300,8 +309,8 @@ class UserModel extends Model
 
 
         $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`,`address`,`pin_code`,`dob`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$last_name','$gender','$address','$pin_code','$dob','$email','$role','$state','$city','$country','$date1','$date1')";
-     
-       
+
+
         $post = $this->db->query($sql);
 
         if (!$post) {
@@ -348,7 +357,7 @@ class UserModel extends Model
     {
         //    echo json_encode($sql);
         $user_id = $id;
-       
+
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
@@ -369,7 +378,7 @@ class UserModel extends Model
     {
         //    echo json_encode($sql);
         $user_id = $id;
-       
+
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
@@ -390,24 +399,17 @@ class UserModel extends Model
     public function update_workex($data)
     {
         //    echo json_encode($sql);
-        $id = $data['id'];
-        $organisation = $data['organisation'];
-        $designation = $data['designation'];
-        $ref_mobile = $data['ref_mobile'];
-        $ref_email = $data['ref_email'];
-        $profile = $data['profile'];
-        $location = $data['location'];
-        $start_date = $data['start_date'];
-        $end_date = $data['end_date'];
+        $id = $data['user_id'];
+        $work_ex = $data['work_ex'];
+       
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
 
-        $sql = "UPDATE `working_experiences` SET 
+        $sql = "UPDATE `users` SET 
         
-        `ref_mobile` = '$ref_mobile',
-        `ref_email`= '$ref_email',
-        `organisation`='$organisation',`designation`='$designation',`profile`='$profile',`location`='$location',`start_date`='$start_date',`end_date`='$end_date',`updated_at`='$date1' WHERE id = $id";
+        `work_ex` = '$work_ex'
+       WHERE id = $id";
         // echo json_encode($sql);
         // echo ( $sql);
         //     die();
@@ -436,11 +438,11 @@ class UserModel extends Model
 
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
-        $date = date("m-d-Y h:i A");
-        $sql = "INSERT INTO `working_experiences`( `user_id`, `organisation`,`designation`,`ref_mobile`,`ref_email`, `profile`, `location`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES ('$user_id','$organisation','$designation','$ref_mobile','$ref_email','$profile','$location','$start_date','$end_date','$date','$date')";
+        $date1 = date("m-d-Y h:i A");
+        $sql = "INSERT INTO `working_experiences`( `user_id`, `organisation`,`designation`,`ref_mobile`,`ref_email`, `profile`, `location`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES ('$user_id','$organisation','$designation','$ref_mobile','$ref_email','$profile','$location','$start_date','$end_date','$date1','$date1')";
         // echo json_encode($sql);
-        // echo json_encode($data);
-        //     die();
+        // // // echo json_encode($data);
+        // //     die();
         $post = $this->db->query($sql);
 
         if (!$post) {
@@ -538,7 +540,6 @@ class UserModel extends Model
             // No rows found, return null or an empty array, depending on your preference
             return "not data get";
         }
-       
     }
 
     public function getUserEd()
@@ -562,6 +563,13 @@ class UserModel extends Model
         // echo json_encode($data);
 
         $user_id = $data['user_id'];
+        $ten_th = $data['ten_th'];
+        $ten_school = $data['ten_school'];
+        $ten_year = $data['ten_year'];
+        $to_th = $data['to_th'];
+        $to_th_school = $data['to_th_school'];
+        $to_th_year = $data['to_th_year'];
+
         $degree = $data['degree'];
         $university = $data['university'];
         $year = $data['year'];
@@ -608,10 +616,10 @@ class UserModel extends Model
     {
         // Prepare the SQL statement with a placeholder for the id
         $sql = "DELETE FROM `user_education` WHERE id = ?";
-        
+
         // Execute the prepared statement with the id parameter
         $post = $this->db->query($sql, [$id]);
-    
+
         // Check if the query was executed successfully
         if (!$post) {
             // If the query fails, return false
@@ -622,16 +630,16 @@ class UserModel extends Model
         }
     }
 
-// user delete
+    // user delete
 
     public function delete_usweb($id)
     {
         // Prepare the SQL statement with a placeholder for the id
         $sql = "DELETE FROM `users` WHERE id = ?";
-        
+
         // Execute the prepared statement with the id parameter
         $post = $this->db->query($sql, [$id]);
-    
+
         // Check if the query was executed successfully
         if (!$post) {
             // If the query fails, return false

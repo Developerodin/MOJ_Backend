@@ -21,22 +21,37 @@ class CreateJobPrefUser extends Migration
             'job_type' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
+                'null' => true,
             ],
             'department' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
+                'null' => true,
             ],
             'pref_state' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
+                'null' => true,
             ],
             'pref_city' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
+                'null' => true,
             ],
             'salery' => [
                 'type' => 'VARCHAR',
-                'constraint' => 255, // Adjust precision and scale as needed
+                'constraint' => 255,
+                'null' => true, // Adjust precision and scale as needed
+            ],
+            'start_time' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true, // Adjust precision and scale as needed
+            ],
+            'end_time' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true, // Adjust precision and scale as needed
             ],
             'created_at' => [
                 'type' => 'VARCHAR',

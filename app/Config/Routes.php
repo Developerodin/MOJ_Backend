@@ -41,6 +41,7 @@ $routes->get('/agent-list', 'Home::agent_list');
 $routes->get('/job-list', 'Home::job_list');
 
 $routes->post('/auth/number_check', 'Auth::check_mobile');
+$routes->post('/auth/work_up/(:num)', 'Users::work_ex_up/$1');
 $routes->post('/users/work_exp', 'Users::work_ex');
 $routes->post('/auth/verify_otp/(:num)', 'Auth::verifyOTP/$1');
 $routes->post('/auth/register', 'Auth::register');
@@ -119,7 +120,7 @@ $routes->post('/user/job_pref/delete/(:num)','Job_pref::destroy/$1');  // user d
 // user job pref.
 $routes->get('/user_job_pref', 'Job_pref::user_get');
 $routes->post('/user_job_pref/(:num)', 'Job_pref::user_show/$1');
-$routes->post('/user_job_pref_userid/(:num)', 'Job_pref::show_userid/$1');
+$routes->get('/user_job_pref_userid/(:num)', 'Job_pref::show_userid/$1');
 $routes->post('/user_job_prf/store', 'Job_pref::user_save');
 $routes->post('/user_job_pref/Update_ById/(:num)','Job_pref::user_update/$1');
 $routes->post('/user_job_pref/delete/(:num)','Job_pref::user_destroy/$1');  // user deleted

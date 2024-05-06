@@ -275,14 +275,17 @@ class Job_prefModel extends Model
         $job_type = $data['job_type'];
         $pref_state = $data['pref_state'];
         $pref_city = $data['pref_city'];
+        $sub_dep = $data['sub_dep'];
         $salery = $data['salery'];
+        $start_time = $data['start_time'];
+        $end_time = $data['end_time'];
         
     
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `job_pref_user`( `user_id`,`job_type`,`department`, `pref_state`,`pref_city`,`salery`,`created_at`, `updated_at`) VALUES ('$user_id','$job_type','$department','$pref_state','$pref_city','$salery','$date1','$date1')";
+        $sql = "INSERT INTO `job_pref_user`( `user_id`,`job_type`,`department`,`sub_dep`, `pref_state`,`pref_city`,`salery`,`start_time`,`end_time`,`created_at`, `updated_at`) VALUES ('$user_id','$job_type','$department','$sub_dep','$pref_state','$pref_city','$salery','$start_time','$end_time','$date1','$date1')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -313,6 +316,9 @@ class Job_prefModel extends Model
         $job_type = $data['job_type'];
         $pref_state = $data['pref_state'];
         $pref_city = $data['pref_city'];
+        $sub_dep = $data['sub_dep'];
+        $start_time = $data['start_time'];
+        $end_time = $data['end_time'];
         $salery = $data['salery'];
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
@@ -328,10 +334,61 @@ class Job_prefModel extends Model
         `pref_state` = '$pref_state',
         `pref_city` = '$pref_city',
         `salery` = '$salery',
+        `sub_dep` = '$sub_dep',
+        `start_time` = '$start_time',
+        `end_time` = '$end_time',
         updated_at = '$date1'
           WHERE id = $id";
         // echo "<pre>"; print_r($sql);
         // echo "</pre>";
+
+        $post = $this->db->query($sql);
+        if (!$post)
+            throw new Exception('Post does not exist for specified id');
+
+        return $post;
+    }
+    public function user_update11($id, $data): bool
+    {
+
+        // echo $id;
+
+        if (empty($data)) {
+            echo "1";
+            return true;
+        }
+
+       
+        $department = $data['department'];
+        $job_type = $data['job_type'];
+        $pref_state = $data['pref_state'];
+        $pref_city = $data['pref_city'];
+        $sub_dep = $data['sub_dep'];
+        $start_time = $data['start_time'];
+        $end_time = $data['end_time'];
+        $salery = $data['salery'];
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+
+        $date1 = date('Y-m-d H:i:s');
+
+
+        $sql = "UPDATE `job_pref_user` SET  
+        
+        
+        `department` = '$department',
+        `job_type` ='$job_type',
+        `pref_state` = '$pref_state',
+        `pref_city` = '$pref_city',
+        `sub_dep` = '$sub_dep',
+        `salery` = '$salery',
+        `start_time` = '$start_time',
+        `end_time` = '$end_time',
+        updated_at = '$date1'
+          WHERE user_id = $id";
+        // echo "<pre>"; print_r($sql);
+        // echo "</pre>";
+
         $post = $this->db->query($sql);
         if (!$post)
             throw new Exception('Post does not exist for specified id');
