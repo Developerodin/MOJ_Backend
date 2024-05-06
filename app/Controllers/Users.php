@@ -11,6 +11,28 @@ use ReflectionException;
 
 class Users extends BaseController
 {
+
+
+    public function get_user($id)
+    {
+        $model = new UserModel();
+        $data = $model->findUserById($id);
+
+        if ($data == null) {
+            $response =
+                $this->response->setStatusCode(200)->setBody(' No Data found');
+            return $response;
+        } else {
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'Data found successfully ',
+                        'data' => $data
+
+                    ]
+                );
+        }
+    }
     public function get_id($id)
     {
         $model = new UserModel();
@@ -139,7 +161,7 @@ class Users extends BaseController
     
         $model = new UserModel();
         $data = [
-            'user_id' => $input['user_id'],
+            'user_id' => $id,
             'work_ex' => $input['work_ex'],
            
         ];

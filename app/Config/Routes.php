@@ -39,6 +39,7 @@ $routes->get('/user-list', 'Home::user_list');
 $routes->get('/hotel-list', 'Home::hotel_list');
 $routes->get('/agent-list', 'Home::agent_list');
 $routes->get('/job-list', 'Home::job_list');
+$routes->get('/get_user/(:num)', 'Users::get_user/$1');
 
 $routes->post('/auth/number_check', 'Auth::check_mobile');
 $routes->post('/auth/work_up/(:num)', 'Users::work_ex_up/$1');

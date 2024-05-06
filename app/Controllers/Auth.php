@@ -314,8 +314,6 @@ class Auth extends BaseController
             //     $input['last_name'] = "";
             // }
 
-
-
             $id = $input['user_id'];
             $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email', 'state', 'city', 'country', 'created_at'];
             foreach ($required_fields as $field) {

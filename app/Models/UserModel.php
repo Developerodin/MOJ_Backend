@@ -268,7 +268,7 @@ class UserModel extends Model
         // echo "<pre>"; print_r($mobile_number); echo "</pre>";
         // die();
         $status = "Enable";
-        $work_ex = "";
+        $work_ex = "fresher";
         $points = '0';
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
@@ -399,17 +399,48 @@ class UserModel extends Model
     public function update_workex($data)
     {
         //    echo json_encode($sql);
+        $id = $data['id'];
+        $organisation = $data['organisation'];
+        $designation = $data['designation'];
+        $ref_mobile = $data['ref_mobile'];
+        $ref_email = $data['ref_email'];
+        $profile = $data['profile'];
+        $location = $data['location'];
+        $start_date = $data['start_date'];
+        $end_date = $data['end_date'];
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date1 = date("m-d-Y h:i A");
+
+        $sql = "UPDATE `working_experiences` SET 
+        
+        `ref_mobile` = '$ref_mobile',
+        `ref_email`= '$ref_email',
+        `organisation`='$organisation',`designation`='$designation',`profile`='$profile',`location`='$location',`start_date`='$start_date',`end_date`='$end_date',`updated_at`='$date1' WHERE id = $id";
+        // echo json_encode($sql);
+        // echo ( $sql);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
+    public function update_workex_up($data)
+    {
+        //    echo json_encode($sql);
         $id = $data['user_id'];
         $work_ex = $data['work_ex'];
-       
+        
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
 
         $sql = "UPDATE `users` SET 
         
-        `work_ex` = '$work_ex'
-       WHERE id = $id";
+       `work_ex`='$work_ex' WHERE id = $id";
         // echo json_encode($sql);
         // echo ( $sql);
         //     die();
