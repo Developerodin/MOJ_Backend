@@ -365,19 +365,27 @@ class Users extends BaseController
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
-        $required_fields = ['user_id', '10th', '12th','gra_dip','post_gra','doc_degree', 'year'];
+        $required_fields = ['user_id', 'ten_th', 'to_th','gra_dip','post_gra','doc','hotel_de'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
             }
         }
+        
         $model = new UserModel();
        
-        // echo "<pre>";
-        //             print_r($data);
-        //             echo "</pre>";
-        //             die();
+        $usera = $model->getUserEd_id($input['user_id']);
+       
+    // print_r($usera);
+    //     die();
+       if($usera){
+        
+        $user1 = $this->education_update($input);
+       }else{
+     
         $user1 = $model->save_edu($input);
+       }
+        
 
         if ($user1 == true) {
             return $this
@@ -397,39 +405,27 @@ class Users extends BaseController
             return $response;
         }
     }
-    public function education_update($id)
+    public function education_update($input1)
     {
 
-        $input = $this->getRequestInput($this->request);
+        $input = $input1;
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
-        $required_fields = ['degree', 'university', 'year'];
-        foreach ($required_fields as $field) {
-            if (!isset($input[$field]) || empty($input[$field])) {
-                return "Error: Missing required field '$field'";
-            }
-        }
+       
         $model = new UserModel();
-        $data = [
-
-            'id' => $id,
-            'user_id' => $input['user_id'],
-            'degree' => $input['degree'],
-            'university' => $input['university'],
-            'year' => $input['year']
-        ];
+       
         // echo "<pre>";
         //             print_r($data);
         //             echo "</pre>";
         //             die();
-        $user1 = $model->save_edu_up($data);
+        $user1 = $model->save_edu_up($input);
 
         if ($user1 == true) {
             return $this
                 ->getResponse(
                     [
                         'message' => 'User Work experience add successfully',
-                        'user' => $data,
+                        
                         'status' => 'success'
 
 

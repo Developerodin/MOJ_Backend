@@ -100,7 +100,7 @@ class UserModel extends Model
     {
 
         $builder = $this->db->table('user_profiles');
-        $builder->select(' user_profiles.*');
+        $builder->select('user_profiles.*');
 
         $builder->where('user_profiles.user_id', $userId);
         $query = $builder->get();
@@ -428,6 +428,56 @@ class UserModel extends Model
             return $post;
         }
     }
+    
+    public function save_hprofile($data)
+    {
+        // echo json_encode($data);
+
+        $user_id = $data['user_id'];
+        $name = $data['name'];
+
+        $company_details = $data['company_details'];
+        $address = $data['address'];
+        $city = $data['city'];
+        $role = $data['role'];
+        $country = $data['country'];
+        $gst_number = $data['gst_number'];
+        $field_of_company = $data['field_of_company'];
+        $profile_picture = $data['profile_picture'];
+        $contact_information = $data['contact_information'];
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date = date("m-d-Y h:i A");
+        $sql = "INSERT INTO `hoteliers`( `user_id`, `name`,  `company_details`, `address`, `city`, `role`, `country`, `gst_number`, `field_of_company`, `profile_picture`, `contact_information`, `created_at`, `updated_at`) VALUES ('$user_id','$name',' $company_details','$address','$city','$role','$country','$gst_number','$field_of_company','$profile_picture','$contact_information',' $date',' $date')";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
+
+    public function delete_w_ex($id)
+    {
+        // echo json_encode($data);
+
+
+        $sql = "DELETE FROM `working_experiences` WHERE id= '$id'";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
     public function update_workex_up($data)
     {
         //    echo json_encode($sql);
@@ -482,56 +532,6 @@ class UserModel extends Model
             return $post;
         }
     }
-    public function save_hprofile($data)
-    {
-        // echo json_encode($data);
-
-        $user_id = $data['user_id'];
-        $name = $data['name'];
-
-        $company_details = $data['company_details'];
-        $address = $data['address'];
-        $city = $data['city'];
-        $role = $data['role'];
-        $country = $data['country'];
-        $gst_number = $data['gst_number'];
-        $field_of_company = $data['field_of_company'];
-        $profile_picture = $data['profile_picture'];
-        $contact_information = $data['contact_information'];
-        $date = new DateTime();
-        $date = date_default_timezone_set('Asia/Kolkata');
-        $date = date("m-d-Y h:i A");
-        $sql = "INSERT INTO `hoteliers`( `user_id`, `name`,  `company_details`, `address`, `city`, `role`, `country`, `gst_number`, `field_of_company`, `profile_picture`, `contact_information`, `created_at`, `updated_at`) VALUES ('$user_id','$name',' $company_details','$address','$city','$role','$country','$gst_number','$field_of_company','$profile_picture','$contact_information',' $date',' $date')";
-        // echo json_encode($sql);
-        // echo json_encode($data);
-        //     die();
-        $post = $this->db->query($sql);
-
-        if (!$post) {
-            return false;
-        } else {
-            return $post;
-        }
-    }
-
-    public function delete_w_ex($id)
-    {
-        // echo json_encode($data);
-
-
-        $sql = "DELETE FROM `working_experiences` WHERE id= '$id'";
-        // echo json_encode($sql);
-        // echo json_encode($data);
-        //     die();
-        $post = $this->db->query($sql);
-
-        if (!$post) {
-            return false;
-        } else {
-            return $post;
-        }
-    }
-
     // user edu
 
     public function getUserEd_id($userId)
@@ -593,23 +593,72 @@ class UserModel extends Model
     {
         // echo json_encode($data);
 
+// echo "<pre>"; print_r($data); echo "</pre>";
+
+      
         $user_id = $data['user_id'];
+       
         $ten_th = $data['ten_th'];
+      
         $ten_school = $data['ten_school'];
         $ten_year = $data['ten_year'];
+        // echo "testing";
         $to_th = $data['to_th'];
-        $to_th_school = $data['to_th_school'];
-        $to_th_year = $data['to_th_year'];
 
-        $degree = $data['degree'];
-        $university = $data['university'];
-        $year = $data['year'];
+
+        $to_th_school = $data['to_th_school'];
+
+
+        $to_th_year = $data['to_th_year'];
+        $gra_dip = $data['gra_dip'];
+        $gr_degree = $data['gr_degree'];
+        $gr_university = $data['gr_university'];
+        $gr_year = $data['gr_year'];
+
+        $post_gra = $data['post_gra'];
+        $pg_degree = $data['pg_degree'];
+        $pg_university = $data['pg_university'];
+        $pg_year = $data['pg_year'];
+        $doc = $data['doc'];
+        $doc_degree = $data['doc_degree'];
+        $doc_university = $data['doc_university'];
+        $doc_year = $data['doc_year'];
+        $doc_degree = $data['doc_degree'];
+        $doc_university = $data['doc_university'];
+        $doc_year = $data['doc_year'];
+
+        $hotel_de = $data['hotel_de'];
+        $h_college = $data['h_college'];
+        $h_year = $data['h_year'];
+
+   
+
+
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
-        $sql = "INSERT INTO `user_education`( `user_id`, `degree`,`university`, `year`, `created_at`) VALUES ('$user_id','$degree','$university','$year','$date1')";
+        $sql = "INSERT INTO `user_education`(`user_id`, `ten_th`, `ten_school`, `ten_year`, `to_th`, `to_th_school`, `to_th_year`, `gra_dip`, `gr_degree`, `gr_university`, `gr_year`, `post_gra`, `pg_degree`, `pg_university`, `pg_year`, `doc`, `doc_degree`, `doc_university`, `doc_year`,`hotel_de`,`h_college`,`h_year`, `created_at`) VALUES ('$user_id',
+        '$ten_th',
+        '$ten_school',
+        '$ten_year',
+        '$to_th',
+        '$to_th_school',
+        '$to_th_year',
+        '$gra_dip', '$gr_degree','$gr_university','$gr_year',
+        '$post_gra',
+        '$pg_degree',
+        '$pg_university',
+        '$pg_year',
+        '$doc',
+        '$doc_degree',
+        '$doc_university',
+        '$doc_year',
+        '$hotel_de',
+        '$h_college',
+        '$h_year',
+       '$date1')";
         // echo json_encode($sql);
-        // echo json_encode($data);
+        // // echo json_encode($data);
         //     die();
         $post = $this->db->query($sql);
 
@@ -624,16 +673,44 @@ class UserModel extends Model
         // echo json_encode($data);
 
 
-        $id = $data['id'];
-        $degree = $data['degree'];
-        $university = $data['university'];
-        $year = $data['year'];
+      
+        $user_id = $data['user_id'];
+        $ten_th = $data['ten_th'];
+        $ten_school = $data['ten_school'];
+        $ten_year = $data['ten_year'];
+        $to_th = $data['to_th'];
+        $to_th_school = $data['to_th_school'];
+        $to_th_year = $data['to_th_year'];
+        $gra_dip = $data['gra_dip'];
+
+        $gr_degree = $data['gr_degree'];
+        $gr_university = $data['gr_university'];
+        $gr_year = $data['gr_year'];
+
+        $post_gra = $data['post_gra'];
+        $pg_degree = $data['pg_degree'];
+        $pg_university = $data['pg_university'];
+        $pg_year = $data['pg_year'];
+        $doc = $data['doc'];
+        $doc_degree = $data['doc_degree'];
+        $doc_university = $data['doc_university'];
+        $doc_year = $data['doc_year'];
+
+        
+
+        $hotel_de = $data['hotel_de'];
+        $h_college = $data['h_college'];
+        $h_year = $data['h_year'];
+
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
-        $sql = "UPDATE `user_education` SET `degree`='$degree',`university`='$university',`year`='$year',`created_at`='$date1' WHERE id ='$id'";
+        $sql = "UPDATE `user_education` SET `ten_th`='$ten_th',`ten_school`='$ten_school',`ten_year`='$ten_year',`to_th`='$to_th',`to_th_school`='$to_th_school',`to_th_year`='$to_th_year',`gra_dip`='$gra_dip',`gr_degree`='$gr_degree',`gr_university`='$gr_university',`gr_year`='$gr_year',`post_gra`='$post_gra',`pg_degree`='$pg_degree',`pg_university`='$pg_university',`pg_year`='$pg_year',`doc`='$doc',`doc_degree`='$doc_degree',`doc_university`='$doc_university',`doc_year`='$doc_year',
+        `hotel_de`='$hotel_de',`h_college`='$h_college',`h_year`='$h_year',
+        
+        `created_at`='$date1' WHERE user_id ='$user_id'";
         // echo json_encode($sql);
-        // echo json_encode($data);
+        // echo json_encode($sql);
         //     die();
         $post = $this->db->query($sql);
 

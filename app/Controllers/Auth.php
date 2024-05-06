@@ -310,10 +310,6 @@ class Auth extends BaseController
 
             $input = $this->getRequestInput($this->request);
 
-            // if(!$input['last_name']){
-            //     $input['last_name'] = "";
-            // }
-
             $id = $input['user_id'];
             $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email', 'state', 'city', 'country', 'created_at'];
             foreach ($required_fields as $field) {
@@ -327,7 +323,8 @@ class Auth extends BaseController
             return $this->getResponse(
                 [
                     'message' => 'user updaetd successfully',
-                    'client' => $post
+                    'user' => $post,
+                    'status' => 'success',
                 ]
             );
         } catch (Exception $exception) {
