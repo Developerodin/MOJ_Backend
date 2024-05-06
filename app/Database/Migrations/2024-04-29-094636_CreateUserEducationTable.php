@@ -20,6 +20,14 @@ class CreateUsersEducationTable extends Migration
                 
                 'unsigned' => true,
             ],
+            '10th' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
+            '10th_sch' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
             'degree' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,

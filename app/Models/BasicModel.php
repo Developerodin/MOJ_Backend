@@ -83,6 +83,16 @@ class BasicModel extends Model
         return $query->getResult();
        
     }
+    public function all_state1()
+    {
+        $builder = $this->db->table('unified_pincodes');
+        $builder->select('*');
+        
+        $query = $builder->get();
+
+        return $query->getResult();
+       
+    }
     public function save($data): bool
     {
 

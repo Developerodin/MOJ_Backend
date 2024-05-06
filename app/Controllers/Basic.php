@@ -33,6 +33,18 @@ class Basic extends BaseController
             ]
         );
     }
+    public function get_state_city()
+    {
+        $model = new BasicModel();
+
+        return $this->getResponse(
+            [
+                'message' => 'state retrieved successfully',
+                'post' => $model->all_state1(),
+                'status' => 'success',
+            ]
+        );
+    }
     public function city_by_state($id)
     {
         $model = new BasicModel();

@@ -115,6 +115,7 @@ $routes->post('/user/job_pref_sub', 'Job_pref::sub_show');
 $routes->post('/user/job_prf/store', 'Job_pref::save');
 $routes->post('/user/job_pref/Update_ById/(:num)','Job_pref::update/$1');
 $routes->post('/user/job_pref/delete/(:num)','Job_pref::destroy/$1');  // user deleted
+
 // user job pref.
 $routes->get('/user_job_pref', 'Job_pref::user_get');
 $routes->post('/user_job_pref/(:num)', 'Job_pref::user_show/$1');
@@ -125,6 +126,7 @@ $routes->post('/user_job_pref/delete/(:num)','Job_pref::user_destroy/$1');  // u
 
 // basic details
 
+$routes->get('/basic/all_city', 'Basic::get_state_city');
 $routes->get('/basic/web', 'Basic::get');
 $routes->post('/basic/store', 'Basic::save');
 $routes->post('/basic/Update','Basic::update');

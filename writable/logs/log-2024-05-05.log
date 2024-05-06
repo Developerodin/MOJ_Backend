@@ -325,3 +325,28 @@ in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
  8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+ERROR - 2024-05-05 13:29:21 --> mysqli_sql_exception: Column count doesn't match value count at row 1 in C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\mojmain\app\Models\UserModel.php(306): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...')
+#4 C:\xampp\htdocs\mojmain\app\Controllers\Auth.php(249): App\Models\UserModel->save_profile(Array)
+#5 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Auth->register()
+#6 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\mojmain\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\mojmain\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-05-05 13:29:21 --> Column count doesn't match value count at row 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`,`address`,`pin_code`,`dob`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES (\'3\',\'anshul\',\'kumar\',\'gender\',\'test test\',\'332406\',\'test@gmail.com\',\'y\',\'raj\',\'sfdg\',\'xvfgd\',\'05-05-2024 01:29 PM\',\'05-05-2024 01:29 PM\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`,`address`,`pin_code`,`dob`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES (\'3\',\'anshul\',\'kumar\',\'gender\',\'test test\',\'332406\',\'test@gmail.com\',\'y\',\'raj\',\'sfdg\',\'xvfgd\',\'05-05-2024 01:29 PM\',\'05-05-2024 01:29 PM\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`,`address`,`pin_code`,`dob`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES (\'3\',\'anshul\',\'kumar\',\'gender\',\'test test\',\'332406\',\'test@gmail.com\',\'y\',\'raj\',\'sfdg\',\'xvfgd\',\'05-05-2024 01:29 PM\',\'05-05-2024 01:29 PM\')')
+ 4 APPPATH\Models\UserModel.php(306): CodeIgniter\Database\BaseConnection->query('INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`,`address`,`pin_code`,`dob`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES (\'3\',\'anshul\',\'kumar\',\'gender\',\'test test\',\'332406\',\'test@gmail.com\',\'y\',\'raj\',\'sfdg\',\'xvfgd\',\'05-05-2024 01:29 PM\',\'05-05-2024 01:29 PM\')')
+ 5 APPPATH\Controllers\Auth.php(249): App\Models\UserModel->save_profile([...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->register()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')

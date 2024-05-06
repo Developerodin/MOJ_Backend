@@ -299,9 +299,8 @@ class UserModel extends Model
         $date1 = date("m-d-Y h:i A");
 
 
-        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`,`address`,`pin_code`,`dob`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$last_name','$gender','$address','$pin_code','$email','$role','$state','$city','$country','$date1','$date1')";
-       
-    
+        $sql = "INSERT INTO `user_profiles`( `user_id`, `name`,`last_name`,`gender`,`address`,`pin_code`,`dob`, `email`,`role`, `state`, `city`, `country`, `created_at`, `updated_at`) VALUES ('$user_id','$name','$last_name','$gender','$address','$pin_code','$dob','$email','$role','$state','$city','$country','$date1','$date1')";
+     
        
         $post = $this->db->query($sql);
 
