@@ -12,8 +12,8 @@ class Basic extends BaseController
     public function getUserProfileEmptyFields($user_id)
     {
         $model = new BasicModel();
-        
-        $post = $model->getUserProfileEmptyFields($user_id);
+
+        $post = $model->getEmptyFields($user_id);
         return $this->getResponse(
             [
                 'message' => 'Details retrieved successfully',
