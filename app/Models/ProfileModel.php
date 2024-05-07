@@ -168,11 +168,11 @@ class ProfileModel extends Model
     {
         $post = $this
             ->asArray()
-            ->where(['id' => $id])
+            ->where(['user_id' => $id])
             ->delete();
 
         if (!$post) 
-            throw new Exception('job does not exist for specified id');
+            throw new Exception('image does not exist for specified id');
 
         return $post;
     }

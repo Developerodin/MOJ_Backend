@@ -178,27 +178,46 @@ class profile_img extends BaseController
         } catch (Exception $e) {
 
             $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
-            $baseUrl = str_replace('/public/', '/', $baseUrl);
+           $data['image_path'] =  $baseUrl . 'images/user_img.png';
             return $this->getResponse(
                 [
                     'message' => 'Could not find profile image for specified ID',
-                    'img' =>  $baseUrl . 'images/user_img.png',
+                    'img' =>  $data,
+                    'status' => 'success',
                 ],
-                ResponseInterface::HTTP_NOT_FOUND
+                
             );
         }
     }
 
 
-    public function destroy($id)
+    public function distroy($id)
     {
         try {
             $model = new ProfileModel();
+       
+            $existingResume = $model->findByUId($id);
+            // echo "test";
+            // die();
+            if ($existingResume == null) {
+                // If there's no existing resume, create a new folder for the user
+               
+            } else {
+                $existingFilePath = WRITEPATH . $existingResume['image_path'];
+                //     If there's an existing resume, delete the previous file and folder
+                //     echo "$existingFilePath";
+                // die();
+                if (file_exists($existingFilePath)) {
+                    unlink($existingFilePath); // Delete the existing file
+                } else {
+                    echo "File not exists";
+                }
+            }
             $model->deletedata($id);
             return $this
                 ->getResponse(
                     [
-                        'message' => 'resume deleted successfully',
+                        'message' => 'image deleted successfully',
                         'status' => 'success'
                     ]
                 );
