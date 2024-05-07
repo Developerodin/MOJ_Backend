@@ -137,6 +137,9 @@ $routes->get('/basic/state','Basic::get_state');  // all state
 $routes->post('/basic/city_by_state/(:num)','Basic::city_by_state/$1');  // all state
 
 
+$routes->post('/basic/profile_health_userid/(:num)','Basic::getUserProfileEmptyFields/$1');  // all state
+
+
 
 /*
  * --------------------------------------------------------------------

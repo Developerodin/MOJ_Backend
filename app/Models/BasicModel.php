@@ -18,6 +18,7 @@ use \Datetime;
 class BasicModel extends Model
 {
     protected $table = 'basic_table';
+    protected $userProfileTable = 'user_profiles';
     // protected $allowedFields = [
     //     'name',
     //     'email',
@@ -27,8 +28,46 @@ class BasicModel extends Model
     protected $updatedField = 'updated_at';
 
   
-  
+    public function getUserProfileEmptyFields($user_id)
+    {
+
+
+        $builder = $this->db->table('user_profiles');
+        $builder->select('*'); // Use '*' to select all columns
+        $builder->where('user_profiles.user_id', $user_id);
+        $query = $builder->get();
+        
+      $user_sql =  $query->getResult();
+
+
+      print_r($user_sql);
+
+        $query = $this->db->table($this->userProfileTable)
+                        ->selectCount([
+                            'name_empty' => 'SUM(CASE WHEN name IS NULL OR name = "" THEN 1 ELSE 0 END)',
+                            'last_name_empty' => 'SUM(CASE WHEN last_name IS NULL OR last_name = "" THEN 1 ELSE 0 END)',
+                            'gender_empty' => 'SUM(CASE WHEN gender IS NULL OR gender = "" THEN 1 ELSE 0 END)',
+                            'email_empty' => 'SUM(CASE WHEN email IS NULL OR email = "" THEN 1 ELSE 0 END)',
+                            'role_empty' => 'SUM(CASE WHEN role IS NULL OR role = "" THEN 1 ELSE 0 END)',
+                            'address_empty' => 'SUM(CASE WHEN address IS NULL OR address = "" THEN 1 ELSE 0 END)',
+                            'pin_code_empty' => 'SUM(CASE WHEN pin_code IS NULL THEN 1 ELSE 0 END)',
+                            'dob_empty' => 'SUM(CASE WHEN dob IS NULL THEN 1 ELSE 0 END)',
+                            'state_empty' => 'SUM(CASE WHEN state IS NULL OR state = "" THEN 1 ELSE 0 END)',
+                            'city_empty' => 'SUM(CASE WHEN city IS NULL OR city = "" THEN 1 ELSE 0 END)',
+                            'country_empty' => 'SUM(CASE WHEN country IS NULL OR country = "" THEN 1 ELSE 0 END)',
+                        ])
+                        ->where('user_id', $user_id);
     
+        // Debugging: Print the generated SQL query
+        echo $this->db->getLastQuery();
+    
+        $result = $query->get()->getRow();
+    
+        // Debugging: Print the result of the query
+        print_r($result);
+    
+        return $result;
+    }
     
     public function findAll(int $limit = 0, int $offset = 0)
     {

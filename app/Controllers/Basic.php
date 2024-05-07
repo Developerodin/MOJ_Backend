@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\BasicModel;
 use App\Models\UserAModel;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -8,7 +9,19 @@ use Exception;
 
 class Basic extends BaseController
 {
-   
+    public function getUserProfileEmptyFields($user_id)
+    {
+        $model = new BasicModel();
+        
+        $post = $model->getUserProfileEmptyFields($user_id);
+        return $this->getResponse(
+            [
+                'message' => 'Details retrieved successfully',
+                'post' => $post,
+                'status' => 'success',
+            ]
+        );
+    }
     public function get()
     {
         $model = new BasicModel();
@@ -75,7 +88,7 @@ class Basic extends BaseController
             'mobile' => $input['mobile'],
             'email' => $input['email'],
             'hiw' => $input['hiw'],
-           
+
 
         ];
         // echo "<pre>";
@@ -94,7 +107,7 @@ class Basic extends BaseController
             ]
         );
     }
-        public function update()
+    public function update()
     {
         try {
             $model = new BasicModel();
@@ -107,7 +120,6 @@ class Basic extends BaseController
                     'client' => $post
                 ]
             );
-
         } catch (Exception $exception) {
             return $this->getResponse(
                 [
@@ -123,7 +135,7 @@ class Basic extends BaseController
         try {
             $model = new BasicModel();
             // $post = $model->findPostById($id);
-            $model-> delete_us($id);
+            $model->delete_us($id);
             return $this
                 ->getResponse(
                     [
@@ -140,8 +152,4 @@ class Basic extends BaseController
             );
         }
     }
-  
-   
-  
-   
 }

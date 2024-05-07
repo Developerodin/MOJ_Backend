@@ -26,7 +26,7 @@ class profile_img extends BaseController
         if (!$post) {
             return $this->getResponse(
                 [
-                    'message' => 'Resume  not found ',
+                    'message' => 'image not found ',
 
                 ]
             );
@@ -48,6 +48,7 @@ class profile_img extends BaseController
 
         // Get the uploaded file
         $file = $this->request->getFile('profile_img');
+
 
         // Check if the file is uploaded successfully
         if ($file->isValid() && !$file->hasMoved()) {
@@ -127,15 +128,15 @@ class profile_img extends BaseController
 
             return $this->getResponse(
                 [
-                    'message' => 'resume retrieved successfully',
-                    'resume' => $post,
+                    'message' => 'image retrieved successfully',
+                    'image' => $post,
                     'status' => 'success'
                 ]
             );
         } catch (Exception $e) {
             return $this->getResponse(
                 [
-                    'message' => 'Could not find Job for specified ID'
+                    'message' => 'Could not find image for specified ID'
                 ],
                 ResponseInterface::HTTP_NOT_FOUND
             );

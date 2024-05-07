@@ -1,0 +1,54 @@
+CRITICAL - 2024-05-07 05:35:02 --> CodeIgniter\Database\BaseBuilder::selectCount(): Argument #1 ($select) must be of type string, array given, called in C:\xampp\htdocs\mojmain\app\Models\BasicModel.php on line 35
+in SYSTEMPATH\Database\BaseBuilder.php on line 480.
+ 1 APPPATH\Models\BasicModel.php(35): CodeIgniter\Database\BaseBuilder->selectCount([...])
+ 2 APPPATH\Controllers\Basic.php(13): App\Models\BasicModel->getUserProfileEmptyFields('10')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Basic->getUserProfileEmptyFields('10')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Basic))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-05-07 05:35:48 --> CodeIgniter\Database\BaseBuilder::selectCount(): Argument #1 ($select) must be of type string, array given, called in C:\xampp\htdocs\mojmain\app\Models\BasicModel.php on line 36
+in SYSTEMPATH\Database\BaseBuilder.php on line 480.
+ 1 APPPATH\Models\BasicModel.php(36): CodeIgniter\Database\BaseBuilder->selectCount([...])
+ 2 APPPATH\Controllers\Basic.php(16): App\Models\BasicModel->getUserProfileEmptyFields('10')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Basic->getUserProfileEmptyFields('10')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Basic))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-05-07 05:36:30 --> CodeIgniter\Database\BaseBuilder::selectCount(): Argument #1 ($select) must be of type string, array given, called in C:\xampp\htdocs\mojmain\app\Models\BasicModel.php on line 36
+in SYSTEMPATH\Database\BaseBuilder.php on line 480.
+ 1 APPPATH\Models\BasicModel.php(36): CodeIgniter\Database\BaseBuilder->selectCount([...])
+ 2 APPPATH\Controllers\Basic.php(16): App\Models\BasicModel->getUserProfileEmptyFields('10')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Basic->getUserProfileEmptyFields('10')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Basic))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-05-07 05:37:19 --> CodeIgniter\Database\BaseBuilder::selectCount(): Argument #1 ($select) must be of type string, array given, called in C:\xampp\htdocs\mojmain\app\Models\BasicModel.php on line 35
+in SYSTEMPATH\Database\BaseBuilder.php on line 480.
+ 1 APPPATH\Models\BasicModel.php(35): CodeIgniter\Database\BaseBuilder->selectCount([...])
+ 2 APPPATH\Controllers\Basic.php(16): App\Models\BasicModel->getUserProfileEmptyFields('10')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Basic->getUserProfileEmptyFields('10')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Basic))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-05-07 05:39:08 --> CodeIgniter\Database\BaseBuilder::selectCount(): Argument #1 ($select) must be of type string, array given, called in C:\xampp\htdocs\mojmain\app\Models\BasicModel.php on line 47
+in SYSTEMPATH\Database\BaseBuilder.php on line 480.
+ 1 APPPATH\Models\BasicModel.php(47): CodeIgniter\Database\BaseBuilder->selectCount([...])
+ 2 APPPATH\Controllers\Basic.php(16): App\Models\BasicModel->getUserProfileEmptyFields('10')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Basic->getUserProfileEmptyFields('10')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Basic))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-05-07 05:39:47 --> CodeIgniter\Database\BaseBuilder::selectCount(): Argument #1 ($select) must be of type string, array given, called in C:\xampp\htdocs\mojmain\app\Models\BasicModel.php on line 47
+in SYSTEMPATH\Database\BaseBuilder.php on line 480.
+ 1 APPPATH\Models\BasicModel.php(47): CodeIgniter\Database\BaseBuilder->selectCount([...])
+ 2 APPPATH\Controllers\Basic.php(16): App\Models\BasicModel->getUserProfileEmptyFields('10')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Basic->getUserProfileEmptyFields('10')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Basic))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')

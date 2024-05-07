@@ -671,9 +671,6 @@ class UserModel extends Model
     public function save_edu_up($data)
     {
         // echo json_encode($data);
-
-
-      
         $user_id = $data['user_id'];
         $ten_th = $data['ten_th'];
         $ten_school = $data['ten_school'];
@@ -696,8 +693,6 @@ class UserModel extends Model
         $doc_university = $data['doc_university'];
         $doc_year = $data['doc_year'];
 
-        
-
         $hotel_de = $data['hotel_de'];
         $h_college = $data['h_college'];
         $h_year = $data['h_year'];
@@ -706,9 +701,7 @@ class UserModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
         $sql = "UPDATE `user_education` SET `ten_th`='$ten_th',`ten_school`='$ten_school',`ten_year`='$ten_year',`to_th`='$to_th',`to_th_school`='$to_th_school',`to_th_year`='$to_th_year',`gra_dip`='$gra_dip',`gr_degree`='$gr_degree',`gr_university`='$gr_university',`gr_year`='$gr_year',`post_gra`='$post_gra',`pg_degree`='$pg_degree',`pg_university`='$pg_university',`pg_year`='$pg_year',`doc`='$doc',`doc_degree`='$doc_degree',`doc_university`='$doc_university',`doc_year`='$doc_year',
-        `hotel_de`='$hotel_de',`h_college`='$h_college',`h_year`='$h_year',
-        
-        `created_at`='$date1' WHERE user_id ='$user_id'";
+        `hotel_de`='$hotel_de',`h_college`='$h_college',`h_year`='$h_year',`created_at`='$date1' WHERE user_id ='$user_id'";
         // echo json_encode($sql);
         // echo json_encode($sql);
         //     die();
