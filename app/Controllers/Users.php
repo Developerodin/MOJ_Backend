@@ -13,6 +13,26 @@ class Users extends BaseController
 {
 
 
+    public function get_user_mobile($mobile)
+    {
+        $model = new UserModel();
+        $data = $model->findUserByUserName($mobile);
+
+        if ($data == null) {
+            $response =
+                $this->response->setStatusCode(200)->setBody(' No Data found');
+            return $response;
+        } else {
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'Data found successfully ',
+                        'data' => $data
+
+                    ]
+                );
+        }
+    }
     public function get_user($id)
     {
         $model = new UserModel();
