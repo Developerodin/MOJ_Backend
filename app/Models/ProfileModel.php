@@ -122,7 +122,7 @@ class ProfileModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `user_profile_images`( `user_id`, `image_path`, `created_at`) VALUES ('$user_id','$image_path','$date1')";
+        $sql = "INSERT INTO `user_profile_images`( `user_id`, `image_path`, `created_at`,`updated_at`) VALUES ('$user_id','$image_path','$date1','$date1')";
 
         $post = $this->db->query($sql);
         // echo json_encode($post);
@@ -154,7 +154,7 @@ class ProfileModel extends Model
         user_id = '$user_id',
         image_path = '$image_path',
       
-        created_at = '$date1'
+        updated_at = '$date1'
           WHERE user_id = $user_id";
         // echo "<pre>"; print_r($sql);
         // echo "</pre>";

@@ -7,14 +7,7 @@ use Exception;
 use \Datetime;
 
 
-// structure
-
-//save
-//find by id--
-//find all
-// deletes by id
-// activity
-//update service    
+ 
 class BasicModel extends Model
 {
     protected $table = 'basic_table';
@@ -98,44 +91,44 @@ class BasicModel extends Model
         $userData = $builder->get()->getRow();
         //  print_r($userData);
         if ($userData) {
-            $query = $this->db->table('user_education')
-                ->select([
-                    'id', // Include the 'id' field
-                    'SUM(CASE WHEN ten_th IS NULL OR ten_th = "" THEN 1 ELSE 0 END) AS ten_th_empty',
-                    'SUM(CASE WHEN ten_school IS NULL OR ten_school = "" THEN 1 ELSE 0 END) AS ten_school_empty',
-                    'SUM(CASE WHEN ten_year IS NULL OR ten_year = "" THEN 1 ELSE 0 END) AS ten_year_empty',
-                    'SUM(CASE WHEN to_th IS NULL OR to_th = "" THEN 1 ELSE 0 END) AS to_th_empty',
-                    'SUM(CASE WHEN to_th_school IS NULL OR to_th_school = "" THEN 1 ELSE 0 END) AS to_th_school_empty',
-                    'SUM(CASE WHEN to_th_year IS NULL OR to_th_year = "" THEN 1 ELSE 0 END) AS to_th_year_empty',
-                    'SUM(CASE WHEN gra_dip IS NULL OR gra_dip = "" THEN 1 ELSE 0 END) AS gra_dip_empty',
-                    'SUM(CASE WHEN gr_degree IS NULL OR gr_degree = "" THEN 1 ELSE 0 END) AS gr_degree_empty',
-                    'SUM(CASE WHEN gr_university IS NULL OR gr_university = "" THEN 1 ELSE 0 END) AS gr_university_empty',
-                    'SUM(CASE WHEN gr_year IS NULL OR gr_year = "" THEN 1 ELSE 0 END) AS gr_year_empty',
-                    'SUM(CASE WHEN post_gra IS NULL OR post_gra = "" THEN 1 ELSE 0 END) AS post_gra_empty',
-                    'SUM(CASE WHEN pg_degree IS NULL OR pg_degree = "" THEN 1 ELSE 0 END) AS pg_degree_empty',
-                    'SUM(CASE WHEN pg_university IS NULL OR pg_university = "" THEN 1 ELSE 0 END) AS pg_university_empty',
-                    'SUM(CASE WHEN pg_year IS NULL OR pg_year = "" THEN 1 ELSE 0 END) AS pg_year_empty',
-                    'SUM(CASE WHEN doc IS NULL OR doc = "" THEN 1 ELSE 0 END) AS doc_empty',
-                    'SUM(CASE WHEN doc_degree IS NULL OR doc_degree = "" THEN 1 ELSE 0 END) AS doc_degree_empty',
-                    'SUM(CASE WHEN doc_university IS NULL OR doc_university = "" THEN 1 ELSE 0 END) AS doc_university_empty',
-                    'SUM(CASE WHEN doc_year IS NULL OR doc_year = "" THEN 1 ELSE 0 END) AS doc_year_empty',
-                    'SUM(CASE WHEN hotel_de IS NULL OR hotel_de = "" THEN 1 ELSE 0 END) AS hotel_de_empty',
-                    'SUM(CASE WHEN h_college IS NULL OR h_college = "" THEN 1 ELSE 0 END) AS h_college_empty',
-                    'SUM(CASE WHEN h_year IS NULL OR h_year = "" THEN 1 ELSE 0 END) AS h_year_empty',
-                    'SUM(CASE WHEN created_at IS NULL OR created_at = "" THEN 1 ELSE 0 END) AS created_at_empty'
-                ])
-                ->where('user_id', $user_id)
-                ->get();
+            // $query = $this->db->table('user_education')
+            //     ->select([
+            //         'id', // Include the 'id' field
+            //         'SUM(CASE WHEN ten_th IS NULL OR ten_th = "" THEN 1 ELSE 0 END) AS ten_th_empty',
+            //         'SUM(CASE WHEN ten_school IS NULL OR ten_school = "" THEN 1 ELSE 0 END) AS ten_school_empty',
+            //         'SUM(CASE WHEN ten_year IS NULL OR ten_year = "" THEN 1 ELSE 0 END) AS ten_year_empty',
+            //         'SUM(CASE WHEN to_th IS NULL OR to_th = "" THEN 1 ELSE 0 END) AS to_th_empty',
+            //         'SUM(CASE WHEN to_th_school IS NULL OR to_th_school = "" THEN 1 ELSE 0 END) AS to_th_school_empty',
+            //         'SUM(CASE WHEN to_th_year IS NULL OR to_th_year = "" THEN 1 ELSE 0 END) AS to_th_year_empty',
+            //         'SUM(CASE WHEN gra_dip IS NULL OR gra_dip = "" THEN 1 ELSE 0 END) AS gra_dip_empty',
+            //         'SUM(CASE WHEN gr_degree IS NULL OR gr_degree = "" THEN 1 ELSE 0 END) AS gr_degree_empty',
+            //         'SUM(CASE WHEN gr_university IS NULL OR gr_university = "" THEN 1 ELSE 0 END) AS gr_university_empty',
+            //         'SUM(CASE WHEN gr_year IS NULL OR gr_year = "" THEN 1 ELSE 0 END) AS gr_year_empty',
+            //         'SUM(CASE WHEN post_gra IS NULL OR post_gra = "" THEN 1 ELSE 0 END) AS post_gra_empty',
+            //         'SUM(CASE WHEN pg_degree IS NULL OR pg_degree = "" THEN 1 ELSE 0 END) AS pg_degree_empty',
+            //         'SUM(CASE WHEN pg_university IS NULL OR pg_university = "" THEN 1 ELSE 0 END) AS pg_university_empty',
+            //         'SUM(CASE WHEN pg_year IS NULL OR pg_year = "" THEN 1 ELSE 0 END) AS pg_year_empty',
+            //         'SUM(CASE WHEN doc IS NULL OR doc = "" THEN 1 ELSE 0 END) AS doc_empty',
+            //         'SUM(CASE WHEN doc_degree IS NULL OR doc_degree = "" THEN 1 ELSE 0 END) AS doc_degree_empty',
+            //         'SUM(CASE WHEN doc_university IS NULL OR doc_university = "" THEN 1 ELSE 0 END) AS doc_university_empty',
+            //         'SUM(CASE WHEN doc_year IS NULL OR doc_year = "" THEN 1 ELSE 0 END) AS doc_year_empty',
+            //         'SUM(CASE WHEN hotel_de IS NULL OR hotel_de = "" THEN 1 ELSE 0 END) AS hotel_de_empty',
+            //         'SUM(CASE WHEN h_college IS NULL OR h_college = "" THEN 1 ELSE 0 END) AS h_college_empty',
+            //         'SUM(CASE WHEN h_year IS NULL OR h_year = "" THEN 1 ELSE 0 END) AS h_year_empty',
+            //         'SUM(CASE WHEN created_at IS NULL OR created_at = "" THEN 1 ELSE 0 END) AS created_at_empty'
+            //     ])
+            //     ->where('user_id', $user_id)
+            //     ->get();
 
-            $result = $query->getRow();
+            // $result = $query->getRow();
 
-            // Debugging: Print the result of the query
-            // print_r($result);
-            foreach ($result as $property => $value) {
-                if ($value == 1) {
-                    return 1;
-                }
-            }
+            // // Debugging: Print the result of the query
+            // // print_r($result);
+            // foreach ($result as $property => $value) {
+            //     if ($value == 1) {
+            //         return 1;
+            //     }
+            // }
             return 0;
         } else {
             return 1;
