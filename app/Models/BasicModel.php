@@ -7,7 +7,7 @@ use Exception;
 use \Datetime;
 
 
- 
+
 class BasicModel extends Model
 {
     protected $table = 'basic_table';
@@ -183,43 +183,40 @@ class BasicModel extends Model
     public function getUserJobEmptyFields($user_id)
     {
         $builder = $this->db->table('job_pref_user');
-        $builder->select('*'); // Use '*' to select all columns
+        $builder->select('*');
         $builder->where('job_pref_user.user_id', $user_id);
         $userData = $builder->get()->getRow();
-         print_r($userData);
-        if ($userData || $userData) {
-            $query = $this->db->table('job_pref_user')
-                ->select([
-                    'id', // Include the 'id' field
-                    'SUM(CASE WHEN job_type IS NULL OR job_type = "" THEN 1 ELSE 0 END) AS job_type_empty',
-                    'SUM(CASE WHEN department IS NULL OR department = "" THEN 1 ELSE 0 END) AS department_empty',
-                    'SUM(CASE WHEN sub_dep IS NULL OR sub_dep = "" THEN 1 ELSE 0 END) AS sub_dep_empty',
-                    'SUM(CASE WHEN pref_state IS NULL OR pref_state = "" THEN 1 ELSE 0 END) AS pref_state_empty',
-                    'SUM(CASE WHEN pref_city IS NULL OR pref_city = "" THEN 1 ELSE 0 END) AS pref_city_empty',
-                    'SUM(CASE WHEN salery IS NULL THEN 1 ELSE 0 END) AS salery_empty',
-                    'SUM(CASE WHEN start_time IS NULL OR start_time = "" THEN 1 ELSE 0 END) AS start_time_empty',
-                    'SUM(CASE WHEN end_time IS NULL OR end_time = "" THEN 1 ELSE 0 END) AS end_time_empty',
-                    'SUM(CASE WHEN created_at IS NULL OR created_at = "" THEN 1 ELSE 0 END) AS created_at_empty',
-                    'SUM(CASE WHEN updated_at IS NULL OR updated_at = "" THEN 1 ELSE 0 END) AS updated_at_empty'
-                ])
-                ->where('user_id', $user_id)
-                ->get();
 
-            $result = $query->getRow();
-
-            // Debugging: Print the result of the query
-            // print_r($result);
-            foreach ($result as $property => $value) {
-                if ($value == 1) {
-                    return 1;
-                }
-            }
-            return 0;
-        } else {
-            return 1;
+        if (!$userData) {
+            return 1; // No user data found
         }
-        // echo "test";
 
+        $query = $this->db->table('job_pref_user')
+            ->select([
+                'id',
+                'SUM(CASE WHEN job_type IS NULL OR job_type = "" THEN 1 ELSE 0 END) AS job_type_empty',
+                'SUM(CASE WHEN department IS NULL OR department = "" THEN 1 ELSE 0 END) AS department_empty',
+                'SUM(CASE WHEN sub_dep IS NULL OR sub_dep = "" THEN 1 ELSE 0 END) AS sub_dep_empty',
+                'SUM(CASE WHEN pref_state IS NULL OR pref_state = "" THEN 1 ELSE 0 END) AS pref_state_empty',
+                'SUM(CASE WHEN pref_city IS NULL OR pref_city = "" THEN 1 ELSE 0 END) AS pref_city_empty',
+                'SUM(CASE WHEN salery IS NULL THEN 1 ELSE 0 END) AS salery_empty',
+                'SUM(CASE WHEN created_at IS NULL OR created_at = "" THEN 1 ELSE 0 END) AS created_at_empty',
+                'SUM(CASE WHEN updated_at IS NULL OR updated_at = "" THEN 1 ELSE 0 END) AS updated_at_empty',
+                'SUM(CASE WHEN job_type = "Full Time" THEN 0 ELSE (CASE WHEN start_time IS NULL OR start_time = "" THEN 1 ELSE 0 END) END) AS start_time_empty',
+                'SUM(CASE WHEN job_type = "Full Time" THEN 0 ELSE (CASE WHEN end_time IS NULL OR end_time = "" THEN 1 ELSE 0 END) END) AS end_time_empty'
+            ])
+            ->where('user_id', $user_id)
+            ->get();
+
+        $result = $query->getRow();
+
+        foreach ($result as $property => $value) {
+            if ($value == 1) {
+                return 1; // At least one empty field found
+            }
+        }
+
+        return 0; // No empty fields found
     }
     public function getUserResEmptyFields($user_id)
     {
