@@ -21,6 +21,9 @@ class BasicModel extends Model
     protected $updatedField = 'updated_at';
 
 
+
+
+
     public function getEmptyFields($user_id)
     {
 
@@ -183,8 +186,8 @@ class BasicModel extends Model
         $builder->select('*'); // Use '*' to select all columns
         $builder->where('job_pref_user.user_id', $user_id);
         $userData = $builder->get()->getRow();
-        //  print_r($userData);
-        if ($userData) {
+         print_r($userData);
+        if ($userData || $userData) {
             $query = $this->db->table('job_pref_user')
                 ->select([
                     'id', // Include the 'id' field
