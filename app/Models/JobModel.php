@@ -138,6 +138,7 @@ class JobModel extends Model
         $skill_requirements = $data['skill_requirements'];
         $location = $data['location'];
         $department = $data['department'];
+        $salery = $data['salery'];
         $experience_requirements = $data['experience_requirements'];
         $status = '1';
     
@@ -145,7 +146,7 @@ class JobModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES ('$hotelier_id','$job_title','$job_description','$job_type','$skill_requirements','$location','$department','$experience_requirements','$date1','$date1','$status')";
+        $sql = "INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`,`salery`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES ('$hotelier_id','$job_title','$job_description','$job_type','$skill_requirements','$location','$department','$salery','$experience_requirements','$date1','$date1','$status')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -178,6 +179,7 @@ class JobModel extends Model
         $skill_requirements = $data['skill_requirements'];
         $location = $data['location'];
         $department = $data['department'];
+        $salery = $data['salery'];
         $experience_requirements = $data['experience_requirements'];
         $status = '1';
         $created_at = $data['created_at'];
@@ -193,6 +195,7 @@ class JobModel extends Model
         job_title = '$job_title',
         job_description = '$job_description',
         job_type = '$job_type',
+        salery = '$salery';
         skill_requirements = '$skill_requirements',
         location = '$location',
         department = '$department',

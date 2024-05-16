@@ -428,18 +428,18 @@ class UserModel extends Model
             return $post;
         }
     }
-    
+
     public function save_hprofile($data)
     {
         // echo json_encode($data);
 
         $user_id = $data['user_id'];
         $name = $data['name'];
-        $location= $data['location'];
-        $email= $data['email'];
+        $location = $data['location'];
+        $email = $data['email'];
         $address = $data['address'];
-        $state= $data['state'];                                               
-        $pin_code= $data['pin_code'];
+        $state = $data['state'];
+        $pin_code = $data['pin_code'];
         $city = $data['city'];
         $role = $data['role'];
         $country = $data['country'];
@@ -447,7 +447,7 @@ class UserModel extends Model
         $gst_name = $data['gst_name'];
         $reg_email = $data['reg_email'];
         $reg_hadd = $data['reg_hadd'];
-       
+
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
@@ -472,7 +472,7 @@ class UserModel extends Model
         $sql = "DELETE FROM `working_experiences` WHERE id= '$id'";
         // echo json_encode($sql);
         // echo json_encode($data);
-        //     die();
+        //     die(); 
         $post = $this->db->query($sql);
 
         if (!$post) {
@@ -486,7 +486,7 @@ class UserModel extends Model
         //    echo json_encode($sql);
         $id = $data['user_id'];
         $work_ex = $data['work_ex'];
-        
+
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
@@ -596,13 +596,13 @@ class UserModel extends Model
     {
         // echo json_encode($data);
 
-// echo "<pre>"; print_r($data); echo "</pre>";
+        // echo "<pre>"; print_r($data); echo "</pre>";
 
-      
+
         $user_id = $data['user_id'];
-       
+
         $ten_th = $data['ten_th'];
-      
+
         $ten_school = $data['ten_school'];
         $ten_year = $data['ten_year'];
         // echo "testing";
@@ -634,7 +634,7 @@ class UserModel extends Model
         $h_college = $data['h_college'];
         $h_year = $data['h_year'];
 
-   
+
 
 
         $date = new DateTime();

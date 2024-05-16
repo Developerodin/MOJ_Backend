@@ -35,12 +35,12 @@ class Job extends BaseController
     {
         $input = $this->getRequestInput($this->request);
         $model = new JobModel();
-        $required_fields = ['user_id', 'job_title', 'job_description', 'job_type', 'skill_requirements', 'location', 'department', 'experience_requirements'];
-        foreach ($required_fields as $field) {
-            if (!isset($input[$field]) || empty($input[$field])) {
-                return "Error: Missing required field '$field'";
-            }
-        }
+        // $required_fields = ['user_id', 'job_title', 'job_description', 'job_type', 'skill_requirements', 'location', 'department', 'experience_requirements'];
+        // foreach ($required_fields as $field) {
+        //     if (!isset($input[$field]) || empty($input[$field])) {
+        //         return "Error: Missing required field '$field'";
+        //     }
+        // }
 
 
         $data = [
@@ -52,6 +52,7 @@ class Job extends BaseController
             'skill_requirements' => $input['skill_requirements'],
             'location' => $input['location'],
             'department' => $input['department'],
+            'salery' => $input['salery'],
             'experience_requirements' => $input['experience_requirements'],
 
         ];
@@ -65,7 +66,8 @@ class Job extends BaseController
         return $this->getResponse(
             [
                 'message' => 'Job  added successfully',
-                'job' => $post
+                'job' => $post,
+                'status' => 'success'
 
             ]
         );
@@ -80,7 +82,8 @@ class Job extends BaseController
             return $this->getResponse(
                 [
                     'message' => 'Job retrieved successfully',
-                    'Job' => $post
+                    'Job' => $post,
+                    'status' => 'success'
                 ]
             );
         } catch (Exception $e) {
@@ -103,13 +106,15 @@ class Job extends BaseController
             return $this->getResponse(
                 [
                     'message' => 'job updaetd successfully',
-                    'job' => $post
+                    'job' => $post,
+                    'status' => 'success'
                 ]
             );
         } catch (Exception $exception) {
             return $this->getResponse(
                 [
-                    'message' => $exception->getMessage()
+                    'message' => $exception->getMessage(),
+                    'status' => 'error',
                 ],
                 ResponseInterface::HTTP_NOT_FOUND
             );
