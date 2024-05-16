@@ -435,20 +435,23 @@ class UserModel extends Model
 
         $user_id = $data['user_id'];
         $name = $data['name'];
-
-        $company_details = $data['company_details'];
+        $location= $data['location'];
+        $email= $data['email'];
         $address = $data['address'];
+        $state= $data['state'];                                               
+        $pin_code= $data['pin_code'];
         $city = $data['city'];
         $role = $data['role'];
         $country = $data['country'];
         $gst_number = $data['gst_number'];
-        $field_of_company = $data['field_of_company'];
-        $profile_picture = $data['profile_picture'];
-        $contact_information = $data['contact_information'];
+        $gst_name = $data['gst_name'];
+        $reg_email = $data['reg_email'];
+        $reg_hadd = $data['reg_hadd'];
+       
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
-        $date = date("m-d-Y h:i A");
-        $sql = "INSERT INTO `hoteliers`( `user_id`, `name`,  `company_details`, `address`, `city`, `role`, `country`, `gst_number`, `field_of_company`, `profile_picture`, `contact_information`, `created_at`, `updated_at`) VALUES ('$user_id','$name',' $company_details','$address','$city','$role','$country','$gst_number','$field_of_company','$profile_picture','$contact_information',' $date',' $date')";
+        $date1 = date("m-d-Y h:i A");
+        $sql = "INSERT INTO `hoteliers` (`user_id`,`name`,`location`,`email`,`address`,`state`,`pin_code`,`city`,`role`,`country`,`gst_number`,`gst_name`, `reg_email`,`reg_hadd`,`created_at`,`updated_at`) VALUES ('$user_id','$name','$location','$email','$address','$state','$pin_code','$city','$role','$country','$gst_number','$gst_name','$reg_email','$reg_hadd','$date1','$date1')";
         // echo json_encode($sql);
         // echo json_encode($data);
         //     die();

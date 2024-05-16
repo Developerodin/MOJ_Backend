@@ -200,35 +200,20 @@ class Auth extends BaseController
             // print_r($foruid);
             // echo "</pre>";
 
-            if ($input['role'] == 'Hoteliers') {
+            if ($input['role'] == 'Employers') {
                 // echo "<pre>";
                 // print_r("h");
                 // echo "</pre>";
                 // die();
 
-                $required_fields = ['name', 'gender', 'mobile_number', 'company_details', 'profile_picture', 'address', 'city', 'country', 'gst_number', 'field_of_company', 'contact_information'];
-                foreach ($required_fields as $field) {
-                    if (!isset($input[$field]) || empty($input[$field])) {
-                        return "Error: Missing required field '$field'";
-                    }
-                }
-
-                $data = [
-
-                    'user_id' => $foruid['id'],
-                    'name' => $input['name'],
-                    'gender' => $input['gender'],
-                    'mobile_number' => $input['mobile_number'],
-                    'company_details' => $input['company_details'],
-                    'profile_picture' => $input['profile_picture'],
-                    'address' => $input['address'],
-                    'city' => $input['city'],
-                    'role' => $input['role'],
-                    'country' => $input['country'],
-                    'gst_number' => $input['gst_number'],
-                    'field_of_company' => $input['field_of_company'],
-                    'contact_information' => $input['contact_information'],
-                ];
+                // $required_fields = ['name', 'gender', 'mobile_number', 'company_details', 'profile_picture', 'address', 'city', 'country', 'gst_number', 'field_of_company', 'contact_information'];
+                // foreach ($required_fields as $field) {
+                //     if (!isset($input[$field]) || empty($input[$field])) {
+                //         return "Error: Missing required field '$field'";
+                //     }
+                // }
+                $data = $input;
+                $data['user_id'] = $foruid['id'];
 
                 $user1 = $model->save_hprofile($data);
             } else {
