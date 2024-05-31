@@ -182,7 +182,7 @@ class JobModel extends Model
             return true;
         }
 
-        $id = $data['id'];
+     
         $Hotel_name = $data['Hotel_name'];
         $job_type = $data['job_type'];
         $start_time = $data['start_time'];
@@ -223,6 +223,38 @@ class JobModel extends Model
        experience= '$experience',
        number_employees= '$number_employees',
 
+        updated_at = '$date1',
+        status = '$status'
+          WHERE id = $id";
+        // echo "<pre>"; print_r($sql);
+        // echo "</pre>";
+        $post = $this->db->query($sql);
+        if (!$post)
+            throw new Exception('Post does not exist for specified id');
+
+        return $post;
+    }
+    public function update_st($id, $data): bool
+    {
+
+        // echo $id;
+
+        if (empty($data)) {
+            echo "1";
+            return true;
+        }
+
+     
+       
+        $status = $data['status'];
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+
+        $date1 = date('Y-m-d H:i:s');
+
+
+        $sql = "UPDATE `job_listings` SET  
+       
         updated_at = '$date1',
         status = '$status'
           WHERE id = $id";

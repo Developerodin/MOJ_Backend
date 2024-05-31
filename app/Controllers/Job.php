@@ -109,7 +109,31 @@ class Job extends BaseController
             $post = $model->findJobById($id);
             return $this->getResponse(
                 [
-                    'message' => 'job updaetd successfully',
+                    'message' => 'job  updaetd successfully',
+                    'job' => $post,
+                    'status' => 'success'
+                ]
+            );
+        } catch (Exception $exception) {
+            return $this->getResponse(
+                [
+                    'message' => $exception->getMessage(),
+                    'status' => 'error',
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function st_update($id)
+    {
+        try {
+            $model = new JobModel();
+            $input = $this->getRequestInput($this->request);
+            $model->update_st($id, $input);
+            $post = $model->findJobById($id);
+            return $this->getResponse(
+                [
+                    'message' => 'Job Status updaetd successfully',
                     'job' => $post,
                     'status' => 'success'
                 ]

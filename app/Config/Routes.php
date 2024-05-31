@@ -61,6 +61,7 @@ $routes->get('/job', 'Job::index');
 $routes->post('/job/store', 'Job::store');
 $routes->post('/job/Byid/(:num)','Job::show/$1');
 $routes->post('/job/Byuserid/(:num)','Job::user_show/$1');
+$routes->post('/job/status_update/(:num)','Job::st_update/$1');
 $routes->post('/job/update/(:num)','Job::update/$1');
 $routes->post('/job/delete/(:num)','Job::distroy/$1');  // user deleted
 
