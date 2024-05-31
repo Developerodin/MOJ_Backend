@@ -117,28 +117,20 @@ class UserModel extends Model
     public function getHUserData($userId)
 {
     $builder = $this->db->table('hoteliers');
-    
-    // Select all columns from hoteliers and users tables
-    $builder->select('hoteliers.*, users.*');
-    
-    // Join the users table on the user_id column
-    $builder->join('users', 'users.user_id = hoteliers.user_id');
-    
-    // Add the condition for the user_id
-    $builder->where('hoteliers.user_id', $userId);
-    
-    // Execute the query
-    $query = $builder->get();
-    
-    // Get the result
-    $user = $query->getResult();
-    
-    // Check if the user data is retrieved
-    if (!$user) {
-        return null;
-    } else {
-        return $user[0];
-    }
+        $builder->select('hoteliers.*');
+
+        $builder->where('hoteliers.user_id', $userId);
+        $query = $builder->get();
+
+        $user = $query->getResult();
+
+
+        if (!$user) {
+            return null;
+        } else {
+            return $user[0];
+        }
+   
 }
     public function getAllUserData()
     {
@@ -489,6 +481,40 @@ class UserModel extends Model
             return $post;
         }
     }
+    public function update_hprofile($id,$data)
+    {
+         //echo json_encode($data);
+
+  
+        $name = $data['name'];
+        $location = $data['location'];
+        $email = $data['email'];
+        $address = $data['address'];
+        $state = $data['state'];
+        $pin_code = $data['pin_code'];
+        $city = $data['city'];
+        $role = $data['role'];
+        $country = $data['country'];
+        $gst_number = $data['gst_number'];
+        $gst_name = $data['gst_name'];
+        $reg_email = $data['reg_email'];
+        $reg_hadd = $data['reg_hadd'];
+
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date1 = date("m-d-Y h:i A");
+        $sql = "UPDATE `hoteliers` SET `name`='$name',`location`='$location',`email`='$email',`address`='$address',`state`='$state',`pin_code`='$pin_code',`city`='$city',`role`='$role',`country`='$country',`gst_number`='$gst_number',`gst_name`='$gst_name',`reg_email`='$reg_email',`reg_hadd`='$reg_hadd',`updated_at`='$date1' WHERE user_id =$id ";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
 
     public function delete_w_ex($id)
     {
@@ -622,7 +648,7 @@ class UserModel extends Model
     {
         // echo json_encode($data);
 
-// echo "<pre>"; print_r($data); echo "</pre>";
+            // echo "<pre>"; print_r($data); echo "</pre>";
 
       
         $user_id = $data['user_id'];

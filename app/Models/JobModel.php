@@ -249,15 +249,8 @@ class JobModel extends Model
         $status = $data['status'];
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
-
         $date1 = date('Y-m-d H:i:s');
-
-
-        $sql = "UPDATE `job_listings` SET  
-       
-        updated_at = '$date1',
-        status = '$status'
-          WHERE id = $id";
+        $sql = "UPDATE `job_listings` SET  updated_at = '$date1',status = '$status' WHERE id = $id";
         // echo "<pre>"; print_r($sql);
         // echo "</pre>";
         $post = $this->db->query($sql);

@@ -217,6 +217,7 @@ class Auth extends BaseController
 
                 $user1 = $model->save_hprofile($data);
                 $userd = $model->getHUserData($data['user_id']);
+                $userd = $model->getHUserData($data['user_id']);
             } else {
 
                 $data = $input;
@@ -309,6 +310,43 @@ class Auth extends BaseController
             return $this->getResponse(
                 [
                     'message' => 'user updaetd successfully',
+                    'user' => $post,
+                    'status' => 'success',
+                ]
+            );
+        } catch (Exception $exception) {
+
+            return $this->getResponse(
+                [
+                    'message' => $exception->getMessage()
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function Huser_update()
+    {
+
+        try {
+            $model = new UserModel();
+
+            $input = $this->getRequestInput($this->request);
+
+            $id = $input['user_id'];
+            // $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email', 'state', 'city', 'country', 'created_at'];
+            // foreach ($required_fields as $field) {
+            //     if (!isset($input[$field]) || empty($input[$field])) {
+            //         return "Error: Missing required field '$field'";
+            //     }
+            // }
+            $model->update_hprofile($id, $input);
+        
+            $post = $model->getHUserData($id);
+//    print_r($post);
+//             die();
+            return $this->getResponse(
+                [
+                    'message' => 'hotelior updaetd successfully',
                     'user' => $post,
                     'status' => 'success',
                 ]
