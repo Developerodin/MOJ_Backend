@@ -216,6 +216,7 @@ class Auth extends BaseController
                 $data['user_id'] = $foruid['id'];
 
                 $user1 = $model->save_hprofile($data);
+                $userd = $model->getHUserData($data['user_id']);
             } else {
 
                 $data = $input;
