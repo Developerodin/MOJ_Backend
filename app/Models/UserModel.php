@@ -115,23 +115,31 @@ class UserModel extends Model
         }
     }
     public function getHUserData($userId)
-    {
-
-        $builder = $this->db->table('hoteliers');
-        $builder->select('hoteliers.*');
-
-        $builder->where('hoteliers.user_id', $userId);
-        $query = $builder->get();
-
-        $user = $query->getResult();
-
-
-        if (!$user) {
-            return null;
-        } else {
-            return $user[0];
-        }
+{
+    $builder = $this->db->table('hoteliers');
+    
+    // Select all columns from hoteliers and users tables
+    $builder->select('hoteliers.*, users.*');
+    
+    // Join the users table on the user_id column
+    $builder->join('users', 'users.user_id = hoteliers.user_id');
+    
+    // Add the condition for the user_id
+    $builder->where('hoteliers.user_id', $userId);
+    
+    // Execute the query
+    $query = $builder->get();
+    
+    // Get the result
+    $user = $query->getResult();
+    
+    // Check if the user data is retrieved
+    if (!$user) {
+        return null;
+    } else {
+        return $user[0];
     }
+}
     public function getAllUserData()
     {
         $builder = $this->db->table('users');

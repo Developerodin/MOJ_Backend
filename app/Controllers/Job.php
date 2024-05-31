@@ -42,25 +42,7 @@ class Job extends BaseController
         //     }
         // }
 
-
-        $data = [
-
-            'hotelier_id' => $input['user_id'],
-            'job_title' => $input['job_title'],
-            'job_description' => $input['job_description'],
-            'job_type' => $input['job_type'],
-            'skill_requirements' => $input['skill_requirements'],
-            'location' => $input['location'],
-            'department' => $input['department'],
-            'salery' => $input['salery'],
-            'experience_requirements' => $input['experience_requirements'],
-
-        ];
-        // echo "<pre>";
-        //             print_r($data);
-        //             echo "</pre>";
-        //             die();
-        $post = $model->save($data);
+        $post = $model->save($input);
 
 
         return $this->getResponse(
@@ -79,6 +61,28 @@ class Job extends BaseController
         try {
             $model = new JobModel();
             $post = $model->findJobById($id);
+            return $this->getResponse(
+                [
+                    'message' => 'Job retrieved successfully',
+                    'Job' => $post,
+                    'status' => 'success'
+                ]
+            );
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find Job for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function user_show($id)
+    {
+        // user_id pass
+        try {
+            $model = new JobModel();
+            $post = $model->getJobData($id);
             return $this->getResponse(
                 [
                     'message' => 'Job retrieved successfully',

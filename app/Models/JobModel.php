@@ -50,7 +50,7 @@ class JobModel extends Model
     {
         
         $builder = $this->db->table('job_listings');
-        $builder->select(' job_listings.*');
+        $builder->select('job_listings.*');
        
         $builder->where('job_listings.hotelier_id', $userId);
         $query = $builder->get();
@@ -130,23 +130,33 @@ class JobModel extends Model
 
     public function save($data): bool
     {
-
-        $hotelier_id = $data['hotelier_id'];
+        if (empty($data)) {
+            echo "1";
+            return true;
+        }
+        $hotelier_id = $data['user_id'];
+        $Hotel_name = $data['Hotel_name'];
+        $job_type = $data['job_type'];
+        $start_time = $data['start_time'];
+        $end_time = $data['end_time'];
         $job_title = $data['job_title'];
         $job_description = $data['job_description'];
-        $job_type = $data['job_type'];
-        $skill_requirements = $data['skill_requirements'];
         $location = $data['location'];
+        $state = $data['state'];
+        $city = $data['city'];
         $department = $data['department'];
-        $salery = $data['salery'];
-        $experience_requirements = $data['experience_requirements'];
+        $sub_department = $data['sub_department'];
+        $education= $data['education'];
+        $off_salery = $data['off_salery'];
+        $experience = $data['experience'];
+        $number_employees = $data['number_employees'];
         $status = '1';
     
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `job_listings`( `hotelier_id`, `job_title`, `job_description`, `job_type`, `skill_requirements`, `location`, `department`,`salery`, `experience_requirements`, `created_at`, `updated_at`, `status`) VALUES ('$hotelier_id','$job_title','$job_description','$job_type','$skill_requirements','$location','$department','$salery','$experience_requirements','$date1','$date1','$status')";
+        $sql = "INSERT INTO `job_listings`( `hotelier_id`,`Hotel_name`, `job_type`, `start_time`, `end_time`, `job_title`, `job_description`, `location`, `state`, `city`, `department`, `sub_department`, `education`, `off_salery`, `experience`, `number_employees`, `created_at`, `updated_at`, `status`) VALUES ('$hotelier_id','$Hotel_name','$job_type','$start_time','$end_time','$job_title','$job_description','$location','$state','$city','$department','$sub_department','$education','$off_salery','$experience','$number_employees','$date1','$date1','$status')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -172,18 +182,23 @@ class JobModel extends Model
             return true;
         }
 
-        $hotelier_id = $data['hotelier_id'];
+        $id = $data['id'];
+        $Hotel_name = $data['Hotel_name'];
+        $job_type = $data['job_type'];
+        $start_time = $data['start_time'];
+        $end_time = $data['end_time'];
         $job_title = $data['job_title'];
         $job_description = $data['job_description'];
-        $job_type = $data['job_type'];
-        $skill_requirements = $data['skill_requirements'];
         $location = $data['location'];
+        $state = $data['state'];
+        $city = $data['city'];
         $department = $data['department'];
-        $salery = $data['salery'];
-        $experience_requirements = $data['experience_requirements'];
+        $sub_department = $data['sub_department'];
+        $education= $data['education'];
+        $off_salery = $data['off_salery'];
+        $experience = $data['experience'];
+        $number_employees = $data['number_employees'];
         $status = '1';
-        $created_at = $data['created_at'];
-        $updated_at = '';
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
@@ -191,16 +206,23 @@ class JobModel extends Model
 
 
         $sql = "UPDATE `job_listings` SET  
-        hotelier_id = '$hotelier_id',
-        job_title = '$job_title',
-        job_description = '$job_description',
-        job_type = '$job_type',
-        salery = '$salery';
-        skill_requirements = '$skill_requirements',
-        location = '$location',
-        department = '$department',
-        experience_requirements = '$experience_requirements',
        
+       job_type= '$job_type',
+       Hotel_name= '$Hotel_name',
+       start_time= '$start_time',
+       end_time= '$end_time',
+       job_title= '$job_title',
+       job_description= '$job_description',
+       location= '$location',
+       state= '$state',
+       city= '$city',
+       department= '$department',
+       sub_department= '$sub_department',
+       education= '$education',
+       off_salery= '$off_salery',
+       experience= '$experience',
+       number_employees= '$number_employees',
+
         updated_at = '$date1',
         status = '$status'
           WHERE id = $id";
