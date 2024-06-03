@@ -135,15 +135,15 @@ class JobModel extends Model
             return true;
         }
         $hotelier_id = $data['user_id'];
-        $Hotel_name = $data['Hotel_name'];
+        // $Hotel_name = $data['Hotel_name'];
         $job_type = $data['job_type'];
         $start_time = $data['start_time'];
         $end_time = $data['end_time'];
         $job_title = $data['job_title'];
         $job_description = $data['job_description'];
-        $location = $data['location'];
-        $state = $data['state'];
-        $city = $data['city'];
+        // $location = $data['location'];
+        // $state = $data['state'];
+        // $city = $data['city'];
         $department = $data['department'];
         $sub_department = $data['sub_department'];
         $education= $data['education'];
@@ -156,7 +156,7 @@ class JobModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `job_listings`( `hotelier_id`,`Hotel_name`, `job_type`, `start_time`, `end_time`, `job_title`, `job_description`, `location`, `state`, `city`, `department`, `sub_department`, `education`, `off_salery`, `experience`, `number_employees`, `created_at`, `updated_at`, `status`) VALUES ('$hotelier_id','$Hotel_name','$job_type','$start_time','$end_time','$job_title','$job_description','$location','$state','$city','$department','$sub_department','$education','$off_salery','$experience','$number_employees','$date1','$date1','$status')";
+        $sql = "INSERT INTO `job_listings`( `hotelier_id`,`job_type`, `start_time`, `end_time`, `job_title`, `job_description`, `department`, `sub_department`, `education`, `off_salery`, `experience`, `number_employees`, `created_at`, `updated_at`, `status`) VALUES ('$hotelier_id','$job_type','$start_time','$end_time','$job_title','$job_description','$department','$sub_department','$education','$off_salery','$experience','$number_employees','$date1','$date1','$status')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -183,15 +183,15 @@ class JobModel extends Model
         }
 
      
-        $Hotel_name = $data['Hotel_name'];
+        // $Hotel_name = $data['Hotel_name'];
         $job_type = $data['job_type'];
         $start_time = $data['start_time'];
         $end_time = $data['end_time'];
         $job_title = $data['job_title'];
         $job_description = $data['job_description'];
-        $location = $data['location'];
-        $state = $data['state'];
-        $city = $data['city'];
+        // $location = $data['location'];
+        // $state = $data['state'];
+        // $city = $data['city'];
         $department = $data['department'];
         $sub_department = $data['sub_department'];
         $education= $data['education'];
@@ -208,14 +208,12 @@ class JobModel extends Model
         $sql = "UPDATE `job_listings` SET  
        
        job_type= '$job_type',
-       Hotel_name= '$Hotel_name',
+       
        start_time= '$start_time',
        end_time= '$end_time',
        job_title= '$job_title',
        job_description= '$job_description',
-       location= '$location',
-       state= '$state',
-       city= '$city',
+       
        department= '$department',
        sub_department= '$sub_department',
        education= '$education',
