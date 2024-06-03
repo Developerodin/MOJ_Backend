@@ -23,11 +23,12 @@ class Job extends BaseController
         //    die();
 
         $model = new JobModel();
-
+        $post = $model->getallJobData();
         return $this->getResponse(
             [
                 'message' => 'Job retrieved successfully',
-                'post' => $model->findAll()
+                'post' => $post,
+                'status' => 'success'
             ]
         );
     }
@@ -64,7 +65,7 @@ class Job extends BaseController
         // user_id pass
         try {
             $model = new JobModel();
-            $post = $model->findJobById($id);
+            $post = $model->getJobDataid($id);
 
            
 

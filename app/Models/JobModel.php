@@ -46,6 +46,40 @@ class JobModel extends Model
     
 
     /// get user information
+    public function getallJobData()
+    {
+        $builder = $this->db->table('job_listings');
+        $builder->select('job_listings.*, hoteliers.*');
+        $builder->join('hoteliers', 'hoteliers.user_id = job_listings.hotelier_id');
+        
+        $query = $builder->get();
+    
+        // Get the result
+        $result = $query->getResult();
+    
+        if (!$result) {
+            return null;
+        } else {
+            return $result;
+        }
+    }
+    public function getJobDataid($id)
+    {
+        $builder = $this->db->table('job_listings');
+        $builder->select('job_listings.*, hoteliers.*');
+        $builder->join('hoteliers', 'hoteliers.user_id = job_listings.hotelier_id');
+        $builder->where('job_listings.id', $id);
+        $query = $builder->get();
+    
+        // Get the result
+        $result = $query->getResult();
+    
+        if (!$result) {
+            return null;
+        } else {
+            return $result;
+        }
+    }
     public function getJobData($userId)
     {
         $builder = $this->db->table('job_listings');
