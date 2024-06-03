@@ -48,30 +48,21 @@ class JobModel extends Model
     /// get user information
     public function getJobData($userId)
     {
-        
         $builder = $this->db->table('job_listings');
-        $builder->select('job_listings.*');
-       
+        $builder->select('job_listings.*, hoteliers.*');
+        $builder->join('hoteliers', 'hoteliers.user_id = job_listings.hotelier_id');
         $builder->where('job_listings.hotelier_id', $userId);
         $query = $builder->get();
-
-
-
+    
         // Get the result
-        $user = $query->getResult();
-        
-        // echo "<pre>";
-        // print_r($user);
-        // echo "</pre>";
-        // die();
-        // Check if user data is found
-        if (!$user) {
+        $result = $query->getResult();
+    
+        if (!$result) {
             return null;
         } else {
-            return $user;
+            return $result;
         }
     }
-   
 
 
 

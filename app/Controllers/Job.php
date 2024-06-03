@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\JobModel;
+use App\Models\UserModel;
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
@@ -35,6 +36,7 @@ class Job extends BaseController
     {
         $input = $this->getRequestInput($this->request);
         $model = new JobModel();
+       
         // $required_fields = ['user_id', 'job_title', 'job_description', 'job_type', 'skill_requirements', 'location', 'department', 'experience_requirements'];
         // foreach ($required_fields as $field) {
         //     if (!isset($input[$field]) || empty($input[$field])) {
@@ -44,11 +46,13 @@ class Job extends BaseController
 
         $post = $model->save($input);
 
+        
 
         return $this->getResponse(
             [
                 'message' => 'Job  added successfully',
                 'job' => $post,
+                
                 'status' => 'success'
 
             ]
@@ -61,10 +65,14 @@ class Job extends BaseController
         try {
             $model = new JobModel();
             $post = $model->findJobById($id);
+
+           
+
             return $this->getResponse(
                 [
                     'message' => 'Job retrieved successfully',
                     'Job' => $post,
+                   
                     'status' => 'success'
                 ]
             );
@@ -83,10 +91,13 @@ class Job extends BaseController
         try {
             $model = new JobModel();
             $post = $model->getJobData($id);
+            // $model1 = new UserModel();
+            // $hotel = $model1->getHUserData($id);
             return $this->getResponse(
                 [
                     'message' => 'Job retrieved successfully',
                     'Job' => $post,
+                    // 'hotel' => $hotel ,
                     'status' => 'success'
                 ]
             );
