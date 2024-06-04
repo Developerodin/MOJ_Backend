@@ -42,6 +42,68 @@ class BasicModel extends Model
         // Debugging: Print the result of the query
 
     }
+    public function getHEmptyFields($user_id)
+    {
+
+        $data['user_pro'] = $this->getHProfileEmptyFields($user_id);
+        
+        $data['user_img'] = $this->getUserImgEmptyFields($user_id);
+        $data['users'] = 0;
+
+        // print_r($data);
+
+        return $data;
+
+        // Debugging: Print the result of the query
+
+    }
+    public function getHProfileEmptyFields($user_id)
+    {
+        $builder = $this->db->table('hoteliers');
+        $builder->select('*'); // Use '*' to select all columns
+        $builder->where('hoteliers.user_id', $user_id);
+        $userData = $builder->get()->getRow();
+
+        // Debugging: Print the fetched user data
+        // print_r($userData);
+        if ($userData) {
+            $query = $this->db->table('hoteliers')
+                ->select([
+                    'user_id',
+                    'SUM(CASE WHEN name IS NULL OR name = "" THEN 1 ELSE 0 END) AS name_empty',
+                    'SUM(CASE WHEN location IS NULL OR location = "" THEN 1 ELSE 0 END) AS location_empty',
+                    'SUM(CASE WHEN email IS NULL OR email = "" THEN 1 ELSE 0 END) AS email_empty',
+                    'SUM(CASE WHEN address IS NULL OR address = "" THEN 1 ELSE 0 END) AS address_empty',
+                    'SUM(CASE WHEN state IS NULL OR state = "" THEN 1 ELSE 0 END) AS state_empty',
+                    'SUM(CASE WHEN pin_code IS NULL THEN 1 ELSE 0 END) AS pin_code_empty',
+                    'SUM(CASE WHEN city IS NULL OR city = "" THEN 1 ELSE 0 END) AS city_empty',
+                    'SUM(CASE WHEN role IS NULL OR role = "" THEN 1 ELSE 0 END) AS role_empty',                 
+                    'SUM(CASE WHEN country IS NULL OR country = "" THEN 1 ELSE 0 END) AS country_empty',
+                    'SUM(CASE WHEN gst_number IS NULL OR gst_number = "" THEN 1 ELSE 0 END) AS gst_number_empty',
+                    'SUM(CASE WHEN gst_name IS NULL OR gst_name = "" THEN 1 ELSE 0 END) AS gst_name_empty',
+                    'SUM(CASE WHEN reg_email IS NULL OR reg_email = "" THEN 1 ELSE 0 END) AS reg_email_empty',
+                    'SUM(CASE WHEN reg_hadd IS NULL OR reg_hadd = "" THEN 1 ELSE 0 END) AS reg_hadd_empty',
+               
+                ])
+                ->where('user_id', $user_id)
+                ->get();
+
+            $result = $query->getRow();
+
+            // Debugging: Print the result of the query
+            // print_r($result);
+            foreach ($result as $property => $value) {
+                if ($value == 1) {
+                    return 1;
+                }
+            }
+            return 0;
+        } else {
+            return 1;
+        }
+        // Run the query to count empty fields
+
+    }
     public function getUserProfileEmptyFields($user_id)
     {
         $builder = $this->db->table('user_profiles');

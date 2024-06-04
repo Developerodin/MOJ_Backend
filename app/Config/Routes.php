@@ -142,6 +142,7 @@ $routes->post('/basic/city_by_state/(:num)','Basic::city_by_state/$1');  // all 
 
 
 $routes->post('/basic/profile_health_userid/(:num)','Basic::getUserProfileEmptyFields/$1');  //profile helth
+$routes->post('/basic/Hotelprofile_health_userid/(:num)','Basic::getHProfileEmptyFields/$1');  //profile helth
 
 
 
