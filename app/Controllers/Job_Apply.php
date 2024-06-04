@@ -29,7 +29,7 @@ class Job_Apply extends BaseController
         );
     }
 
-    public function save_data()
+    public function store()
     {
 
         $input = $this->getRequestInput($this->request);
@@ -38,7 +38,8 @@ class Job_Apply extends BaseController
         $data = [
 
             'job_id' => $input['job_id'],
-            'candidate_id' => $input['candidate_id'],
+            'user_id' => $input['user_id'],
+            'resume_id' => $input['resume_id'],
 
 
         ];
@@ -52,15 +53,12 @@ class Job_Apply extends BaseController
                 ->getResponse(
                     [
                         'message' => 'Job Application submitted successfully',
+                        'status' => 'success'
 
                     ]
                 );
         }
     }
-
-
-
-
 
     public function user_update($id)
     {
@@ -75,12 +73,13 @@ class Job_Apply extends BaseController
             return $response;
         } else {
 
-            $post = $model->update1($id);
+            $post = $model->update($id);
             $post = $model->findJobAppById($id);
             return $this->getResponse(
                 [
                     'message' => 'user updated successfully',
-                    'client' => $post
+                    'client' => $post,
+                    'status' => 'success'
                 ]
             );
         }
@@ -94,7 +93,8 @@ class Job_Apply extends BaseController
             return $this->getResponse(
                 [
                     'message' => 'Job retrieved successfully',
-                    'Job' => $post
+                    'Job' => $post,
+                    'status' => 'success'
                 ]
             );
         } catch (Exception $e) {
@@ -111,11 +111,12 @@ class Job_Apply extends BaseController
         // user_id pass
         try {
             $model = new JobApplyModel();
-            $post = $model->findJobById($id);
+            $post = $model->getJobData($id);
             return $this->getResponse(
                 [
                     'message' => 'Job retrieved successfully',
-                    'Job' => $post
+                    'Job' => $post,
+                    'status' => 'success'
                 ]
             );
         } catch (Exception $e) {
@@ -128,7 +129,7 @@ class Job_Apply extends BaseController
         }
     }
 
-    public function update($id)
+    public function st_update($id)
     {
         try {
             $model = new JobApplyModel();
@@ -138,7 +139,8 @@ class Job_Apply extends BaseController
             return $this->getResponse(
                 [
                     'message' => 'job updaetd successfully',
-                    'job' => $post
+                    'job' => $post,
+                    'status' => 'success'
                 ]
             );
         } catch (Exception $exception) {
@@ -159,6 +161,7 @@ class Job_Apply extends BaseController
                 ->getResponse(
                     [
                         'message' => 'Job deleted successfully',
+                        'status' => 'success'
                     ]
                 );
         } catch (Exception $exception) {

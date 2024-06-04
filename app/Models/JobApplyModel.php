@@ -43,39 +43,35 @@ class JobApplyModel extends Model
     {
         return password_hash($plaintextPassword, PASSWORD_BCRYPT);
     }
-    
 
-    /// get user information
     public function getJobData($userId)
     {
-        
         $builder = $this->db->table('job_listings');
-        $builder->select(' job_listings.*');
-       
-        $builder->where('job_listings.hotelier_id', $userId);
+
+        // Select the fields from job_listings, hoteliers, and job_applications tables
+        $builder->select('job_listings.*, hoteliers.*, job_applications.*');
+
+        // Join the hoteliers table
+        $builder->join('hoteliers', 'hoteliers.user_id = job_listings.hotelier_id');
+
+        // Join the job_applications table
+        $builder->join('job_applications', 'job_applications.job_id = job_listings.id', 'left');
+
+        // Filter by job_applications.user_id
+        $builder->where('job_applications.user_id', $userId);
+        // Execute the query
         $query = $builder->get();
-
-
-
         // Get the result
-        $user = $query->getResult();
-        
-        // echo "<pre>";
-        // print_r($user);
-        // echo "</pre>";
-        // die();
-        // Check if user data is found
-        if (!$user) {
+        $result = $query->getResult();
+
+        if (!$result) {
             return null;
         } else {
-            return $user;
+            return $result;
         }
     }
-   
+    /// get user information
 
-
-
-    
     public function findJobById(string $id)
     {
 
@@ -125,23 +121,24 @@ class JobApplyModel extends Model
 
         return $eventData['data'];
     }
-   
+
 
 
     public function saved($data): bool
     {
 
         $job_id = $data['job_id'];
-        $candidate_id = $data['candidate_id'];
+        $user_id = $data['user_id'];
+        $resume_id = $data['resume_id'];
         $status = 'process';
-      
-      
+
+
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `job_applications`( `job_id`, `candidate_id`, `status`, `created_at`, `updated_at`) VALUES ('$job_id','$candidate_id','$status','$date1','$date1')";
-        
+        $sql = "INSERT INTO `job_applications`( `job_id`, `user_id`, `resume_id`,`status`, `created_at`, `updated_at`) VALUES ('$job_id','$user_id','$resume_id','$status','$date1','$date1')";
+
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -149,28 +146,25 @@ class JobApplyModel extends Model
 
         $post = $this->db->query($sql);
         // echo json_encode($post);
-        if (!$post){
+        if (!$post) {
             return null;
-        }else{
+        } else {
             return $post;
         }
-            
-
-        
     }
 
-    
-//Update
-    public function update1($id): bool
+
+    //Update
+    public function update1($id, $data): bool
     {
         // echo $id;
-        
 
-         $status = ' In Review';
+
+        $status = $data['status'];
         $sql = "UPDATE `job_applications` SET  
         status = '$status'
           WHERE id = $id";
-    // print_r($sql);
+        // print_r($sql);
         $post = $this->db->query($sql);
         if (!$post)
             throw new Exception('Post does not exist for specified id');
@@ -184,7 +178,7 @@ class JobApplyModel extends Model
             ->where(['id' => $id])
             ->delete();
 
-        if (!$post) 
+        if (!$post)
             throw new Exception('user does not exist for specified id');
 
         return $post;
