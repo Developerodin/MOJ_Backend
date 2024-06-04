@@ -107,10 +107,31 @@ class profile_img extends BaseController
             } else {
                 $post = $model->update1($data);
             }
+// for image path
+$id = $input['user_id'];
+$post = $model->findByUId($id);
+$data['user_id'] = $id;
+$baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
+$baseUrl = str_replace('/public/', '/', $baseUrl);
+
+    
+    $resume1 = $post['image_path'];
+    
+    $existingFilePath = WRITEPATH . $resume1;
+
+    if (file_exists($existingFilePath)) {
+
+
+        $data['image_path'] = $baseUrl . 'writable' . $resume1;
+    } else {
+        $data['image_path'] = $baseUrl . 'images/user_img.png';
+    }
+
+
 
             return $this->getResponse([
                 'message' => 'Resume saved successfully',
-                'resume' => $post,
+                'image' => $data['image_path'],
                 'status' => 'success'
             ]);
         } else {

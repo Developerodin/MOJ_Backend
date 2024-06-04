@@ -73,9 +73,7 @@ $routes->post('/job_apply/store', 'Job_Apply::store');
 $routes->post('/job_apply/Byid/(:num)','Job_Apply::show/$1');
 $routes->post('/job/status_update/(:num)','Job::st_update/$1');
 $routes->post('/job_apply/userByid/(:num)','Job_Apply::user_show/$1');
-
 $routes->post('/job_apply/delete/(:num)','Job_Apply::distroy/$1'); // user deleted
-
 
 // Job save 
 $routes->get('/job_saved', 'Job_save::index');
