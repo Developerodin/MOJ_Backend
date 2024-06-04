@@ -106,6 +106,27 @@ class Job_Apply extends BaseController
             );
         }
     }
+    public function user_show($id)
+    {
+        // user_id pass
+        try {
+            $model = new JobApplyModel();
+            $post = $model->findJobById($id);
+            return $this->getResponse(
+                [
+                    'message' => 'Job retrieved successfully',
+                    'Job' => $post
+                ]
+            );
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find Job for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
 
     public function update($id)
     {
