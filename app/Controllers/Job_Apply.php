@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\JobApplyModel;
+use App\Models\UserModel;
+use App\Models\ProfileModel;
+use App\Models\Job_prefModel;
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
@@ -106,6 +109,28 @@ class Job_Apply extends BaseController
             );
         }
     }
+    public function count_job($id)
+    {
+        // user_id pass
+        try {
+            $model = new JobApplyModel();
+            $post = $model->getjobCount($id);
+            return $this->getResponse(
+                [
+                    'message' => 'Job retrieved successfully',
+                    'Job' => $post,
+                    'status' => 'success'
+                ]
+            );
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find Job for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
     public function user_show($id)
     {
         // user_id pass
@@ -119,6 +144,79 @@ class Job_Apply extends BaseController
                     'status' => 'success'
                 ]
             );
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find Job for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function show_user($id)
+    {
+        try {
+            $model = new JobApplyModel();
+            $posts = $model->findJobByjobId($id); // Find all job applications by job ID
+            
+            if ($posts) {
+                $data = []; // Initialize an array to hold all user data
+                
+                foreach ($posts as $post) {
+                    $user_id = $post['user_id'];
+                    $user = new UserModel();
+                    $udata = $user->getUserData($user_id);
+                    
+                    $profile = new ProfileModel();
+                    $post1 = $profile->findByUId($user_id);
+                    $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
+                    $baseUrl = str_replace('/public/', '/', $baseUrl);
+    
+                    if ($post1 !== null) {
+                        $resume1 = $post1['image_path'];
+                        $existingFilePath = WRITEPATH . $resume1;
+    
+                        if (file_exists($existingFilePath)) {
+                            $user_img = $baseUrl . 'writable' . $resume1;
+                        } else {
+                            $user_img = $baseUrl . 'images/user_img.png';
+                        }
+                    } else {
+                        $user_img = $baseUrl . 'images/user_img.png';
+                    }
+    
+                    // work exp
+                    $work = $user->getby_id_data($user_id);
+    
+                    // job pref
+                    $model3 = new Job_prefModel();
+                    $job_pre = $model3->show_userid($user_id);
+    
+                    // Construct user data array
+                    $data[] = [
+                        'user_id' => $user_id,
+                        'user' => $udata,
+                        'user_img' => $user_img,
+                        'work' => $work,
+                        'job_pref' => $job_pre
+                    ];
+                }
+    
+                return $this->getResponse(
+                    [
+                        'message' => 'Job retrieved successfully',
+                        'Job' => $data,
+                        'status' => 'success'
+                    ]
+                );
+            } else {
+                return $this->getResponse(
+                    [
+                        'message' => 'No jobs found for specified ID'
+                    ],
+                    ResponseInterface::HTTP_NOT_FOUND
+                );
+            }
         } catch (Exception $e) {
             return $this->getResponse(
                 [

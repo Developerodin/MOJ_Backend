@@ -70,8 +70,35 @@ class JobApplyModel extends Model
             return $result;
         }
     }
+   
     /// get user information
+    public function getJobCount($jobId)
+{
+    $builder = $this->db->table('job_applications');
+    $builder->select('COUNT(*) as user_count');
 
+    // Add a where clause to filter by job_id
+    $builder->where('job_id', $jobId);
+
+    $query = $builder->get();
+    $result = $query->getRow();
+
+    return $result->user_count;
+}
+    public function findJobByjobId(string $id)
+    {
+
+        $user = $this
+            ->asArray()
+            ->where(['job_id' => $id])
+            ->findAll();
+
+        if (!$user) {
+            throw new Exception('Job does not found');
+        } else {
+            return $user;
+        }
+    }
     public function findJobById(string $id)
     {
 

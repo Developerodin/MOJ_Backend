@@ -71,6 +71,8 @@ $routes->post('/job/delete/(:num)','Job::distroy/$1');  // user deleted
 $routes->get('/job_apply', 'Job_Apply::index');
 $routes->post('/job_apply/store', 'Job_Apply::store');
 $routes->post('/job_apply/Byid/(:num)','Job_Apply::show/$1');
+$routes->post('/job_apply_count/Byid_jobid/(:num)','Job_Apply::count_job/$1');
+$routes->post('/job_apply/Byid_user/(:num)','Job_Apply::show_user/$1');
 $routes->post('/job/status_update/(:num)','Job::st_update/$1');
 $routes->post('/job_apply/userByid/(:num)','Job_Apply::user_show/$1');
 $routes->post('/job_apply/delete/(:num)','Job_Apply::distroy/$1'); // user deleted
