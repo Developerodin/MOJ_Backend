@@ -29,11 +29,6 @@ $routes->set404Override();
  //for web
  
  
- $routes->get('/web', 'Web::index');
-$routes->get('/about_web', 'About_web::index');
-$routes->get('/services_web', 'Services_web::index');
-$routes->get('/contact_web', 'Contact_web::index');
-$routes->get('/help_web', 'Help_web::index');
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
@@ -69,6 +64,7 @@ $routes->get('/job', 'Job::index');
 $routes->post('/job/store', 'Job::store');
 $routes->post('/job/Byid/(:num)','Job::show/$1');
 $routes->post('/job/Byuserid/(:num)','Job::user_show/$1');
+$routes->post('/job/status_update/(:num)','Job::st_update/$1');
 $routes->post('/job/update/(:num)','Job::update/$1');
 $routes->post('/job/delete/(:num)','Job::distroy/$1');  // user deleted
 
@@ -78,9 +74,9 @@ $routes->get('/job_apply', 'Job_Apply::index');
 $routes->post('/job_apply/store', 'Job_Apply::store');
 $routes->post('/job_apply/Byid/(:num)','Job_Apply::show/$1');
 $routes->post('/job_apply_count/Byid_jobid/(:num)','Job_Apply::count_job/$1');
-$routes->post('/job_apply/Byid_user/(:num)','Job_Apply::show_user/$1');
-$routes->post('/job/status_update/(:num)','Job_Apply::st_update/$1');
-$routes->post('/job_apply/userByid/(:num)','Job_Apply::user_show/$1');
+$routes->post('/job_apply/Byid_user/(:num)','Job_Apply::show_user/$1');// for hoteliyr
+$routes->post('/job_apply/status_update/(:num)','Job_Apply::st_update/$1');
+$routes->post('/job_apply/userByid/(:num)','Job_Apply::user_show/$1');// for user
 $routes->post('/job_apply/update/(:num)','Job_Apply::update/$1');
 $routes->post('/job_apply/delete/(:num)','Job_Apply::distroy/$1');  // user deleted
 

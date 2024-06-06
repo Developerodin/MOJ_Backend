@@ -157,7 +157,7 @@ class JobApplyModel extends Model
         $job_id = $data['job_id'];
         $user_id = $data['user_id'];
         $resume_id = $data['resume_id'];
-        $status = 'process';
+        $status = 'In Touch';
 
 
         $date = new DateTime();

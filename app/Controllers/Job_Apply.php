@@ -6,6 +6,7 @@ use App\Models\JobApplyModel;
 use App\Models\UserModel;
 use App\Models\ProfileModel;
 use App\Models\Job_prefModel;
+use App\Models\ResumeModel;
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
@@ -158,26 +159,27 @@ class Job_Apply extends BaseController
         try {
             $model = new JobApplyModel();
             $posts = $model->findJobByjobId($id); // Find all job applications by job ID
-            
+
             if ($posts) {
                 $data = []; // Initialize an array to hold all user data
-                
+
                 foreach ($posts as $post) {
 
                     $application_id = $post['id'];
+                    $application_status = $post['status'];
                     $user_id = $post['user_id'];
                     $user = new UserModel();
                     $udata = $user->getUserData($user_id);
-                    
+
                     $profile = new ProfileModel();
                     $post1 = $profile->findByUId($user_id);
                     $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
                     $baseUrl = str_replace('/public/', '/', $baseUrl);
-    
+
                     if ($post1 !== null) {
                         $resume1 = $post1['image_path'];
                         $existingFilePath = WRITEPATH . $resume1;
-    
+
                         if (file_exists($existingFilePath)) {
                             $user_img = $baseUrl . 'writable' . $resume1;
                         } else {
@@ -186,25 +188,37 @@ class Job_Apply extends BaseController
                     } else {
                         $user_img = $baseUrl . 'images/user_img.png';
                     }
-    
+
                     // work exp
                     $work = $user->getby_id_data($user_id);
-    
+
                     // job pref
                     $model3 = new Job_prefModel();
                     $job_pre = $model3->show_userid($user_id);
-    
+
+                    // reusme 4
+                    $model4 = new ResumeModel();
+                    $post4 = $model4->findByUId($user_id);
+
+                    $resume3 = $post4['Resume'];
+
+
+                    // Now, $baseUrl will be 'https://dashboard.masterofjobs.in/'
+
+                    $user_resume = $baseUrl . 'writable' . $resume3;
                     // Construct user data array
                     $data[] = [
                         'application_id' => $application_id,
+                        'application_status' => $application_status,
                         'user_id' => $user_id,
                         'user' => $udata,
                         'user_img' => $user_img,
                         'work' => $work,
-                        'job_pref' => $job_pre
+                        'job_pref' => $job_pre,
+                        'resume' => $user_resume
                     ];
                 }
-    
+
                 return $this->getResponse(
                     [
                         'message' => 'Job retrieved successfully',
@@ -275,4 +289,3 @@ class Job_Apply extends BaseController
         }
     }
 }
-
