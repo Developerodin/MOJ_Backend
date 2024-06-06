@@ -51,7 +51,7 @@ $routes->post('/auth/verify_otp/(:num)', 'Auth::verifyOTP/$1');
 $routes->post('/auth/register', 'Auth::register');
 $routes->post('/auth/user_update','Auth::user_update');
 $routes->post('/auth/hotelior_update','Auth::Huser_update');
-$routes->post('user_update','Auth::user_update_web');
+$routes->post('/all_user_data/(:num)','Job_Apply::all_data_user/$1');
 $routes->get('user_delete/(:num)','Users::user_del/$1');
 
 
@@ -76,7 +76,7 @@ $routes->post('/job_apply/Byid/(:num)','Job_Apply::show/$1');
 $routes->post('/job_apply_count/Byid_jobid/(:num)','Job_Apply::count_job/$1');
 $routes->post('/job_apply/Byid_user/(:num)','Job_Apply::show_user/$1');// for hoteliyr
 $routes->post('/job_apply/status_update/(:num)','Job_Apply::st_update/$1');
-$routes->post('/job_apply/userByid/(:num)','Job_Apply::user_show/$1');// for user
+$routes->post('/job_apply/userByid/(:num)','Job_Apply::user_show/$1');// for user   
 $routes->post('/job_apply/update/(:num)','Job_Apply::update/$1');
 $routes->post('/job_apply/delete/(:num)','Job_Apply::distroy/$1');  // user deleted
 
@@ -118,8 +118,6 @@ $routes->get('/user_education/By_userId/(:num)','Users::education_show/$1');
 $routes->post('/user_education/Update_ById/(:num)','Users::education_update/$1');
 $routes->post('/user_education/delete/(:num)','Users::delete_education/$1');  // user deleted
 
-
-
 // job pref.
 $routes->get('/user/job_pref', 'Job_pref::get');
 $routes->post('/user/job_pref/(:num)', 'Job_pref::show/$1');
@@ -148,7 +146,6 @@ $routes->post('/basic/city_by_state/(:num)','Basic::city_by_state/$1');  // all 
 
 
 $routes->post('/basic/profile_health_userid/(:num)','Basic::getUserProfileEmptyFields/$1');  // all state
-
 $routes->post('/basic/Hotelprofile_health_userid/(:num)','Basic::getHProfileEmptyFields/$1');  //profile helth
 
 /*

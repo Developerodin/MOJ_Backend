@@ -243,6 +243,91 @@ class Job_Apply extends BaseController
             );
         }
     }
+    public function all_data_user($id)
+    {
+        try {
+            $user = new UserModel();
+                    $posts = $user->findUserById($id); // Find all job applications by job ID
+
+            if ($posts) {
+                $data = []; // Initialize an array to hold all user data
+
+              
+                    $user_id = $id;
+                    $user = new UserModel();
+                    $udata = $user->getUserData($user_id);
+
+                    $profile = new ProfileModel();
+                    $post1 = $profile->findByUId($user_id);
+                    $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
+                    $baseUrl = str_replace('/public/', '/', $baseUrl);
+
+                    if ($post1 !== null) {
+                        $resume1 = $post1['image_path'];
+                        $existingFilePath = WRITEPATH . $resume1;
+
+                        if (file_exists($existingFilePath)) {
+                            $user_img = $baseUrl . 'writable' . $resume1;
+                        } else {
+                            $user_img = $baseUrl . 'images/user_img.png';
+                        }
+                    } else {
+                        $user_img = $baseUrl . 'images/user_img.png';
+                    }
+
+                    // work exp
+                    $work = $user->getby_id_data($user_id);
+
+                    // job pref
+                    $model3 = new Job_prefModel();
+                    $job_pre = $model3->show_userid($user_id);
+
+                    // reusme 4
+                    $model4 = new ResumeModel();
+                    $post4 = $model4->findByUId($user_id);
+
+                    $resume3 = $post4['Resume'];
+
+
+                    // Now, $baseUrl will be 'https://dashboard.masterofjobs.in/'
+
+                    $user_resume = $baseUrl . 'writable' . $resume3;
+                    // Construct user data array
+                    $data[] = [
+                        
+                        'user_id' => $user_id,
+                        'user' => $udata,
+                        'user_img' => $user_img,
+                        'work' => $work,
+                        'job_pref' => $job_pre,
+                        'resume' => $user_resume
+                    ];
+               
+
+                return $this->getResponse(
+                    [
+                        'message' => 'Job retrieved successfully',
+                        'Job' => $data,
+                        'status' => 'success'
+                    ]
+                );
+            } else {
+                return $this->getResponse(
+                    [
+                        'message' => 'No jobs found for specified ID'
+                    ],
+                    ResponseInterface::HTTP_NOT_FOUND
+                );
+            }
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find Job for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
 
     public function st_update($id)
     {
