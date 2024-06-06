@@ -163,6 +163,8 @@ class Job_Apply extends BaseController
                 $data = []; // Initialize an array to hold all user data
                 
                 foreach ($posts as $post) {
+
+                    $application_id = $post['id'];
                     $user_id = $post['user_id'];
                     $user = new UserModel();
                     $udata = $user->getUserData($user_id);
@@ -194,6 +196,7 @@ class Job_Apply extends BaseController
     
                     // Construct user data array
                     $data[] = [
+                        'application_id' => $application_id,
                         'user_id' => $user_id,
                         'user' => $udata,
                         'user_img' => $user_img,
