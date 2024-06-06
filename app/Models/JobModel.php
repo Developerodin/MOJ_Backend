@@ -295,3 +295,4 @@ class JobModel extends Model
         return $post;
     }
 }
+

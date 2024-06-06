@@ -211,3 +211,4 @@ class JobApplyModel extends Model
         return $post;
     }
 }
+

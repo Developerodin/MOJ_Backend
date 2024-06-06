@@ -25,7 +25,15 @@ $routes->set404Override();
  * --------------------------------------------------------------------
  * Route Definitions
  * --------------------------------------------------------------------
- */
+ */ 
+ //for web
+ 
+ 
+ $routes->get('/web', 'Web::index');
+$routes->get('/about_web', 'About_web::index');
+$routes->get('/services_web', 'Services_web::index');
+$routes->get('/contact_web', 'Contact_web::index');
+$routes->get('/help_web', 'Help_web::index');
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
@@ -41,7 +49,6 @@ $routes->get('/agent-list', 'Home::agent_list');
 $routes->get('/job-list', 'Home::job_list');
 $routes->get('/get_user/(:num)', 'Users::get_user/$1');
 $routes->get('/get_user_mobile/(:num)', 'Users::get_user_mobile/$1');
-
 $routes->post('/auth/number_check', 'Auth::check_mobile');
 $routes->post('/auth/work_up/(:num)', 'Users::work_ex_up/$1');
 $routes->post('/users/work_exp', 'Users::work_ex');
@@ -62,7 +69,6 @@ $routes->get('/job', 'Job::index');
 $routes->post('/job/store', 'Job::store');
 $routes->post('/job/Byid/(:num)','Job::show/$1');
 $routes->post('/job/Byuserid/(:num)','Job::user_show/$1');
-$routes->post('/job/status_update/(:num)','Job::st_update/$1');
 $routes->post('/job/update/(:num)','Job::update/$1');
 $routes->post('/job/delete/(:num)','Job::distroy/$1');  // user deleted
 
@@ -75,7 +81,9 @@ $routes->post('/job_apply_count/Byid_jobid/(:num)','Job_Apply::count_job/$1');
 $routes->post('/job_apply/Byid_user/(:num)','Job_Apply::show_user/$1');
 $routes->post('/job/status_update/(:num)','Job::st_update/$1');
 $routes->post('/job_apply/userByid/(:num)','Job_Apply::user_show/$1');
-$routes->post('/job_apply/delete/(:num)','Job_Apply::distroy/$1'); // user deleted
+$routes->post('/job_apply/update/(:num)','Job_Apply::update/$1');
+$routes->post('/job_apply/delete/(:num)','Job_Apply::distroy/$1');  // user deleted
+
 
 // Job save 
 $routes->get('/job_saved', 'Job_save::index');
@@ -143,10 +151,9 @@ $routes->get('/basic/state','Basic::get_state');  // all state
 $routes->post('/basic/city_by_state/(:num)','Basic::city_by_state/$1');  // all state
 
 
-$routes->post('/basic/profile_health_userid/(:num)','Basic::getUserProfileEmptyFields/$1');  //profile helth
+$routes->post('/basic/profile_health_userid/(:num)','Basic::getUserProfileEmptyFields/$1');  // all state
+
 $routes->post('/basic/Hotelprofile_health_userid/(:num)','Basic::getHProfileEmptyFields/$1');  //profile helth
-
-
 
 /*
  * --------------------------------------------------------------------
@@ -164,3 +171,4 @@ $routes->post('/basic/Hotelprofile_health_userid/(:num)','Basic::getHProfileEmpt
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+

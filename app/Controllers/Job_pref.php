@@ -195,7 +195,7 @@ class Job_pref extends BaseController
    
         $user = $model->show_userid($input['user_id']);
         if($user){
-         // print_r($user);
+// print_r($user);
 
 
             // $id = $user[0]['user_id'];
@@ -307,3 +307,4 @@ class Job_pref extends BaseController
         }
     }
 }
+

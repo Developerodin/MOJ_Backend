@@ -107,15 +107,9 @@ class Home extends BaseController
         $model = new UserModel();
 
         $data['users'] = $model->getAllUserData();
-        //    print_r($data['users']);
-        //    if (!$data['users']) {
-        //     $data['users'] = null;
-        //    }
-            // if(!$data['Users']){
-            //     echo "test";
-            //     $data['users']= '';
-            // }
-    
+        //    print_r($data['users'][0]);
+        //     die();
+        // echo "test";
         // die();
         echo view('header');
 

@@ -27,14 +27,13 @@ class resume extends BaseController
             return $this->getResponse(
                 [
                     'message' => 'Resume  not found ',
-                    'status' => 'success'
 
                 ]
             );
         } else {
             return $this->getResponse(
                 [
-                    'message' => 'Resume retrieved successfully',
+                    'message' => 'Job retrieved successfully',
                     'post' => $post,
                     'status' => 'success'
                 ]
