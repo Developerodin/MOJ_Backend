@@ -247,62 +247,69 @@ class Job_Apply extends BaseController
     {
         try {
             $user = new UserModel();
-                    $posts = $user->findUserById($id); // Find all job applications by job ID
+            $posts = $user->findUserById($id); // Find all job applications by job ID
 
             if ($posts) {
                 $data = []; // Initialize an array to hold all user data
 
-              
-                    $user_id = $id;
-                    $user = new UserModel();
-                    $udata = $user->getUserData($user_id);
 
-                    $profile = new ProfileModel();
-                    $post1 = $profile->findByUId($user_id);
-                    $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
-                    $baseUrl = str_replace('/public/', '/', $baseUrl);
+                $user_id = $id;
+                $user = new UserModel();
+                $udata = $user->getUserData($user_id);
 
-                    if ($post1 !== null) {
-                        $resume1 = $post1['image_path'];
-                        $existingFilePath = WRITEPATH . $resume1;
+                $profile = new ProfileModel();
+                $post1 = $profile->findByUId($user_id);
+                $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
+                $baseUrl = str_replace('/public/', '/', $baseUrl);
 
-                        if (file_exists($existingFilePath)) {
-                            $user_img = $baseUrl . 'writable' . $resume1;
-                        } else {
-                            $user_img = $baseUrl . 'images/user_img.png';
-                        }
+                if ($post1 !== null) {
+                    $resume1 = $post1['image_path'];
+                    $existingFilePath = WRITEPATH . $resume1;
+
+                    if (file_exists($existingFilePath)) {
+                        $user_img = $baseUrl . 'writable' . $resume1;
                     } else {
                         $user_img = $baseUrl . 'images/user_img.png';
                     }
+                } else {
+                    $user_img = $baseUrl . 'images/user_img.png';
+                }
 
-                    // work exp
-                    $work = $user->getby_id_data($user_id);
+                // work exp
+                $work = $user->getby_id_data($user_id);
 
-                    // job pref
-                    $model3 = new Job_prefModel();
-                    $job_pre = $model3->show_userid($user_id);
+                // job pref
+                $model3 = new Job_prefModel();
+                $job_pre = $model3->show_userid($user_id);
 
-                    // reusme 4
-                    $model4 = new ResumeModel();
-                    $post4 = $model4->findByUId($user_id);
+                // reusme 4
+                $model4 = new ResumeModel();
+                $post4 = $model4->findByUId($user_id);
 
-                    $resume3 = $post4['Resume'];
+                $resume3 = $post4['Resume'];
 
 
-                    // Now, $baseUrl will be 'https://dashboard.masterofjobs.in/'
+                // Now, $baseUrl will be 'https://dashboard.masterofjobs.in/'
 
-                    $user_resume = $baseUrl . 'writable' . $resume3;
-                    // Construct user data array
-                    $data[] = [
-                        
-                        'user_id' => $user_id,
-                        'user' => $udata,
-                        'user_img' => $user_img,
-                        'work' => $work,
-                        'job_pref' => $job_pre,
-                        'resume' => $user_resume
-                    ];
-               
+                $user_resume = $baseUrl . 'writable' . $resume3;
+
+                // edu 
+
+                $edu = $user->getUserEd_id($id);
+
+
+                // Construct user data array
+                $data[] = [
+
+                    'user_id' => $user_id,
+                    'user' => $udata,
+                    'user_img' => $user_img,
+                    'work' => $work,
+                    'job_pref' => $job_pre,
+                    'user_edu' => $edu,
+                    'resume' => $user_resume
+                ];
+
 
                 return $this->getResponse(
                     [
