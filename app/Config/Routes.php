@@ -88,6 +88,13 @@ $routes->post('/job_saved/Byuserid/(:num)','Job_save::user_show/$1');
 $routes->post('/job_saved/Byid/(:num)','Job_save::show/$1');
 $routes->post('/job_save/delete/(:num)','Job_save::distroy/$1');  // user deleted
 
+// Job view
+$routes->get('/job_view', 'Job_view::index');
+$routes->post('/job_view/store', 'Job_view::store');
+$routes->post('/job_view/Byuserid/(:num)','Job_view::user_show/$1');
+$routes->post('/job_view/Byid/(:num)','Job_view::show/$1');
+
+
 // Job resume
 $routes->get('/res_saved', 'resume::index');
 $routes->post('/res_save/store', 'resume::store');
