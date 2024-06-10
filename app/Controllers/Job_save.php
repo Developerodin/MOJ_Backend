@@ -126,7 +126,7 @@ class Job_save extends BaseController
     }
 
    
-    public function destroy($id)
+    public function distroy($id)
     {
         try {
             $model = new JobSaveModel();
