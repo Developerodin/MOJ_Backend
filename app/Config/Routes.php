@@ -53,7 +53,7 @@ $routes->post('/auth/user_update','Auth::user_update');
 $routes->post('/auth/hotelior_update','Auth::Huser_update');
 $routes->post('/all_user_data/(:num)','Job_Apply::all_data_user/$1');
 $routes->get('user_delete/(:num)','Users::user_del/$1');
-
+$routes->post('/auth/user_refer/(:num)','Users::ref_update/$1');
 
 // status update
 $routes->post('/users/status_e/(:num)', 'Users::status_e_update/$1');

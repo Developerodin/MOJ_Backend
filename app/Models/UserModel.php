@@ -392,6 +392,28 @@ class UserModel extends Model
             return $post;
         }
     }
+    public function update_ref($id,$data)
+    {
+        //    echo json_encode($sql);
+        $user_id = $id;
+        $points= $data['point'];
+
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date1 = date("m-d-Y h:i A");
+
+        $sql = "UPDATE `users` SET `points`='$points',`updated_at`='$date1' WHERE id = $user_id";
+        // echo json_encode($sql);
+        // echo ( $sql);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
     public function update_status_d($id)
     {
         //    echo json_encode($sql);

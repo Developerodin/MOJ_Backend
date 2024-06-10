@@ -83,6 +83,29 @@ class Users extends BaseController
                 );
         }
     }
+    public function ref_update($id)
+    {
+        $input = $this->getRequestInput($this->request);
+
+        $model = new UserModel();
+        $data = $model->update_ref($id,$input);
+
+        if ($data == null) {
+            $response =
+                $this->response->setStatusCode(200)->setBody(' No Data found');
+            return $response;
+        } else {
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'Data found successfully ',
+                        'data' => $data,
+                        'status' => 'success'
+
+                    ]
+                );
+        }
+    }
     // work experience
     public function work_ex()
     {
