@@ -84,7 +84,8 @@ $routes->post('/job_apply/delete/(:num)','Job_Apply::distroy/$1');  // user dele
 // Job save 
 $routes->get('/job_saved', 'Job_save::index');
 $routes->post('/job_save/store', 'Job_save::store');
-$routes->post('/job_saved/Byuserid/(:num)','Job_save::show/$1');
+$routes->post('/job_saved/Byuserid/(:num)','Job_save::user_show/$1');
+$routes->post('/job_saved/Byid/(:num)','Job_save::show/$1');
 $routes->post('/job_save/delete/(:num)','Job_save::distroy/$1');  // user deleted
 
 // Job resume

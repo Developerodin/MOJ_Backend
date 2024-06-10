@@ -61,6 +61,20 @@ class JobSaveModel extends Model
             return $user;
         }
     }
+    public function findByuserId(string $id)
+    {
+
+        $user = $this
+            ->asArray()
+            ->where(['user_id' => $id])
+            ->findAll();
+
+        if (!$user) {
+            return null;
+        } else {
+            return $user;
+        }
+    }
 
     public function findAll(int $limit = 0, int $offset = 0)
     {

@@ -94,7 +94,7 @@ class JobApplyModel extends Model
             ->findAll();
 
         if (!$user) {
-            throw new Exception('Job does not found');
+            throw new Exception('Job apply does not found');
         } else {
             return $user;
         }

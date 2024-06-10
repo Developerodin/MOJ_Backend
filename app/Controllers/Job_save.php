@@ -29,13 +29,15 @@ class Job_save extends BaseController
                 [
                     'message' => 'Job not found successfully',
 
+     
                 ]
             );
         } else {
             return $this->getResponse(
                 [
                     'message' => 'Job retrieved successfully',
-                    'post' => $post
+                    'post' => $post,
+                'status' => 'success'
                 ]
             );
         }
@@ -70,7 +72,8 @@ class Job_save extends BaseController
         return $this->getResponse(
             [
                 'message' => 'Job saved successfully',
-                'job' => $post
+                'job' => $post,
+                'status' => 'success'
 
             ]
         );
@@ -84,42 +87,45 @@ class Job_save extends BaseController
             $post = $model->findJobById($id);
             return $this->getResponse(
                 [
-                    'message' => 'Job retrieved successfully',
-                    'Job' => $post
+                    'message' => 'Save Job retrieved successfully',
+                    'Job' => $post,
+                'status' => 'success'
                 ]
             );
         } catch (Exception $e) {
             return $this->getResponse(
                 [
-                    'message' => 'Could not find Job for specified ID'
+                    'message' => 'save Could not find Job for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function user_show($id)
+    {
+        // user_id pass
+        try {
+            $model = new JobSaveModel();
+            $post = $model->findByuserId($id);
+
+            return $this->getResponse(
+                [
+                    'message' => 'Save Job retrieved successfully',
+                    'Job' => $post,
+                'status' => 'success'
+                ]
+            );
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find save Job for specified user ID'
                 ],
                 ResponseInterface::HTTP_NOT_FOUND
             );
         }
     }
 
-    // public function update($id)
-    // {
-    //     try {
-    //         $model = new JobSaveModel();
-    //         $input = $this->getRequestInput($this->request);
-    //         $model->update1($id, $input);
-    //         $post = $model->findJobById($id);
-    //         return $this->getResponse(
-    //             [
-    //                 'message' => 'job updaetd successfully',
-    //                 'job' => $post
-    //             ]
-    //         );
-    //     } catch (Exception $exception) {
-    //         return $this->getResponse(
-    //             [
-    //                 'message' => $exception->getMessage()
-    //             ],
-    //             ResponseInterface::HTTP_NOT_FOUND
-    //         );
-    //     }
-    // }
+   
     public function destroy($id)
     {
         try {
@@ -129,6 +135,7 @@ class Job_save extends BaseController
                 ->getResponse(
                     [
                         'message' => 'Job deleted successfully',
+                'status' => 'success'
                     ]
                 );
         } catch (Exception $exception) {
