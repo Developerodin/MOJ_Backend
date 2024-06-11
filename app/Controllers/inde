@@ -1,0 +1,103 @@
+<div class="page-width ">
+    <div
+        class="featured-product product product--medium grid grid--1-col gradient color-scheme-1 product--left isolate grid--2-col-tablet">
+
+        <div class="product__info-wrapper  scroll-trigger animate--slide-in">
+            <product-info id="ProductInfo-template--17287508197566__featured_product_cJbRkJ"
+                class="product__info-container" data-section="template--17287508197566__featured_product_cJbRkJ"
+                data-url="/products/undo-it">
+                <p class="product__text inline-richtext mtss" style="font-size: 20px;color:#fff;    margin-left: 15%;">
+                    **<strong style="font-size: 20px;">warning</strong>: dangerously delicious**</p>
+                    <variant-selects id="variant-selects-template--17287508197566__featured_product_cJbRkJ" data-section="template--17287508197566__featured_product_cJbRkJ" data-url="/products/undo-it" data-update-url="false"><fieldset class="js product-form__input product-form__input--pill">
+                        <legend class="form__label">Material</legend>
+                        
+              <input type="radio" id="template--17287508197566__featured_product_cJbRkJ-1-0" name="Material" value="fresh lime" form="product-form-template--17287508197566__featured_product_cJbRkJ" checked="">
+                  <label for="template--17287508197566__featured_product_cJbRkJ-1-0">
+                    fresh lime<span class="visually-hidden label-unavailable">Variant sold out or unavailable</span>
+                  </label><input type="radio" id="template--17287508197566__featured_product_cJbRkJ-1-1" name="Material" value="green apple" form="product-form-template--17287508197566__featured_product_cJbRkJ">
+                  <label for="template--17287508197566__featured_product_cJbRkJ-1-1">
+                    green apple<span class="visually-hidden label-unavailable">Variant sold out or unavailable</span>
+                  </label><input type="radio" id="template--17287508197566__featured_product_cJbRkJ-1-2" name="Material" value="summer berries" form="product-form-template--17287508197566__featured_product_cJbRkJ">
+                  <label for="template--17287508197566__featured_product_cJbRkJ-1-2">
+                    summer berries<span class="visually-hidden label-unavailable">Variant sold out or unavailable</span>
+                  </label>
+                      </fieldset><script type="application/json">
+                    [{"id":44247935254718,"title":"fresh lime","option1":"fresh lime","option2":null,"option3":null,"sku":"","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"XTCY - fresh lime","public_title":"fresh lime","options":["fresh lime"],"price":10000,"weight":0,"compare_at_price":null,"inventory_management":"shopify","barcode":"","requires_selling_plan":false,"selling_plan_allocations":[]},{"id":44247935287486,"title":"green apple","option1":"green apple","option2":null,"option3":null,"sku":"","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"XTCY - green apple","public_title":"green apple","options":["green apple"],"price":10000,"weight":0,"compare_at_price":null,"inventory_management":"shopify","barcode":"","requires_selling_plan":false,"selling_plan_allocations":[]},{"id":44247935320254,"title":"summer berries","option1":"summer berries","option2":null,"option3":null,"sku":"","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"XTCY - summer berries","public_title":"summer berries","options":["summer berries"],"price":10000,"weight":0,"compare_at_price":null,"inventory_management":"shopify","barcode":"","requires_selling_plan":false,"selling_plan_allocations":[]}]
+                  </script>
+                </variant-selects>
+                <div class="grid ggg">
+                    <div class="grid__item gg1" style="max-width: 25%;">
+                        <div id="Quantity-Form-template--17287508197566__featured_product_cJbRkJ"
+                            class="product-form__input product-form__quantity">
+
+
+
+
+                            <div class="price-per-item__container">
+                                <quantity-input class="quantity">
+                                    <button class="quantity__button disabled" name="minus" type="button">
+                                        <span class="visually-hidden">Decrease quantity for XTCY</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+                                            class="icon icon-minus" fill="none" viewBox="0 0 10 2">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z"
+                                                fill="currentColor">
+                                            </path>
+                                        </svg>
+
+                                    </button>
+                                    <input class="quantity__input" type="number" name="quantity"
+                                        id="Quantity-template--17287508197566__featured_product_cJbRkJ"
+                                        data-cart-quantity="2" data-min="1" min="1" step="1" value="1"
+                                        form="product-form-template--17287508197566__featured_product_cJbRkJ">
+                                    <button class="quantity__button" name="plus" type="button">
+                                        <span class="visually-hidden">Increase quantity for XTCY</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+                                            class="icon icon-plus" fill="none" viewBox="0 0 10 10">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z"
+                                                fill="currentColor">
+                                            </path>
+                                        </svg>
+
+                                    </button>
+                                </quantity-input>
+                            </div>
+                            <div class="quantity__rules caption"
+                                id="Quantity-Rules-template--17287508197566__featured_product_cJbRkJ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__item gg2" style="max-width: 40%;">
+                        <div><product-form class="product-form" data-hide-errors="false" style="margin:0;"data-section-id="template--17287508197566__featured_product_cJbRkJ">
+                            <div class="product-form__error-message-wrapper" role="alert" hidden="">
+                              <svg aria-hidden="true" focusable="false" class="icon icon-error" viewBox="0 0 13 13">
+                                <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"></circle>
+                                <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"></circle>
+                                <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"></path>
+                                <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+                              </path></svg>
+                              <span class="product-form__error-message"></span>
+                            </div><form method="post" action="/cart/add" id="product-form-template--17287508197566__featured_product_cJbRkJ" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form"><input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="id" value="44247935254718" class="product-variant-id"><div class="product-form__buttons"><button id="ProductSubmitButton-template--17287508197566__featured_product_cJbRkJ" type="submit" name="add" class="product-form__submit button button--full-width button--primary" aria-haspopup="dialog" fdprocessedid="hl77q7">
+                                  <span style="font-size: 18px;">Add to cart
+                      </span>
+                      
+                      <link href="//undoit-ui.myshopify.com/cdn/shop/t/5/assets/component-loading-spinner.css?v=116724955567955766481717148313" rel="stylesheet" type="text/css" media="all">
+                      
+                      <div class="loading__spinner hidden">
+                        <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                        </svg>
+                      </div>
+                      </button></div><input type="hidden" name="product-id" value="8020274479294"><input type="hidden" name="section-id" value="template--17287508197566__featured_product_cJbRkJ"></form></product-form></div>
+                    </div>
+                </div>
+
+
+
+            </product-info>
+        </div>
+
+
+
+    </div>
