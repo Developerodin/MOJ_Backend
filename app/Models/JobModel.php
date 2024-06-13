@@ -49,7 +49,7 @@ class JobModel extends Model
     public function getallJobData()
     {
         $builder = $this->db->table('job_listings');
-        $builder->select('job_listings.*, hoteliers.*');
+        $builder->select('job_listings.*, hoteliers.name,hoteliers.address,hoteliers.city,hoteliers.state,hoteliers.pin_code,hoteliers.address');
         $builder->join('hoteliers', 'hoteliers.user_id = job_listings.hotelier_id');
         
         $query = $builder->get();

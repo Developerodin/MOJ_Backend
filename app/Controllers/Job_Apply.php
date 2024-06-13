@@ -186,7 +186,7 @@ class Job_Apply extends BaseController
                             $user_img = $baseUrl . 'images/user_img.png';
                         }
                     } else {
-                        $user_img = $baseUrl . 'images/user_img.png';
+                        $user_img = $baseUrl . 'public/images/user_img.png';
                     }
 
                     // work exp
@@ -272,7 +272,7 @@ class Job_Apply extends BaseController
                         $user_img = $baseUrl . 'images/user_img.png';
                     }
                 } else {
-                    $user_img = $baseUrl . 'images/user_img.png';
+                    $user_img = $baseUrl . 'public/images/user_img.png';
                 }
 
                 // work exp
