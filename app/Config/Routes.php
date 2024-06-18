@@ -137,8 +137,9 @@ $routes->post('/user/job_pref/delete/(:num)','Job_pref::destroy/$1');  // user d
 
 
 // message.
-$routes->get('/msg/all_msg', 'Msg::get');
+$routes->get('/msg/all_msg', 'Msg::index');
 $routes->post('/msg/msg_byid/(:num)', 'Msg::show/$1');
+
 $routes->post('/msg/store/', 'Msg::save');
 $routes->post('/msg/BysenderId/(:num)','Msg::user_show/$1');
 $routes->post('/msg/ByrecId/(:num)','Msg::res_show/$1');

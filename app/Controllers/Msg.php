@@ -33,7 +33,7 @@ class Msg extends BaseController
         );
     }
 
-    public function store()
+    public function save()
     {
         $input = $this->getRequestInput($this->request);
         $model = new MsgModel();

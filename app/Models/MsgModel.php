@@ -94,34 +94,7 @@ class MsgModel extends Model
             return $user;
         }
     }
-    public function findBysendId(string $id)
-    {
-
-        $user = $this
-            ->asArray()
-            ->where(['sender_id' => $id])
-            ->findAll();
-
-        if (!$user) {
-            throw new Exception('Msg does not found');
-        } else {
-            return $user;
-        }
-    }
-    public function findByrecId(string $id)
-    {
-
-        $user = $this
-            ->asArray()
-            ->where(['receiver_id' => $id])
-            ->findAll();
-
-        if (!$user) {
-            throw new Exception('Msg does not found');
-        } else {
-            return $user;
-        }
-    }
+   
 
     public function findAll(int $limit = 0, int $offset = 0)
     {
