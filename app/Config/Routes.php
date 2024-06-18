@@ -135,6 +135,15 @@ $routes->post('/user/job_prf/store', 'Job_pref::save');
 $routes->post('/user/job_pref/Update_ById/(:num)','Job_pref::update/$1');
 $routes->post('/user/job_pref/delete/(:num)','Job_pref::destroy/$1');  // user deleted
 
+
+// message.
+$routes->get('/msg/all_msg', 'Msg::get');
+$routes->post('/msg/msg_byid/(:num)', 'Msg::show/$1');
+$routes->post('/msg/store/', 'Msg::save');
+$routes->post('/msg/BysenderId/(:num)','Msg::user_show/$1');
+$routes->post('/msg/ByrecId/(:num)','Msg::res_show/$1');
+$routes->post('/msg/delete/(:num)','Msg::destroy/$1');  // user deleted
+
 // user job pref.
 $routes->get('/user_job_pref', 'Job_pref::user_get');
 $routes->post('/user_job_pref/(:num)', 'Job_pref::user_show/$1');
