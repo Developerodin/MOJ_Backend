@@ -90,13 +90,14 @@ class Msg extends BaseController
         // user_id pass
         try {
             $model = new MsgModel();
-            $post = $model->getallsendData($id);
+            $data['sender'] = $model->getallsendData($id);
+            $data['reciver'] = $model->getallrecData($id);
             // $model1 = new UserModel();
             // $hotel = $model1->getHUserData($id);
             return $this->getResponse(
                 [
                     'message' => 'msg retrieved successfully',
-                    'Job' => $post,
+                    'Job' => $data,
                     // 'hotel' => $hotel ,
                     'status' => 'success'
                 ]
