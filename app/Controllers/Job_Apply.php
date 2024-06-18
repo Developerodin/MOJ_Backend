@@ -199,13 +199,16 @@ class Job_Apply extends BaseController
                     // reusme 4
                     $model4 = new ResumeModel();
                     $post4 = $model4->findByUId($user_id);
+if($post4){
 
                     $resume3 = $post4['Resume'];
 
 
                     // Now, $baseUrl will be 'https://dashboard.masterofjobs.in/'
 
-                    $user_resume = $baseUrl . 'writable' . $resume3;
+                    $user_resume = $baseUrl . 'writable' . $resume3;}else{
+                    $user_resume = null;
+                    }
                     // Construct user data array
                     $data[] = [
                         'application_id' => $application_id,
@@ -285,14 +288,12 @@ class Job_Apply extends BaseController
                 // reusme 4
                 $model4 = new ResumeModel();
                 $post4 = $model4->findByUId($user_id);
-
+            if($post4){
                 $resume3 = $post4['Resume'];
-
-
-                // Now, $baseUrl will be 'https://dashboard.masterofjobs.in/'
-
                 $user_resume = $baseUrl . 'writable' . $resume3;
-
+            }else{
+                $user_resume = null;
+            }
                 // edu 
 
                 $edu = $user->getUserEd_id($id);
