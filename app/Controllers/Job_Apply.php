@@ -336,6 +336,96 @@ if($post4){
             );
         }
     }
+    public function all_user_data()
+    {
+        try {
+            $user = new UserModel();
+            $posts = $user->findAll(); // Find all users
+    
+            if ($posts) {
+                $data = []; // Initialize an array to hold all user data
+                $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
+                $baseUrl = str_replace('/public/', '/', $baseUrl);
+    
+                foreach ($posts as $post) {
+                    $user_id = $post['id'];
+    
+                    // Get user data
+                    $udata = $user->getUserData($user_id);
+    
+                    // Get profile image
+                    $profile = new ProfileModel();
+                    $post1 = $profile->findByUId($user_id);
+                    if ($post1 !== null) {
+                        $resume1 = $post1['image_path'];
+                        $existingFilePath = WRITEPATH . $resume1;
+    
+                        if (file_exists($existingFilePath)) {
+                            $user_img = $baseUrl . 'writable' . $resume1;
+                        } else {
+                            $user_img = $baseUrl . 'images/user_img.png';
+                        }
+                    } else {
+                        $user_img = $baseUrl . 'public/images/user_img.png';
+                    }
+    
+                    // Get work experience
+                    $work = $user->getby_id_data($user_id);
+    
+                    // Get job preferences
+                    $model3 = new Job_prefModel();
+                    $job_pre = $model3->show_userid($user_id);
+    
+                    // Get resume
+                    $model4 = new ResumeModel();
+                    $post4 = $model4->findByUId($user_id);
+                    if ($post4) {
+                        $resume3 = $post4['Resume'];
+                        $user_resume = $baseUrl . 'writable' . $resume3;
+                    } else {
+                        $user_resume = null;
+                    }
+    
+                    // Get education details
+                    $edu = $user->getUserEd_id($user_id);
+    
+                    // Construct user data array
+                    $data[] = [
+                        'user_id' => $user_id,
+                        'user' => $udata,
+                        'user_img' => $user_img,
+                        'work' => $work,
+                        'job_pref' => $job_pre,
+                        'user_edu' => $edu,
+                        'resume' => $user_resume
+                    ];
+                }
+    
+                return $this->getResponse(
+                    [
+                        'message' => 'Users retrieved successfully',
+                        'Job' => $data,
+                        'status' => 'success'
+                    ]
+                );
+            } else {
+                return $this->getResponse(
+                    [
+                        'message' => 'No users found'
+                    ],
+                    ResponseInterface::HTTP_NOT_FOUND
+                );
+            }
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not retrieve users'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    
     public function all_data_Huser($id)
     {
         try {
