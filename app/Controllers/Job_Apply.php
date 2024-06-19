@@ -314,7 +314,75 @@ if($post4){
 
                 return $this->getResponse(
                     [
-                        'message' => 'Job retrieved successfully',
+                        'message' => 'user retrieved successfully',
+                        'Job' => $data,
+                        'status' => 'success'
+                    ]
+                );
+            } else {
+                return $this->getResponse(
+                    [
+                        'message' => 'No jobs found for specified ID'
+                    ],
+                    ResponseInterface::HTTP_NOT_FOUND
+                );
+            }
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find Job for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function all_data_Huser($id)
+    {
+        try {
+            $user = new UserModel();
+            $posts = $user->findUserById($id); // Find all job applications by job ID
+
+            if ($posts) {
+                $data = []; // Initialize an array to hold all user data
+
+
+                $user_id = $id;
+                $user = new UserModel();
+                $Hdata = $user->getHUserData($user_id);
+
+                $profile = new ProfileModel();
+                $post1 = $profile->findByUId($user_id);
+                $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
+                $baseUrl = str_replace('/public/', '/', $baseUrl);
+
+                if ($post1 !== null) {
+                    $resume1 = $post1['image_path'];
+                    $existingFilePath = WRITEPATH . $resume1;
+
+                    if (file_exists($existingFilePath)) {
+                        $user_img = $baseUrl . 'writable' . $resume1;
+                    } else {
+                        $user_img = $baseUrl . 'images/user_img.png';
+                    }
+                } else {
+                    $user_img = $baseUrl . 'public/images/user_img.png';
+                }
+
+                
+
+                // Construct user data array
+                $data[] = [
+
+                    'user_id' => $user_id,
+                    'hoteler_data' => $Hdata,
+                    'user_img' => $user_img,
+
+                ];
+
+
+                return $this->getResponse(
+                    [
+                        'message' => 'hoteleor retrieved successfully',
                         'Job' => $data,
                         'status' => 'success'
                     ]
