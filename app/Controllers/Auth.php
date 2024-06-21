@@ -192,7 +192,7 @@ class Auth extends BaseController
 
         if ($user == 0) {
 
-            $snew = $model->save($input['mobile_number']);
+            $snew = $model->save($input);
             // echo "<pre>"; print_r($snew); echo "</pre>";
 
             $foruid = $model->findUserByUserNumber($input['mobile_number']);

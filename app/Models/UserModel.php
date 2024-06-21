@@ -282,11 +282,16 @@ class UserModel extends Model
     public function save($data): bool
     {
 
-        $mobile_number = $data;
+        $mobile_number = $data['mobile_number'];
         // echo "<pre>"; print_r($mobile_number); echo "</pre>";
         // die();
         $status = "Enable";
-        $work_ex = "fresher";
+        if($data['role'] == 'Employers'){
+            $work_ex = "hotel";
+        }else{
+            $work_ex = "fresher";
+        }
+   
         $points = '0';
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');

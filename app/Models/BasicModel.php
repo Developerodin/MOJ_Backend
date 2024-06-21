@@ -46,7 +46,7 @@ class BasicModel extends Model
     {
 
         $data['user_pro'] = $this->getHProfileEmptyFields($user_id);
-        
+
         $data['user_img'] = $this->getUserImgEmptyFields($user_id);
         $data['users'] = 0;
 
@@ -77,13 +77,13 @@ class BasicModel extends Model
                     'SUM(CASE WHEN state IS NULL OR state = "" THEN 1 ELSE 0 END) AS state_empty',
                     'SUM(CASE WHEN pin_code IS NULL THEN 1 ELSE 0 END) AS pin_code_empty',
                     'SUM(CASE WHEN city IS NULL OR city = "" THEN 1 ELSE 0 END) AS city_empty',
-                    'SUM(CASE WHEN role IS NULL OR role = "" THEN 1 ELSE 0 END) AS role_empty',                 
+                    'SUM(CASE WHEN role IS NULL OR role = "" THEN 1 ELSE 0 END) AS role_empty',
                     'SUM(CASE WHEN country IS NULL OR country = "" THEN 1 ELSE 0 END) AS country_empty',
                     'SUM(CASE WHEN gst_number IS NULL OR gst_number = "" THEN 1 ELSE 0 END) AS gst_number_empty',
                     'SUM(CASE WHEN gst_name IS NULL OR gst_name = "" THEN 1 ELSE 0 END) AS gst_name_empty',
                     'SUM(CASE WHEN reg_email IS NULL OR reg_email = "" THEN 1 ELSE 0 END) AS reg_email_empty',
                     'SUM(CASE WHEN reg_hadd IS NULL OR reg_hadd = "" THEN 1 ELSE 0 END) AS reg_hadd_empty',
-               
+
                 ])
                 ->where('user_id', $user_id)
                 ->get();
@@ -203,41 +203,59 @@ class BasicModel extends Model
     }
     public function getUserWorkEmptyFields($user_id)
     {
-        $builder = $this->db->table('working_experiences');
-        $builder->select('*'); // Use '*' to select all columns
-        $builder->where('working_experiences.user_id', $user_id);
-        $userData = $builder->get()->getRow();
-        //  print_r($userData);
-        if ($userData) {
-            $query = $this->db->table('working_experiences')
-                ->select([
-                    'id', // Include the 'id' field
-                    'SUM(CASE WHEN organisation IS NULL OR organisation = "" THEN 1 ELSE 0 END) AS organisation_empty',
-                    'SUM(CASE WHEN designation IS NULL OR designation = "" THEN 1 ELSE 0 END) AS designation_empty',
-                    'SUM(CASE WHEN ref_mobile IS NULL OR ref_mobile = "" THEN 1 ELSE 0 END) AS ref_mobile_empty',
-                    'SUM(CASE WHEN ref_email IS NULL OR ref_email = "" THEN 1 ELSE 0 END) AS ref_email_empty',
-                    'SUM(CASE WHEN profile IS NULL OR profile = "" THEN 1 ELSE 0 END) AS profile_empty',
-                    'SUM(CASE WHEN location IS NULL OR location = "" THEN 1 ELSE 0 END) AS location_empty',
-                    'SUM(CASE WHEN start_date IS NULL OR start_date = "" THEN 1 ELSE 0 END) AS start_date_empty',
-                    'SUM(CASE WHEN end_date IS NULL OR end_date = "" THEN 1 ELSE 0 END) AS end_date_empty',
-                    'SUM(CASE WHEN created_at IS NULL OR created_at = "" THEN 1 ELSE 0 END) AS created_at_empty',
-                    'SUM(CASE WHEN updated_at IS NULL OR updated_at = "" THEN 1 ELSE 0 END) AS updated_at_empty'
-                ])
-                ->where('user_id', $user_id)
-                ->get();
 
-            $result = $query->getRow();
+        $builder = $this->db->table('users');
+        $builder->select('*');
+        $builder->where('id', $user_id);
+        $userQuery = $builder->get();
+        $user = $userQuery->getRowArray();
 
-            // Debugging: Print the result of the query
-            // print_r($result);
-            foreach ($result as $property => $value) {
-                if ($value == 1) {
-                    return 1;
-                }
-            }
+        // print_r($user);
+        // die();
+        // Check if the user is a fresher
+        if ($user['work_ex'] == 'fresher') {
             return 0;
-        } else {
-            return 1;
+        } elseif ($user['work_ex'] == 'experienced') {
+
+            $builder = $this->db->table('working_experiences');
+            $builder->select('*'); // Use '*' to select all columns
+            $builder->where('working_experiences.user_id', $user_id);
+            $userData = $builder->get()->getRow();
+
+
+            if ($userData) {
+
+
+                $query = $this->db->table('working_experiences')
+                    ->select([
+                        'id', // Include the 'id' field
+                        'SUM(CASE WHEN organisation IS NULL OR organisation = "" THEN 1 ELSE 0 END) AS organisation_empty',
+                        'SUM(CASE WHEN designation IS NULL OR designation = "" THEN 1 ELSE 0 END) AS designation_empty',
+                        'SUM(CASE WHEN ref_mobile IS NULL OR ref_mobile = "" THEN 1 ELSE 0 END) AS ref_mobile_empty',
+                        'SUM(CASE WHEN ref_email IS NULL OR ref_email = "" THEN 1 ELSE 0 END) AS ref_email_empty',
+                        'SUM(CASE WHEN profile IS NULL OR profile = "" THEN 1 ELSE 0 END) AS profile_empty',
+                        'SUM(CASE WHEN location IS NULL OR location = "" THEN 1 ELSE 0 END) AS location_empty',
+                        'SUM(CASE WHEN start_date IS NULL OR start_date = "" THEN 1 ELSE 0 END) AS start_date_empty',
+                        'SUM(CASE WHEN end_date IS NULL OR end_date = "" THEN 1 ELSE 0 END) AS end_date_empty',
+                        'SUM(CASE WHEN created_at IS NULL OR created_at = "" THEN 1 ELSE 0 END) AS created_at_empty',
+                        'SUM(CASE WHEN updated_at IS NULL OR updated_at = "" THEN 1 ELSE 0 END) AS updated_at_empty'
+                    ])
+                    ->where('user_id', $user_id)
+                    ->get();
+
+                $result = $query->getRow();
+
+                // Debugging: Print the result of the query
+                // print_r($result);
+                foreach ($result as $property => $value) {
+                    if ($value == 1) {
+                        return 1;
+                    }
+                }
+                return 0;
+            } else {
+                return 1;
+            }
         }
         // echo "test";
 
@@ -248,6 +266,8 @@ class BasicModel extends Model
         $builder->select('*');
         $builder->where('job_pref_user.user_id', $user_id);
         $userData = $builder->get()->getRow();
+
+
 
         if (!$userData) {
             return 1; // No user data found
@@ -482,4 +502,3 @@ class BasicModel extends Model
         }
     }
 }
-
