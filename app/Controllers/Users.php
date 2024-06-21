@@ -85,30 +85,56 @@ class Users extends BaseController
     }
     public function ref_update($id)
     {
+        // Get the input data from the request
         $input = $this->getRequestInput($this->request);
 
+        // Initialize the model
         $model = new UserModel();
-        $data = $model->update_ref($id,$input);
 
-        if ($data == null) {
-            $response =
-                $this->response->setStatusCode(200)->setBody(' No Data found');
-            return $response;
-        } else {
-            return $this
-                ->getResponse(
-                    [
-                        'message' => 'Data found successfully ',
-                        'data' => $data,
-                        'status' => 'success'
+        // Find the user by ID
+        $user = $model->findUserById($id);
 
-                    ]
-                );
+        if (!$user) {
+            // If user not found, return a 404 response
+            return $this->getResponse(
+                [
+                    'message' => 'User not found',
+                    'status' => 'error'
+                ],
+                404
+            );
         }
+
+        // Update the user's points
+        $data['point'] = $user['points'] + $input['point'];
+
+        // Update the user in the database
+        $updateResult = $model->update_ref($id, $data);
+
+        if ($updateResult === false) {
+            // If the update failed, return a 500 response
+            return $this->getResponse(
+                [
+                    'message' => 'Failed to update user points',
+                    'status' => 'error'
+                ],
+                500
+            );
+        }
+
+        // Return a success response
+        return $this->getResponse(
+            [
+                'message' => 'User points updated successfully',
+                'data' => $data,
+                'status' => 'success'
+            ],
+            200
+        );
     }
     public function ref_point($id)
     {
-        
+
 
         $model = new UserModel();
         $data = $model->findUserById($id);
@@ -563,8 +589,3 @@ class Users extends BaseController
 
 
 }
-
-
-
-
-
