@@ -230,11 +230,13 @@ class BasicModel extends Model
                     ->select([
                         'id', // Include the 'id' field
                         'SUM(CASE WHEN organisation IS NULL OR organisation = "" THEN 1 ELSE 0 END) AS organisation_empty',
-                        'SUM(CASE WHEN designation IS NULL OR designation = "" THEN 1 ELSE 0 END) AS designation_empty',
+                        'SUM(CASE WHEN sub_department IS NULL OR sub_department = "" THEN 1 ELSE 0 END) AS sub_department_empty',
                         'SUM(CASE WHEN ref_mobile IS NULL OR ref_mobile = "" THEN 1 ELSE 0 END) AS ref_mobile_empty',
                         'SUM(CASE WHEN ref_email IS NULL OR ref_email = "" THEN 1 ELSE 0 END) AS ref_email_empty',
                         'SUM(CASE WHEN profile IS NULL OR profile = "" THEN 1 ELSE 0 END) AS profile_empty',
-                        'SUM(CASE WHEN location IS NULL OR location = "" THEN 1 ELSE 0 END) AS location_empty',
+                        'SUM(CASE WHEN state IS NULL OR state = "" THEN 1 ELSE 0 END) AS state_empty',
+                        'SUM(CASE WHEN city IS NULL OR city = "" THEN 1 ELSE 0 END) AS city_empty',
+                        'SUM(CASE WHEN department IS NULL OR department = "" THEN 1 ELSE 0 END) AS department_empty',
                         'SUM(CASE WHEN start_date IS NULL OR start_date = "" THEN 1 ELSE 0 END) AS start_date_empty',
                         'SUM(CASE WHEN end_date IS NULL OR end_date = "" THEN 1 ELSE 0 END) AS end_date_empty',
                         'SUM(CASE WHEN created_at IS NULL OR created_at = "" THEN 1 ELSE 0 END) AS created_at_empty',

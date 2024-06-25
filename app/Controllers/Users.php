@@ -161,7 +161,7 @@ class Users extends BaseController
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
-        $required_fields = ['user_id', 'organisation', 'designation', 'profile', 'location', 'start_date', 'end_date'];
+        $required_fields = ['user_id', 'organisation', 'department', 'profile', 'sub_department', 'start_date', 'end_date'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
@@ -173,11 +173,13 @@ class Users extends BaseController
         $data = [
             'user_id' => $input['user_id'],
             'organisation' => $input['organisation'],
-            'designation' => $input['designation'],
+            'state' => $input['state'],
+            'city' => $input['city'],
+            'department' => $input['department'],
             'ref_mobile' => $input['ref_mob'],
             'ref_email' => $input['ref_email'],
             'profile' => $input['profile'],
-            'location' => $input['location'],
+            'sub_department' => $input['sub_department'],
             'start_date' => $input['start_date'],
             'end_date' => $input['end_date']
         ];
@@ -211,7 +213,7 @@ class Users extends BaseController
         $input = $this->getRequestInput($this->request);
         // echo "<pre>"; print_r($input); echo "</pre>";
         // die();
-        $required_fields = ['organisation', 'designation', 'profile', 'location', 'start_date', 'end_date'];
+        $required_fields = ['organisation', 'department', 'profile', 'sub_department', 'start_date', 'end_date'];
         foreach ($required_fields as $field) {
             if (!isset($input[$field]) || empty($input[$field])) {
                 return "Error: Missing required field '$field'";
@@ -223,11 +225,11 @@ class Users extends BaseController
             'id' => $id,
             'user_id' => $input['user_id'],
             'organisation' => $input['organisation'],
-            'designation' => $input['designation'],
+            'department' => $input['department'],
             'ref_mobile' => $input['ref_mob'],
             'ref_email' => $input['ref_email'],
             'profile' => $input['profile'],
-            'location' => $input['location'],
+            'sub_department' => $input['sub_department'],
             'start_date' => $input['start_date'],
             'end_date' => $input['end_date']
         ];
