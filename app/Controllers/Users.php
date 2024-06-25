@@ -229,6 +229,8 @@ class Users extends BaseController
             'ref_mobile' => $input['ref_mob'],
             'ref_email' => $input['ref_email'],
             'profile' => $input['profile'],
+            'state' => $input['state'],
+            'city' => $input['city'],
             'sub_department' => $input['sub_department'],
             'start_date' => $input['start_date'],
             'end_date' => $input['end_date']

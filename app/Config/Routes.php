@@ -64,6 +64,7 @@ $routes->post('/users/status_d/(:num)', 'Users::status_d_update/$1');
 
 // Job  
 $routes->get('/job', 'Job::index');
+$routes->post('/job/user_prf/(:num)', 'Job::job_prf/$1');
 $routes->post('/job/store', 'Job::store');
 $routes->post('/job/Byid/(:num)','Job::show/$1');
 $routes->post('/job/Byuserid/(:num)','Job::user_show/$1');
