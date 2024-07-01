@@ -217,8 +217,16 @@ class Auth extends BaseController
 
                 $user1 = $model->save_hprofile($data);
                 $userd = $model->getHUserData($data['user_id']);
-                $userd = $model->getHUserData($data['user_id']);
-            } else {
+             
+            } elseif($input['role'] == 'Agent'){
+
+                $data = $input;
+                $data['user_id'] = $foruid['id'];
+
+                $user1 = $model->save_Aprofile($data);
+                $userd = $model->getAUserData($data['user_id']);
+                
+            }else {
 
                 $data = $input;
                 $data['user_id'] = $foruid['id'];
