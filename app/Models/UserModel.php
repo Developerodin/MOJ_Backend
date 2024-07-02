@@ -184,7 +184,28 @@ class UserModel extends Model
     }
 
 
+    public function getUserAData($userId)
+    {
 
+        $builder = $this->db->table('agent');
+        $builder->select(' agent.*');
+
+        $builder->where('agent.user_id', $userId);
+        $query = $builder->get();
+        // Get the result
+        $user = $query->getResult();
+
+        // echo "<pre>";
+        // print_r($user[0]);
+        // echo "</pre>";
+        // die();
+        // Check if user data is found
+        if (!$user) {
+            return null;
+        } else {
+            return $user[0];
+        }
+    }
 
     public function findUserByUserNumber1(string $mobile_number)
     {
@@ -501,6 +522,58 @@ class UserModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
         $sql = "INSERT INTO `hoteliers` (`user_id`,`name`,`location`,`email`,`address`,`state`,`pin_code`,`city`,`role`,`country`,`gst_number`,`gst_name`, `reg_email`,`reg_hadd`,`created_at`,`updated_at`) VALUES ('$user_id','$name','$location','$email','$address','$state','$pin_code','$city','$role','$country','$gst_number','$gst_name','$reg_email','$reg_hadd','$date1','$date1')";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
+    public function save_Aprofile($data)
+    {
+         //echo json_encode($data);
+
+        $user_id = $data['user_id']; $name = $data['name'];
+        $gender = $data['gender']; $email = $data['email'];
+        $address = $data['address'];$state = $data['state'];
+        $city = $data['city']; $pin_code = $data['pin_code'];
+        $role = $data['role']; $dob = $data['dob'];
+        $gst_number = $data['gst_number']; $gst_name = $data['gst_name'];
+        
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date1 = date("m-d-Y h:i A");
+        $sql = "INSERT INTO `agent` (`user_id`,`name`,`gender`,`email`,`address`,`state`,`pin_code`,`city`,`role`,`dob`,`gst_number`,`gst_name`, `created_at`,`updated_at`) VALUES ('$user_id','$name','$gender','$email','$address','$state','$pin_code','$city','$role','$dob','$gst_number','$gst_name','$date1','$date1')";
+        // echo json_encode($sql);
+        // echo json_encode($data);
+        //     die();
+        $post = $this->db->query($sql);
+
+        if (!$post) {
+            return false;
+        } else {
+            return $post;
+        }
+    }
+    public function update_Aprofile($id,$data)
+    {
+         //echo json_encode($data);
+
+        $user_id = $id; $name = $data['name'];
+        $gender = $data['gender']; $email = $data['email'];
+        $address = $data['address'];$state = $data['state'];
+        $city = $data['city']; $pin_code = $data['pin_code'];
+        $role = $data['role']; $dob = $data['dob'];
+        $gst_number = $data['gst_number']; $gst_name = $data['gst_name'];
+        
+        $date = new DateTime();
+        $date = date_default_timezone_set('Asia/Kolkata');
+        $date1 = date("m-d-Y h:i A");
+        $sql = "UPDATE `agent` SET `name`='$name',`gender`='$gender',`email`='$email',`address`='$address',`state`='$state',`pin_code`='$pin_code',`city`='$city',`role`='$role',`dob`='$dob',`gst_number`='$gst_number',`gst_name`='$gst_name',`updated_at`='$date1' WHERE user_id =$id ";
         // echo json_encode($sql);
         // echo json_encode($data);
         //     die();

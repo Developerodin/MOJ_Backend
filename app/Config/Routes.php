@@ -58,6 +58,11 @@ $routes->get('user_delete/(:num)','Users::user_del/$1');
 $routes->post('/auth/user_refer/(:num)','Users::ref_update/$1');
 $routes->post('/auth/points/(:num)','Users::ref_point/$1');
 
+// agent
+
+$routes->post('/auth/agent_update','Auth::Auser_update');
+
+
 // status update
 $routes->post('/users/status_e/(:num)', 'Users::status_e_update/$1');
 $routes->post('/users/status_d/(:num)', 'Users::status_d_update/$1');

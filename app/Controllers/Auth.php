@@ -66,15 +66,9 @@ class Auth extends BaseController
     public function otp($data)
     {
         $mobileNumber = $data;
-        // echo $mobileNumber;
-        // Generate OTP
-        // Generate OTP
+        
         $otp1 = '123456';
-        // $otp1 = 'mt_rand(100000, 999999)';
-
-        // Save OTP to the user's session
-
-
+      
         $otp_time = time();
         $this->session->set('otp', $otp1);
         $this->session->set('otp_time', $otp_time);
@@ -114,9 +108,7 @@ class Auth extends BaseController
 
         // Close cURL session
         curl_close($ch);
-        // print_r($response);
-        // die();
-        // Check response and handle errors if necessary
+       
         if ($response === false) {
             return ['success' => false, 'error' => 'Failed to send GET request'];
         } else {
@@ -138,31 +130,15 @@ class Auth extends BaseController
         $sentOTP = '123456';
 
         $otpTime = $this->session->get('otp_time');
-        // $mobile = $this->session->get('mobile');
-        // echo $sentOTP;
-        // echo "yes";
-        // if (time() - $otpTime > 5 * 60) {
-        //     // OTP expired, clear session variables and return false
-        //     $this->session->remove('otp_time'); // Remove the 'otp_time' session variable
-        //     $this->session->remove('otp'); // Remove the 'otp_code' session variable
-        //     return false;
-        // }
-        //    echo "yes";
-        // echo "send = ".$sentOTP . "get = ".$userOTP;
-        // Compare the user-provided OTP with the one stored in the session
+        
         if ($userOTP == $sentOTP) {
-            // OTP matches, return true
-            // return true;
-            // echo "prr";
+            
             $model = new UserModel();
 
             $user = $model->findUserByUserNumber1($input['mobile_number']);
 
             if ($user == 0) {
-                // echo "<pre>";
-                // print_r($user);
-                // echo "</pre>";
-                // die();
+               
                 $response = $this->response->setStatusCode(200)->setBody('user not found');
                 return $response;
             } else {
@@ -341,20 +317,45 @@ class Auth extends BaseController
             $input = $this->getRequestInput($this->request);
 
             $id = $input['user_id'];
-            // $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email', 'state', 'city', 'country', 'created_at'];
-            // foreach ($required_fields as $field) {
-            //     if (!isset($input[$field]) || empty($input[$field])) {
-            //         return "Error: Missing required field '$field'";
-            //     }
-            // }
+            
             $model->update_hprofile($id, $input);
         
             $post = $model->getHUserData($id);
-//    print_r($post);
-//             die();
+
             return $this->getResponse(
                 [
                     'message' => 'hotelior updaetd successfully',
+                    'user' => $post,
+                    'status' => 'success',
+                ]
+            );
+        } catch (Exception $exception) {
+
+            return $this->getResponse(
+                [
+                    'message' => $exception->getMessage()
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function Auser_update()
+    {
+
+        try {
+            $model = new UserModel();
+
+            $input = $this->getRequestInput($this->request);
+
+            $id = $input['user_id'];
+            
+            $model->update_Aprofile($id, $input);
+        
+            $post = $model->getUserAData($id);
+
+            return $this->getResponse(
+                [
+                    'message' => 'Agent updaetd successfully',
                     'user' => $post,
                     'status' => 'success',
                 ]
@@ -405,6 +406,12 @@ class Auth extends BaseController
             if ($userd == null) {
                 $userd = $model->getUserHData($user['id']);
             }
+
+            if ($userd == null) {
+                $userd = $model->getUserAData($user['id']);
+            }
+
+
             $model11 = new JobModel();
 
             // if($userd['role'] == 'Hoteliers'){
