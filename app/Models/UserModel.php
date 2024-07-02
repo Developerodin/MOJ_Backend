@@ -132,6 +132,24 @@ class UserModel extends Model
         }
    
 }
+    public function getAUserData($userId)
+{
+    $builder = $this->db->table('agent');
+        $builder->select('agent.*');
+
+        $builder->where('agent.user_id', $userId);
+        $query = $builder->get();
+
+        $user = $query->getResult();
+
+
+        if (!$user) {
+            return null;
+        } else {
+            return $user[0];
+        }
+   
+}
     public function getAllUserData()
     {
         $builder = $this->db->table('users');
