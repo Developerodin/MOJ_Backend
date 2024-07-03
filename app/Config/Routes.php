@@ -61,6 +61,7 @@ $routes->post('/auth/points/(:num)','Users::ref_point/$1');
 // agent
 
 $routes->post('/auth/agent_update','Auth::Auser_update');
+$routes->post('/auth/agent_post','A_post::Auser_update');
 
 
 // status update
