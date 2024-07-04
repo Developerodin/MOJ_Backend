@@ -61,7 +61,11 @@ $routes->post('/auth/points/(:num)','Users::ref_point/$1');
 // agent
 
 $routes->post('/auth/agent_update','Auth::Auser_update');
-$routes->post('/auth/agent_post','A_post::');
+$routes->post('/auth/agent_post/store','A_post::store');
+$routes->post('/auth/agent_post/show_byid/(:num)','A_post::show/$1');
+$routes->post('/auth/agent_post/show_byuser_id/(:num)','A_post::user_show/$1');
+$routes->post('/auth/agent_post/update/(:num)','A_post::update/$1');
+$routes->post('/auth/agent_post/destroy/(:num)','A_post::destroy/$1');
 
 
 // status update
