@@ -61,6 +61,7 @@ $routes->post('/auth/points/(:num)','Users::ref_point/$1');
 // agent
 
 $routes->post('/auth/agent_update','Auth::Auser_update');
+$routes->get('/auth/agent_get','Job_Apply:Auser_get');
 $routes->post('/auth/agent_post/store','A_post::store');
 $routes->post('/auth/agent_post/show_byid/(:num)','A_post::show/$1');
 $routes->post('/auth/agent_post/show_byuser_id/(:num)','A_post::user_show/$1');

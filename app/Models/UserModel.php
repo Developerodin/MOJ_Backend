@@ -71,6 +71,20 @@ class UserModel extends Model
         $result = $user;
         return $result;
     }
+    public function get_auser()
+    {
+        // echo "test";
+        $builder = $this->db->table('users');
+        $builder->select(' users.*');
+        $builder->where('users.role', 'Agent');
+
+        $query = $builder->get();
+
+        $user = $query->getResult();
+
+        $result = $user;
+        return $result;
+    }
 
     public function getby_id_data($userId)
     {
@@ -114,6 +128,7 @@ class UserModel extends Model
             return $user[0];
         }
     }
+    
     public function getHUserData($userId)
 {
     $builder = $this->db->table('hoteliers');
@@ -269,6 +284,7 @@ class UserModel extends Model
             return $user;
         }
     }
+    
 
     public function findAll(int $limit = 0, int $offset = 0)
     {

@@ -425,6 +425,72 @@ if($post4){
             );
         }
     }
+    public function Auser_get()
+    {
+        try {
+            $user = new UserModel();
+            $posts = $user->get_auser(); // Find all users
+    
+            if ($posts) {
+                $data = []; // Initialize an array to hold all user data
+                $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
+                $baseUrl = str_replace('/public/', '/', $baseUrl);
+    
+                foreach ($posts as $post) {
+                    $user_id = $post['id'];
+    
+                    // Get user data
+                    $udata = $user->getAUserData($user_id);
+    
+                    // Get profile image
+                    $profile = new ProfileModel();
+                    $post1 = $profile->findByUId($user_id);
+                    if ($post1 !== null) {
+                        $resume1 = $post1['image_path'];
+                        $existingFilePath = WRITEPATH . $resume1;
+    
+                        if (file_exists($existingFilePath)) {
+                            $user_img = $baseUrl . 'writable' . $resume1;
+                        } else {
+                            $user_img = $baseUrl . 'images/user_img.png';
+                        }
+                    } else {
+                        $user_img = $baseUrl . 'public/images/user_img.png';
+                    }
+    
+    
+                    // Construct user data array
+                    $data[] = [
+                        'user_id' => $user_id,
+                        'user' => $udata,
+                        'user_img' => $user_img
+                    ];
+                }
+    
+                return $this->getResponse(
+                    [
+                        'message' => 'Agents retrieved successfully',
+                        'Job' => $data,
+                        'status' => 'success'
+                    ]
+                );
+            } else {
+                return $this->getResponse(
+                    [
+                        'message' => 'No users found'
+                    ],
+                    ResponseInterface::HTTP_NOT_FOUND
+                );
+            }
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not retrieve users'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
     
     public function all_data_Huser($id)
     {
