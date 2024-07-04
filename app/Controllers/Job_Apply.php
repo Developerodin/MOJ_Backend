@@ -428,9 +428,12 @@ if($post4){
     public function Auser_get()
     {
         try {
+      
             $user = new UserModel();
+       
             $posts = $user->get_auser(); // Find all users
-    
+    print_r($posts);
+    die();
             if ($posts) {
                 $data = []; // Initialize an array to hold all user data
                 $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration

@@ -76,7 +76,7 @@ class UserModel extends Model
         // echo "test";
         $builder = $this->db->table('users');
         $builder->select(' users.*');
-        $builder->where('users.role', 'Agent');
+        $builder->where('users.work_ex', 'Agent');
 
         $query = $builder->get();
 
@@ -343,6 +343,8 @@ class UserModel extends Model
         $status = "Enable";
         if($data['role'] == 'Employers'){
             $work_ex = "hotel";
+        }elseif($data['role'] == 'Agent'){
+            $work_ex = "Agent";
         }else{
             $work_ex = "fresher";
         }
