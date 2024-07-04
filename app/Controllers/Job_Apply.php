@@ -432,19 +432,26 @@ if($post4){
             $user = new UserModel();
        
             $posts = $user->get_auser(); // Find all users
-    print_r($posts);
-    die();
+    //         echo "<pre>";
+    // print_r($posts);
+    // echo "</pre>";
+    // die();
             if ($posts) {
                 $data = []; // Initialize an array to hold all user data
                 $baseUrl = base_url(); // Assuming you have configured the base URL in your CodeIgniter configuration
                 $baseUrl = str_replace('/public/', '/', $baseUrl);
     
                 foreach ($posts as $post) {
-                    $user_id = $post['id'];
-    
+    //                          echo "<pre>";
+    // print_r($post);
+    // echo "</pre>";
+    // die();
+                    $user_id = $post->id;
+    // echo "test";
+    // die();
                     // Get user data
                     $udata = $user->getAUserData($user_id);
-    
+
                     // Get profile image
                     $profile = new ProfileModel();
                     $post1 = $profile->findByUId($user_id);
