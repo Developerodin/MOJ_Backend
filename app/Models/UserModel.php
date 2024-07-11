@@ -820,9 +820,7 @@ class UserModel extends Model
         $doc_degree = $data['doc_degree'];
         $doc_university = $data['doc_university'];
         $doc_year = $data['doc_year'];
-        $doc_degree = $data['doc_degree'];
-        $doc_university = $data['doc_university'];
-        $doc_year = $data['doc_year'];
+       
 
         $hotel_de = $data['hotel_de'];
         $h_college = $data['h_college'];
