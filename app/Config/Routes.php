@@ -180,6 +180,7 @@ $routes->post('/basic/city_by_state/(:num)','Basic::city_by_state/$1');  // all 
 
 $routes->post('/basic/profile_health_userid/(:num)','Basic::getUserProfileEmptyFields/$1');  // all state
 $routes->post('/basic/Hotelprofile_health_userid/(:num)','Basic::getHProfileEmptyFields/$1');  //profile helth
+$routes->post('/basic/Agentprofile_health_userid/(:num)','Basic::getAProfileEmptyFields/$1');  //profile helth
 
 /*
  * --------------------------------------------------------------------

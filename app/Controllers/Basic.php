@@ -35,6 +35,19 @@ class Basic extends BaseController
             ]
         );
     }
+    public function getAProfileEmptyFields($user_id)
+    {
+        $model = new BasicModel();
+
+        $post = $model->getAEmptyFields($user_id);
+        return $this->getResponse(
+            [
+                'message' => 'Details retrieved successfully',
+                'post' => $post,
+                'status' => 'success',
+            ]
+        );
+    }
     public function get()
     {
         $model = new BasicModel();
