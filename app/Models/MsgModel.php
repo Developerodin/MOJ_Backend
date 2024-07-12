@@ -142,6 +142,8 @@ class MsgModel extends Model
         $sender_id = $data['sender_id'];
         // $Hotel_name = $data['Hotel_name'];
         $receiver_id = $data['receiver_id'];
+        $receiver_role = $data['receiver_role'];
+        $sender_role = $data['sender_role'];
         $message_content = $data['message_content'];
         
     
@@ -149,7 +151,7 @@ class MsgModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
 
         $date1 = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `messages`( `sender_id`,`receiver_id`, `message_content`, `sent_at`) VALUES ('$sender_id','$receiver_id','$message_content','$date1')";
+        $sql = "INSERT INTO `messages`( `sender_id`,`receiver_id`,`sender_role`,`receiver_role`, `message_content`, `sent_at`) VALUES ('$sender_id','$receiver_id','$sender_role','$receiver_role','$message_content','$date1')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
