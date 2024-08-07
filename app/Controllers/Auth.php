@@ -67,19 +67,19 @@ class Auth extends BaseController
     {
         $mobileNumber = $data;
         
+        // $otp1 = rand('000000', '999999');
         $otp1 = '123456';
-      
-        $otp_time = time();
-        $this->session->set('otp', $otp1);
-        $this->session->set('otp_time', $otp_time);
-        $this->session->set('mobile', $mobileNumber);
-        // // var_dump($_SESSION);
+        // $this->session->set('otp-' . $mobileNumber, $otp1);
+     
 
         $url = 'https://www.fast2sms.com/dev/bulkV2';
         $apiKey = 'fXeO8yi0IF29xhjVN5LTB6slYdRrEkSJv3ZtWcMHaoqbPDuAUmLuihz0I8CkVM34y7KJxEeGlFBsSvQt';
         $otp = $otp1;
         $mobileNumber1 = $mobileNumber;
-        $route = 'otp';
+        $route = 'dlt';
+        $sender_id = 'JOBMOJ';
+        $message = '171550';
+
         $variablesValues = $otp;
         $flash = '0';
 
@@ -88,6 +88,8 @@ class Auth extends BaseController
             '&route=' . urlencode($route) .
             '&variables_values=' . urlencode($variablesValues) .
             '&flash=' . urlencode($flash) .
+            '&sender_id='.urlencode($sender_id) .
+            '&message='.urlencode($message) .
             '&numbers=' . urlencode($mobileNumber1);
 
         // Initialize cURL session
@@ -125,16 +127,25 @@ class Auth extends BaseController
 
         $sentMobile = $input['mobile_number'];
 
-        // Get the OTP and its creation time from the session
-        // $sentOTP = $this->session->get('otp');
-        $sentOTP = '123456';
+        $ot = 'otp-' . $sentMobile;
 
-        $otpTime = $this->session->get('otp_time');
-        
+    // Get the OTP and its creation time from the session
+    // $sentOTP = $this->session->get($ot);
+    $sentOTP = '123456';
+
+   // Debugging: Check if OTP is retrieved correctly
+    // if ($sentOTP === null) {
+    //     echo "No OTP found in session for mobile number: " . $sentMobile;
+    //     die();
+    // } else {
+    //     echo "Retrieved OTP: " . $sentOTP;
+    //     echo "Sent: " . $userOTP;
+    //     die();
+    // }
         if ($userOTP == $sentOTP) {
             
             $model = new UserModel();
-
+            $this->session->remove($ot);
             $user = $model->findUserByUserNumber1($input['mobile_number']);
 
             if ($user == 0) {
