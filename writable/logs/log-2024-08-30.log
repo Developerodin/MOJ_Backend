@@ -1,0 +1,27 @@
+CRITICAL - 2024-08-30 10:56:46 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 ROOTPATH\spark(83): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2024-08-30 16:24:52 --> Cannot access offset of type string on string
+in APPPATH\Models\UserModel.php on line 461.
+ 1 APPPATH\Controllers\Auth.php(340): App\Models\UserModel->update_ref('121', '10')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->user_updateaa()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-08-30 16:25:17 --> Cannot access offset of type string on string
+in APPPATH\Models\UserModel.php on line 461.
+ 1 APPPATH\Controllers\Auth.php(340): App\Models\UserModel->update_ref('106', '10')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->user_updateaa()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-08-30 16:26:26 --> Cannot access offset of type string on string
+in APPPATH\Models\UserModel.php on line 461.
+ 1 APPPATH\Controllers\Auth.php(344): App\Models\UserModel->update_ref('106', '10')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Auth->user_updateaa()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')

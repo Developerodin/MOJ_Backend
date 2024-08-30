@@ -413,7 +413,7 @@ class UserModel extends Model
         $state = $data['state'];
         $city = $data['city'];
         $country = $data['country'];
-        $created_at = $data['created_at'];
+       
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
@@ -421,7 +421,7 @@ class UserModel extends Model
         $sql = "UPDATE `user_profiles` SET 
         `pin_code` = '$pin_code',       `address` = '$address',
         `dob` = '$dob',
-        `name`='$name',`last_name`='$last_name',`gender`='$gender',`email`='$email',`state`='$state',`city`='$city',`country`='$country',`created_at`='$created_at',`updated_at`='$date1' WHERE user_id = $user_id";
+        `name`='$name',`last_name`='$last_name',`gender`='$gender',`email`='$email',`state`='$state',`city`='$city',`country`='$country',`updated_at`='$date1' WHERE user_id = $user_id";
         // echo json_encode($sql);
         // echo ( $sql);
         //     die();

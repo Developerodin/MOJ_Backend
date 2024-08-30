@@ -50,6 +50,7 @@ $routes->post('/users/work_exp', 'Users::work_ex');
 $routes->post('/auth/verify_otp/(:num)', 'Auth::verifyOTP/$1');
 $routes->post('/auth/register', 'Auth::register');
 $routes->post('/auth/user_update','Auth::user_update');
+$routes->post('/auth/adminuser_update','Auth::user_updateaa');
 $routes->post('/auth/hotelior_update','Auth::Huser_update');
 $routes->post('/all_user_data/(:num)','Job_Apply::all_data_user/$1');
 $routes->get('/all_user_data_without_id','Job_Apply::all_user_data');

@@ -319,6 +319,51 @@ class Auth extends BaseController
             );
         }
     }
+    public function user_updateaa()
+    {
+
+        try {
+            $model = new UserModel();
+
+            $input = $this->getRequestInput($this->request);
+
+            $id = $input['user_id'];
+            $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email', 'state', 'city', 'country', 'points'];
+            foreach ($required_fields as $field) {
+                if (!isset($input[$field]) || empty($input[$field])) {
+                    return "Error: Missing required field '$field'";
+                }
+            }
+
+            $data['point'] = $input['points'];
+
+
+            $model->update_profile($id, $input);
+            
+
+            $model->update_ref($id, $data);
+//             echo "test";
+// die();
+            $post = $model->getUserData($id);
+   // Set a flash data message (if you want to use server-side redirect)
+   session()->setFlashdata('success', 'User updated successfully.');
+
+   // Redirect with JavaScript
+   echo "<script>
+       alert('User updated successfully.');
+       window.location.href = '/public/user-list#';
+   </script>";
+   exit;
+        } catch (Exception $exception) {
+
+            return $this->getResponse(
+                [
+                    'message' => $exception->getMessage()
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
     public function Huser_update()
     {
 
