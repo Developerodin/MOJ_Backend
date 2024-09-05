@@ -66,11 +66,11 @@ class Auth extends BaseController
     public function otp($data)
     {
         $mobileNumber = $data;
-        
-        // $otp1 = rand('000000', '999999');
-        $otp1 = '123456';
+
+        $otp1 = rand(100000, 999999);
+        // $otp1 = '123456';
         // $this->session->set('otp-' . $mobileNumber, $otp1);
-     
+
 
         $url = 'https://www.fast2sms.com/dev/bulkV2';
         $apiKey = 'fXeO8yi0IF29xhjVN5LTB6slYdRrEkSJv3ZtWcMHaoqbPDuAUmLuihz0I8CkVM34y7KJxEeGlFBsSvQt';
@@ -88,8 +88,8 @@ class Auth extends BaseController
             '&route=' . urlencode($route) .
             '&variables_values=' . urlencode($variablesValues) .
             '&flash=' . urlencode($flash) .
-            '&sender_id='.urlencode($sender_id) .
-            '&message='.urlencode($message) .
+            '&sender_id=' . urlencode($sender_id) .
+            '&message=' . urlencode($message) .
             '&numbers=' . urlencode($mobileNumber1);
 
         // Initialize cURL session
@@ -110,7 +110,7 @@ class Auth extends BaseController
 
         // Close cURL session
         curl_close($ch);
-       
+
         if ($response === false) {
             return ['success' => false, 'error' => 'Failed to send GET request'];
         } else {
@@ -126,30 +126,17 @@ class Auth extends BaseController
         $input = $this->getRequestInput($this->request);
 
         $sentMobile = $input['mobile_number'];
-
+        // $sentotp = $input['otp'];
         $ot = 'otp-' . $sentMobile;
-
-    // Get the OTP and its creation time from the session
-    // $sentOTP = $this->session->get($ot);
-    $sentOTP = '123456';
-
-   // Debugging: Check if OTP is retrieved correctly
-    // if ($sentOTP === null) {
-    //     echo "No OTP found in session for mobile number: " . $sentMobile;
-    //     die();
-    // } else {
-    //     echo "Retrieved OTP: " . $sentOTP;
-    //     echo "Sent: " . $userOTP;
-    //     die();
-    // }
+        $sentOTP = $input['otp'];
         if ($userOTP == $sentOTP) {
-            
+
             $model = new UserModel();
             $this->session->remove($ot);
             $user = $model->findUserByUserNumber1($input['mobile_number']);
 
             if ($user == 0) {
-               
+
                 $response = $this->response->setStatusCode(200)->setBody('user not found');
                 return $response;
             } else {
@@ -204,16 +191,14 @@ class Auth extends BaseController
 
                 $user1 = $model->save_hprofile($data);
                 $userd = $model->getHUserData($data['user_id']);
-             
-            } elseif($input['role'] == 'Agent'){
+            } elseif ($input['role'] == 'Agent') {
 
                 $data = $input;
                 $data['user_id'] = $foruid['id'];
 
                 $user1 = $model->save_Aprofile($data);
                 $userd = $model->getAUserData($data['user_id']);
-                
-            }else {
+            } else {
 
                 $data = $input;
                 $data['user_id'] = $foruid['id'];
@@ -339,21 +324,21 @@ class Auth extends BaseController
 
 
             $model->update_profile($id, $input);
-            
+
 
             $model->update_ref($id, $data);
-//             echo "test";
-// die();
+            //             echo "test";
+            // die();
             $post = $model->getUserData($id);
-   // Set a flash data message (if you want to use server-side redirect)
-   session()->setFlashdata('success', 'User updated successfully.');
+            // Set a flash data message (if you want to use server-side redirect)
+            session()->setFlashdata('success', 'User updated successfully.');
 
-   // Redirect with JavaScript
-   echo "<script>
-       alert('User updated successfully.');
-       window.location.href = '/public/user-list#';
-   </script>";
-   exit;
+            // Redirect with JavaScript
+            echo "<script>
+    alert('User updated successfully.');
+    window.location.href = '/public/user-list#';
+</script>";
+            exit;
         } catch (Exception $exception) {
 
             return $this->getResponse(
@@ -373,9 +358,9 @@ class Auth extends BaseController
             $input = $this->getRequestInput($this->request);
 
             $id = $input['user_id'];
-            
+
             $model->update_hprofile($id, $input);
-        
+
             $post = $model->getHUserData($id);
 
             return $this->getResponse(
@@ -404,9 +389,9 @@ class Auth extends BaseController
             $input = $this->getRequestInput($this->request);
 
             $id = $input['user_id'];
-            
+
             $model->update_Aprofile($id, $input);
-        
+
             $post = $model->getUserAData($id);
 
             return $this->getResponse(
@@ -537,4 +522,3 @@ class Auth extends BaseController
         }
     }
 }
-

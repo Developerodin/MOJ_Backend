@@ -147,6 +147,72 @@ class UserModel extends Model
         }
    
 }
+public function getrefData($refId)
+{
+    // Step 1: Find all users with the given ref_id.
+    $builder = $this->db->table('users');
+    $builder->select('*');
+    $builder->where('ref_id', $refId);
+    $query = $builder->get();
+    $users = $query->getResult();
+
+    // If no users found, return null
+    if (empty($users)) {
+        return null;
+    }
+
+// print_r($users);
+// die();
+
+
+
+    $result = [];
+
+    // Step 2: Loop through each user to find data in other tables
+    foreach ($users as $user) {
+        $userId = $user->id;
+        // $userData = ['user' => $user];
+
+        // Step 3: Search in 'user_profiles' table
+        $profileBuilder = $this->db->table('user_profiles');
+        $profileBuilder->select('user_profiles.role, user_profiles.user_id, user_profiles.name, user_profiles.created_at');
+        $profileBuilder->where('user_id', $userId);
+        $profileQuery = $profileBuilder->get();
+        $userProfile = $profileQuery->getRow();
+
+        if ($userProfile) {
+            $userData['profile'] = $userProfile;
+        } else {
+            // Step 4: If not found in 'user_profiles', search in 'hoteliers' table
+            $hotelierBuilder = $this->db->table('hoteliers');
+            $hotelierBuilder->select('hoteliers.user_id, hoteliers.role, hoteliers.name, hoteliers.created_at');
+            $hotelierBuilder->where('user_id', $userId);
+            $hotelierQuery = $hotelierBuilder->get();
+            $hotelierProfile = $hotelierQuery->getRow();
+
+            if ($hotelierProfile) {
+                $userData['profile'] = $hotelierProfile;
+            } else {
+                // Step 5: If not found in 'hoteliers', search in 'agent' table
+                $agentBuilder = $this->db->table('agent');
+                $agentBuilder->select('agent.user_id,agent.role,agent.name,agent.created_at');
+                $agentBuilder->where('user_id', $userId);
+                $agentQuery = $agentBuilder->get();
+                $agentProfile = $agentQuery->getRow();
+
+                if ($agentProfile) {
+                    $userData['profile'] = $agentProfile;
+                }
+            }
+        }
+
+        // Add the user data to the results array
+        $result[] = $userData;
+    }
+
+    // Return the final result
+    return !empty($result) ? $result : null;
+}
     public function getAUserData($userId)
 {
     $builder = $this->db->table('agent');
@@ -348,13 +414,13 @@ class UserModel extends Model
         }else{
             $work_ex = "fresher";
         }
-   
+        $ref_id = $data['ref_id'];
         $points = '0';
         $date = new DateTime();
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date('Y-m-d H:i:s');
 
-        $sql = "INSERT INTO `users`(`mobile_number`, `created_at`, `updated_at`, `last_active`, `points`,`work_ex`, `status`) VALUES ('$mobile_number','$date1','$date1','$date1','$points','$work_ex','$status')";
+        $sql = "INSERT INTO `users`(`mobile_number`, `created_at`, `updated_at`, `last_active`, `points`,`ref_id`,`work_ex`, `status`) VALUES ('$mobile_number','$date1','$date1','$date1','$points','$ref_id','$work_ex','$status')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";

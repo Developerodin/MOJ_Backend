@@ -1,0 +1,24 @@
+CRITICAL - 2024-09-05 07:24:02 --> Call to undefined method App\Models\UserModel::getrefData
+in SYSTEMPATH\Model.php on line 838.
+ 1 APPPATH\Controllers\Users.php(140): CodeIgniter\Model->__call('getrefData', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Users->ref_point_history('104')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-09-05 07:24:40 --> Call to undefined method App\Models\UserModel::getrefData
+in SYSTEMPATH\Model.php on line 838.
+ 1 APPPATH\Controllers\Users.php(140): CodeIgniter\Model->__call('getrefData', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Users->ref_point_history('104')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')
+CRITICAL - 2024-09-05 07:24:54 --> Call to undefined method App\Models\UserModel::getrefData
+in SYSTEMPATH\Model.php on line 838.
+ 1 APPPATH\Controllers\Users.php(140): CodeIgniter\Model->__call('getrefData', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Users->ref_point_history('104')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojmain\\public\\index.php')

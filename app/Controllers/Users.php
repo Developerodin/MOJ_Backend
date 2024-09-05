@@ -132,6 +132,31 @@ class Users extends BaseController
             200
         );
     }
+    public function ref_point_history($id)
+    {
+
+
+        $model = new UserModel();
+        $data = $model->getrefData($id);
+
+        
+
+        if ($data == null) {
+            $response =
+                $this->response->setStatusCode(200)->setBody(' No Data found');
+            return $response;
+        } else {
+            return $this
+                ->getResponse(
+                    [
+                        'message' => 'Data found successfully ',
+                        'data' => $data,
+                        'status' => 'success'
+
+                    ]
+                );
+        }
+    }
     public function ref_point($id)
     {
 

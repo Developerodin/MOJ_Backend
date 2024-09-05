@@ -58,6 +58,7 @@ $routes->post('/all_Huser_data/(:num)','Job_Apply::all_data_Huser/$1');
 $routes->get('user_delete/(:num)','Users::user_del/$1');
 $routes->post('/auth/user_refer/(:num)','Users::ref_update/$1');
 $routes->post('/auth/points/(:num)','Users::ref_point/$1');
+$routes->post('/auth/points_history/(:num)','Users::ref_point_history/$1');
 
 // agent
 
