@@ -1,0 +1,100 @@
+CRITICAL - 2024-09-11 07:22:31 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:22:41 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:22:51 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:23:01 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:23:09 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:23:09 --> Trying to access array offset on value of type null
+in APPPATH/Models/BasicModel.php on line 278.
+ 1 APPPATH/Models/BasicModel.php(278): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/BasicModel.php(32): App\Models\BasicModel->getUserWorkEmptyFields()
+ 3 APPPATH/Controllers/Basic.php(16): App\Models\BasicModel->getEmptyFields()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Basic->getUserProfileEmptyFields()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:23:19 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:23:29 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:23:39 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:23:49 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:23:59 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:24:09 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:25:11 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-09-11 07:26:12 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 397.
+ 1 APPPATH/Controllers/Users.php(165): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

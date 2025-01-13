@@ -1,0 +1,24 @@
+CRITICAL - 2024-07-12 06:55:35 --> Undefined array key "receiver_role"
+in APPPATH/Models/MsgModel.php on line 145.
+ 1 APPPATH/Models/MsgModel.php(145): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Msg.php(48): App\Models\MsgModel->save()
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Msg->save()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-12 06:55:37 --> Undefined array key "receiver_role"
+in APPPATH/Models/MsgModel.php on line 145.
+ 1 APPPATH/Models/MsgModel.php(145): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Msg.php(48): App\Models\MsgModel->save()
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Msg->save()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-12 07:07:26 --> Undefined array key "receiver_role"
+in APPPATH/Models/MsgModel.php on line 145.
+ 1 APPPATH/Models/MsgModel.php(145): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Msg.php(48): App\Models\MsgModel->save()
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Msg->save()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

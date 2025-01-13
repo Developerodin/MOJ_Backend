@@ -504,10 +504,7 @@ if($post4){
     
     public function all_data_Huser($id)
     {
-
-
         try {
-            
             $user = new UserModel();
             $posts = $user->findUserById($id); // Find all job applications by job ID
 
@@ -619,3 +616,4 @@ if($post4){
         }
     }
 }
+

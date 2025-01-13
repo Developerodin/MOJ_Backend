@@ -1,0 +1,14 @@
+CRITICAL - 2024-08-07 08:53:33 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 331.
+ 1 APPPATH/Controllers/Users.php(140): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-08-07 08:53:33 --> User does not exist for specified user id
+in APPPATH/Models/UserModel.php on line 331.
+ 1 APPPATH/Controllers/Users.php(140): App\Models\UserModel->findUserById()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Users->ref_point()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

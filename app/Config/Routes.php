@@ -50,7 +50,6 @@ $routes->post('/users/work_exp', 'Users::work_ex');
 $routes->post('/auth/verify_otp/(:num)', 'Auth::verifyOTP/$1');
 $routes->post('/auth/register', 'Auth::register');
 $routes->post('/auth/user_update','Auth::user_update');
-$routes->post('/auth/adminuser_update','Auth::user_updateaa');
 $routes->post('/auth/hotelior_update','Auth::Huser_update');
 $routes->post('/all_user_data/(:num)','Job_Apply::all_data_user/$1');
 $routes->get('/all_user_data_without_id','Job_Apply::all_user_data');
@@ -58,8 +57,7 @@ $routes->post('/all_Huser_data/(:num)','Job_Apply::all_data_Huser/$1');
 $routes->get('user_delete/(:num)','Users::user_del/$1');
 $routes->post('/auth/user_refer/(:num)','Users::ref_update/$1');
 $routes->post('/auth/points/(:num)','Users::ref_point/$1');
-$routes->post('/auth/points_history/(:num)','Users::ref_point_history/$1');
-
+$routes->post('/auth/adminuser_update','Auth::user_updateaa');
 // agent
 
 $routes->post('/auth/agent_update','Auth::Auser_update');
@@ -69,7 +67,7 @@ $routes->post('/auth/agent_post/show_byid/(:num)','A_post::show/$1');
 $routes->post('/auth/agent_post/show_byuser_id/(:num)','A_post::user_show/$1');
 $routes->post('/auth/agent_post/update/(:num)','A_post::update/$1');
 $routes->post('/auth/agent_post/destroy/(:num)','A_post::destroy/$1');
-
+$routes->post('/auth/points_history/(:num)','Users::ref_point_history/$1');
 
 // status update
 $routes->post('/users/status_e/(:num)', 'Users::status_e_update/$1');
@@ -182,8 +180,7 @@ $routes->post('/basic/city_by_state/(:num)','Basic::city_by_state/$1');  // all 
 
 $routes->post('/basic/profile_health_userid/(:num)','Basic::getUserProfileEmptyFields/$1');  // all state
 $routes->post('/basic/Hotelprofile_health_userid/(:num)','Basic::getHProfileEmptyFields/$1');  //profile helth
-$routes->post('/basic/Agentprofile_health_userid/(:num)','Basic::getAProfileEmptyFields/$1');  //profile helth
-
+$routes->post('/basic/Agentprofile_health_userid/(:num)','Basic::getAProfileEmptyFields/$1'); 
 /*
  * --------------------------------------------------------------------
  * Additional Routing
@@ -200,4 +197,5 @@ $routes->post('/basic/Agentprofile_health_userid/(:num)','Basic::getAProfileEmpt
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+
 

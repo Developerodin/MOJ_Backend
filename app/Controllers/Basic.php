@@ -35,19 +35,6 @@ class Basic extends BaseController
             ]
         );
     }
-    public function getAProfileEmptyFields($user_id)
-    {
-        $model = new BasicModel();
-
-        $post = $model->getAEmptyFields($user_id);
-        return $this->getResponse(
-            [
-                'message' => 'Details retrieved successfully',
-                'post' => $post,
-                'status' => 'success',
-            ]
-        );
-    }
     public function get()
     {
         $model = new BasicModel();
@@ -92,6 +79,19 @@ class Basic extends BaseController
             [
                 'message' => 'state retrieved successfully',
                 'post' => $model->city_state_state($id),
+                'status' => 'success',
+            ]
+        );
+    }
+     public function getAProfileEmptyFields($user_id)
+    {
+        $model = new BasicModel();
+
+        $post = $model->getAEmptyFields($user_id);
+        return $this->getResponse(
+            [
+                'message' => 'Details retrieved successfully',
+                'post' => $post,
                 'status' => 'success',
             ]
         );

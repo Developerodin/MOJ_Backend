@@ -92,9 +92,6 @@ class Msg extends BaseController
             $model = new MsgModel();
             $data['sender'] = $model->getallsendData($id);
             $data['reciver'] = $model->getallrecData($id);
-
-
-            
             // $model1 = new UserModel();
             // $hotel = $model1->getHUserData($id);
             return $this->getResponse(
@@ -162,4 +159,5 @@ class Msg extends BaseController
         }
     }
 }
+
 
