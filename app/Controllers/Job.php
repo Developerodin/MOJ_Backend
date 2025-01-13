@@ -26,6 +26,10 @@ class Job extends BaseController
 
         $model = new JobModel();
         $post = $model->getallJobData();
+
+        if ($post) {
+            $post = array_reverse($post); // Reverse the order of the array
+        }
         return $this->getResponse(
             [
                 'message' => 'Job retrieved successfully',
@@ -89,7 +93,8 @@ class Job extends BaseController
         }
 
         // Get matching jobs
-        $matchingJobs = matchJobs($post, $job_pre);
+        $matchingJobs1 = matchJobs($post, $job_pre);
+        $matchingJobs = array_reverse($matchingJobs1);
 
         return $this->getResponse(
             [
@@ -164,6 +169,8 @@ class Job extends BaseController
             );
         }
     }
+
+    
     public function user_show($id)
     {
         // user_id pass
@@ -238,7 +245,7 @@ class Job extends BaseController
             );
         }
     }
-    public function destroy($id)
+    public function distroy($id)
     {
         try {
             $model = new JobModel();
@@ -247,6 +254,7 @@ class Job extends BaseController
                 ->getResponse(
                     [
                         'message' => 'Job deleted successfully',
+
                     ]
                 );
         } catch (Exception $exception) {

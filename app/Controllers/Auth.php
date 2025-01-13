@@ -278,12 +278,8 @@ class Auth extends BaseController
             $input = $this->getRequestInput($this->request);
 
             $id = $input['user_id'];
-            $required_fields = ['user_id', 'name', 'last_name', 'gender', 'email', 'state', 'city', 'country', 'created_at'];
-            foreach ($required_fields as $field) {
-                if (!isset($input[$field]) || empty($input[$field])) {
-                    return "Error: Missing required field '$field'";
-                }
-            }
+           
+          
             $model->update_profile($id, $input);
             $post = $model->getUserData($id);
 

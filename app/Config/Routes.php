@@ -89,6 +89,7 @@ $routes->get('/job_apply', 'Job_Apply::index');
 $routes->post('/job_apply/store', 'Job_Apply::store');
 $routes->post('/job_apply/Byid/(:num)','Job_Apply::show/$1');
 $routes->post('/job_apply_count/Byid_jobid/(:num)','Job_Apply::count_job/$1');
+$routes->post('/job_apply_count/Byid_hotelid/(:num)','Job_Apply::count_job_hotel/$1');
 $routes->post('/job_apply/Byid_user/(:num)','Job_Apply::show_user/$1');// for hoteliyr
 $routes->post('/job_apply/status_update/(:num)','Job_Apply::st_update/$1');
 $routes->post('/job_apply/userByid/(:num)','Job_Apply::user_show/$1');// for user   

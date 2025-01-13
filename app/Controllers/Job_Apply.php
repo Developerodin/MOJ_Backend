@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\JobApplyModel;
 use App\Models\UserModel;
 use App\Models\ProfileModel;
+use App\Models\JobModel;
 use App\Models\Job_prefModel;
 use App\Models\ResumeModel;
 use CodeIgniter\HTTP\Response;
@@ -120,6 +121,49 @@ class Job_Apply extends BaseController
                 [
                     'message' => 'Job retrieved successfully',
                     'Job' => $post,
+                    'status' => 'success'
+                ]
+            );
+        } catch (Exception $e) {
+            return $this->getResponse(
+                [
+                    'message' => 'Could not find Job for specified ID'
+                ],
+                ResponseInterface::HTTP_NOT_FOUND
+            );
+        }
+    }
+    public function count_job_hotel($id)
+    {
+       $job_job_count = 0;
+
+        $model = new JobModel();
+        $all_posted_jobs = $model->getJobData($id);
+
+        echo "<pre>";
+        print_r($all_posted_jobs);
+        echo "</pre>";
+        die();
+        // user_id pass
+        try {
+
+
+
+            if (!empty($all_posted_jobs)) {
+                $jobApplyModel = new JobApplyModel();
+        
+                foreach ($all_posted_jobs as $job) {
+                    // Assume $job->id holds the job ID
+                    $jobApplications = $jobApplyModel->getjobCount($job->id); // Fetch application count for this job
+                    $job_job_count += $jobApplications; // Accumulate the count
+                }
+            }
+        
+            
+            return $this->getResponse(
+                [
+                    'message' => 'Job retrieved successfully',
+                    'Job_total' => $job_job_count,
                     'status' => 'success'
                 ]
             );
